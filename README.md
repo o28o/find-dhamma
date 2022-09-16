@@ -5,4 +5,3 @@ Search all matches in Pali, English and Russian in Suttas, Vinaya or Adhidhamma.
 Future web implementation of bash script that generates comfortables datatables 
 
 https://find.dhamma.gift/
-https://find.dhamma.gift/finddhamma.sh
