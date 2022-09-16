@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+<meta charset="UTF-8">
+<title>Find the Dhamma</title>
+<link rel="icon" type="image/png" href="https://find.dhamma.gift/templates/favico.png" />
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <style>
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 #cover {
-    background: #222 url('https://unsplash.it/920/1080/?blur=8') center center no-repeat;
+    background: #222 url('https://unsplash.it/920/1080/?blur=3') center center no-repeat;
 	/*opacity: 0.6;*/
     background-size: cover;
     text-align: center;
@@ -62,10 +70,10 @@ form:before {
     position: absolute;
     z-index: 1;
 }
-
+.center {
+  display: none;
 }
-
-
+}
 </style>
 </head>
 
@@ -110,6 +118,8 @@ form:before {
         <div class="container">
             <div class="row text-white">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+				<img src="./templates/dhammafindlogo.png" alt="Dhammafind" class="center">
+
                     <h2 class=" py-5 text-truncate">Find the Dhamma</h2>
                     <div class="px-4">
                         
@@ -117,7 +127,7 @@ form:before {
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>" 						action="" class="justify-content-center">  
 
                             <div class="form-group">
-                                <label class="sr-only">Name</label>
+                                <label class="sr-only">Pattern</label>
                                 <input name="pattern"  type="text" class="form-control" placeholder="e.g. Kāyagat">
                             </div>
 

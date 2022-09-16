@@ -199,7 +199,7 @@ suttanumber="$filenameblock"
 
 linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' `
-count=`grep -oi$grepgenparam "$pattern" $file | wc -l` 
+count=`egrep -oi$grepgenparam "$pattern" $file | wc -l` 
 
 
 #russian text 
@@ -211,7 +211,7 @@ count=`grep -oi$grepgenparam "$pattern" $file | wc -l`
 #`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 function getwords {
-cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|grep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
+cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
 }
 
 function highlightpattern {
@@ -219,7 +219,7 @@ sed 's/'$pattern'/<b>&<\/b>/gI'
 }
 word=`getwords | xargs | clearsed | sed 's/[.,?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern`
 
-indexlist=`grep -i $filenameblock $basefile | awk '{print $2}'`
+indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
 
@@ -238,7 +238,7 @@ do
 		for f in  $roottext $translation #$variant
         do      
         #echo rt=$roottext
-		quote=`grep -iE "${i}([^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
+		quote=`egrep -iE "${i}([^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
 echo "$quote</br>"			
         done 
 echo '<br class="styled">'
@@ -275,7 +275,7 @@ function linklist {
 echo
     for file in `cat $basefile | sort -n`
 do
-    echo -e "`echo "$file" | awk '{print $1}' | awk -F'/' '{print $NF}' | sed 's/.html.*//g' |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' ` `grep -oi$grepgenparam "$pattern" $file | wc -l` " 
+    echo -e "`echo "$file" | awk '{print $1}' | awk -F'/' '{print $NF}' | sed 's/.html.*//g' |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' ` `egrep -oi$grepgenparam "$pattern" $file | wc -l` " 
 
 done
 
