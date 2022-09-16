@@ -40,10 +40,10 @@ form:before {
 }
 @media only screen and (max-width: 1000px) {
   body {
-	  	height: 25%;
+	  	height: 20%;
 
 	width: 100%;
-	zoom: 280%;
+	zoom: 260%;
   }
   
 #cover {
