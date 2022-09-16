@@ -103,9 +103,9 @@ md5_stdin=$(echo "$content" | md5sum | cut -d" " -f 1)
 md5_file=$(md5sum ${functionfile} | cut -d" " -f1)
 [[ "$md5_stdin" != "$md5_file" ]] && echo "$content"  > $functionfile
 }
-echo Already.
-php -r "print(\"Go to <a href="./output/${table}">${table}</a>\");"
-exit 0
+echo Already 
+#php -r "print(\"Go to <a href="./output/${table}">${table}</a>\");"
+#exit 0
 fi
 
 if [[ "$@" == *"-h"* ]]; then
@@ -235,12 +235,14 @@ metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$
 
 metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
+suttatitle=`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 echo "<tr>
 <td>$suttanumber</td>
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
+<td><strong>$suttatitle</strong></td>
 <td>" | tohtml 
 
 for i in $indexlist
@@ -255,7 +257,7 @@ echo '<br class="styled">'
 done | tohtml 
 
 echo "</td>
-<td><a target=\"_blank\" href="$linkpli">Pli</a>    <a target=\"_blank\" href="$linken">En</a></td>
+<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linken">English</a></td>
 </tr>" | tohtml
 
 done
@@ -313,7 +315,7 @@ rm ${table} table.html > /dev/null 2>&1
 
 #add links to each file
 linklist
-echo "Success"
+echo "Done"
 
 rm $basefile
 php -r 'header("Location: ./output/table.html");'
