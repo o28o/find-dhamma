@@ -148,18 +148,12 @@ form:before {
 			$output = shell_exec("./scripts/finddhamma.sh $pattern" ); 
 			echo "<p>$output</p>";
 			/* header("Location: ./output/table.html"); */
-		?>		
+		?>	
+		<p><a href='list.php'>Available Results</a></p>
                 </div>
-				
-					
             </div>
-
         </div>
-
-
-
 	</div>
-				
 </section>
 
 

@@ -26,13 +26,16 @@ function grepbrief {
 
 pattern="$@"
 #pattern=kāyagat
-
+minlength=3
 if [[ "$pattern" == "" ]]
 then   
 #echo -e "Content-Type: text/html\n\n"
-   echo Empty pattern. 
+   echo Empty pattern 
    exit 1
-   
+elif   [ "${#pattern}" -lt "$minlength" ]
+then
+echo Too short. Min is $minlength
+exit 1 
 fi
 #echo searching $pattern
 #pattern=adhivacanas
@@ -77,7 +80,6 @@ fi
 fn=${fileprefix}`echo $pattern | sed 's/ /_/g' | sed 's/\\\//g' |  awk '{print tolower($0)}'`
 
 extention=txt
-result_script=result.sh
 basefile=${fn}_fn.$extention
 
 #filelist
@@ -87,7 +89,6 @@ links_and_words=${fn}_links_words.$extention
 quotes=${fn}_quotes.$extention
 brief=${fn}_brief.$extention
 metaphors=${fn}_metaphors.$extention
-top=${fn}_top_count.$extention
 table=${fn}_analysis.html
 
 
@@ -175,9 +176,7 @@ title="${pattern^} in $language $fortitle"
 #echo $@
 
 
-templatefolder=/home/a0092061/domains/find.dhamma.gift/public_html/templates
-
-cat $templatefolder/Header.html | sed 's/$title/'"$title"'/g' | tohtml 
+cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/'"$title"'/g' | tohtml 
 
 for filenameblock  in `cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq` ; do 
 
@@ -277,7 +276,6 @@ echo
     for file in `cat $basefile | sort -n`
 do
     echo -e "`echo "$file" | awk '{print $1}' | awk -F'/' '{print $NF}' | sed 's/.html.*//g' |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' ` `egrep -oi$grepgenparam "$pattern" $file | wc -l` " 
-
 done
 
 }
@@ -290,9 +288,7 @@ egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude
 
 if [ ! -s $basefile ]
 then
-     echo "No matches for $pattern" 
-     echo " echo No matches for $pattern" > $result_script 
-chmod +x $result_script 
+     echo "No matches for ${pattern}" 
      rm $basefile
 
 
