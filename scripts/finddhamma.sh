@@ -1,5 +1,6 @@
 #!/bin/bash -i
-#set -x #
+#set -x 
+#trap read debug
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
 cd $output 
 
@@ -215,7 +216,7 @@ cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$g
 }
 
 function highlightpattern {
-sed 's/'$pattern'/<b>&<\/b>/gI'
+sed "s@$pattern@<b>&</b>@gI"
 }
 word=`getwords | xargs | clearsed | sed 's/[.,?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern`
 
