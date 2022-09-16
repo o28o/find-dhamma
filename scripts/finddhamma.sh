@@ -1,10 +1,10 @@
 #!/bin/bash -i
 #set -x #
-#trap read debug
-
-
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
 cd $output 
+
+
+#!/bin/bash
 
 function grepbrief {
 	
@@ -22,21 +22,19 @@ function grepbrief {
 }'
 }
 
-if [ $# -ne 0 ]
-  then
-        pattern="$@"
-  else
-        echo "enter pattern"
-        read "pattern"
-fi
+
+pattern="$@"
+#pattern=kāyagat
 
 if [[ "$pattern" == "" ]]
-then                                        
+then   
+#echo -e "Content-Type: text/html\n\n"
    echo empty  pattern 
-   exit 1                 
+   exit 1
+   
 fi
-
-pattern=adhivacanas
+#echo searching $pattern
+#pattern=adhivacanas
 
 function clearargs {
 sed -e 's/-pil//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/^ //g'
@@ -63,7 +61,7 @@ if [[ "$@" == *"-vin"* ]]; then
     vin=
     sutta=sutta
 	fortitle=Vinaya
-    echo search in vinaya
+    #echo search in vinaya
     fileprefix=vin_
 fi
 if [[ "$@" == *"-abhi"* ]]; then
@@ -71,7 +69,7 @@ if [[ "$@" == *"-abhi"* ]]; then
     sutta=sutta
 	fortitle=Abhidhamma
     fileprefix=abhi_
-    echo search in abhidhamma
+    #echo search in abhidhamma
 fi
 
 #filename
@@ -90,6 +88,13 @@ brief=${fn}_brief.$extention
 metaphors=${fn}_metaphors.$extention
 top=${fn}_top_count.$extention
 table=${fn}_analysis.html
+
+
+if [[ -s ${table} ]] ; then 
+echo Already 
+php -r "print(\"go to <a href="./output/${table}">${table}</a>\");"
+exit 0
+fi
 
 if [[ "$@" == *"-h"* ]]; then
     echo "
@@ -152,31 +157,26 @@ ${brief}
 ${metaphors}
 ${top}"`
 
-function extraspaces {
-#add extra linebreak
-echo >> ${links_and_words}
-echo >> ${brief}
-}
-
 grepvar=
 function removeindex {
 sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
 }
 
 function tohtml {
-tee -a ${table} table.html >/dev/null
+tee -a ${table} table.html > /dev/null
 } 
 
 function linklist {
-echo Quotes 
-echo
 
 title="${pattern^} in $language $fortitle"
 
-templatefolder=$rootpath/template
+#echo -e "Content-Type: text/html\n\n"
+#echo $@
+
+
+templatefolder=/home/a0092061/domains/find.dhamma.gift/public_html/templates
 
 cat $templatefolder/Header.html | sed 's/$title/'"$title"'/g' | tohtml 
-
 
 for filenameblock  in `cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq` ; do 
 
@@ -269,14 +269,6 @@ ${top}"`
 #${texts}
 
 
-function extraspaces {
-#add extra linebreak
-#echo >> ${texts}
-echo >> ${links_and_words}
-echo >> ${brief}
-echo >> ${metaphors}
-}
-
 grepvar=l
 function linklist {
     echo Quotes 
@@ -307,84 +299,17 @@ chmod +x $result_script
 fi
 }
 
-echo
-echo "search language is $language"
-echo "search pattern is $pattern"
-echo "base file name is $fn"
-echo
-
 getbasefile
 
-
 #cleanup in case the same search was launched before
-rm ${words} ${textspi} ${textsru} ${textsen} ${links} ${links_and_words} ${quotes} ${brief} ${top} ${table} table.html > /dev/null 2>&1
+rm ${table} table.html > /dev/null 2>&1
 
-#links and quotes
 #add links to each file
 linklist
+echo "success"
 
 rm $basefile
+php -r 'header("Location: ./output/table.html");'
+php -r "print(\"go to <a href="./output/${table}">${table}</a>\");"
+		
 exit 0
-
-cd $output
-echo
-#little interactive sub-script e.g. result.sh
-n=1
-set -- ""
-command=cat
-echo "
-if [ -z \$1 ]
-  then
-  `for name in $filelist
-do
-echo "echo \$n\) \$command \$name"
-n=$(($n+1))
-done`
-    read EXPRESSION    
-  else
-    EXPRESSION="\$1"
-fi
-[ -z \"\$EXPRESSION\" ] && EXPRESSION=0 
-" | tee ${fn}_${result_script} $result_script >/dev/null
-n=1
-for name in $filelist
-do
-    if [ $n -eq 1  ]; then
-        echo "if [ \$EXPRESSION -eq $n ]; then"
-        else
-        echo "elif [ \$EXPRESSION -eq $n ]; then"
-    fi
-
- echo "echo ;  $command ./$name | egrep -i --color=always \"($pattern|)\" | less -R"
-   
-n=$(($n+1))
-done  | tee -a ${fn}_${result_script} $result_script >/dev/null
-
-echo "else
-exit 0
-fi" | tee -a ${fn}_${result_script} $result_script >/dev/null
-chmod +x ${fn}_${result_script} $result_script
-
-bash -i ./$result_script
-
-exit 0
-
-echo "/home/a0092061/scripts/suttacentral.net/sc-data-master/html_text/ru/pli/sutta/sn/sn6/Kan/sn6.1.html
-/home/a0092061/scripts/suttacentral.net/sc-data-master/html_text/ru/pli/sutta/sn/sn6/sn6.1.html
-/home/a0092061/scripts/suttacentral.net/sc-data-master/html_text/ru/pli/sutta/sn/sn46/sn46.14.html
-/home/a0092061/scripts/suttacentral.net/sc-data-master/html_text/ru/pli/sutta/sn/sn46/Pannyavaro/sn46.14.html
-/home/a0092061/scripts/suttacentral.net/sc-data-master/html_text/ru/pli/sutta/mn/mn55.html
-/home/a0092061/scripts/suttacentral.net/sc-data-master/html_text/ru/pli/sutta/mn/SV/mn55.html
-" | awk -F'/ru/' '{print $2}'  | awk '{
-if ($3 = "mn" || $3 = "dn" ) {
-	if ($4 ~ /html/ || $4 ~ /[0-9]/ ) { print "sv" }
-	else { print $4 }
-	}
-elif ( $3 = "an" || $3 = "sn"  || $3 = "kn" ) 
-	if ($5 ~ /html/ || $5 ~ /[0-9]/ ) { print "sv" }
-	else { print $4 }
-	
-}'
-
-
-
