@@ -218,7 +218,7 @@ cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$g
 function highlightpattern {
 sed "s@$pattern@<b>&</b>@gI"
 }
-word=`getwords | xargs | clearsed | sed 's/[.,?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern`
+word=`getwords | xargs | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern`
 
 indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
@@ -307,7 +307,7 @@ rm ${table} table.html > /dev/null 2>&1
 
 #add links to each file
 linklist
-echo "success"
+echo "Success"
 
 rm $basefile
 php -r 'header("Location: ./output/table.html");'
