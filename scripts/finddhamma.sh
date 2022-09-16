@@ -29,7 +29,7 @@ pattern="$@"
 if [[ "$pattern" == "" ]]
 then   
 #echo -e "Content-Type: text/html\n\n"
-   echo empty  pattern 
+   echo Empty pattern. 
    exit 1
    
 fi
@@ -91,8 +91,8 @@ table=${fn}_analysis.html
 
 
 if [[ -s ${table} ]] ; then 
-echo Already 
-php -r "print(\"go to <a href="./output/${table}">${table}</a>\");"
+echo Already.
+php -r "print(\"Go to <a href="./output/${table}">${table}</a>\");"
 exit 0
 fi
 
@@ -310,6 +310,6 @@ echo "success"
 
 rm $basefile
 php -r 'header("Location: ./output/table.html");'
-php -r "print(\"go to <a href="./output/${table}">${table}</a>\");"
+php -r "print(\"Go to <a href="./output/${table}">${table}</a>\");"
 		
 exit 0
