@@ -93,6 +93,16 @@ table=${fn}_analysis.html
 
 
 if [[ -s ${table} ]] ; then 
+function md5checkwrite {
+var="$(cat)"
+functionname=`echo $var | awk '{print $1}'`
+functionfile=~/.shortcuts/${functionname}.sh 
+content=`echo "$var" | awk 'NR!=1'`
+#echo $functionfile $functionname
+md5_stdin=$(echo "$content" | md5sum | cut -d" " -f 1)
+md5_file=$(md5sum ${functionfile} | cut -d" " -f1)
+[[ "$md5_stdin" != "$md5_file" ]] && echo "$content"  > $functionfile
+}
 echo Already.
 php -r "print(\"Go to <a href="./output/${table}">${table}</a>\");"
 exit 0
@@ -229,8 +239,8 @@ metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonm
 echo "<tr>
 <td>$suttanumber</td>
 <td>$word</td>
-<td><a target=\"_blank\" href="$linkpli">Pli</a>    <a target=\"_blank\" href="$linken">En</a></td>
 <td>$count</td>   
+<td>$metaphorcount</td>
 <td>" | tohtml 
 
 for i in $indexlist
@@ -245,7 +255,7 @@ echo '<br class="styled">'
 done | tohtml 
 
 echo "</td>
-<td>$metaphorcount</td>
+<td><a target=\"_blank\" href="$linkpli">Pli</a>    <a target=\"_blank\" href="$linken">En</a></td>
 </tr>" | tohtml
 
 done
