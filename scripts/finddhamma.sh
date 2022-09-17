@@ -317,7 +317,7 @@ rm ${table} table.html $tempfile
 linklist
 
 textsqnty=`echo $textlist | wc -w`
-title="${pattern^} $matchqnty matches in $textsqnty texts of $language $fortitle"
+title="${pattern^} $textsqnty texts and $matchqnty matches in $fortitle ($language)"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}

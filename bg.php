@@ -121,7 +121,7 @@ form:before {
 				<img src="./templates/dhammafindlogo.png" alt="Dhammafind" class="center">
 
                     <h2 class=" py-3 text-truncate">BG mode Dhamma Find</h2>
-                    <p>Use if you get timeout in normal mode</p>
+                    <p>In case of timeout in normal mode: Run, wait, check result in </br><a href='list.php'>all searches</a></p>
                     <div class="px-4">
                         
 						<form method="post" action=
@@ -133,7 +133,7 @@ form:before {
                             </div>
 
                             <button type="submit" name="submit"
-				value="Search" class="btn btn-primary btn-lg">Search in bg</button>
+				value="Search" style="background-color:#912a07; border-color:#912a07;"class="btn btn-primary btn-lg">Search in bg</button>
                         </form>
                     </div>
 					</br>
@@ -145,14 +145,16 @@ form:before {
 			
 			$old_path = getcwd();
 			$output = shell_exec("nohup ./scripts/finddhamma.sh $pattern &" ); 
-			echo "<p>Run. Wait. Check in </br><a href='list.php'>All Searches</a></p>";
+			echo "<p>$output</p>";
+			
 		?>
+		<p><a href='list.php'>All Searches</a></p>
                 </div>
             </div>
         </div>
 	</div>
 </section>
-<a href="/">Main page</a>
+<a href="/">Normal Mode</a>
 <a href="https://github.com/o28o/find-dhamma">GitHub</a>
 </body>
 </html>
