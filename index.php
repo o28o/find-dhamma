@@ -134,8 +134,6 @@ form:before {
                             <button type="submit" name="submit"
 				value="Search" class="btn btn-primary btn-lg">Search</button>
                         </form>
-						
-
                     </div>
 					</br>
 			    				<?php
@@ -147,7 +145,6 @@ form:before {
 			$old_path = getcwd();
 			$output = shell_exec("./scripts/finddhamma.sh $pattern" ); 
 			echo "<p>$output</p>";
-			/* header("Location: ./output/table.html"); */
 		?>	
 		<p><a href='list.php'>All Searches</a></p>
                 </div>
@@ -155,8 +152,7 @@ form:before {
         </div>
 	</div>
 </section>
-
-
+<a href="./bg.php">Background Mode</a>
 </body>
-
 </html>
+

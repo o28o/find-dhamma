@@ -1,6 +1,7 @@
 <html>
 <head>
-  <title>Adhivacanas in Pali Suttas</title>
+  <title>Adhivacanas 2 matches in 1 texts of Pali Suttas</title>
+  <link rel="icon" type="image/png" href="https://find.dhamma.gift/templates/favico.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <script
@@ -49,7 +50,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before,table
 
 </head>
 <body>
-    <h3>Adhivacanas in Pali Suttas</h3>
+    <h3>Adhivacanas 2 matches in 1 texts of Pali Suttas</h3>
     <button id="btn-hide-all-children" type="button">Saṁvaṭṭo</button>    
 <button id="btn-show-all-children" type="button">Vivaṭṭo</button>
 <hr>
@@ -58,17 +59,19 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before,table
         <tr>
             <th>Sutta</th>
             <th>Words</th>
-            <th>Links</th>
             <th>Count</th>
+            <th>Metaphors</th>
+            <th class="none">Title</th>
             <th class="none">Quote</th>
-           <th>Metaphors</th>
+            <th class="none">Full texts</th>
         </tr>
     </thead>
     <tbody><tr>
 <td>dn15</td>
 <td><b>adhivacanas</b>amphasso</td>
-<td><a target="_blank" href=https://suttacentral.net/dn15/pli/ms>Pli</a>    <a target="_blank" href=https://suttacentral.net/dn15/en/sujato?layout=linebyline>En</a></td>
 <td>2</td>   
+<td>5</td>
+<td><strong>Dīgha Nikāya 15 Mahānidānasutta</strong></td>
 <td>
 Yehi, ānanda, ākārehi yehi liṅgehi yehi nimittehi yehi uddesehi nāmakāyassa paññatti hoti, tesu ākāresu tesu liṅgesu tesu nimittesu tesu uddesesu asati api nu kho rūpakāye <b>adhivacanas</b>amphasso paññāyethā”ti? </br>
 Suppose there were none of the features, attributes, signs, and details by which the category of mental phenomena is found. Would linguistic contact still be found in the category of physical phenomena?” </br>
@@ -77,7 +80,7 @@ Suppose there were none of the features, attributes, signs, and details by which
 “Suppose there were none of the features, attributes, signs, and details by which the categories of mental or physical phenomena are found. Would either linguistic contact or impingement contact still be found?” </br>
 <br class="styled">
 </td>
-<td>5</td>
+<td><a target="_blank" href=https://suttacentral.net/dn15/pli/ms>Pali</a>    <a target="_blank" href=https://suttacentral.net/dn15/en/sujato?layout=linebyline>English</a></td>
 </tr>
     </tbody>
 </table>
@@ -86,7 +89,6 @@ $(document).ready(function (){
     var table = $('#pali').DataTable({
         'responsive': true
     });
-
     // Handle click on "Expand All" button
     $('#btn-show-all-children').on('click', function(){
         // Expand row details

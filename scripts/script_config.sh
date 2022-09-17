@@ -4,6 +4,7 @@ suttapath=/home/a0092061/domains/find.dhamma.gift/public_html/suttacentral.net/
 output=/home/a0092061/domains/find.dhamma.gift/public_html/output/
 wbefore=1
 wafter=3
+truncatelength=30
 
 sitename=https://find.dhamma.gift
 templatefolder=/home/a0092061/domains/find.dhamma.gift/public_html/templates

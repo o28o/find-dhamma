@@ -90,7 +90,7 @@ quotes=${fn}_quotes.$extention
 brief=${fn}_brief.$extention
 metaphors=${fn}_metaphors.$extention
 table=${fn}_analysis.html
-
+tempfile=${fn}.tmp
 
 if [[ -s ${table} ]] ; then 
 function md5checkwrite {
@@ -179,39 +179,34 @@ tee -a ${table} table.html > /dev/null
 } 
 
 function linklist {
-
-title="${pattern^} in $language $fortitle"
-
 #echo -e "Content-Type: text/html\n\n"
 #echo $@
 
+cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
-cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/'"$title"'/g' | tohtml 
+textlist=`cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq`
 
-for filenameblock  in `cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq` ; do 
+for filenameblock in `cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq` ; do 
 
     roottext=`find $lookup/root -name "*${filenameblock}_*"`
     translation=`find $lookup/translation/en/ -name "*${filenameblock}_*"`
     rustr=`find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*"`
     variant=`find $lookup/variant -name "*${filenameblock}_*"`
     
-    
     if [[ "$language" == "Pali" ]]; then
         file=$roottext
     elif [[ "$language" == "English" ]]; then
         file=$translation
     fi 
-
-
+    
 translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{print $1}'`
 
 suttanumber="$filenameblock"
 
 linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' `
-count=`egrep -oi$grepgenparam "$pattern" $file | wc -l` 
-
-
+count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
+echo $count >> $tempfile
 #russian text 
 #link ru 
 #translatorsname=`echo $rustr | awk -F'/ru/' '{print $2}' | awk -F'/' '{if ($4 ~ /html/ || $4 ~ /[0-9]/ || $NF > 3 ) print "sv"; else print $4}'`
@@ -227,8 +222,8 @@ cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$g
 function highlightpattern {
 sed "s@$pattern@<b>&</b>@gI"
 }
-word=`getwords | xargs | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern`
 
+word=`getwords | xargs | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern`
 indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
@@ -261,6 +256,9 @@ echo "</td>
 </tr>" | tohtml
 
 done
+matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
+
+#Sibbin 999 matches in 444 texts of Pali Suttas
 
 cat $templatefolder/Footer.html | tohtml
 
@@ -306,18 +304,27 @@ then
 
      exit 1
 fi
+
+
 }
 
 getbasefile
-
 #cleanup in case the same search was launched before
-rm ${table} table.html > /dev/null 2>&1
+rm ${table} table.html $tempfile 
+ > /dev/null 2>&1
 
 #add links to each file
 linklist
+
+textsqnty=`echo $textlist | wc -w`
+title="${pattern^} $matchqnty matches in $textsqnty texts of $language $fortitle"
+
+sed -i 's/TitletoReplace/'"$title"'/g' table.html 
+sed -i 's/TitletoReplace/'"$title"'/g' ${table}
+
 echo "Done"
 
-rm $basefile
+rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
 php -r "print(\"Go to <a href="./output/${table}">${table}</a>\");"
 		
