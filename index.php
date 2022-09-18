@@ -112,21 +112,29 @@ $pattern = $gender = $arg = "";
                                 <input name="pattern"  type="text" class="form-control" placeholder="e.g. Kāyagat">
                             </div>
                             <br>
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="Pali") echo "checked";?> value="">Pali
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="-ru ") echo "checked";?> value="-ru">Russian
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="English") echo "checked";?> value="-en">English 
+                            <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="gender" <?php if (isset($gender) && $gender=="Pali") echo "checked";?> value="">Pali
+  </div>
+                          <div class="form-check form-check-inline">
+  <input class="form-check-input"  type="radio" name="gender" <?php if (isset($gender) && $gender=="-ru ") echo "checked";?> value="-ru">Russian
+  </div>
+                              <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="gender" <?php if (isset($gender) && $gender=="English") echo "checked";?> value="-en">English 
+  </div>
   <span class="error"><?php echo $genderErr;?></span>
   <br><br>
                         <button type="submit" name="submit"
-				value="Search" class="btn btn-primary btn-lg">Search</button>         </form>
+				value="Search" class="btn btn-primary btn-lg">Search</button>  
+			
+				
+				</form>
 <?php
 
 $arg = $gender . ' ' . $pattern;
 ?>
-
-                        </div>
+ </div>
 					</br>
-			    				<?php
+	<?php
 			    				echo $lang;
 			$old_path = getcwd();
 			$output = shell_exec("./scripts/finddhamma.sh $gender $pattern"); 
