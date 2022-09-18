@@ -14,8 +14,8 @@ $url_components = parse_url($url);
 // string passed via URL
 parse_str($url_components['query'], $params);
 // Display result
-echo ' '.$params['lang'];
 
+/* echo ' '.$params['lang']; */
    $output = shell_exec("./scripts/list.sh " ); 
    echo "$output";
 

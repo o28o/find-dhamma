@@ -111,8 +111,6 @@ elif [[ "$@" == *"-pil"* ]]; then
 elif [[ "$@" == *"-en"* ]]; then
     fnlang=_en
     pali_or_lang=sc-data/sc_bilara_data/translation/
-    directlink=/en/?layout=linebyline
-    directlink=
     language=English
     type=json
     metaphorkeys="suppose|is a term for|similar to "
@@ -234,6 +232,7 @@ translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{pri
 
 suttanumber="$filenameblock"
 
+#linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' `
 count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
