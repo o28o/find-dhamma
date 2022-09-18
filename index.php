@@ -78,7 +78,9 @@ $pattern = $gender = $arg = "";
       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">All Searches</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Background Mode</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">How To</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">How To</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">About</a></li>                        
+                        
                     </ul>
                 </div>
             </div>
@@ -236,12 +238,13 @@ $arg = $gender . ' ' . $pattern;
                 <div class="row">
                     <div class="col-lg-4 ms-auto"><p class="lead">Find.dhamma.gift is a search tool based on SuttaCentral.net materials. You can search in Pali, Russian and English for definitions, metaphors, explanations, people, locations etc. Described in Suttas and Vinaya.
                     </p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">Contributors are warmly welcomed, because project has great potential to find the real meaning of the texts.</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">Dhamma Enthusiasts,  Developers and Contributors are warmly welcomed, because project has great potential to find the real meaning of the texts. But! I'm not a developer😊</p></div>
+                    
                 </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                        <i class="fa fa-github"></i>
+                    <a class="btn btn-xl btn-outline-light" href="https://github.com/o28o/find-dhamma">
+                
                         Project on GitHub
                     </a>
                 </div>
@@ -254,11 +257,10 @@ $arg = $gender . ' ' . $pattern;
                 <div class="row">
                     <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
-                        <p class="lead mb-0">
-                            2215 John Daniel Drive
+                        <h4 class="text-uppercase mb-4">Contacts</h4>
+                        <p class="lead mb-0"> Sahassadhaloko
                             <br />
-                            Clark, MO 65243
+                   Samsara         
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
@@ -267,15 +269,14 @@ $arg = $gender . ' ' . $pattern;
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                        
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="text-uppercase mb-4"></h4>
                         <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
+                            Find the Noble Eightfold Path. Underdtand the Four Noble Truthes. Dhamma - is Actuality.
+                      
                         </p>
                     </div>
                 </div>

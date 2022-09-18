@@ -1,6 +1,6 @@
 #!/bin/bash -i
-#set -x 
-#trap read debug
+set -x 
+trap read debug
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
 cd $output 
 
@@ -232,9 +232,10 @@ translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{pri
 
 suttanumber="$filenameblock"
 
-#linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
+#linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}'`
+linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
 linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
-linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' `
+linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 #russian text 
@@ -263,7 +264,7 @@ metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonm
 suttatitle=`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 echo "<tr>
-<td><a target=\"_blank\" href="$linken">$suttanumber</a></td>
+<td><a target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
@@ -304,7 +305,7 @@ sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
 }
 
 function tohtml {
-tee -a ${table} table.html 
+tee -a ${table} table.html > /dev/null
 } 
 
 function getwords {
@@ -352,33 +353,39 @@ function linklist {
 cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
 
-#edit me edn
-    for file in `cat $basefile | sort -n`
-do
-    filenameblock=`echo "$file" | awk '{print $1}' | awk -F'/' '{print $NF}' | sed 's/.html.*//g' |  awk '{print $0}' ` 
-    count=`egrep -oi$grepgenparam "$pattern" $file | wc -l` 
+uniquelist=`cat $basefile | awk -F'/' '{print $NF}' | sort -n | uniq`
 
-    
-    roottext=`find $lookup/root -name "*${filenameblock}_*"`
-    translation=`find $lookup/translation/en/ -name "*${filenameblock}_*"`
-    rustr=`find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*"`
-    variant=`find $lookup/variant -name "*${filenameblock}_*"`
+
+
+#edit me edn
+    for i in $uniquelist
+do
+
+    filenameblock=`echo $i |  sed 's/.html//g' | sort | uniq `
+file=`grep -m1 $filenameblock $basefile`
+   # count=`egrep -oi$grepgenparam "$pattern" $file | wc -l` 
+rustr=$file
+
+    #roottext=`find $lookup/root -name "*${filenameblock}_*"`
+   # translation=`find $lookup/translation/en/ -name "*${filenameblock}_*"`
+    #rustr=`find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*"`
+   # variant=`find $lookup/variant -name "*${filenameblock}_*"`
     
     suttanumber="$filenameblock"
     
         if [[ "$language" == "Pali" ]]; then
         file=$roottext
     elif [[ "$language" == "Russian" ]]; then
-        file=$translation
+        file=$rustr
     fi 
     
     
         
-translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{print $1}'`
+translatorsname=`echo $translation | awk -F'/ru/' '{print $2}' | awk -F'/' '{print $1}'`
 
-linkru=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' `
-linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
-linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' `
+linkru=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
+#linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
+linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 
@@ -390,23 +397,20 @@ metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$
 metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
 suttatitle=`grep 'h1' $file | clearsed | xargs `
-
+#quote=`egrep -ih "${pattern}" $file | clearsed | highlightpattern `
 echo "<tr>
 <td><a target=\"_blank\" href="$linkru">$suttanumber</a></td>
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
 <td><strong>$suttatitle</strong></td>
-echo $suttatitle 
-echo $file
-<td>" | tohtml 
-
-quote=`egrep -iE "${i}([^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
-echo "$quote</br>"			
-
+<td>" | tohtml
+egrep -ih "${pattern}" $file | clearsed | highlightpattern  | while IFS= read -r line ; do
+echo "$line"
 echo '<br class="styled">'
+done | tohtml
 echo "</td>
-<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linken">English</a></td>
+<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linkru">Рус</a></td>
 </tr>" | tohtml
     
 done
@@ -430,7 +434,7 @@ fi
 
 getbasefile
 #cleanup in case the same search was launched before
-rm ${table} table.html $tempfile > /dev/null 2>&1
+#rm ${table} table.html $tempfile > /dev/null 2>&1
 
 #add links to each file
 linklist
@@ -443,7 +447,7 @@ sed -i 's/TitletoReplace/'"$title"'/g' ${table}
 
 echo "Done"
 
-rm $basefile $tempfile > /dev/null 2>&1
+#rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
 php -r "print(\"Get it <a class="outlink" href="/output/${table}">here</a>\");"
 		
