@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
 
-<title>Find the Dhamma</title>
+<title>Dhamma Find</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -75,12 +75,12 @@ $pattern = $gender = $arg = "";
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class=" py-3 px-0 px-lg-3 rounded" href="/">Ru </a><a class="rounded px-0 px-lg-3 py-3" href="/">En </a> </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">All Searches Pali</a></li>
                           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=ru">All Searches Russian</a></li>
                           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=en">All Searches English</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Background Mode</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="https://github.com/o28o/find-dhamma">Contact</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">How To</a></li>
                     </ul>
                 </div>
             </div>
