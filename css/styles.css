@@ -2503,7 +2503,7 @@ textarea.form-control-lg {
   border-radius: 50%;
 }
 .form-check-input:active {
-  filter: brightness(90%);
+  filter: brightness(40%);
 }
 .form-check-input:focus {
   border-color: #8ddece;
@@ -2511,7 +2511,7 @@ textarea.form-control-lg {
   box-shadow: 0 0 0 0.25rem rgba(26, 188, 156, 0.25);
 }
 .form-check-input:checked {
-  background-color: #1abc9c;
+  background-color: #16a085;
   border-color: #1abc9c;
 }
 .form-check-input:checked[type=checkbox] {
@@ -11436,7 +11436,7 @@ html {
 }
 
 .masthead {
-  padding-top: calc(6rem + 74px);
+  padding-top: calc(6rem + 30px);
   padding-bottom: 6rem;
 }
 .masthead .masthead-heading {

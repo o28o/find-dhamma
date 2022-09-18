@@ -42,11 +42,11 @@ textscount=`cat ./$file | grep -m1 title | awk -F' matches in ' '{print $1}' | a
 echo "<tr>
 <td><a target=\"_blank\" href="$link">$searchedpattern</a>  
 </td>
+<td>${language^}</td>
 <th>$textscount</th>
 <th>$matchescount</th>
-<td>$size</td>
 <td>${pitaka^}</td>
-<td>${language^}</td>
+<td>$size</td>
 <td>$creationdate</td>
 </tr>"
 done

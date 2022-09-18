@@ -55,7 +55,7 @@ form:before {
   }
   
 #cover {
-    background: #222  center center no-repeat; /*url('https://unsplash.it/920/1080/?blur=8')*/
+    background: #222  url('https://unsplash.it/900/1080/') center center no-repeat; 
 	/*opacity: 0.6;*/
     background-size: cover;
     text-align: center;

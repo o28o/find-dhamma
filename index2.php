@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
 
-<title>Dhamma Find - All Encompassing Search of Buddhas Teaching</title>
+<title>Dhamma Find</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -28,26 +28,26 @@ $nameErr = $genderErr  = "";
 $pattern = $gender = $arg = "";
 		// Checking for a POST request
 		
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
+		if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  if (empty($_GET["name"])) {
     $nameErr = "Name is required";
   } else {
-    $name = test_input($_POST["name"]);
+    $name = test_input($_GET["name"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
       $nameErr = "Only letters and white space allowed";
     }
   }
-	if (empty($_POST["gender"])) {
+	if (empty($_GET["gender"])) {
     $genderErr = "Gender is required";
   } else {
-    $gender = test_input($_POST["gender"]);
+    $gender = test_input($_GET["gender"]);
   }
 }	
 		
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$pattern = test_input($_POST["pattern"]);
-/* 		$pitaka = test_input($_POST["pitaka"]);
+		$pattern = test_input($_GET["pattern"]);
+/* 		$pitaka = test_input($_GET["pitaka"]);
  */		}
 
 		// Removing the redundant HTML characters if any exist.
@@ -58,10 +58,10 @@ $pattern = $gender = $arg = "";
 		return $data;
 		}
 		
-      if (empty($_POST["gender"])) {
+      if (empty($_GET["gender"])) {
     $genderErr = "";
   } else {
-    $gender = test_input($_POST["gender"]);
+    $gender = test_input($_GET["gender"]);
   }
 		?>
  
@@ -75,8 +75,10 @@ $pattern = $gender = $arg = "";
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">All Searches</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class=" py-3 px-0 px-lg-3 rounded" href="/">Ru </a><a class="rounded px-0 px-lg-3 py-3" href="/">En </a> </li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">All Searches Pali</a></li>
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=ru">All Searches Russian</a></li>
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=en">All Searches English</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Background Mode</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">How To</a></li>
                     </ul>
@@ -102,8 +104,8 @@ $pattern = $gender = $arg = "";
                     <div class="divider-custom-line"></div>
                 </div>
     
-			<form method="post" action=
-			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
+			<form method="get" action=
+			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	class="justify-content-center">  
 
                             <div class="form-group">
                                 <label class="sr-only">Pattern</label>

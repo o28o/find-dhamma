@@ -4,9 +4,6 @@
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
 cd $output 
 
-
-#!/bin/bash
-
 function grepbrief {
 	
 	awk -v ptn="$pattern" -v cnt1=$wbefore -v cnt2=$wafter '
@@ -25,7 +22,7 @@ function grepbrief {
 
 
 pattern="$@"
-#pattern=kāyagat
+#pattern=океан
 minlength=3
 if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] 
 then   
@@ -77,7 +74,7 @@ if [[ "$@" == *"-abhi"* ]]; then
     #echo search in abhidhamma
 fi
 
-if [[ "$@" == *"-h"* ]]; then
+if [[ "$" == *"-h"* ]]; then
     echo "
     without arguments - starts with prompt in pali
     also search words can be used as arguments e.g.
@@ -165,6 +162,25 @@ echo Already
 fi
 
 
+function removeindex {
+sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
+}
+
+function tohtml {
+tee -a ${table} table.html > /dev/null
+} 
+
+function getwords {
+cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
+}
+
+function highlightpattern {
+sed "s@$pattern@<b>&</b>@gI"
+}
+
+
+
+
 if [[ "$type" == json ]]; then
 
 filelist=`echo "
@@ -184,6 +200,14 @@ sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
 function tohtml {
 tee -a ${table} table.html > /dev/null
 } 
+
+function getwords {
+cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
+}
+
+function highlightpattern {
+sed "s@$pattern@<b>&</b>@gI"
+}
 
 function linklist {
 #echo -e "Content-Type: text/html\n\n"
@@ -271,30 +295,124 @@ cat $templatefolder/Footer.html | tohtml
 
 
 }
-
+#e g for russian language
 elif [[ "$type" == html ]]; then
+
+
+
+function removeindex {
+sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
+}
+
+function tohtml {
+tee -a ${table} table.html 
+} 
+
+function getwords {
+cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
+}
+
+function highlightpattern {
+sed "s@$pattern@<b>&</b>@gI"
+}
+
+
+
+
+
+
+
 
 filelist=`echo "
 ${words}
 ${links}
 ${links_and_words}
 ${quotes}
-${brief}
-${metaphors}
-${top}"`
+${tempfile}
+${table}"`
 
 #${texts}
 
 
 grepvar=l
+
+#Edit me
+
 function linklist {
-    echo Quotes 
-echo
+#echo -e "Content-Type: text/html\n\n"
+#echo $@
+
+#russian text 
+#link ru 
+#translatorsname=`echo $rustr | awk -F'/ru/' '{print $2}' | awk -F'/' '{if ($4 ~ /html/ || $4 ~ /[0-9]/ || $NF > 3 ) print "sv"; else print $4}'`
+#echo -e "`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/ru/'$translatorsname'"}' ` " | tee -a ${quotes} ${links_and_words}  ${metaphors} #>/dev/null
+#/home/a0092061/scripts/suttacentral.net/sc-data-master/html_text/ru/pli/sutta
+#${textspi} ${textsru} ${textsen}
+#`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+
+cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
+
+
+#edit me edn
     for file in `cat $basefile | sort -n`
 do
-    echo -e "`echo "$file" | awk '{print $1}' | awk -F'/' '{print $NF}' | sed 's/.html.*//g' |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' ` `egrep -oi$grepgenparam "$pattern" $file | wc -l` " 
-done
+    filenameblock=`echo "$file" | awk '{print $1}' | awk -F'/' '{print $NF}' | sed 's/.html.*//g' |  awk '{print $0}' ` 
+    count=`egrep -oi$grepgenparam "$pattern" $file | wc -l` 
 
+    
+    roottext=`find $lookup/root -name "*${filenameblock}_*"`
+    translation=`find $lookup/translation/en/ -name "*${filenameblock}_*"`
+    rustr=`find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*"`
+    variant=`find $lookup/variant -name "*${filenameblock}_*"`
+    
+    suttanumber="$filenameblock"
+    
+        if [[ "$language" == "Pali" ]]; then
+        file=$roottext
+    elif [[ "$language" == "Russian" ]]; then
+        file=$translation
+    fi 
+    
+    
+        
+translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{print $1}'`
+
+linkru=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' `
+linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
+linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"'$directlink'"}' `
+count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
+echo $count >> $tempfile
+
+word=`getwords | xargs | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern`
+indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
+
+metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
+
+metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
+
+suttatitle=`grep 'h1' $file | clearsed | xargs `
+
+echo "<tr>
+<td><a target=\"_blank\" href="$linkru">$suttanumber</a></td>
+<td>$word</td>
+<td>$count</td>   
+<td>$metaphorcount</td>
+<td><strong>$suttatitle</strong></td>
+echo $suttatitle 
+echo $file
+<td>" | tohtml 
+
+quote=`egrep -iE "${i}([^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
+echo "$quote</br>"			
+
+echo '<br class="styled">'
+echo "</td>
+<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linken">English</a></td>
+</tr>" | tohtml
+    
+done
+matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
+cat $templatefolder/Footer.html | tohtml
 }
 
 fi
@@ -304,11 +422,10 @@ egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude
 
 if [ ! -s $basefile ]
 then
-     echo "${pattern} not found in $fortitle ($language)" 
+     echo "${pattern} not found in $fortitle $language" 
      rm $basefile
      exit 1
 fi
-
 
 }
 
