@@ -7,30 +7,48 @@ title="All Searches"
 cat $templatefolder/Header.html $templatefolder/ListTableHeader.html | sed 's/$title/'"$title"'/g'
 #`grep ':0\.' $file | clearsed |
 
+case=$@ 
+if [[ "$case" == "pali" ]]
+then
+switch=pali
+elif [[ "$case" == "en" ]]
+then
+switch=en
+elif [[ "$case" == "ru" ]]
+then
+switch=ru
+else 
+switch=
+fi
 
-
-ls -lpah --time-style="+%d-%m-%Y"| egrep -v "table|.git|итого|total|/" | awk '{print substr($0, index($0, $5))}'  | while IFS= read -r line ; do
+ls -lpah --time-style="+%d-%m-%Y" *${switch}* | egrep -v "\.tmp|table|.git|итого|total|/" | grep -v "^_" | awk '{print substr($0, index($0, $5))}'  | while IFS= read -r line ; do
 
 file=`echo $line | awk '{print $NF}'`
-if [ ${#file} -ge $truncatelength ]
+pitaka=`echo $file | awk -F'_' '{mu=(NF-1); print $mu}' `
+language=`echo $file | awk -F'_' '{print $NF}' | awk -F'.' '{print $1 }'`
+link=/output/$file
+searchedpattern=`echo $file | awk -F'_' '{mu=(NF-1); $mu=$NF=""; print }'`
+if [ ${#searchedpattern} -ge $truncatelength ]
 then
-  searchedpattern="`echo $file | sed 's/_analysis.html//g' | head -c $truncatelength`..."
-else 
-  searchedpattern=`echo $file | sed 's/_analysis.html//g' `
+  searchedpattern="`echo $searchedpattern | head -c $truncatelength`..."
 fi
-link=./output/$file
+
+
 creationdate=`echo $line | awk '{print $2}'`
 size=`echo $line | awk '{print $1}'`
 #extra=`grep "matech in"  $file`   <td>$extra</td>   
-
-
+matchescount=`cat ./$file | grep -m1 title | awk -F' matches in ' '{print $1}' | awk -F' texts and ' '{print $NF}'`
+textscount=`cat ./$file | grep -m1 title | awk -F' matches in ' '{print $1}' | awk -F' texts and ' '{print $1}' | awk '{print $NF}'`
 echo "<tr>
 <td><a target=\"_blank\" href="$link">$searchedpattern</a>  
 </td>
+<th>$textscount</th>
+<th>$matchescount</th>
+<td>$size</td>
+<td>${pitaka^}</td>
+<td>${language^}</td>
 <td>$creationdate</td>
-<td>$size</td>  
 </tr>"
-
 done
 
 cat $templatefolder/Footer.html 
@@ -38,8 +56,10 @@ cat $templatefolder/Footer.html
 
 exit 0
 
-Pattern</th>
-            <th></th>
+            <th>Pattern</th>
+            <th>Pitaka</th>
             <th>Date</th>
             <th>Size</th>
-            <th class="none">Extra</th>
+            <th class="none">Texts</th>
+            <th class="none">Matches</th>
+            <th class="none">Language</th>

@@ -27,7 +27,7 @@ function grepbrief {
 pattern="$@"
 #pattern=kāyagat
 minlength=3
-if [[ "$pattern" == "" ]]
+if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] 
 then   
 #echo -e "Content-Type: text/html\n\n"
    echo Empty pattern 
@@ -61,23 +61,79 @@ vin=vinaya
 abhi=abhidhamma
 sutta=mutta
 fortitle=Suttas
+fileprefix=_sutta
 if [[ "$@" == *"-vin"* ]]; then
     vin=
     sutta=sutta
 	fortitle=Vinaya
     #echo search in vinaya
-    fileprefix=vin_
+    fileprefix=_vinaya
 fi
 if [[ "$@" == *"-abhi"* ]]; then
     abhi=
     sutta=sutta
 	fortitle=Abhidhamma
-    fileprefix=abhi_
+    fileprefix=_abhidhamma
     #echo search in abhidhamma
 fi
 
+if [[ "$@" == *"-h"* ]]; then
+    echo "
+    without arguments - starts with prompt in pali
+    also search words can be used as arguments e.g.
+    
+    $> ./scriptname.sh moggall
+    
+    -vin - to search in vinaya texts only 
+    -abhi - to search in abhidhamma texts only
+    -en - to search in english
+    -ru - to search in russian
+    -pil - search in pali on legacy.suttacentral.net archive
+    "
+    exit 0
+elif [[ "$@" == *"-ru"* ]]; then
+    fnlang=_ru
+    pali_or_lang=sc-data/html_text/ru/pli 
+    language=Russian
+    directlink=
+    type=html   
+    metaphorkeys="подобно|представь|обозначение"
+    nonmetaphorkeys="подобного"
+elif [[ "$@" == *"-pil"* ]]; then
+   fnlang=_pali
+    pali_or_lang=legacy-suttacentral-data-master/text/pi
+    language=Pali
+    directlink=/pli/ms
+    directlink=/en/?layout=linebyline
+    directlink=
+    type=html
+    metaphorkeys="seyyathāpi|adhivacan|ūpamā|ūpama|opama|upamā"
+    nonmetaphorkeys="adhivacanasamphass|adhivacanapath"
+   #modify pattern as legacy uses different letters
+    #pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs`
+elif [[ "$@" == *"-en"* ]]; then
+    fnlang=_en
+    pali_or_lang=sc-data/sc_bilara_data/translation/
+    directlink=/en/?layout=linebyline
+    directlink=
+    language=English
+    type=json
+    metaphorkeys="suppose|is a term for|similar to "
+    nonmetaphorkeys="adhivacanasamphass|adhivacanapath" 
+else
+    fnlang=_pali
+    pali_or_lang=sc-data/sc_bilara_data/root/pli/ms
+    directlink=/pli/ms
+    #directlink=/en/?layout=linebyline
+    language=Pali
+    type=json
+    metaphorkeys="seyyathāpi|adhivacan"
+    nonmetaphorkeys="adhivacanasamphass|adhivacanapath"
+fi
+
 #filename
-fn=${fileprefix}`echo $pattern | sed 's/ /_/g' | sed 's/\\\//g' |  awk '{print tolower($0)}'`
+fn=`echo $pattern | sed 's/ /_/g' | sed 's/\\\//g' |  awk '{print tolower($0)}'`
+fn=${fn}${fileprefix}${fnlang}
 
 extention=txt
 basefile=${fn}_fn.$extention
@@ -89,7 +145,7 @@ links_and_words=${fn}_links_words.$extention
 quotes=${fn}_quotes.$extention
 brief=${fn}_brief.$extention
 metaphors=${fn}_metaphors.$extention
-table=${fn}_analysis.html
+table=${fn}.html
 tempfile=${fn}.tmp
 
 if [[ -s ${table} ]] ; then 
@@ -108,55 +164,6 @@ echo Already
 #exit 0
 fi
 
-if [[ "$@" == *"-h"* ]]; then
-    echo "
-    without arguments - starts with prompt in pali
-    also search words can be used as arguments e.g.
-    
-    $> ./scriptname.sh moggall
-    
-    -vin - to search in vinaya texts only 
-    -abhi - to search in abhidhamma texts only
-    -en - to search in english
-    -ru - to search in russian
-    -pil - search in pali on legacy.suttacentral.net archive
-    "
-    exit 0
-elif [[ "$@" == *"-ru"* ]]; then
-    pali_or_lang=sc-data/html_text/ru/pli 
-    language=Russian
-    directlink=
-    type=html   
-    metaphorkeys="подобно|представь|обозначение"
-    nonmetaphorkeys="подобного"
-elif [[ "$@" == *"-pil"* ]]; then
-    pali_or_lang=legacy-suttacentral-data-master/text/pi
-    language=Pali
-    directlink=/pli/ms
-    directlink=/en/?layout=linebyline
-    directlink=
-    type=html
-    metaphorkeys="seyyathāpi|adhivacan|ūpamā|ūpama|opama|upamā"
-    nonmetaphorkeys="adhivacanasamphass|adhivacanapath"
-   #modify pattern as legacy uses different letters
-    #pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs`
-elif [[ "$@" == *"-en"* ]]; then
-    pali_or_lang=sc-data/sc_bilara_data/translation/
-    directlink=/en/?layout=linebyline
-    directlink=
-    language=English
-    type=json
-    metaphorkeys="suppose|is a term for|similar to "
-    nonmetaphorkeys="adhivacanasamphass|adhivacanapath" 
-else
-    pali_or_lang=sc-data/sc_bilara_data/root/pli/ms
-    directlink=/pli/ms
-    #directlink=/en/?layout=linebyline
-    language=Pali
-    type=json
-    metaphorkeys="seyyathāpi|adhivacan"
-    nonmetaphorkeys="adhivacanasamphass|adhivacanapath"
-fi
 
 if [[ "$type" == json ]]; then
 
@@ -233,7 +240,7 @@ metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonm
 suttatitle=`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 echo "<tr>
-<td>$suttanumber</td>
+<td><a target=\"_blank\" href="$linken">$suttanumber</a></td>
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
@@ -292,16 +299,13 @@ done
 
 fi
 
-
 function getbasefile {
 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={xplayground,$sutta,$abhi,$vin,ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | clearsed > $basefile
 
 if [ ! -s $basefile ]
 then
-     echo "No matches for ${pattern}" 
+     echo "${pattern} not found in $fortitle ($language)" 
      rm $basefile
-
-
      exit 1
 fi
 
@@ -310,14 +314,13 @@ fi
 
 getbasefile
 #cleanup in case the same search was launched before
-rm ${table} table.html $tempfile 
- > /dev/null 2>&1
+rm ${table} table.html $tempfile > /dev/null 2>&1
 
 #add links to each file
 linklist
 
 textsqnty=`echo $textlist | wc -w`
-title="${pattern^} $textsqnty texts and $matchqnty matches in $fortitle ($language)"
+title="${pattern^} $textsqnty texts and $matchqnty matches in $fortitle $language"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
@@ -326,6 +329,6 @@ echo "Done"
 
 rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
-php -r "print(\"Go to <a href="./output/${table}">${table}</a>\");"
+php -r "print(\"Get it <a class="outlink" href="/output/${table}">here</a>\");"
 		
 exit 0
