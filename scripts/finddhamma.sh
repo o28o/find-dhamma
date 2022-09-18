@@ -1,6 +1,6 @@
 #!/bin/bash -i
-set -x 
-trap read debug
+#set -x 
+#trap read debug
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
 cd $output 
 
@@ -355,7 +355,7 @@ cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/
 
 uniquelist=`cat $basefile | awk -F'/' '{print $NF}' | sort -n | uniq`
 
-
+textlist=$uniquelist
 
 #edit me edn
     for i in $uniquelist
@@ -412,7 +412,7 @@ done | tohtml
 echo "</td>
 <td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linkru">Рус</a></td>
 </tr>" | tohtml
-    
+
 done
 matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
 cat $templatefolder/Footer.html | tohtml
@@ -434,13 +434,14 @@ fi
 
 getbasefile
 #cleanup in case the same search was launched before
-#rm ${table} table.html $tempfile > /dev/null 2>&1
+rm ${table} table.html $tempfile > /dev/null 2>&1
 
 #add links to each file
 linklist
 
 textsqnty=`echo $textlist | wc -w`
-title="${pattern^} $textsqnty texts and $matchqnty matches in $fortitle $language"
+capitalized=`echo $pattern | sed 's/[[:lower:]]/\U&/'`
+title="${capitalized} $textsqnty texts and $matchqnty matches in $fortitle $language"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
