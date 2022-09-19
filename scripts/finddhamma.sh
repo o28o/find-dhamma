@@ -448,7 +448,7 @@ sed -i 's/TitletoReplace/'"$title"'/g' ${table}
 
 echo "Done"
 
-#rm $basefile $tempfile > /dev/null 2>&1
+rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
 php -r "print(\"Get it <a class="outlink" href="/output/${table}">here</a>\");"
 		
