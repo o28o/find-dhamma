@@ -222,6 +222,14 @@ for filenameblock in `cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print
     rustr=`find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*"`
     variant=`find $lookup/variant -name "*${filenameblock}_*"`
     
+    
+    rusnp=`echo $filenameblock | sed 's@\.@_@g'`
+    rustr=`find /home/a0092061/domains/find.dhamma.gift/public_html/theravada.ru/Teaching/Canon/Suttanta/Texts/ -name "*${rusnp}-*"`
+
+     rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
+
+  
+  
     if [[ "$language" == "Pali" ]]; then
         file=$roottext
     elif [[ "$language" == "English" ]]; then
@@ -282,8 +290,8 @@ echo "$quote</br>"
 echo '<br class="styled">'
 done | tohtml 
 
-echo "</td>
-<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linken">English</a></td>
+echo  "</td>
+<td><a target=\"_blank\" href="$linkpli">Pali</a> `[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Русский</a>"` <a target=\"_blank\" href="$linken">English</a></td>
 </tr>" | tohtml
 
 done
@@ -410,7 +418,7 @@ echo "$line"
 echo '<br class="styled">'
 done | tohtml
 echo "</td>
-<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linkru">Рус</a></td>
+<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linkru">Русский</a></td>
 </tr>" | tohtml
 
 done
