@@ -264,12 +264,12 @@ $arg = $gender . ' ' . $pattern;
                         <h4 class="text-uppercase mb-4">Pali-Army Knife</h4>
                
                 <div class="list-group">
-  <a href="https://Suttacentral.net" class="list-group-item list-group-item-action" aria-current="true">
+  <a target="_blank" href="https://Suttacentral.net" class="list-group-item list-group-item-action" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Suttacentral.net</h5>
       <small>web</small>
     </div>
-    <p class="mb-1">The Most complete line-by-line Pali-English collection</p>
+    <p class="mb-1">The most complete line-by-line Pali-English collection</p>
     <small>Pali lookup dictionary built-in</small>
   </a>
   <a href="#" class="list-group-item list-group-item-action">
