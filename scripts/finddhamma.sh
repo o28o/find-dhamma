@@ -272,7 +272,7 @@ metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonm
 suttatitle=`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 echo "<tr>
-<td><a target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
+<td><a class=\"freebutton\" target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>

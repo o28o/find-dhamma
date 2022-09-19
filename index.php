@@ -79,8 +79,10 @@ $pattern = $gender = $arg = "";
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">All Searches</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Background Mode</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#help">How To</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#project">About Project</a></li>                        
-                        
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#project">About Project</a></li>                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#links">Recommended Links</a></li>
+            
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacts">Contacts</a></li>
+            
                     </ul>
                 </div>
             </div>
@@ -151,6 +153,13 @@ $arg = $gender . ' ' . $pattern;
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
+        <div class="font-italic">  <p class="lead mb-5 font-italic text-center ">
+                            All-round view on interesting <br>
+              subject from Suttas and Vinaya<br> 
+              in convenient table for future reading. 
+
+                        </p></div> 
+         
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">How To Search</h2>
                 <!-- Icon Divider-->
@@ -240,7 +249,7 @@ $arg = $gender . ' ' . $pattern;
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Find.Dhamma.Gift is a search tool based on SuttaCentral.net materials. You can search in Pali, Russian and English for definitions, metaphors, explanations, people, locations etc. Described in Suttas and Vinaya.
+                    <div class="col-lg-4 ms-auto"><p class="lead">Find.Dhamma.Gift is a search tool based on SuttaCentral.net materials. You can search in Pali, Russian and English for definitions, metaphors, explanations, people, locations etc. described in Suttas and Vinaya.
                     </p></div>
                     <div class="col-lg-4 me-auto"><p class="lead">Dhamma Enthusiasts, Developers and Contributors are warmly welcome, because project has great potential to find the real meaning of the texts. But! I'm not a developer😊</p></div>
                     
@@ -256,66 +265,130 @@ $arg = $gender . ' ' . $pattern;
         </section>
   
         <!-- Footer-->
-        <footer class="footer text-center">
+        <footer id="links" class="footer text-center">
             <div class="container">
-                <div class="row">
+                <div  class="row">
                    <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Pali-Army Knife</h4>
+          
+               <h2 class="page-section-heading text-center text-uppercase text-white">Recommended Links</h2>
+                        <h4 class="text-uppercase mb-4">Research</h4>
                
                 <div class="list-group">
-  <a target="_blank" href="https://Suttacentral.net" class="list-group-item list-group-item-action" aria-current="true">
+
+  <a href="#page-top" class="list-group-item list-group-item-action active">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Suttacentral.net</h5>
-      <small>web</small>
+      <h5 class="mb-1">find.dhamma.gift</h5>
+      <small class="text-muted">online+offline</small>
     </div>
-    <p class="mb-1">The most complete line-by-line Pali-English collection</p>
-    <small>Pali lookup dictionary built-in</small>
+    <p class="mb-1">All encompassing search within all Suttas and Vinaya.</p>
+    <small class="text-muted">Your search results are avalilable by link or for download.</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action">
+        <a target="_blank" href="https://digitalpalidictionary.github.io/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">web</small>
+      <h5 class="mb-1">Digital Pali Dictionary</h5>
+      <small class="text-muted">app</small>
     </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small class="text-muted">And some muted small print.</small>
+    <p class="mb-1">The biggest and quickest dictionary and pali grammar.</p>
+    <small class="text-muted">Available for PC, Mac, Android, IOS</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action">
+
+
+    <a target="_blank" href="https://www.wisdomlib.org/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
+      <h5 class="mb-1">Wisdomlib.org</h5>
+      <small class="text-muted">online</small>
     </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small class="text-muted">And some muted small print.</small>
+    <p class="mb-1">Excellent online collection of dictionaries. Not only Pali, but multiple spiritual traditions of India</p>
+    <small class="text-muted">Might be very helpful for difficult terms.</small>
   </a>
+  
+
+      <a target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">TamilCube.com</h5>
+      <small class="text-muted">online</small>
+    </div>
+    <p class="mb-1">Simple Online English-Pali Dictionary</p>
+    <small class="text-muted">Might be very helpful</small>
+  </a>
+
 </div>  
+
+
+
                   
                         <p class="lead mb-0"> 
-                        Web
-                        Suttacentral.net 
-                        Digital Pali Reader
-                       <a href="https://tipitaka.theravada.su/toc/translations/1097">Tipitaka.theravada.su</a>  
+      
+	  
 
-Theravada.ru 
-Wisdomlib.org
 
-Apps
-<a href="https://digitalpalidictionary.github.io/">Digital Pali Dictionary</a> 
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <h4 class="text-uppercase mb-4">Read</h4>
+                       
+ <div class="list-group">
+
+
+  <a target="_blank" href="https://Suttacentral.net" class="list-group-item list-group-item-action" aria-current="true">
+    <div class="d-flex w-100 justify-content-between text-left">
+      <h5 class="mb-1">Suttacentral.net</h5>
+      <small>online & offline</small>
+    </div>
+    <p class="mb-1 text-left">The most complete line-by-line Pali-English collection</p>
+    <small>Pali lookup dictionary built-in</small>
+  </a>
+  
+    <a href="https://www.digitalpalireader.online/" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Digital Pali Reader</h5>
+      <small class="text-muted">online & offline</small>
+    </div>
+    <p class="mb-1">Very profound online tool for Pali researches.</p>
+    <small class="text-muted">On click Pali-English Dictionary available</small>
+  </a>
+  
+  <a href="https://tipitaka.theravada.su/toc/translations/1097" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Tipitaka.Theravada.su</h5>
+      <small class="text-muted">online</small>
+    </div>
+    <p class="mb-1">Multiple translation options. Pali-English-Russian line-by-line.</p>
+    <small class="text-muted">Expecially recommended for stuyding Digha Nikaya</small>
+  </a>
+  
+  <a href="https://www.theravada.ru/" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Theravada.ru </h5>
+      <small class="text-muted">online</small>
+    </div>
+    <p class="mb-1">The most complete translation of Suttanta in Russian.</p>
+    <small class="text-muted"></small>
+  </a>
+  
+
+  
+  
+
+  
+
+</div>  
+
+				
                     </div>
                     <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4"></h4>
+                    <div id="contacts" class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">Contacts</h4>
+						
                         <p class="lead mb-0">
                             Find the Noble Eightfold Path. Understand the Four Noble Truths. Dhamma - is Actuality.
                       
                         </p>
+							   <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+						
                     </div>
                 </div>
             </div>
