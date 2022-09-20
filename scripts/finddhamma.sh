@@ -169,7 +169,7 @@ tee -a ${table} table.html > /dev/null
 } 
 
 function getwords {
-cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
+cat $file | removeindex | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
 }
 
 function highlightpattern {
@@ -191,21 +191,6 @@ ${metaphors}
 ${top}"`
 
 grepvar=
-function removeindex {
-sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
-}
-
-function tohtml {
-tee -a ${table} table.html > /dev/null
-} 
-
-function getwords {
-cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
-}
-
-function highlightpattern {
-sed "s@$pattern@<b>&</b>@gI"
-}
 
 function linklist {
 #echo -e "Content-Type: text/html\n\n"
@@ -254,15 +239,8 @@ echo $count >> $tempfile
 #${textspi} ${textsru} ${textsen}
 #`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
-function getwords {
-cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
-}
 
-function highlightpattern {
-sed "s@$pattern@<b>&</b>@gI"
-}
-
-word=`getwords | xargs | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern`
+word=`getwords | removeindex | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern | sort | uniq | xargs`
 indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
@@ -306,31 +284,6 @@ cat $templatefolder/Footer.html | tohtml
 #e g for russian language
 elif [[ "$type" == html ]]; then
 
-
-
-function removeindex {
-sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
-}
-
-function tohtml {
-tee -a ${table} table.html > /dev/null
-} 
-
-function getwords {
-cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
-}
-
-function highlightpattern {
-sed "s@$pattern@<b>&</b>@gI"
-}
-
-
-
-
-
-
-
-
 filelist=`echo "
 ${words}
 ${links}
@@ -340,7 +293,6 @@ ${tempfile}
 ${table}"`
 
 #${texts}
-
 
 grepvar=l
 
