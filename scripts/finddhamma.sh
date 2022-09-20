@@ -142,6 +142,7 @@ brief=${fn}_brief.$extention
 metaphors=${fn}_metaphors.$extention
 table=${fn}.html
 tempfile=${fn}.tmp
+tempfilewords=${fn}_words.html
 
 if [[ -s ${table} ]] ; then 
 function md5checkwrite {
@@ -240,7 +241,8 @@ echo $count >> $tempfile
 #`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 
-word=`getwords | removeindex | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern | sort | uniq | xargs`
+word=`getwords | removeindex | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | sort | uniq | xargs` 
+echo $word | tee -a $tempfilewords > /dev/null
 indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
@@ -251,7 +253,7 @@ suttatitle=`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))
 
 echo "<tr>
 <td><a class=\"freebutton\" target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
-<td>$word</td>
+<td>`echo $word | highlightpattern`</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
 <td><strong>$suttatitle</strong></td>
@@ -274,8 +276,23 @@ echo  "</td>
 
 done
 matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
+#word list
+cat $tempfilewords  | sed 's/[.,?;:]//g' | sed 's/[—”‘"“]/ /g'| awk '{print tolower($0)}' | tr -s ' '  '\n'  | sed 's/’$//g' | sed "s@.*@&</br>@gI" | highlightpattern |  sort | uniq > $tempfile
+echo '<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<body>' >$tempfilewords
+cat $tempfile >> $tempfilewords
+echo '</body>
+</html>' >> $tempfilewords
 
 #Sibbin 999 matches in 444 texts of Pali Suttas
+echo "</tbody>
+</table>
+<a href="/">Main page </a>
+<a href="/output/${tempfilewords}">Words</a>
+" | tohtml
+
 
 cat $templatefolder/Footer.html | tohtml
 
@@ -394,7 +411,7 @@ fi
 
 getbasefile
 #cleanup in case the same search was launched before
-rm ${table} table.html $tempfile > /dev/null 2>&1
+rm ${table} table.html $tempfile $tempfilewords > /dev/null 2>&1
 
 #add links to each file
 linklist

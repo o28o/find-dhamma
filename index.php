@@ -154,9 +154,10 @@ $arg = $gender . ' ' . $pattern;
         <section class="page-section portfolio" id="help">
             <div class="container">
         <div class="font-italic">  <p class="lead mb-5 font-italic text-center ">
-                            All-round view on interesting <br>
-              subject from Suttas and Vinaya<br> 
-              in convenient table for future reading. 
+                            All-round view on meaning, definitions, <br>
+            metaphors, persons, locations and everithing else<br>
+            for Suttas and Vinaya<br> 
+             in convenient table for future reading. 
 
                         </p></div> 
          
