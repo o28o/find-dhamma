@@ -171,6 +171,8 @@ tee -a ${table} table.html > /dev/null
 
 function getwords {
 cat $file | removeindex | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
+cat $file | removeindex | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | tee -a $tempfilewords > /dev/null
+
 }
 
 function highlightpattern {
@@ -227,7 +229,8 @@ translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{pri
 suttanumber="$filenameblock"
 
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}'`
-linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
+linkgeneral=`echo $filenameblock |  awk '{print "https://sc.readingfaithfully.org/?q="$0}' `
+#linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
 linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
@@ -241,8 +244,7 @@ echo $count >> $tempfile
 #`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 
-word=`getwords | removeindex | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | sort | uniq | xargs` 
-echo $word | tee -a $tempfilewords > /dev/null
+word=`getwords | removeindex | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern | sort | uniq | xargs` 
 indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
@@ -253,7 +255,7 @@ suttatitle=`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))
 
 echo "<tr>
 <td><a class=\"freebutton\" target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
-<td>`echo $word | highlightpattern`</td>
+<td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
 <td><strong>$suttatitle</strong></td>
@@ -276,15 +278,40 @@ echo  "</td>
 
 done
 matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
-#word list
-cat $tempfilewords  | sed 's/[.,?;:]//g' | sed 's/[—”‘"“]/ /g'| awk '{print tolower($0)}' | tr -s ' '  '\n'  | sed 's/’$//g' | sed "s@.*@&</br>@gI" | highlightpattern |  sort | uniq > $tempfile
-echo '<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<body>' >$tempfilewords
-cat $tempfile >> $tempfilewords
-echo '</body>
-</html>' >> $tempfilewords
+
+cat $tempfilewords  | sed 's/[.,?;:]//g' | sed 's/[—”‘“"]/ /g' | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
+uniqwordtotal=`cat $tempfile | wc -l `
+#| sed 's/(//g' | sed 's/)//g'
+#cat $tempfile
+#echo cat
+
+cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$title/TitletoReplace/g' > $tempfilewords 
+
+cat $tempfile | while IFS= read -r line ; do
+uniqword=`echo $line | awk '{print $1}'`
+uniqcount=`echo $line | awk '{print $2}'`
+linkswwords=`grep -i $uniqword $basefile | awk '{print $1}' | awk -F'/' '{print $NF}' | awk -F'_' '{print "<a target=_blank href=https://sc.readingfaithfully.org/?q="$1">"$1"</a>"}'| xargs`
+
+#echo $linkswwords
+#cat ${links_and_words}  | tr ' ' '\n' |  egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
+
+
+#cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”"]/ /g'| grep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq >> ${links_and_words}
+
+echo "<tr>
+<td>`echo $uniqword | highlightpattern`</td>
+<td>$uniqcount</td>   
+<td>$linkswwords</td>
+</tr>" >>$tempfilewords
+done
+
+echo "</tbody>
+</table>
+<a href="/">Main page </a>
+<a href="/output/${table}">Quotes</a>
+" >> $tempfilewords
+
+cat $templatefolder/Footer.html >> $tempfilewords
 
 #Sibbin 999 matches in 444 texts of Pali Suttas
 echo "</tbody>
@@ -411,7 +438,7 @@ fi
 
 getbasefile
 #cleanup in case the same search was launched before
-rm ${table} table.html $tempfile $tempfilewords > /dev/null 2>&1
+rm ${table} table.html $tempfile  $tempfilewords > /dev/null 2>&1
 
 #add links to each file
 linklist
@@ -419,14 +446,16 @@ linklist
 textsqnty=`echo $textlist | wc -w`
 capitalized=`echo $pattern | sed 's/[[:lower:]]/\U&/'`
 title="${capitalized} $textsqnty texts and $matchqnty matches in $fortitle $language"
+titlewords="${capitalized} $uniqwordtotal related words and $matchqnty matches in $fortitle $language"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
+sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 
 echo "Done"
 
-rm $basefile $tempfile > /dev/null 2>&1
+#rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
-php -r "print(\"Get it <a class="outlink" href="/output/${table}">here</a>\");"
+php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and <a class="outlink" href="/output/${table}">Quotes</a>\");"
 		
 exit 0
