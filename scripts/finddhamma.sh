@@ -446,7 +446,7 @@ linklist
 textsqnty=`echo $textlist | wc -w`
 capitalized=`echo $pattern | sed 's/[[:lower:]]/\U&/'`
 title="${capitalized} $textsqnty texts and $matchqnty matches in $fortitle $language"
-titlewords="${capitalized} $uniqwordtotal related words and $matchqnty matches in $fortitle $language"
+titlewords="${capitalized} $uniqwordtotal related words in $fortitle $language"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
