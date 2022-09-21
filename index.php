@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
 
-<title>Dhamma Find - Liberation Search Engine</title>
+<title>Dhamma Find - Like Google but Better. For searches in Suttas and Vinaya</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -156,7 +156,7 @@ $arg = $gender . ' ' . $pattern;
         <div class="font-italic">  <p class="lead mb-5 font-italic text-center ">
                             All-round view on meaning, definitions, <br>
             metaphors, persons, locations and everithing else<br>
-            for Suttas and Vinaya<br> 
+            from Pali Suttas and Vinaya<br> 
              in convenient table for future reading. 
 
                         </p></div> 
@@ -250,9 +250,9 @@ $arg = $gender . ' ' . $pattern;
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Find.Dhamma.Gift is a search tool based on SuttaCentral.net materials. You can search in Pali, Russian and English for definitions, metaphors, explanations, people, locations etc. described in Suttas and Vinaya.
+                    <div class="col-lg-4 ms-auto"><p class="lead">Find.Dhamma.Gift is a Liberation Search Engine, it's search tool based on SuttaCentral.net and Theravada.ru materials. You can search in Pali, Russian and English for definitions, metaphors, explanations, people, locations etc. described in Suttas and Vinaya.
                     </p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">Dhamma Enthusiasts, Developers and Contributors are warmly welcome, because project has great potential to find the real meaning of the texts. But! I'm not a developer😊</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">Dhamma Enthusiasts, Developers and Contributors are warmly welcome, because project has great potential to find the real meaning of the texts. But! I'm not a developer and its just a bash script with php wrapper.😊</p></div>
                     
                 </div>
                 <!-- About Section Button-->
