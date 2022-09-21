@@ -76,9 +76,9 @@ $pattern = $gender = $arg = "";
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">All Searches</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">Search History</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Background Mode</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#help">How To</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#help">How To Tips</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#project">About Project</a></li>                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#links">Recommended Links</a></li>
             
             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacts">Contacts</a></li>
@@ -172,7 +172,7 @@ $arg = $gender . ' ' . $pattern;
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                   
-                                    <!-- Portfolio Item 5-->
+                                    <!-- Portfolio Item 5
                <h2 class="page-section-heading text-center">Video Demonstration</h2>
                     <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
@@ -181,8 +181,8 @@ $arg = $gender . ' ' . $pattern;
                             </div>
                             <img class="img-fluid" src="assets/img/portfolio/safe.png" alt="..." />
                         </div>
-                    </div>  
-                                      <!-- Portfolio Item 6-->
+                    </div>  -->
+                                   <!--    Portfolio Item 6 -->
           <h2 class="page-section-heading text-center">Search Basics</h2>
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
@@ -192,7 +192,7 @@ $arg = $gender . ' ' . $pattern;
                             <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="..." />
                         </div>
                     </div>
-                    <!-- Portfolio Item 1-->
+                    <!-- Portfolio Item 1
                <h2 class="page-section-heading text-center">The best is Pali</h2>
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
@@ -202,7 +202,7 @@ $arg = $gender . ' ' . $pattern;
                             <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
                         </div>
                     </div>
-                    <!-- Portfolio Item 2-->
+                    <!-- Portfolio Item 2
            <h2 class="page-section-heading text-center">The best are Suttas</h2>
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
@@ -212,7 +212,7 @@ $arg = $gender . ' ' . $pattern;
                             <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="..." />
                         </div>
                     </div>
-                    <!-- Portfolio Item 3-->
+                    <!-- Portfolio Item 3
           <h2 class="page-section-heading text-center">the "Secret" Background Mode</h2>
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
@@ -222,7 +222,7 @@ $arg = $gender . ' ' . $pattern;
                             <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
                         </div>
                     </div>
-                    <!-- Portfolio Item 4-->
+                    <!-- Portfolio Item 4
             <h2 class="page-section-heading text-center">the "Secret" Mode for Vinaya</h2>
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
@@ -232,7 +232,7 @@ $arg = $gender . ' ' . $pattern;
                             <img class="img-fluid" src="assets/img/portfolio/game.png" alt="..." />
                         </div>
                     </div>
-
+-->
 
                 </div>
             </div>
@@ -547,7 +547,7 @@ $arg = $gender . ' ' . $pattern;
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4">TestLorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -579,7 +579,16 @@ $arg = $gender . ' ' . $pattern;
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4">Tip #0<br>
+                                    Use special characters ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br>
+                                      Tip #1<br>
+                                    Use stem of the word for broader results. play around with or without prefixes or endings. see related texts with quotes and unique words with links to texts.<br>
+                                   Tip #2<br> Minimal length of search pattern is 3 symbols. <br>
+                                   Tip #3<br>
+                                   if your request fails due to timeout try background mode.<br>
+                                   Tip #4<br> 
+                                   if you're willing to search in Vinaya add -vin e.g. -vin cetana<br>
+                                    </p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
