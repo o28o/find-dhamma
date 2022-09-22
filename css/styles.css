@@ -4184,6 +4184,9 @@ textarea.form-control-lg {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
+  .navbar-brand {
+    display: none;
+  }
   .navbar-expand-md .navbar-nav {
     flex-direction: row;
   }

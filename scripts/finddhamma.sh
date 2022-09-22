@@ -169,10 +169,13 @@ function tohtml {
 tee -a ${table} table.html > /dev/null
 } 
 
+function cleanwords {
+  cat $file | removeindex | clearsed | sed 's/[.,!?;:]//g' | sed 's/[—”“‘"]/ /g' | sed 's/’ti//g' | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
+  }
+  
 function getwords {
-cat $file | removeindex | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq 
-cat $file | removeindex | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”‘"]/ /g'|egrep -io$grepgenparam "[^ ]*$pattern[^ ]*" | tee -a $tempfilewords > /dev/null
-
+cleanwords | sort | uniq 
+cleanwords | tee -a $tempfilewords > /dev/null
 }
 
 function highlightpattern {
@@ -231,7 +234,8 @@ suttanumber="$filenameblock"
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}'`
 linkgeneral=`echo $filenameblock |  awk '{print "https://sc.Dhamma.gift/?q="$0}' `
 #linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
-linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
+#linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
+linken=`echo $filenameblock |  awk '{print "https://sc.Dhamma.gift/?q='$translatorsname'}' `
 linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
@@ -267,7 +271,7 @@ do
         do      
         #echo rt=$roottext
 		quote=`egrep -iE "${i}([^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
-echo "$quote</br>"			
+echo "$quote<br class="btwntrn">"			
         done 
 echo '<br class="styled">'
 done | tohtml 
@@ -290,7 +294,7 @@ cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$t
 cat $tempfile | while IFS= read -r line ; do
 uniqword=`echo $line | awk '{print $1}'`
 uniqcount=`echo $line | awk '{print $2}'`
-linkswwords=`grep -i $uniqword $basefile | awk '{print $1}' | awk -F'/' '{print $NF}' | awk -F'_' '{print "<a target=_blank href=https://sc.dhamma.gift/?q="$1">"$1"</a>"}'| xargs`
+linkswwords=`grep -i $uniqword $basefile | sort| awk '{print $1}' | awk -F'/' '{print $NF}' | awk -F'_' '{print "<a target=_blank href=https://sc.dhamma.gift/?q="$1">"$1"</a>"}'| xargs`
 
 #echo $linkswwords
 #cat ${links_and_words}  | tr ' ' '\n' |  egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
