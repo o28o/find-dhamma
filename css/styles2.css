@@ -70,6 +70,11 @@
   box-sizing: border-box;
 }
 
+.outlink {
+  color:#0d6efd;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
@@ -2498,7 +2503,7 @@ textarea.form-control-lg {
   border-radius: 50%;
 }
 .form-check-input:active {
-  filter: brightness(90%);
+  filter: brightness(40%);
 }
 .form-check-input:focus {
   border-color: #8ddece;
@@ -2506,7 +2511,7 @@ textarea.form-control-lg {
   box-shadow: 0 0 0 0.25rem rgba(26, 188, 156, 0.25);
 }
 .form-check-input:checked {
-  background-color: #1abc9c;
+  background-color: #16a085;
   border-color: #1abc9c;
 }
 .form-check-input:checked[type=checkbox] {
@@ -3031,7 +3036,7 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #1abc9c;
+  background-color: #16a085;
   border-color: #1abc9c;
 }
 .btn-primary:hover {
@@ -4179,6 +4184,9 @@ textarea.form-control-lg {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
+/*  .navbar-brand {
+    display: none;
+  } */
   .navbar-expand-md .navbar-nav {
     flex-direction: row;
   }
@@ -7807,8 +7815,10 @@ textarea.form-control-lg {
 }
 
 .bg-primary {
+/*	     background: #222 url('https://unsplash.it/920/1080/?random') center center no-repeat; */
+ 
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important; 
 }
 
 .bg-secondary {
@@ -8626,6 +8636,11 @@ textarea.form-control-lg {
   }
 }
 @media (min-width: 768px) {
+  
+ /* .textlogo {
+	  display: none;
+	  
+  }*/
   .float-md-start {
     float: left !important;
   }
@@ -11431,8 +11446,9 @@ html {
 }
 
 .masthead {
-  padding-top: calc(3rem + 34px);
-  padding-bottom: 3rem;
+  padding-top: calc(3rem + 15px); 
+/*	padding-top: 40px;*/
+  padding-bottom: 6rem;
 }
 .masthead .masthead-heading {
   font-size: 2.75rem;
@@ -11447,8 +11463,8 @@ html {
 
 @media (min-width: 992px) {
   .masthead {
-    padding-top: calc(3rem + 44px);
-    padding-bottom: 3rem;
+    padding-top: calc(6rem + 104px);
+    padding-bottom: 6rem;
   }
   .masthead .masthead-heading {
     font-size: 4rem;

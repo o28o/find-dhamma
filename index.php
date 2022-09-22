@@ -79,12 +79,11 @@ $pattern = $gender = $arg = "";
              <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="https://sc.dhamma.gift/">SC Light</a></li>
              
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">Search History</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Background Mode</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#help">How To Tips</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#project">About Project</a></li>                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#links">Recommended Links</a></li>
-            
-            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacts">Contacts</a></li>
-            
+                       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Background Mode</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#help">How to Use</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#project">About Project</a></li>             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#links">Recommended Links</a></li>
+						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacts">Contacts</a></li>
+          
                     </ul>
                 </div>
             </div>
@@ -159,7 +158,7 @@ $arg = $gender . ' ' . $pattern;
                             All-round view on meaning, definitions, <br>
             metaphors, persons, locations and everithing else<br>
             from Pali Suttas and Vinaya<br> 
-             in convenient table for future reading. 
+             in convenient tables for future reading. 
 
                         </p></div> 
          
@@ -185,7 +184,7 @@ $arg = $gender . ' ' . $pattern;
                         </div>
                     </div>  -->
                                    <!--    Portfolio Item 6 -->
-          <h2 class="page-section-heading text-center">Search Basics</h2>
+          <!-- <h2 class="page-section-heading text-center mb-4">Search Basics</h2> -->
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -268,13 +267,15 @@ $arg = $gender . ' ' . $pattern;
         </section>
   
         <!-- Footer-->
-        <footer id="links" class="footer text-center">
+        <footer id="links" class="footer text-center ">
+               <h2 class="page-section-heading text-center text-uppercase text-white mb-5">Recommended Links</h2>
+			   
             <div class="container">
                 <div  class="row">
                    <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
           
-               <h2 class="page-section-heading text-center text-uppercase text-white">Recommended Links</h2>
+
                         <h4 class="text-uppercase mb-4">Research</h4>
                
                 <div class="list-group">
@@ -385,7 +386,7 @@ $arg = $gender . ' ' . $pattern;
                     <div id="contacts" class="col-lg-4">
                         <h4 class="text-uppercase mb-4">Contacts</h4>
 						
-                        <p class="lead mb-0">
+                        <p class="lead mb-4">
                             Find the Noble Eightfold Path. Understand the Four Noble Truths. Dhamma - is Actuality.
                       
                         </p>
@@ -571,7 +572,7 @@ $arg = $gender . ' ' . $pattern;
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">How to Search</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -584,12 +585,19 @@ $arg = $gender . ' ' . $pattern;
                                     <p class="mb-4">Tip #0<br>
                                     Use special characters ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br>
                                       Tip #1<br>
-                                    Use stem of the word for broader results. play around with or without prefixes or endings. see related texts with quotes and unique words with links to texts.<br>
-                                   Tip #2<br> Minimal length of search pattern is 3 symbols. <br>
-                                   Tip #3<br>
-                                   if your request fails due to timeout try background mode.<br>
-                                   Tip #4<br> 
-                                   if you're willing to search in Vinaya add -vin e.g. -vin cetana<br>
+                                    Use stem of the word for broader results. play around with or without prefixes or endings. 
+									<br>
+									Tip #2<br>You have two options: results sorted by Suttas and by words. <br>
+                                   Tip #3<br> Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br>
+                                   Tip #4<br>
+                                   if your request fails due to timeout try background mode. it might work.<br>
+                                   Tip #5<br> 
+                                   if you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br>
+								   Tip #6<br> 
+                                   Searches in Pali will give the best results. But in cases when you're looking for animals, plants, etc. translations in other languages might help even better. e.g. there are at least 3 different pali words for a snake but in Russian or English - it's just "a snake". <br>
+								   Tip #7<br>
+								   If you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br>
+								   
                                     </p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
