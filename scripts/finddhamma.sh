@@ -229,7 +229,7 @@ translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{pri
 suttanumber="$filenameblock"
 
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}'`
-linkgeneral=`echo $filenameblock |  awk '{print "https://sc.readingfaithfully.org/?q="$0}' `
+linkgeneral=`echo $filenameblock |  awk '{print "https://sc.Dhamma.gift/?q="$0}' `
 #linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
 linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
@@ -290,7 +290,7 @@ cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$t
 cat $tempfile | while IFS= read -r line ; do
 uniqword=`echo $line | awk '{print $1}'`
 uniqcount=`echo $line | awk '{print $2}'`
-linkswwords=`grep -i $uniqword $basefile | awk '{print $1}' | awk -F'/' '{print $NF}' | awk -F'_' '{print "<a target=_blank href=https://sc.readingfaithfully.org/?q="$1">"$1"</a>"}'| xargs`
+linkswwords=`grep -i $uniqword $basefile | awk '{print $1}' | awk -F'/' '{print $NF}' | awk -F'_' '{print "<a target=_blank href=https://sc.dhamma.gift/?q="$1">"$1"</a>"}'| xargs`
 
 #echo $linkswwords
 #cat ${links_and_words}  | tr ' ' '\n' |  egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
@@ -389,7 +389,8 @@ translatorsname=`echo $translation | awk -F'/ru/' '{print $2}' | awk -F'/' '{pri
 
 linkru=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
-linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
+#linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
+linkpli=`echo $filenameblock |  awk '{print "https://sc.dhamma.gift/?q="$0}' `
 count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 
@@ -446,7 +447,7 @@ linklist
 textsqnty=`echo $textlist | wc -w`
 capitalized=`echo $pattern | sed 's/[[:lower:]]/\U&/'`
 title="${capitalized} $textsqnty texts and $matchqnty matches in $fortitle $language"
-titlewords="${capitalized} $uniqwordtotal related words in $fortitle $language"
+titlewords="${capitalized} $uniqwordtotal related words and $matchqnty matches in $fortitle $language"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}

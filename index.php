@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
 
-<title>Dhamma Find - Like Google but Better. For searches in Suttas and Vinaya</title>
+<title>Dhamma Find - Better then Google for Suttas and Vinaya</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -76,6 +76,8 @@ $pattern = $gender = $arg = "";
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li>
+             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="https://sc.dhamma.gift/">SC Light</a></li>
+             
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">Search History</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Background Mode</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#help">How To Tips</a></li>
@@ -144,7 +146,7 @@ $arg = $gender . ' ' . $pattern;
 			
 	
 		?>	
-	<p><a class="outlink" href="/list.php">All Searches</a></p>
+	<p><a class="outlink" href="/list.php">Search History</a></p>
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->
