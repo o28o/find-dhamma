@@ -38,7 +38,7 @@ fi
 #pattern=adhivacanas
 
 function clearargs {
-sed -e 's/-pil//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/^ //g'
+sed -e 's/-pil//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g'
 }
 #set search language from args or set default
 
@@ -88,10 +88,20 @@ if [[ "$" == *"-h"* ]]; then
     -pil - search in pali on legacy.suttacentral.net archive
     "
     exit 0
+elif [[ "$@" == *"-th"* ]]; then
+    fnlang=_th
+    pali_or_lang=sc-data/html_text/th/pli 
+    language=Thai
+	printlang=ไทย
+    directlink=
+    type=html   
+    metaphorkeys="подобно|представь|обозначение"
+    nonmetaphorkeys="подобного"
 elif [[ "$@" == *"-ru"* ]]; then
     fnlang=_ru
     pali_or_lang=sc-data/html_text/ru/pli 
     language=Russian
+	printlang=Русский
     directlink=
     type=html   
     metaphorkeys="подобно|представь|обозначение"
@@ -109,7 +119,8 @@ elif [[ "$@" == *"-pil"* ]]; then
    #modify pattern as legacy uses different letters
     #pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs`
 elif [[ "$@" == *"-en"* ]]; then
-    fnlang=_en
+    fnlang=
+	printlang=English
     pali_or_lang=sc-data/sc_bilara_data/translation/
     language=English
     type=json
@@ -170,7 +181,7 @@ tee -a ${table} table.html > /dev/null
 } 
 
 function cleanwords {
-  cat $file | removeindex | clearsed | sed 's/[.,!?;:]//g' | sed 's/[—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g' | sed 's/’ti//g' | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
+  cat $file | removeindex | clearsed | sed 's/[.,!?;:«]//g' | sed 's/[—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g' | sed 's/’ti//g' | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
   }
   
 function getwords {
@@ -182,7 +193,43 @@ function highlightpattern {
 sed "s@$pattern@<b>&</b>@gI"
 }
 
+function genwordsfile {
 
+cat $tempfilewords  | sed 's/[.,?;:]//g' | sed 's/[—”‘“"]/ /g' | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
+uniqwordtotal=`cat $tempfile | wc -l `
+#| sed 's/(//g' | sed 's/)//g'
+#cat $tempfile
+#echo cat
+
+cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$title/TitletoReplace/g' > $tempfilewords 
+
+cat $tempfile | while IFS= read -r line ; do
+uniqword=`echo $line | awk '{print $1}'`
+uniqcount=`echo $line | awk '{print $2}'`
+linkswwords=`grep -i $uniqword $basefile | sort| awk '{print $1}' | awk -F'/' '{print $NF}' | awk -F'_' '{print "<a target=_blank href=https://sc.dhamma.gift/?q="$1">"$1"</a>"}'| xargs`
+
+#echo $linkswwords
+#cat ${links_and_words}  | tr ' ' '\n' |  egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
+
+
+#cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”"]/ /g'| grep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq >> ${links_and_words}
+
+echo "<tr>
+<td>`echo $uniqword | highlightpattern`</td>
+<td>$uniqcount</td>   
+<td>$linkswwords</td>
+</tr>" >>$tempfilewords
+done
+
+echo "</tbody>
+</table>
+<a href="/">Main page </a>
+<a href="/output/${table}">Quotes</a>
+" >> $tempfilewords
+
+cat $templatefolder/Footer.html >> $tempfilewords
+
+}
 
 
 if [[ "$type" == json ]]; then
@@ -285,39 +332,8 @@ echo  "</td>
 done
 matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
 
-cat $tempfilewords  | sed 's/[.,?;:]//g' | sed 's/[—”‘“"]/ /g' | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
-uniqwordtotal=`cat $tempfile | wc -l `
-#| sed 's/(//g' | sed 's/)//g'
-#cat $tempfile
-#echo cat
-
-cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$title/TitletoReplace/g' > $tempfilewords 
-
-cat $tempfile | while IFS= read -r line ; do
-uniqword=`echo $line | awk '{print $1}'`
-uniqcount=`echo $line | awk '{print $2}'`
-linkswwords=`grep -i $uniqword $basefile | sort| awk '{print $1}' | awk -F'/' '{print $NF}' | awk -F'_' '{print "<a target=_blank href=https://sc.dhamma.gift/?q="$1">"$1"</a>"}'| xargs`
-
-#echo $linkswwords
-#cat ${links_and_words}  | tr ' ' '\n' |  egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
 
 
-#cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”"]/ /g'| grep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq >> ${links_and_words}
-
-echo "<tr>
-<td>`echo $uniqword | highlightpattern`</td>
-<td>$uniqcount</td>   
-<td>$linkswwords</td>
-</tr>" >>$tempfilewords
-done
-
-echo "</tbody>
-</table>
-<a href="/">Main page </a>
-<a href="/output/${table}">Quotes</a>
-" >> $tempfilewords
-
-cat $templatefolder/Footer.html >> $tempfilewords
 
 #Sibbin 999 matches in 444 texts of Pali Suttas
 echo "</tbody>
@@ -345,8 +361,6 @@ ${table}"`
 #${texts}
 
 grepvar=l
-
-#Edit me
 
 function linklist {
 #echo -e "Content-Type: text/html\n\n"
@@ -382,18 +396,28 @@ rustr=$file
    # variant=`find $lookup/variant -name "*${filenameblock}_*"`
     
     suttanumber="$filenameblock"
+	linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
+
+linklang=$linkgeneral
+
     
         if [[ "$language" == "Pali" ]]; then
         file=$roottext
     elif [[ "$language" == "Russian" ]]; then
         file=$rustr
+		
+	
+	   rusnp=`echo $filenameblock | sed 's@\.@_@g'`
+    rustr=`find /home/a0092061/domains/find.dhamma.gift/public_html/theravada.ru/Teaching/Canon/Suttanta/Texts/ -name "*${rusnp}-*"`
+
+     rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
+
+linklang=$rusthrulink	
+
     fi 
     
-    
         
-translatorsname=`echo $translation | awk -F'/ru/' '{print $2}' | awk -F'/' '{print $1}'`
-
-linkru=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
+#translatorsname=`echo $translation | awk -F'/ru/' '{print $2}' | awk -F'/' '{print $1}'`
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 #linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 linkpli=`echo $filenameblock |  awk '{print "https://sc.dhamma.gift/?q="$0"&lang=pli"}' `
@@ -410,7 +434,7 @@ metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonm
 suttatitle=`grep 'h1' $file | clearsed | xargs `
 #quote=`egrep -ih "${pattern}" $file | clearsed | highlightpattern `
 echo "<tr>
-<td><a target=\"_blank\" href="$linkru">$suttanumber</a></td>
+<td><a target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
@@ -421,7 +445,7 @@ echo "$line"
 echo '<br class="styled">'
 done | tohtml
 echo "</td>
-<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linkru">Русский</a></td>
+<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linklang">"$printlang"</a></td>
 </tr>" | tohtml
 
 done
@@ -449,6 +473,8 @@ rm ${table} table.html $tempfile  $tempfilewords > /dev/null 2>&1
 
 #add links to each file
 linklist
+genwordsfile
+
 
 textsqnty=`echo $textlist | wc -w`
 capitalized=`echo $pattern | sed 's/[[:lower:]]/\U&/'`

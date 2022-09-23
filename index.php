@@ -25,8 +25,8 @@
     	<?php
 
 		// Defining variables
-$nameErr = $genderErr  = "";
-$pattern = $gender = $arg = "";
+$nameErr = $languageErr  = "";
+$pattern = $language = $arg = "";
 		// Checking for a POST request
 		
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -39,10 +39,10 @@ $pattern = $gender = $arg = "";
       $nameErr = "Only letters and white space allowed";
     }
   }
-	if (empty($_POST["gender"])) {
-    $genderErr = "Gender is required";
+	if (empty($_POST["language"])) {
+    $languageErr = "language is required";
   } else {
-    $gender = test_input($_POST["gender"]);
+    $language = test_input($_POST["language"]);
   }
 }	
 		
@@ -59,10 +59,10 @@ $pattern = $gender = $arg = "";
 		return $data;
 		}
 		
-      if (empty($_POST["gender"])) {
-    $genderErr = "";
+      if (empty($_POST["language"])) {
+    $languageErr = "";
   } else {
-    $gender = test_input($_POST["gender"]);
+    $language = test_input($_POST["language"]);
   }
 		?>
  
@@ -117,15 +117,18 @@ $pattern = $gender = $arg = "";
                             </div>
                             <br>
                             <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="gender" <?php if (isset($gender) && $gender=="Pali") echo "checked";?> value="">Pali
+  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pali
   </div>
                           <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="gender" <?php if (isset($gender) && $gender=="-ru ") echo "checked";?> value="-ru">Russian
+  <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
+  </div>
+    <div class="form-check form-check-inline">
+  <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
   </div>
                               <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="gender" <?php if (isset($gender) && $gender=="English") echo "checked";?> value="-en">English 
+  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div>
-  <span class="error"><?php echo $genderErr;?></span>
+  <span class="error"><?php echo $languageErr;?></span>
   <br><br>
                         <button type="submit" name="submit"
 				value="Search" class="btn btn-primary btn-lg">Find</button>  
@@ -134,14 +137,14 @@ $pattern = $gender = $arg = "";
 				</form>
 <?php
 
-$arg = $gender . ' ' . $pattern;
+$arg = $language . ' ' . $pattern;
 ?>
  </div>
 					</br>
 	<?php
 			    				echo $lang;
 			$old_path = getcwd();
-			$output = shell_exec("./scripts/finddhamma.sh $gender $pattern"); 
+			$output = shell_exec("./scripts/finddhamma.sh $language $pattern"); 
 			echo "<p>$output</p>";
 			
 	
