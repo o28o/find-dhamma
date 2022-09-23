@@ -489,6 +489,12 @@ echo "${pattern^}"
 
 #rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
-php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and <a class="outlink" href="/output/${table}">Quotes</a>\");"
+if [[ "$language" == "Pali" ]] ||  [[ "$language" == "English" ]] 
+then 
+
+php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and\");"
+fi
+
+php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a>\");"
 		
 exit 0
