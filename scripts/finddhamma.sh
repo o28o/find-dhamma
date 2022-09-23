@@ -232,11 +232,13 @@ translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{pri
 suttanumber="$filenameblock"
 
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}'`
-linkgeneral=`echo $filenameblock |  awk '{print "https://sc.Dhamma.gift/?q="$0}' `
+linkgeneral=`echo $filenameblock |  awk '{print "https://sc.Dhamma.gift/?q="$0"&lang=pli-eng"}' `
 #linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
-linken=`echo $filenameblock |  awk '{print "https://sc.Dhamma.gift/?q='$translatorsname'}' `
-linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
+#linken=`echo $filenameblock |  awk '{print "https://sc.Dhamma.gift/?q='$translatorsname'}' `
+linken=`echo $filenameblock |  awk '{print "https://sc.Dhamma.gift/?q="$0"&lang=eng"}' `
+linkpli=`echo $filenameblock |  awk '{print "https://sc.Dhamma.gift/?q="$0"&lang=pli"}' `
+#linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 #russian text 
@@ -277,7 +279,7 @@ echo '<br class="styled">'
 done | tohtml 
 
 echo  "</td>
-<td><a target=\"_blank\" href="$linkpli">Pali</a> `[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Русский</a>"` <a target=\"_blank\" href="$linken">English</a></td>
+<td><a target=\"_blank\" href="$linkpli">Pali</a> `[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Русский</a>"` `[[ $thailink != "" ]] && echo "<a target=\"_blank\" href="$thailink">Thai</a>"` <a target=\"_blank\" href="$linken">English</a></td>
 </tr>" | tohtml
 
 done
@@ -394,7 +396,7 @@ translatorsname=`echo $translation | awk -F'/ru/' '{print $2}' | awk -F'/' '{pri
 linkru=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 #linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
-linkpli=`echo $filenameblock |  awk '{print "https://sc.dhamma.gift/?q="$0}' `
+linkpli=`echo $filenameblock |  awk '{print "https://sc.dhamma.gift/?q="$0"&lang=pli"}' `
 count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 
@@ -457,7 +459,7 @@ sed -i 's/TitletoReplace/'"$title"'/g' table.html
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
 sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 
-echo "Done"
+echo "${pattern^}"
 
 #rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
