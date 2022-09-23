@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
 
-<title>Dhamma Find - Better then Google for Suttas and Vinaya</title>
+<title>find.Dhamma.gift - For Suttas and Vinaya it is better then Google</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />

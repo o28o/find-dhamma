@@ -119,7 +119,7 @@ elif [[ "$@" == *"-pil"* ]]; then
    #modify pattern as legacy uses different letters
     #pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs`
 elif [[ "$@" == *"-en"* ]]; then
-    fnlang=
+    fnlang=_en
 	printlang=English
     pali_or_lang=sc-data/sc_bilara_data/translation/
     language=English
@@ -181,7 +181,7 @@ tee -a ${table} table.html > /dev/null
 } 
 
 function cleanwords {
-  cat $file | removeindex | clearsed | sed 's/[.,!?;:«]//g' | sed 's/[—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g' | sed 's/’ti//g' | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
+  cat $file | removeindex | clearsed | sed 's/[.,!?;’:«]//g' | sed 's/[—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g' | sed 's/’ti//g' | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
   }
   
 function getwords {
@@ -487,7 +487,7 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 
 echo "${pattern^}"
 
-#rm $basefile $tempfile > /dev/null 2>&1
+rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
 if [[ "$language" == "Pali" ]] ||  [[ "$language" == "English" ]] 
 then 

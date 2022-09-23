@@ -2,7 +2,30 @@
 <html lang="en">
     <head>
       <meta charset="UTF-8">
-
+	  
+	  <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name=" apple-mobile-web-app-title" content="Rolos Chicken">
+<link rel="apple-touch-icon" sizes="57x57" href="/templates/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/templates/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/templates/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/templates/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/templates/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/templates/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/templates/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/templates/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/templates/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/templates/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/templates/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/templates/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/templates/favicon-16x16.png">
+<link rel="manifest" href="/templates/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/templates/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 <title>Dhamma Find - Better then Google for Suttas and Vinaya</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -14,12 +37,28 @@
     
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/templates/add-to-homescreen-master/src/addtohomescreen.min.js
+"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/extrastyles.css" rel="stylesheet" />
+        <link href="/templates/add-to-homescreen-master/style
+/addtohomescreen.css" rel="stylesheet" />
+
+<script>
+//if the website is not opened in app mode show (i.e. in a browser) the add to homescreen prompt
+if
+(
+(("standalone" in window.navigator) && !window.navigator.standalone) // ios
+( !window.matchMedia(' (display-mode: standalone) ').matches ) // android
+) {
+addToHomescreen();
+}
+</script>
+
     </head>
       <body id="page-top"> 
     	<?php
@@ -138,21 +177,73 @@ $pattern = $language = $arg = "";
                         <button type="submit" name="submit"
 				value="Search" class="btn btn-primary btn-lg">Find</button>  
 			
-			<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
- 
-  <div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown
-    </button>
-    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <a class="dropdown-item" href="#">Dropdown link</a>
-      <a class="dropdown-item" href="#">Dropdown link</a>
-    </div>
-  </div>
-</div>	
+			<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+  
+                              <div class="form-check form-check-inline">
+
+  
+    <li><a class="dropdown-item" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pali</a></li>
+    <li><a class="dropdown-item" name="language" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">English</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+
 			
 				
+		
+				<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  <button type="button" class="btn btn-primary">1</button>
+  <button type="button" class="btn btn-primary">2</button>
+
+
+ 
+
 				</form>
+		
+		
+		<script type="text/javascript">
+$(".dropdown-menu li a").click(function(){
+  
+  $(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
+  
+});
+</script>
+
+ <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false" data-toggle="dropdown">
+      Dropdown <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+      <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+</div>
+
+				
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-bs-toggle="dropdown" href="#">
+    Dropdown <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="#">Choice1</a></li>
+    <li><a href="#">Choice2</a></li>
+    <li><a href="#">Choice3</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Choice..</a></li>
+  </ul>
+</div>
+
+
+
+<script type="text/javascript">
+  alert("This alert box was called with the onload event");
+</script>
+
 <?php
 
 $arg = $language . ' ' . $pattern;
