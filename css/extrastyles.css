@@ -1,0 +1,27 @@
+.outlink {
+  color:#0d6efd;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #16a085;
+  border-color: #1abc9c;
+}
+
+	.form-check-input:active {
+  filter: brightness(40%);
+}
+
+.form-check-input:focus {
+  border-color: #8ddece;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(26, 188, 156, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: #16a085;
+  border-color: #1abc9c;
+  
+  	/*  .navbar-brand {
+    display: none;
+  } */
