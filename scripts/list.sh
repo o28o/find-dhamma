@@ -17,11 +17,14 @@ switch=en
 elif [[ "$case" == "ru" ]]
 then
 switch=ru
+elif [[ "$case" == "th" ]]
+then
+switch=th
 else 
 switch=
 fi
 
-ls -lpah --time-style="+%d-%m-%Y" *${switch}* | egrep -v "_words.html|\.tmp|_fn.txt|table|.git|итого|total|/" | grep -v "^_" | awk '{print substr($0, index($0, $5))}'  | while IFS= read -r line ; do
+ls -lpah --time-style="+%d-%m-%Y" *_${switch}* | egrep -v "_words.html|\.tmp|_fn.txt|table|.git|итого|total|/" | grep -v "^_" | awk '{print substr($0, index($0, $5))}'  | while IFS= read -r line ; do
 
 file=`echo $line | awk '{print $NF}'`
 pitaka=`echo $file | awk -F'_' '{mu=(NF-1); print $mu}' `
