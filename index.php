@@ -9,8 +9,16 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <!-- Favicon-->
-
-<link rel="icon" type="image/png" href="https://find.dhamma.gift/templates/favico.png" />
+		
+		    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="find.Dhamma.gift" />
+    <meta property="og:description" content="Liberation Search Engine for Pali Suttas and Vinaya" />
+    <meta property="og:url" content="https://find.dhamma.gift/" />
+    <meta property="og:site_name" content="find.Dhamma.gift" />
+    <meta property="og:image" itemprop="image"
+        content="/templates/favicon.png" />
+	<link rel="icon" type="image/png" href="https://find.dhamma.gift/templates/favico.png" />
     
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -68,8 +76,8 @@ $pattern = $language = $arg = "";
  
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
-            <a class="navbar-brand" href="/"> <div class="container"><img src="assets/dhammafindlogo.png"  style="width:100px;"></a>
-                <a class="navbar-brand" href="/#page-top">find.dhamma.gift</a>
+            <a class="navbar-brand mobile-center" href="/"> <div class="container"><img src="assets/dhammafindlogo.png"  style="width:100px;"></a>
+                <a class="navbar-brand mobile-none" href="/#page-top">find.dhamma.gift</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>

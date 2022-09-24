@@ -22,6 +22,19 @@
   background-color: #16a085;
   border-color: #1abc9c;
   
-  	/*  .navbar-brand {
-    display: none;
-  } */
+}
+@media only screen and (max-width: 500px) {
+  
+  .mobile-none {
+	  display:none;	  
+  }
+
+/*.mobile-center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  */
+}
+
+
+ 
