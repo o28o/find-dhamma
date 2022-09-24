@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
 
-<title>find.Dhamma.gift - For Suttas and Vinaya it is better then Google</title>
+<title>find.Dhamma.gift - For Suttas and Vinaya it's better then Google</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -262,16 +262,16 @@ $arg = $language . ' ' . $pattern;
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Find.Dhamma.Gift is a Liberation Search Engine, it's search tool based on SuttaCentral.net and Theravada.ru materials. You can search in Pali, Russian and English for definitions, metaphors, explanations, people, locations etc. described in Suttas and Vinaya.
+                    <div class="col-lg-4 ms-auto"><p class="lead">Find.Dhamma.Gift is a Liberation Search Engine, it's a search tool based on SuttaCentral.net and Theravada.ru materials. You can search in Pali, Russian, Thai and English for meanings, definitions, metaphors, explanations, people, locations etc. described in Suttas and Vinaya.
                     </p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">Dhamma Enthusiasts, Developers and Contributors are warmly welcome, because project has great potential to find the real meaning of the texts. But! I'm not a developer and its just a bash script with php wrapper.😊</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">Dhamma Enthusiasts, Developers and Contributors are warmly welcome, because project has great potential to find the real meaning of the texts. But! I'm not a developer and its just a bash script with php wrapper😊</p></div>
                     
                 </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://github.com/o28o/find-dhamma">
+                    <a class="btn btn-xl btn-outline-light" target="_blank" href="https://github.com/o28o/find-dhamma">
                 
-                        Project on GitHub
+                   <i class="fa-brands fa-github"></i>     Project on GitHub
                     </a>
                 </div>
             </div>
@@ -294,10 +294,10 @@ $arg = $language . ' ' . $pattern;
   <a href="#page-top" class="list-group-item list-group-item-action active">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">find.dhamma.gift</h5>
-      <small class="text-muted">online+offline</small>
+      <small class="text-muted">online</small>
     </div>
     <p class="mb-1">All encompassing search within all Suttas and Vinaya.</p>
-    <small class="text-muted">Your search results are avalilable by link or for download.</small>
+    <small class="text-muted"></small>
   </a>
         <a target="_blank" href="https://digitalpalidictionary.github.io/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
@@ -315,17 +315,16 @@ $arg = $language . ' ' . $pattern;
       <small class="text-muted">online</small>
     </div>
     <p class="mb-1">Excellent online collection of dictionaries. Not only Pali, but multiple spiritual traditions of India</p>
-    <small class="text-muted">Might be very helpful for difficult terms.</small>
+    <small class="text-muted">Very helpful for difficult terms.</small>
   </a>
   
-
       <a target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">TamilCube.com</h5>
       <small class="text-muted">online</small>
     </div>
     <p class="mb-1">Simple Online English-Pali Dictionary</p>
-    <small class="text-muted">Might be very helpful</small>
+    <small class="text-muted"></small>
   </a>
 
 </div>  
@@ -353,28 +352,28 @@ $arg = $language . ' ' . $pattern;
       <small>online & offline</small>
     </div>
     <p class="mb-1 text-left">The most complete line-by-line Pali-English collection</p>
-    <small>Pali lookup dictionary built-in</small>
+    <small>Pali-English dictionary can be turned on in settings</small>
   </a>
   
-    <a href="https://www.digitalpalireader.online/" class="list-group-item list-group-item-action">
+    <a target="_blank"   href="https://www.digitalpalireader.online/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Digital Pali Reader</h5>
       <small class="text-muted">online & offline</small>
     </div>
     <p class="mb-1">Very profound online tool for Pali researches.</p>
-    <small class="text-muted">On click Pali-English Dictionary available</small>
+    <small class="text-muted">Built-in Pali-English dictionary</small>
   </a>
   
-  <a href="https://tipitaka.theravada.su/toc/translations/1097" class="list-group-item list-group-item-action">
+  <a target="_blank"  href="https://tipitaka.theravada.su/toc/translations/1097" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Tipitaka.Theravada.su</h5>
       <small class="text-muted">online</small>
     </div>
     <p class="mb-1">Multiple translation options. Pali-English-Russian line-by-line.</p>
-    <small class="text-muted">Expecially recommended for stuyding Digha Nikaya</small>
+    <small class="text-muted">Especially recommended for stuyding Digha Nikaya</small>
   </a>
   
-  <a href="https://www.theravada.ru/" class="list-group-item list-group-item-action">
+  <a href="https://www.theravada.ru/" target="_blank"   class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Theravada.ru </h5>
       <small class="text-muted">online</small>
@@ -401,8 +400,8 @@ $arg = $language . ' ' . $pattern;
                             Find the Noble Eightfold Path. Understand the Four Noble Truths. Dhamma - is Actuality.
                       
                         </p>
-							   <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+							   <a  target="_blank"  class="btn btn-outline-light btn-social mx-1" href="https://github.com/o28o/find-dhamma#readme"><i class="fa-brands fa-github"></i></a>
+                        <a  target="_blank"  class="btn btn-outline-light btn-social mx-1" href="mailto:o@dhamma.gift"><i class="fa-solid fa-at"></i></a>
 						
                     </div>
                 </div>
@@ -590,23 +589,23 @@ $arg = $language . ' ' . $pattern;
                                         <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
+                                    <!-- Portfolio Modal - Image
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." /> -->
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Tip #0<br>
+                                    <strong><p class="mb-4">Tip #0</strong><br>
                                     Use special characters ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br>
-                                      Tip #1<br>
+                                      <strong>Tip #1</strong><br>
                                     Use stem of the word for broader results. play around with or without prefixes or endings. 
 									<br>
-									Tip #2<br>You have two options: results sorted by Suttas and by words. <br>
-                                   Tip #3<br> Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br>
-                                   Tip #4<br>
+									<strong>Tip #2</strong><br>You have two options: results sorted by Suttas and by words. <br>
+                                   <strong>Tip #3</strong><br> Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br>
+                                   <strong>Tip #4</strong><br>
                                    if your request fails due to timeout try background mode. it might work.<br>
-                                   Tip #5<br> 
+                                   <strong>Tip #5</strong><br> 
                                    if you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br>
-								   Tip #6<br> 
+								   <strong>Tip #6</strong><br> 
                                    Searches in Pali will give the best results. But in cases when you're looking for animals, plants, etc. translations in other languages might help even better. e.g. there are at least 3 different pali words for a snake but in Russian or English - it's just "a snake". <br>
-								   Tip #7<br>
+								   <strong>Tip #7</strong><br>
 								   If you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br>
 								   
                                     </p>
