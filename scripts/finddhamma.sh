@@ -181,9 +181,10 @@ tee -a ${table} table.html > /dev/null
 } 
 
 function cleanwords {
-  cat $file | removeindex | clearsed | sed 's/[.,!?;’:«]//g' | sed 's/[—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g' | sed 's/’ti//g' | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
+  cat $file | removeindex | clearsed | sed 's/[.,!?;:«]//g' | sed 's/[—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g'  | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
   }
   
+#| sed 's/’ti//g'  
 function getwords {
 cleanwords | sort | uniq 
 cleanwords | tee -a $tempfilewords > /dev/null
@@ -297,7 +298,7 @@ echo $count >> $tempfile
 #`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 
-word=`getwords | removeindex | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | sed 's/[.,!?;’:«]//g' | sed 's/[—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g' | sed 's/’ti//g' | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
+word=`getwords | removeindex | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | sed 's/[.,!?;:«]//g' | sed 's/[—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g' | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
 indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
