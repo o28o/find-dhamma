@@ -17,8 +17,8 @@
     <meta property="og:url" content="https://find.dhamma.gift/" />
     <meta property="og:site_name" content="find.Dhamma.gift" />
     <meta property="og:image" itemprop="image"
-        content="/templates/favicon.png" />
-	<link rel="icon" type="image/png" href="https://find.dhamma.gift/templates/favico.png" />
+        content="./assets/favicon.png" />
+	<link rel="icon" type="image/png" href="./assets/favico.png" />
     
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -76,7 +76,7 @@ $pattern = $language = $arg = "";
  
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
-            <a class="navbar-brand mobile-center" href="/"> <div class="container"><img src="assets/dhammafindlogo.png"  style="width:100px;"></a>
+            <a class="navbar-brand mobile-center" href="/"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
                 <a class="navbar-brand mobile-none" href="/#page-top">find.dhamma.gift</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
@@ -184,18 +184,9 @@ $arg = $language . ' ' . $pattern;
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                   
-                                    <!-- Portfolio Item 5
-               <h2 class="page-section-heading text-center">Video Demonstration</h2>
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/safe.png" alt="..." />
-                        </div>
-                    </div>  -->
-                                   <!--    Portfolio Item 6 -->
-          <!-- <h2 class="page-section-heading text-center mb-4">Search Basics</h2> -->
+                                 
+								 
+         <h4 class="page-section-heading text-center mb-4">Search Basics</h4>
                     <div class="col-md-6 col-lg-4 mb-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -204,70 +195,43 @@ $arg = $language . ' ' . $pattern;
                             <img class="img-fluid" src="assets/img/portfolio/awakening.jpg" alt="..." />
 							
                         </div>
-				
-				                       <strong><p class="mb-4">Tip #0</strong><br>
-                                    Use special characters ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br><br>
-                                      <strong>Tip #1</strong><br>
-                                    Use stem of the word for broader results. play around with or without prefixes or endings. 
-									<br><br>
-									<strong>Tip #2</strong><br>You have two options: results sorted by Suttas and by words. <br><br>
-                                   <strong>Tip #3</strong><br> Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br><br>
-                                   <strong>Tip #4</strong><br>
-                                   if your request fails due to timeout try background mode. it might work.<br><br>
-                                   <strong>Tip #5</strong><br> 
-                                   if you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br><br>
-								   <strong>Tip #6</strong><br> 
-                                   Searches in Pali will give the best results. But in cases when you're looking for animals, plants, etc. translations in other languages might help even better. e.g. there are at least 3 different pali words for a snake but in Russian or English - it's just "a snake". <br><br>
-								   <strong>Tip #7</strong><br>
-								   If you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br><br>
-								   								   <strong>Tip #8</strong><br>
-								   if you want to find some word in particular sutta, samyutta or nikaya run search like this: Sn17.*seyyathāpi
-								  <br>This will search for all similies and metaphors in all Sn17.
-								   <br>
-								   </p>
+		<!-- text here --> <p class="mb-4">
+		</p>
 				
                     </div>
-                    <!-- Portfolio Item 1
-               <h2 class="page-section-heading text-center">The best is Pali</h2>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+            
+			<h4 class="page-section-heading text-center mb-4">Tips & Tricks</h4>
+                    <div class="col-md-6 col-lg-4 mb-0">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/portfolio/dhammawheel.jpg" alt="..." />
+							
                         </div>
+			
+				                    		<!-- text here --> <p class="mb-4">
+		</p>
+
+				
                     </div>
-                    <!-- Portfolio Item 2
-           <h2 class="page-section-heading text-center">The best are Suttas</h2>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3
-          <h2 class="page-section-heading text-center">the "Secret" Background Mode</h2>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 4
-            <h2 class="page-section-heading text-center">the "Secret" Mode for Vinaya</h2>
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+
+<h4 class="page-section-heading text-center mb-4">Advanced</h4>
+                    <div class="col-md-6 col-lg-4 mb-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/game.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/portfolio/sangha.jpg" alt="..." />
+							
                         </div>
+			
+				                    		<!-- text here --> <p class="mb-4">
+		</p>
+
+				
                     </div>
--->
+
 
                 </div>
             </div>
@@ -405,12 +369,6 @@ $arg = $language . ' ' . $pattern;
     <small class="text-muted"></small>
   </a>
   
-
-  
-  
-
-  
-
 </div>  
 
 				
@@ -435,102 +393,7 @@ $arg = $language . ' ' . $pattern;
             <div class="container"><small>Copyright &copy; Dhamma.gift 2022</small></div>
         </div>
         <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 3-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+     
         <!-- Portfolio Modal 4-->
         <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
             <div class="modal-dialog modal-xl">
@@ -541,17 +404,26 @@ $arg = $language . ' ' . $pattern;
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Advanced</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
                                         <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
+                                    <!-- Portfolio Modal - Image
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/sangha.jpg" alt="..." /> -->
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4">
+
+								   								   <strong>Tip #1</strong><br>
+								   If you want to find some word in particular sutta, samyutta or nikaya run search like this: Sn17.*seyyathāpi
+								  <br>This will search for all similies and metaphors in all Sn17.<br><br>
+															<strong>Tip #2</strong><br>
+								   If you want to find some word from the beginning use \\\b before the pattern.<br><br>
+									<strong>Tip #3</strong><br>
+								   You may use regex expressions that may be used in GNU grep -E statement. with propper escaping they should work.<br><br>
+								</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -573,17 +445,29 @@ $arg = $language . ' ' . $pattern;
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tips & Tricks</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
                                         <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
+                                    <!-- Portfolio Modal - Image
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/dhammawheel.jpg" alt="..." /> -->
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">TestLorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4">
+									<strong>Tip #1</strong><br> 
+                                   We highly recommend to search in Pali. As it will give the best results and you will develop a very important habbit to look into Pali and do not rely blindly on the translations. But oviously you can get some benefits of searches in translations. If you are looking for animals, plants, etc. There are at least 4 different pali words for a snake but in Russian or English - it's just "a snake" or "a viper". <br><br>
+				
+									<strong>Tip #2</strong><br>
+                                   if your request fails due to timeout try longer search pattern.  <br><br>
+								   <strong>Tip #3</strong><br>
+                                   if your request fails due to timeout and you can't use longer search pattern try background mode menu option. it might work.<br><br> 
+								   
+                                   <strong>Tip #4</strong><br> 
+                                   if you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br><br>
+									
+									</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -614,7 +498,25 @@ $arg = $language . ' ' . $pattern;
                                     </div>
                                     <!-- Portfolio Modal - Image
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." /> -->
-                                    <!-- Portfolio Modal - Text-->
+									<!-- Portfolio Modal - Text-->
+                                     <p class="mb-4"><strong>Tip #0</strong><br>
+										If you search in Pali you don't need to check it in options. Pali is default.<br><br>
+									 <strong>Tip #1</strong><br>
+                                    Use special characters ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br><br>
+                                     <strong>Tip #2</strong><br>
+									 Search is perfomed in All DN, MN, SN, AN, and these books of KN: Dhammapada, Udāna, Itivuttaka, Suttanipāta, Theragāthā, Therīgāthā. Other books of KN will not be used in the search, you may use alternative services to make searches in Jatakas and other book of KN.<br><br>
+
+									 <strong>Tip #3</strong><br>
+                                    Use stem of the word for broader results with or without prefixes or endings. 
+									<br><br>
+									                                      <strong>Tip #4</strong><br>
+                                    Prefer Pali over other languages. Pali is the language in which the oldest Dhamma related texts are written.	
+									<br><br>
+									<strong>Tip #5</strong><br>For Pali search results you have two options: results sorted by Suttas and by words. Use both to get some extra details.<br><br>
+                                   <strong>Tip #6</strong><br>Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br><br>
+                                   
+								 
+								   </p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
