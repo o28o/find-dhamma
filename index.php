@@ -196,13 +196,36 @@ $arg = $language . ' ' . $pattern;
                     </div>  -->
                                    <!--    Portfolio Item 6 -->
           <!-- <h2 class="page-section-heading text-center mb-4">Search Basics</h2> -->
-                    <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="col-md-6 col-lg-4 mb-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/portfolio/awakening.jpg" alt="..." />
+							
                         </div>
+				
+				                       <strong><p class="mb-4">Tip #0</strong><br>
+                                    Use special characters ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br><br>
+                                      <strong>Tip #1</strong><br>
+                                    Use stem of the word for broader results. play around with or without prefixes or endings. 
+									<br><br>
+									<strong>Tip #2</strong><br>You have two options: results sorted by Suttas and by words. <br><br>
+                                   <strong>Tip #3</strong><br> Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br><br>
+                                   <strong>Tip #4</strong><br>
+                                   if your request fails due to timeout try background mode. it might work.<br><br>
+                                   <strong>Tip #5</strong><br> 
+                                   if you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br><br>
+								   <strong>Tip #6</strong><br> 
+                                   Searches in Pali will give the best results. But in cases when you're looking for animals, plants, etc. translations in other languages might help even better. e.g. there are at least 3 different pali words for a snake but in Russian or English - it's just "a snake". <br><br>
+								   <strong>Tip #7</strong><br>
+								   If you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br><br>
+								   								   <strong>Tip #8</strong><br>
+								   if you want to find some word in particular sutta, samyutta or nikaya run search like this: Sn17.*seyyathāpi
+								  <br>This will search for all similies and metaphors in all Sn17.
+								   <br>
+								   </p>
+				
                     </div>
                     <!-- Portfolio Item 1
                <h2 class="page-section-heading text-center">The best is Pali</h2>
@@ -592,23 +615,6 @@ $arg = $language . ' ' . $pattern;
                                     <!-- Portfolio Modal - Image
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." /> -->
                                     <!-- Portfolio Modal - Text-->
-                                    <strong><p class="mb-4">Tip #0</strong><br>
-                                    Use special characters ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br>
-                                      <strong>Tip #1</strong><br>
-                                    Use stem of the word for broader results. play around with or without prefixes or endings. 
-									<br>
-									<strong>Tip #2</strong><br>You have two options: results sorted by Suttas and by words. <br>
-                                   <strong>Tip #3</strong><br> Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br>
-                                   <strong>Tip #4</strong><br>
-                                   if your request fails due to timeout try background mode. it might work.<br>
-                                   <strong>Tip #5</strong><br> 
-                                   if you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br>
-								   <strong>Tip #6</strong><br> 
-                                   Searches in Pali will give the best results. But in cases when you're looking for animals, plants, etc. translations in other languages might help even better. e.g. there are at least 3 different pali words for a snake but in Russian or English - it's just "a snake". <br>
-								   <strong>Tip #7</strong><br>
-								   If you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br>
-								   
-                                    </p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window

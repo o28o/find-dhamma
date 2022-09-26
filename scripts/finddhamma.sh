@@ -180,8 +180,12 @@ function tohtml {
 tee -a ${table} table.html > /dev/null
 } 
 
+function sedexpr {
+sed 's/\.$//g' | sed 's/:$//g' | sed 's/[,!?;«—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g'  
+}
+
 function cleanwords {
-  cat $file | removeindex | clearsed | sed 's/[.,!?;:«]//g' | sed 's/[—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g'  | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
+  cat $file | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
   }
   
 #| sed 's/’ti//g'  
@@ -196,7 +200,7 @@ sed "s@$pattern@<b>&</b>@gI"
 
 function genwordsfile {
 
-cat $tempfilewords  | sed 's/[.,?;:]//g' | sed 's/[—”‘“"]/ /g' | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
+cat $tempfilewords  | sedexpr | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
 uniqwordtotal=`cat $tempfile | wc -l `
 #| sed 's/(//g' | sed 's/)//g'
 #cat $tempfile
@@ -207,6 +211,7 @@ cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$t
 cat $tempfile | while IFS= read -r line ; do
 uniqword=`echo $line | awk '{print $1}'`
 uniqcount=`echo $line | awk '{print $2}'`
+linkscount=`grep -i $uniqword $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | wc -l`
 linkswwords=`grep -i $uniqword $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | awk -F'_' '{print "<a target=_blank href=https://sc.dhamma.gift/?q="$1">"$1"</a>"}'| xargs`
 
 #echo $linkswwords
@@ -217,6 +222,7 @@ linkswwords=`grep -i $uniqword $basefile | sort | awk '{print $1}' | awk -F'/' '
 
 echo "<tr>
 <td>`echo $uniqword | highlightpattern`</td>
+<td>$linkscount</td>   
 <td>$uniqcount</td>   
 <td>$linkswwords</td>
 </tr>" >>$tempfilewords
@@ -298,7 +304,7 @@ echo $count >> $tempfile
 #`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 
-word=`getwords | removeindex | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | sed 's/[.,!?;:«]//g' | sed 's/[—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g' | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
+word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
 indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
@@ -414,6 +420,8 @@ linklang=$linkgeneral
      rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
 
 linklang=$rusthrulink	
+elif [[ "$language" == "Thai" ]]; then
+linklang=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
 
     fi 
     
@@ -425,7 +433,7 @@ linkpli=`echo $filenameblock |  awk '{print "https://sc.dhamma.gift/?q="$0"&lang
 count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 
-word=`getwords | xargs | clearsed | sed 's/[.?;:]//g' | sed 's/[—‘”"]/ /g' | highlightpattern`
+word=`getwords | xargs | clearsed | sedexpr | highlightpattern`
 indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
@@ -480,7 +488,7 @@ genwordsfile
 textsqnty=`echo $textlist | wc -w`
 capitalized=`echo $pattern | sed 's/[[:lower:]]/\U&/'`
 title="${capitalized} $textsqnty texts and $matchqnty matches in $fortitle $language"
-titlewords="${capitalized} $uniqwordtotal related words and $matchqnty matches in $fortitle $language"
+titlewords="${capitalized} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
@@ -490,12 +498,10 @@ echo "${pattern^}"
 
 rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
+
 if [[ "$language" == "Pali" ]] ||  [[ "$language" == "English" ]] 
 then 
-
-php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and\");"
+  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and\");"
 fi
-
 php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a>\");"
-		
 exit 0
