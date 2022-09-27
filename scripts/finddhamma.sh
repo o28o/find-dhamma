@@ -212,7 +212,7 @@ cat $tempfile | while IFS= read -r line ; do
 uniqword=`echo $line | awk '{print $1}'`
 uniqcount=`echo $line | awk '{print $2}'`
 linkscount=`grep -i $uniqword $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | wc -l`
-linkswwords=`grep -i $uniqword $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | awk -F'_' '{print "<a target=_blank href=https://sc.dhamma.gift/?q="$1">"$1"</a>"}'| xargs`
+linkswwords=`grep -i $uniqword $basefile | sort -n | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -n | uniq | awk -F'_' '{print "<a target=_blank href=https://sc.dhamma.gift/?q="$1">"$1"</a>"}'| xargs`
 
 #echo $linkswwords
 #cat ${links_and_words}  | tr ' ' '\n' |  egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
@@ -392,7 +392,7 @@ textlist=$uniquelist
     for i in $uniquelist
 do
 
-    filenameblock=`echo $i |  sed 's/.html//g' | sort | uniq `
+    filenameblock=`echo $i |  sed 's/.html//g' | sort -n | uniq `
 file=`grep -m1 $filenameblock $basefile`
    # count=`egrep -oi$grepgenparam "$pattern" $file | wc -l` 
 rustr=$file
