@@ -192,6 +192,7 @@ function cleanwords {
 function getwords {
 cleanwords | sort | uniq 
 cleanwords | tee -a $tempfilewords > /dev/null
+cp $tempfilewords what
 }
 
 function highlightpattern {
@@ -201,6 +202,7 @@ sed "s@$pattern@<b>&</b>@gI"
 function genwordsfile {
 
 cat $tempfilewords  | sedexpr | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
+cp $tempfile what2
 uniqwordtotal=`cat $tempfile | wc -l `
 #| sed 's/(//g' | sed 's/)//g'
 #cat $tempfile
@@ -210,9 +212,9 @@ cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$t
 
 cat $tempfile | while IFS= read -r line ; do
 uniqword=`echo $line | awk '{print $1}'`
-uniqcount=`echo $line | awk '{print $2}'`
-linkscount=`grep -i $uniqword $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | wc -l`
-linkswwords=`grep -i $uniqword $basefile | sort -n | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -n | uniq | awk -F'_' '{print "<a target=_blank href=https://sc.dhamma.gift/?q="$1">"$1"</a>"}'| xargs`
+uniqwordcount=`echo $line | awk '{print $2}'`
+linkscount=`grep -i "\b$uniqword\b" $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | wc -l`
+linkswwords=`grep -i "\b$uniqword\b" $basefile | sort -n | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -n | uniq | awk -F'_' '{print "<a target=_blank href=https://sc.dhamma.gift/?q="$1">"$1"</a>"}'| xargs`
 
 #echo $linkswwords
 #cat ${links_and_words}  | tr ' ' '\n' |  egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
@@ -223,7 +225,7 @@ linkswwords=`grep -i $uniqword $basefile | sort -n | awk '{print $1}' | awk -F'/
 echo "<tr>
 <td>`echo $uniqword | highlightpattern`</td>
 <td>$linkscount</td>   
-<td>$uniqcount</td>   
+<td>$uniqwordcount</td>   
 <td>$linkswwords</td>
 </tr>" >>$tempfilewords
 done
