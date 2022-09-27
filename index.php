@@ -414,15 +414,18 @@ $arg = $language . ' ' . $pattern;
                                     <!-- Portfolio Modal - Image
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/sangha.jpg" alt="..." /> -->
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">
-
-								   								   <strong>Tip #1</strong><br>
+                                    <p class="mb-4">	
+									<strong>Tip #1</strong><br>
 								   If you want to find some word in particular sutta, samyutta or nikaya run search like this: Sn17.*seyyathāpi
-								  <br>This will search for all similies and metaphors in all Sn17.<br><br>
-															<strong>Tip #2</strong><br>
-								   If you want to find some word from the beginning use \\\b before the pattern.<br><br>
+								  <br>This example will search for all similies and metaphors in all Sn17.<br><br>
+								  <strong>Tip #2</strong><br>
+								   To add variations you may add [], e.g. nand[iī] this will search for both nani and nandī matches.
+								 <br><br>
+								  
 									<strong>Tip #3</strong><br>
-								   You may use regex expressions that may be used in GNU grep -E statement. with propper escaping they should work.<br><br>
+								   If you want to find words beginning or ending from some pattern use \\\\b before and\or in the end of the pattern. e.g. <strong>\\\\bkummo\\\\b</strong> will search for only kummo and will skip kummova and any other<br><br>
+									<strong>Tip #4</strong><br>
+								   You may use regexes that are applicable in GNU grep -E statements. With propper escaping (\\\\) they should work.<br><br>
 								</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
@@ -457,12 +460,12 @@ $arg = $language . ' ' . $pattern;
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">
 									<strong>Tip #1</strong><br> 
-                                   We highly recommend to search in Pali. As it will give the best results and you will develop a very important habbit to look into Pali and do not rely blindly on the translations. But oviously you can get some benefits of searches in translations. If you are looking for animals, plants, etc. There are at least 4 different pali words for a snake but in Russian or English - it's just "a snake" or "a viper". <br><br>
+                                   We highly recommend to search in Pali. As it will give the best results and you will develop a very important habbit to look into Pali and do not rely blindly on the translations. But oviously you can get some benefits from searches in translations. If you are looking for animals, plants, etc. There are at least 4 different pali words for a snake but in Russian or English - it's just "a snake" or "a viper". <br><br>
 				
 									<strong>Tip #2</strong><br>
                                    if your request fails due to timeout try longer search pattern.  <br><br>
 								   <strong>Tip #3</strong><br>
-                                   if your request fails due to timeout and you can't use longer search pattern try background mode menu option. it might work.<br><br> 
+                                   if your request fails due to timeout and you can't use longer search pattern try background mode menu option. It might work.<br><br> 
 								   
                                    <strong>Tip #4</strong><br> 
                                    if you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br><br>
@@ -504,7 +507,7 @@ $arg = $language . ' ' . $pattern;
 									 <strong>Tip #1</strong><br>
                                     Use special characters ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br><br>
                                      <strong>Tip #2</strong><br>
-									 Search is perfomed in All DN, MN, SN, AN, and these books of KN: Dhammapada, Udāna, Itivuttaka, Suttanipāta, Theragāthā, Therīgāthā. Other books of KN will not be used in the search, you may use alternative services to make searches in Jatakas and other book of KN.<br><br>
+									 Search is perfomed in All DN, MN, SN, AN, and following books of KN: Dhammapada, Udāna, Itivuttaka, Suttanipāta, Theragāthā, Therīgāthā. Other books of KN will not be used in the search, you may use alternative services to make searches in Jatakas and other book of KN.<br><br>
 
 									 <strong>Tip #3</strong><br>
                                     Use stem of the word for broader results with or without prefixes or endings. 
@@ -512,7 +515,7 @@ $arg = $language . ' ' . $pattern;
 									                                      <strong>Tip #4</strong><br>
                                     Prefer Pali over other languages. Pali is the language in which the oldest Dhamma related texts are written.	
 									<br><br>
-									<strong>Tip #5</strong><br>For Pali search results you have two options: results sorted by Suttas and by words. Use both to get some extra details.<br><br>
+									<strong>Tip #5</strong><br>For Pali search results you have two options: results sorted by Suttas/Texts with quotes and by words. Use both to get some extra details.<br><br>
                                    <strong>Tip #6</strong><br>Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br><br>
                                    
 								 

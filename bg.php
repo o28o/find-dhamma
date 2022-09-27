@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>BG Find the Dhamma</title>
-<link rel="icon" type="image/png" href="https://find.dhamma.gift/templates/favico.png" />
+<link rel="icon" type="image/png" href="https://find.dhamma.gift/assets/favico.png" />
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -118,7 +118,7 @@ form:before {
         <div class="container">
             <div class="row text-white">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-				<img src="./templates/dhammafindlogo.png" alt="Dhammafind" class="center">
+				<img src="./assets/dhammafindlogo.png" alt="Dhammafind" class="center">
 
                     <h2 class=" py-3 text-truncate">BG mode Dhamma Find</h2>
                     <p>In case of timeout in normal mode: Run, wait, check result in </br><a href='list.php'>all searches</a></p>
