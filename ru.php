@@ -103,7 +103,7 @@ $pattern = $language = $arg = "";
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#project">О Проекте</a></li>             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#links">Полезное</a></li>
 						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacts">Контакты</a></li>
           
-		  <li class="nav-item mx-0 mx-lg-1"><p><a class=" py-3 px-0 px-lg-3 rounded" href="/en.php">En</a> <a class=" py-3 px-0 px-lg-3 rounded" href="/ru.php">Ru</a></p></li>	
+		  <li class="nav-item mx-0 mx-lg-1"><p><a class="py-3 px-0 px-lg-3 rounded" href="/">En</a> <a class=" py-3 px-0 px-lg-3 rounded" href="/ru.php">Ru</a></p></li>	
                     </ul>
                 </div>
             </div>
@@ -132,7 +132,7 @@ $pattern = $language = $arg = "";
 
                             <div class="form-group">
                                 <label class="sr-only">Что искать?</label>
-                                <input name="pattern"  type="text" class="form-control" placeholder="прим. Kāyagat">
+                                <input name="pattern"  type="text" class="form-control" placeholder="прим. Kāyagat" autofocus>
                             </div>
                             <br>
                             <div class="form-check form-check-inline">
@@ -168,7 +168,7 @@ $arg = $language . ' ' . $pattern;
 			
 	
 		?>	
-	<p><a class="outlink" href="/list.php">История Поиска</a></p>
+	<p><a class="outlink" href="./list.php">История Поиска</a></p>
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->
@@ -177,7 +177,13 @@ $arg = $language . ' ' . $pattern;
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
-        <div class="font-italic">  <p class="lead mb-5 font-italic text-center ">Всеобъемлющий взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
+      <!-- <div class="divider-custom-icon text-center">
+              <i class="fa-solid fa-book fa-4x" title="Exchange"></i> <i class="fa-solid fa-list fa-4x"></i>
+              </div> -->
+        <div class="font-italic">  
+  
+
+        <p class="lead mb-5 font-italic text-center ">Всеобъемлющий взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
         из Палийских Сутт и Винайи в удобных таблицах<br> для далнейшего изучения. 
 
                         </p></div> 
@@ -193,11 +199,9 @@ $arg = $language . ' ' . $pattern;
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                   
-                                 
-								 
-         <h4 class="page-section-heading text-center mb-4">Основы</h4>
+                            <h4 class="page-section-heading text-center mb-4">Демо Видео</h4>
                     <div class="col-md-6 col-lg-4 mb-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
@@ -207,9 +211,10 @@ $arg = $language . ' ' . $pattern;
 		<!-- text here --> <p class="mb-4">
 		</p>
 				
-                    </div>
+                    </div>             
+								 
             
-			<h4 class="page-section-heading text-center mb-4">Нюансы</h4>
+			<h4 class="page-section-heading text-center mb-4">Основы</h4>
                     <div class="col-md-6 col-lg-4 mb-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -399,7 +404,44 @@ $arg = $language . ' ' . $pattern;
             <div class="container"><small>Copyright &copy; Dhamma.gift 2022</small></div>
         </div>
         <!-- Portfolio Modals-->
-     
+
+	 
+	  
+        <!-- Portfolio Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Обучающее Видео</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/sangha.jpg" alt="..." /> -->
+                                    <!-- Portfolio Modal - Text-->
+                                   <iframe width="560" height="315" src="https://www.youtube.com/embed/iKRaa9D07-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Закрыть Окно
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	 
+	 
         <!-- Portfolio Modal 4-->
         <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
             <div class="modal-dialog modal-xl">
@@ -454,7 +496,7 @@ $arg = $language . ' ' . $pattern;
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Нюансы</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Основы</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -464,50 +506,7 @@ $arg = $language . ' ' . $pattern;
                                     <!-- Portfolio Modal - Image
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/dhammawheel.jpg" alt="..." /> -->
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">
-									<strong>Совет #1</strong><br> 
-                                   Мы рекомендуем искать на Пали. Так вы получите наилучшие результаты и вы разовьёте очень важную привычку - не полагаться слепо на переводы. Но очевидно, вы также можете получить некоторые преимущества от поисков на других языках. Если вы ищете животных, растения и т.п. К примеру, в текстах на Пали используется как минимум четыре разных слова. Тогда как на русском и английском это "змея" и "гадюка".<br><br>
-				
-									<strong>Совет #2</strong><br>
-                                   Если запрос завершается ошибкой из-за таймаута, попробуйте более длинный поисковый запрос.  <br><br>
-								   <strong>Совет #3</strong><br>
-                                   Если запрос завершается ошибкой из-за таймаута и вы не можете использовать  более длинный поисковый запрос, попробуйте фоновый режим из соответствующего пункта меню. Это может помочь.<br><br> 
-								   
-                                   <strong>Совет #4</strong><br> 
-                                   Если вы хотите искать в текстах Винаи добавьте -vin к поисковому запросу. К примеру, чтобы искать совпадение по cetana в Винае запрос должен выглядеть так: -vin cetana <br><br>
-									
-									</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Закрыть Окно
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 6-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Основы</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." /> -->
-									<!-- Portfolio Modal - Text-->
+
                                      <p class="mb-4"><strong>Совет #0</strong><br>
 										Если вы ищете на Пали, то его можно не выделять с помощью кнопки. Пали установлен по умолчанию.<br><br>
 									 <strong>Совет #1</strong><br>
@@ -525,7 +524,19 @@ $arg = $language . ' ' . $pattern;
                                    <strong>Совет #6</strong><br>Минимальная длинна поискового запроса - 3 символа. Но если возможно ищите более длинные шаблоны. Так вы получите более точные резльутаты.<br><br>
                                    
 								 
-								   </p>
+								 
+									<strong>Совет #7</strong><br> 
+                                   Мы рекомендуем искать на Пали. Так вы получите наилучшие результаты и вы разовьёте очень важную привычку - не полагаться слепо на переводы. Но очевидно, вы также можете получить некоторые преимущества от поисков на других языках. Если вы ищете животных, растения и т.п. К примеру, в текстах на Пали используется как минимум четыре разных слова. Тогда как на русском и английском это "змея" и "гадюка".<br><br>
+				
+									<strong>Совет #8</strong><br>
+                                   Если запрос завершается ошибкой из-за таймаута, попробуйте более длинный поисковый запрос.  <br><br>
+								   <strong>Совет #9</strong><br>
+                                   Если запрос завершается ошибкой из-за таймаута и вы не можете использовать  более длинный поисковый запрос, попробуйте фоновый режим из соответствующего пункта меню. Это может помочь.<br><br> 
+								   
+                                   <strong>Совет #10</strong><br> 
+                                   Если вы хотите искать в текстах Винаи добавьте -vin к поисковому запросу. К примеру, чтобы искать совпадение по cetana в Винае запрос должен выглядеть так: -vin cetana <br><br>
+									
+									</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Закрыть Окно
@@ -537,6 +548,8 @@ $arg = $language . ' ' . $pattern;
                 </div>
             </div>
         </div>
+
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

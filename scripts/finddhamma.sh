@@ -104,7 +104,7 @@ elif [[ "$@" == *"-ru"* ]]; then
 	printlang=Русский
     directlink=
     type=html   
-    metaphorkeys="подобно|представь|обозначение"
+    metaphorkeys="подобно|представь|обозначение|пример"
     nonmetaphorkeys="подобного"
 elif [[ "$@" == *"-pil"* ]]; then
    fnlang=_pali
@@ -166,9 +166,24 @@ md5_stdin=$(echo "$content" | md5sum | cut -d" " -f 1)
 md5_file=$(md5sum ${functionfile} | cut -d" " -f1)
 [[ "$md5_stdin" != "$md5_file" ]] && echo "$content"  > $functionfile
 }
-echo Already 
-#php -r "print(\"Go to <a href="./output/${table}">${table}</a>\");"
-#exit 0
+
+filesize=$(stat -c%s "${table}")
+
+if (( $filesize >= 1000000 ))
+then
+	echo Already ${pattern}
+	
+	if [[ "$language" == "Pali" ]] ||  [[ "$language" == "English" ]] 
+	then 
+	  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
+	fi
+	php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a>\");"
+
+	exit 0
+else 
+	echo Already 
+fi 
+
 fi
 
 
@@ -461,6 +476,12 @@ echo "</td>
 
 done
 matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
+echo "</tbody>
+</table>
+<a href="/">Main page </a>
+<a href="/output/${tempfilewords}">Words</a>
+" | tohtml
+
 cat $templatefolder/Footer.html | tohtml
 }
 
@@ -484,6 +505,7 @@ rm ${table} table.html $tempfile  $tempfilewords > /dev/null 2>&1
 
 #add links to each file
 linklist
+
 genwordsfile
 
 
@@ -501,9 +523,9 @@ echo "${pattern^}"
 rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
 
-if [[ "$language" == "Pali" ]] ||  [[ "$language" == "English" ]] 
+if [[ "$language" == "Pali" ]]
 then 
-  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and\");"
+  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
 fi
 php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a>\");"
 exit 0
