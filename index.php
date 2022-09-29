@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
     <head>
       <meta charset="UTF-8">
 
-<title>find.Dhamma.gift - Поисковый сайт Освобождения. Пали Сутты и Виная</title>
+<title>find.Dhamma.gift - For Suttas and Vinaya it's better then Google</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <!-- Favicon-->
 		
-		    <meta property="og:locale" content="ru_RU" />
+		    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="find.Dhamma.gift - Поисковая Система Освобождения" />
-    <meta property="og:description" content="Находите информацию в Суттах и Винайе на Пали, Русском, Английском и Тайском" />
+    <meta property="og:title" content="find.Dhamma.gift - Liberation Search Engine" />
+    <meta property="og:description" content="Search for Pali Suttas and Vinaya in Pali, Russian, English and Thai" />
 
     <meta property="og:url" content="https://find.dhamma.gift/" />
     <meta property="og:site_name" content="find.Dhamma.gift" />
-    <meta property="og:image" itemprop="image" content="https://find.dhamma.gift/assets/social_sharing_gift_rus.jpg" />
+    <meta property="og:image" itemprop="image" content="https://find.dhamma.gift/assets/social_sharing_gift.jpg" />
 	
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Поисковая Система Освобобждения">
-	<meta name="twitter:description" content="Находите информацию в Суттах и Винайе на Пали, Русском, Английском и Тайском">
+	<meta name="twitter:title" content="find.Dhamma.gift - Liberation Search Engine">
+	<meta name="twitter:description" content="Search for Pali Suttas and Vinaya in Pali, Russian, English and Thai">
 	
 	
 	
@@ -83,27 +83,25 @@ $pattern = $language = $arg = "";
  
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
-            <a class="navbar-brand mobile-center" href="/ru.php"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
-                <a class="navbar-brand mobile-none" href="/ru.php#page-top">find.dhamma.gift</a>
+            <a class="navbar-brand mobile-center" href="/"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
+                <a class="navbar-brand mobile-none" href="/#page-top">find.dhamma.gift</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Меню
+                    Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-      <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li> 
-	  nav-link -->
-  
-           
-		   <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
+      <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li> -->
+            
+			
+			 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="https://find.dhamma.gift/sc/">SC Light</a></li>
              
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">История Поиска</a></li>
-                       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Фоновый Режим</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#help">Помощь</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#project">О Проекте</a></li>             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#links">Полезное</a></li>
-						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacts">Контакты</a></li>
-          
-		  <li class="nav-item mx-0 mx-lg-1"><p><a class=" py-3 px-0 px-lg-3 rounded" href="/en.php">En</a> <a class=" py-3 px-0 px-lg-3 rounded" href="/ru.php">Ru</a></p></li>	
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">Search History</a></li>
+                       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Background Mode</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#help">How to</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#project">About</a></li>             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#links">Useful Links </a></li>
+						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacts">Contacts</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><p><a class=" py-3 px-0 px-lg-3 rounded" href="/en.php">En</a> <a class=" py-3 px-0 px-lg-3 rounded" href="/ru.php">Ru</a></p></li>	
                     </ul>
                 </div>
             </div>
@@ -116,7 +114,7 @@ $pattern = $language = $arg = "";
                 <!-- Masthead Avatar Image-->
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading mb-0">Найдите Истину</h1>
+                <h1 class="masthead-heading mb-0">Search for Truth</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -131,12 +129,12 @@ $pattern = $language = $arg = "";
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
                             <div class="form-group">
-                                <label class="sr-only">Что искать?</label>
-                                <input name="pattern"  type="text" class="form-control" placeholder="прим. Kāyagat">
+                                <label class="sr-only">Pattern</label>
+                                <input name="pattern"  type="text" class="form-control" placeholder="e.g. Kāyagat">
                             </div>
                             <br>
                             <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Пали
+  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pali
   </div>
                           <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
@@ -150,7 +148,7 @@ $pattern = $language = $arg = "";
   <span class="error"><?php echo $languageErr;?></span>
   <br><br>
                         <button type="submit" name="submit"
-				value="Search" class="btn btn-primary btn-lg">Найти</button>  
+				value="Search" class="btn btn-primary btn-lg">Find</button>  
 			
 				
 				</form>
@@ -168,7 +166,7 @@ $arg = $language . ' ' . $pattern;
 			
 	
 		?>	
-	<p><a class="outlink" href="/list.php">История Поиска</a></p>
+	<p><a class="outlink" href="/list.php">Search History</a></p>
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->
@@ -177,13 +175,15 @@ $arg = $language . ' ' . $pattern;
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
-        <div class="font-italic">  <p class="lead mb-5 font-italic text-center ">Всеобъемлющий взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
-        из Палийских Сутт и Винайи в удобных таблицах<br> для далнейшего изучения. 
+        <div class="font-italic">  <p class="lead mb-5 font-italic text-center ">  All-round view on meanings, definitions, <br>
+            metaphors, persons, locations and everithing else<br>
+            from Pali Suttas and Vinaya<br> 
+             in convenient tables for future reading. 
 
                         </p></div> 
          
                 <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Как Искать?</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">How To Search</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -195,7 +195,7 @@ $arg = $language . ' ' . $pattern;
                   
                                  
 								 
-         <h4 class="page-section-heading text-center mb-4">Основы</h4>
+         <h4 class="page-section-heading text-center mb-4">Search Basics</h4>
                     <div class="col-md-6 col-lg-4 mb-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -209,7 +209,7 @@ $arg = $language . ' ' . $pattern;
 				
                     </div>
             
-			<h4 class="page-section-heading text-center mb-4">Нюансы</h4>
+			<h4 class="page-section-heading text-center mb-4">Tips & Tricks</h4>
                     <div class="col-md-6 col-lg-4 mb-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -225,7 +225,7 @@ $arg = $language . ' ' . $pattern;
 				
                     </div>
 
-<h4 class="page-section-heading text-center mb-4">для Продвинутых</h4>
+<h4 class="page-section-heading text-center mb-4">Advanced</h4>
                     <div class="col-md-6 col-lg-4 mb-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -249,7 +249,7 @@ $arg = $language . ' ' . $pattern;
         <section class="page-section bg-primary text-white mb-0" id="project">
             <div class="container">
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">О Проекте</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-white">About Project</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -258,16 +258,16 @@ $arg = $language . ' ' . $pattern;
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Find.Dhamma.Gift это посиковая система Освобождения, инструмент для поиска освнованный на материалах SuttaCentral.net и Theravada.ru. Вы можете искать понятия, определения, метафоры, объяснения, людей, места и другое описанное в Суттах и Винайе на Пали, Русском, Тайском и Английском.
+                    <div class="col-lg-4 ms-auto"><p class="lead">Find.Dhamma.Gift is a Liberation Search Engine, it's a search tool based on SuttaCentral.net and Theravada.ru materials. You can search in Pali, Russian, Thai and English for meanings, definitions, metaphors, explanations, people, locations etc. described in Suttas and Vinaya.
                     </p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">Дхамма энтузиасты, разработчики горячо привествуются, у проекта большой потенциал в поисках настоящего значения текстов. Но, я не разработчик и это всего лишь скрипт на Bash и PHP-обертка😊</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">Dhamma Enthusiasts, Developers and Contributors are warmly welcome, because project has great potential to find the real meaning of the texts. But! I'm not a developer and its just a bash script with php wrapper😊</p></div>
                     
                 </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
                     <a class="btn btn-xl btn-outline-light" target="_blank" href="https://github.com/o28o/find-dhamma">
                 
-                   <i class="fa-brands fa-github"></i>     Проект на GitHub
+                   <i class="fa-brands fa-github"></i>     Project on GitHub
                     </a>
                 </div>
             </div>
@@ -275,7 +275,7 @@ $arg = $language . ' ' . $pattern;
   
         <!-- Footer-->
         <footer id="links" class="footer text-center ">
-               <h2 class="page-section-heading text-center text-uppercase text-white mb-5">Рекомендованное</h2>
+               <h2 class="page-section-heading text-center text-uppercase text-white mb-5">Recommended Links</h2>
 			   
             <div class="container">
                 <div  class="row">
@@ -283,43 +283,43 @@ $arg = $language . ' ' . $pattern;
                     <div class="col-lg-4 mb-5 mb-lg-0">
           
 
-                        <h4 class="text-uppercase mb-4">Исследование</h4>
+                        <h4 class="text-uppercase mb-4">Research</h4>
                
                 <div class="list-group">
 
   <a href="#page-top" class="list-group-item list-group-item-action active">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">find.dhamma.gift</h5>
-      <small class="text-muted">онлайн</small>
+      <small class="text-muted">online</small>
     </div>
-    <p class="mb-1">Всепроникающий поиск на Сутты и Винайю.</p>
+    <p class="mb-1">All encompassing search within all Suttas and Vinaya.</p>
     <small class="text-muted"></small>
   </a>
         <a target="_blank" href="https://digitalpalidictionary.github.io/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Digital Pali Dictionary</h5>
-      <small class="text-muted">приложение</small>
+      <small class="text-muted">app</small>
     </div>
-    <p class="mb-1">Крупнейший и самый быстры словарь и грамматика Пали.</p>
-    <small class="text-muted">Доступно для ПК, Mac, Android, IOS</small>
+    <p class="mb-1">The biggest and quickest dictionary and pali grammar.</p>
+    <small class="text-muted">Available for PC, Mac, Android, IOS</small>
   </a>
 
 
     <a target="_blank" href="https://www.wisdomlib.org/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Wisdomlib.org</h5>
-      <small class="text-muted">онлайн</small>
+      <small class="text-muted">online</small>
     </div>
-    <p class="mb-1">Прекрасная онлайн коллекция словарей. Помимо Пали -  многие духовные традиции Индии</p>
-    <small class="text-muted">Очень полезно для сложных понятий.</small>
+    <p class="mb-1">Excellent online collection of dictionaries. Not only Pali, but multiple spiritual traditions of India</p>
+    <small class="text-muted">Very helpful for difficult terms.</small>
   </a>
   
       <a target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">TamilCube.com</h5>
-      <small class="text-muted">онлайн</small>
+      <small class="text-muted">online</small>
     </div>
-    <p class="mb-1">Простой Англо-Палийский словарь</p>
+    <p class="mb-1">Simple Online English-Pali Dictionary</p>
     <small class="text-muted"></small>
   </a>
 
@@ -337,7 +337,7 @@ $arg = $language . ' ' . $pattern;
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Чтение</h4>
+                        <h4 class="text-uppercase mb-4">Read</h4>
                        
  <div class="list-group">
 
@@ -345,46 +345,50 @@ $arg = $language . ' ' . $pattern;
   <a target="_blank" href="https://Suttacentral.net" class="list-group-item list-group-item-action" aria-current="true">
     <div class="d-flex w-100 justify-content-between text-left">
       <h5 class="mb-1">Suttacentral.net</h5>
-      <small>онлайн и оффлайн</small>
+      <small>online & offline</small>
     </div>
-    <p class="mb-1 text-left">Самая полная коллекция построчных переводов Типитаки Пали-Англ.</p>
-    <small>Пали-Англ словарь можно включить в настройках</small>
+    <p class="mb-1 text-left">The most complete line-by-line Pali-English collection</p>
+    <small>Pali-English dictionary can be turned on in settings</small>
   </a>
   
     <a target="_blank"   href="https://www.digitalpalireader.online/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Digital Pali Reader</h5>
-      <small class="text-muted">онлайн и оффлайн</small>
+      <small class="text-muted">online & offline</small>
     </div>
-    <p class="mb-1">Мощный инструмент для исследования Сутт и изучения Пали.</p>
-    <small class="text-muted">Встроенный Пали-Англ словарь</small>
+    <p class="mb-1">Very profound online tool for Pali researches.</p>
+    <small class="text-muted">Built-in Pali-English dictionary</small>
   </a>
   
   <a target="_blank"  href="https://tipitaka.theravada.su/toc/translations/1097" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Tipitaka.Theravada.su</h5>
-      <small class="text-muted">онлайн</small>
+      <small class="text-muted">online</small>
     </div>
-    <p class="mb-1">Много вариантов переводов. Построчно Пали-Англ-Русский.</p>
-    <small class="text-muted">Особенно рекомендован для изучения текстов Дигха Никаи</small>
+    <p class="mb-1">Multiple translation options. Pali-English-Russian line-by-line.</p>
+    <small class="text-muted">Especially recommended for stuyding Digha Nikaya</small>
   </a>
   
   <a href="https://www.theravada.ru/" target="_blank"   class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Theravada.ru </h5>
-      <small class="text-muted">онлайн</small>
+      <small class="text-muted">online</small>
     </div>
-    <p class="mb-1">Самая полная коллекция Русских переводов Суттанты.</p>
+    <p class="mb-1">The most complete translation of Suttanta in Russian.</p>
     <small class="text-muted"></small>
   </a>
-</div>  			
+  
+</div>  
+
+				
                     </div>
                     <!-- Footer About Text-->
                     <div id="contacts" class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">Контакты</h4>
+                        <h4 class="text-uppercase mb-4">Contacts</h4>
 						
                         <p class="lead mb-4">
-                            Найдите Благородный Восьмеричный Путь. Поймите Четыре Благородные Истины. Дхамма - это Действительность.
+                            Find the Noble Eightfold Path.<br>
+							Understand the Four Noble Truths.<br>Dhamma - is Actuality.
                       
                         </p>
 							   <a  target="_blank"  class="btn btn-outline-light btn-social mx-1" href="https://github.com/o28o/find-dhamma#readme"><i class="fa-brands fa-github"></i></a>
@@ -410,7 +414,7 @@ $arg = $language . ' ' . $pattern;
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">для Продвинутых</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Advanced</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -421,21 +425,21 @@ $arg = $language . ' ' . $pattern;
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/sangha.jpg" alt="..." /> -->
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">	
-									<strong>Совет #1</strong><br>
-								   Если вы хотите найти определенное слово в определенной сутте, самьютте, никае - запустите поиск в таком виде: Sn17.*seyyathāpi
-								  <br>Запрос из примера выведет в таблицы все метафоры и сравнения из Sn17.<br><br>
-								  <strong>Совет #2</strong><br>
-								   Чтобы добавить вариации используйте [], к примеру запрос nand[iī] выведет в таблицы совпадения по обоим вариантам nandi и nandī.
+									<strong>Tip #1</strong><br>
+								   If you want to find some word in particular sutta, samyutta or nikaya run search like this: Sn17.*seyyathāpi
+								  <br>This example will search for all similies and metaphors in all Sn17.<br><br>
+								  <strong>Tip #2</strong><br>
+								   To add variations you may add [], e.g. nand[iī] this will search for both nandi and nandī matches.
 								 <br><br>
 								  
-									<strong>Совет #3</strong><br>
-								   Если вы хотите найти слова начинающиеся или заканчивающиеся с определенного шаблона, используйте \\\\b в начале и\или в конце шаблона поиска. к примеру<strong>\\\\bkummo\\\\b</strong> выведет в таблицы только kummo и пропустит kummova и любые другие совпадения<br><br>
-									<strong>Совет #4</strong><br>
-								   Вы можете использовать регулярные выражения (regex) синтаксиса GNU grep -E. С использованием escape-последовательности (\\\\) они должны работать.<br><br>
+									<strong>Tip #3</strong><br>
+								   If you want to find words beginning or ending from some pattern use \\\\b before and\or in the end of the pattern. e.g. <strong>\\\\bkummo\\\\b</strong> will search for only kummo and will skip kummova and any other<br><br>
+									<strong>Tip #4</strong><br>
+								   You may use regexes that are applicable in GNU grep -E statements. With propper escaping (\\\\) they should work.<br><br>
 								</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
-                                        Закрыть Окно
+                                        Close Window
                                     </button>
                                 </div>
                             </div>
@@ -454,7 +458,7 @@ $arg = $language . ' ' . $pattern;
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Нюансы</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tips & Tricks</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -465,21 +469,21 @@ $arg = $language . ' ' . $pattern;
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/dhammawheel.jpg" alt="..." /> -->
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">
-									<strong>Совет #1</strong><br> 
-                                   Мы рекомендуем искать на Пали. Так вы получите наилучшие результаты и вы разовьёте очень важную привычку - не полагаться слепо на переводы. Но очевидно, вы также можете получить некоторые преимущества от поисков на других языках. Если вы ищете животных, растения и т.п. К примеру, в текстах на Пали используется как минимум четыре разных слова. Тогда как на русском и английском это "змея" и "гадюка".<br><br>
+									<strong>Tip #1</strong><br> 
+                                   We highly recommend to search in Pali. As it will give the best results and you will develop a very important habbit to look into Pali and do not rely blindly on the translations. But oviously you can get some benefits from searches in translations. If you are looking for animals, plants, etc. There are at least 4 different pali words for a snake but in Russian or English - it's just "a snake" or "a viper". <br><br>
 				
-									<strong>Совет #2</strong><br>
-                                   Если запрос завершается ошибкой из-за таймаута, попробуйте более длинный поисковый запрос.  <br><br>
-								   <strong>Совет #3</strong><br>
-                                   Если запрос завершается ошибкой из-за таймаута и вы не можете использовать  более длинный поисковый запрос, попробуйте фоновый режим из соответствующего пункта меню. Это может помочь.<br><br> 
+									<strong>Tip #2</strong><br>
+                                   if your request fails due to timeout try longer search pattern.  <br><br>
+								   <strong>Tip #3</strong><br>
+                                   if your request fails due to timeout and you can't use longer search pattern try background mode menu option. It might work.<br><br> 
 								   
-                                   <strong>Совет #4</strong><br> 
-                                   Если вы хотите искать в текстах Винаи добавьте -vin к поисковому запросу. К примеру, чтобы искать совпадение по cetana в Винае запрос должен выглядеть так: -vin cetana <br><br>
+                                   <strong>Tip #4</strong><br> 
+                                   if you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br><br>
 									
 									</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
-                                        Закрыть Окно
+                                        Close Window
                                     </button>
                                 </div>
                             </div>
@@ -498,7 +502,7 @@ $arg = $language . ' ' . $pattern;
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Основы</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">How to Search</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -508,27 +512,27 @@ $arg = $language . ' ' . $pattern;
                                     <!-- Portfolio Modal - Image
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." /> -->
 									<!-- Portfolio Modal - Text-->
-                                     <p class="mb-4"><strong>Совет #0</strong><br>
-										Если вы ищете на Пали, то его можно не выделять с помощью кнопки. Пали установлен по умолчанию.<br><br>
-									 <strong>Совет #1</strong><br>
-                                    Используйте специальные символы ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br><br>
-                                     <strong>Совет #2</strong><br>
-									 Поиск делается во всех суттах ДН, МН, СН, АН и в следующих книгах КН: Дхаммапада, Удана, Итивуттака, Суттанипата, Тхерагатха, Тхеригатха. Другие книги КН не будут использваться в поиске. Вы можете использовать альтернатиные ресурсы для поиска в Джатаках и других книгах КН.<br><br>
+                                     <p class="mb-4"><strong>Tip #0</strong><br>
+										If you search in Pali you don't need to check it in options. Pali is default.<br><br>
+									 <strong>Tip #1</strong><br>
+                                    Use special characters ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br><br>
+                                     <strong>Tip #2</strong><br>
+									 Search is perfomed in All DN, MN, SN, AN, and following books of KN: Dhammapada, Udāna, Itivuttaka, Suttanipāta, Theragāthā, Therīgāthā. Other books of KN will not be used in the search, you may use alternative services to make searches in Jatakas and other book of KN.<br><br>
 
-									 <strong>Совет #3</strong><br>
-                                    Используйте корень слова для более широких результатов поиска. Или к примеру с или без приставок или окончаний, чтобы сузить результаты. 
+									 <strong>Tip #3</strong><br>
+                                    Use stem of the word for broader results with or without prefixes or endings. 
 									<br><br>
-																												<strong>Совет #4</strong><br>
-                                    Сделайте упор на Пали, используйте другие языки во вторую очередь. Пали - это язык на котором записаны самые древние тексты связанные с Дхаммой.	
+									                                      <strong>Tip #4</strong><br>
+                                    Prefer Pali over other languages. Pali is the language in which the oldest Dhamma related texts are written.	
 									<br><br>
-									<strong>Совет #5</strong><br>Результаты поиска на Пали - это: таблица совпадений по Суттам/Текстам с цитатами и таблица по словам. Используйте оба типа результатов, чтобы повысить пользу для вас.<br><br>
-                                   <strong>Совет #6</strong><br>Минимальная длинна поискового запроса - 3 символа. Но если возможно ищите более длинные шаблоны. Так вы получите более точные резльутаты.<br><br>
+									<strong>Tip #5</strong><br>For Pali search results you have two options: results sorted by Suttas/Texts with quotes and by words. Use both to get some extra details.<br><br>
+                                   <strong>Tip #6</strong><br>Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br><br>
                                    
 								 
 								   </p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
-                                        Закрыть Окно
+                                        Close Window
                                     </button>
                                 </div>
                             </div>

@@ -1,5 +1,16 @@
 RewriteEngine on
+
+
+RewriteCond %{HTTP:Accept-Language} ^ru_RU [NC]
+RewriteRule ^/$ /ru.php [L,R=302]
+
+# language starts with FR
+RewriteCond %{HTTP:Accept-Language} ^ru [NC]
+RewriteRule ^/$ /ru.php [L,R=302]
+
+# else redirect to the English version
+RewriteRule ^/$ / [L,R=302]
+
+  
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
-Options +ExecCGI
-AddHandler cgi-script .sh

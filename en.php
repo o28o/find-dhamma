@@ -92,14 +92,16 @@ $pattern = $language = $arg = "";
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
       <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li> -->
-             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="https://sc.dhamma.gift/">SC Light</a></li>
+            
+			
+			 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="https://find.dhamma.gift/sc/">SC Light</a></li>
              
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">Search History</a></li>
                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/bg.php">Background Mode</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#help">How to</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#project">About</a></li>             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#links">Useful Links </a></li>
 						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacts">Contacts</a></li>
-          
+          <li class="nav-item mx-0 mx-lg-1"><p><a class=" py-3 px-0 px-lg-3 rounded" href="/en.php">En</a> <a class=" py-3 px-0 px-lg-3 rounded" href="/ru.php">Ru</a></p></li>	
                     </ul>
                 </div>
             </div>
@@ -385,7 +387,8 @@ $arg = $language . ' ' . $pattern;
                         <h4 class="text-uppercase mb-4">Contacts</h4>
 						
                         <p class="lead mb-4">
-                            Find the Noble Eightfold Path. Understand the Four Noble Truths. Dhamma - is Actuality.
+                            Find the Noble Eightfold Path.<br>
+							Understand the Four Noble Truths.<br>Dhamma - is Actuality.
                       
                         </p>
 							   <a  target="_blank"  class="btn btn-outline-light btn-social mx-1" href="https://github.com/o28o/find-dhamma#readme"><i class="fa-brands fa-github"></i></a>
@@ -426,7 +429,7 @@ $arg = $language . ' ' . $pattern;
 								   If you want to find some word in particular sutta, samyutta or nikaya run search like this: Sn17.*seyyathāpi
 								  <br>This example will search for all similies and metaphors in all Sn17.<br><br>
 								  <strong>Tip #2</strong><br>
-								   To add variations you may add [], e.g. nand[iī] this will search for both nani and nandī matches.
+								   To add variations you may add [], e.g. nand[iī] this will search for both nandi and nandī matches.
 								 <br><br>
 								  
 									<strong>Tip #3</strong><br>
