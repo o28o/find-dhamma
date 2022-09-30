@@ -2,14 +2,18 @@
 
 cd /home/a0092061/domains/find.dhamma.gift/public_html/input
 pscheck=`ps -ef | grep bgmode.sh | grep -v grep | wc -l`
-echo pscheck $pscheck 
+inputfile=./input.txt
+#echo pscheck $pscheck 
 #clean emptly lines
-sed -i '/^$/d' ../input/input.txt
+
+#sed -i '/^$/d' ./input.txt
+grep -v "^$" $inputfile > temp && mv temp $inputfile
+
 
 #debug info
-echo begin ps list
-ps -ef | grep bgmode.sh | grep -v grep
-echo end 
+#echo begin ps list
+#ps -ef | grep bgmode.sh | grep -v grep
+#echo end 
 
 
 #quit if already running
@@ -22,9 +26,11 @@ fi
 #run the main script
 cat input.txt | sort | uniq | while read -r line 
 do  
-  echo doing $line 
+  #echo working on $line 
   ../scripts/finddhamma.sh "$line" 
-  sed -i '/^'"$line"'$/Id' input.txt 
+  grep -v "$line" $inputfile > ./temp ;
+  mv ./temp $inputfile
+#  sed -i '/^'"$line"'$/Id' ./input.txt 
 done 
 
 exit 0

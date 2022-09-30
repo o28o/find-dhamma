@@ -286,7 +286,7 @@ for filenameblock in `cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print
     
     
     rusnp=`echo $filenameblock | sed 's@\.@_@g'`
-    rustr=`find /home/a0092061/domains/find.dhamma.gift/public_html/theravada.ru/Teaching/Canon/Suttanta/Texts/ -name "*${rusnp}-*"`
+    rustr=`find $searchdir -name "*${rusnp}-*"`
 
      rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
 
@@ -432,7 +432,7 @@ linklang=$linkgeneral
 		
 	
 	   rusnp=`echo $filenameblock | sed 's@\.@_@g'`
-    rustr=`find /home/a0092061/domains/find.dhamma.gift/public_html/theravada.ru/Teaching/Canon/Suttanta/Texts/ -name "*${rusnp}-*"`
+    rustr=`find $searchdir -name "*${rusnp}-*"`
 
      rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
 

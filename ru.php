@@ -161,9 +161,11 @@ $arg = $language . ' ' . $pattern;
  </div>
 					</br>
 	<?php
+
 			    				echo $lang;
 			$old_path = getcwd();
-			$output = shell_exec("./scripts/finddhamma.sh $language $pattern"); 
+			$string = str_replace ("`", "", $pattern);
+			$output = shell_exec("./scripts/finddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
 			
 	
