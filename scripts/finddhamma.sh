@@ -207,7 +207,7 @@ function cleanwords {
 function getwords {
 cleanwords | sort | uniq 
 cleanwords | tee -a $tempfilewords > /dev/null
-cp $tempfilewords what
+
 }
 
 function highlightpattern {
@@ -217,7 +217,7 @@ sed "s@$pattern@<b>&</b>@gI"
 function genwordsfile {
 
 cat $tempfilewords  | sedexpr | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
-cp $tempfile what2
+
 uniqwordtotal=`cat $tempfile | wc -l `
 #| sed 's/(//g' | sed 's/)//g'
 #cat $tempfile

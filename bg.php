@@ -148,7 +148,7 @@ form:before {
 fwrite($fp, $pattern);
 fwrite($fp, "\n");
 fclose($fp);
-echo "<p>Wait for 15-20 minutes and check the result in <a href='list.php'>All Searches</a></p>";
+echo "<p>Wait for 30-40 minutes and check the result in <a href='list.php'>All Searches</a></p>";
 
 	/*		$old_path = getcwd();
 			$output = shell_exec("nohup ./scripts/finddhamma.sh $pattern &" ); 
