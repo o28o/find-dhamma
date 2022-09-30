@@ -177,13 +177,14 @@ $arg = $language . ' ' . $pattern;
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
+
       <!-- <div class="divider-custom-icon text-center">
               <i class="fa-solid fa-book fa-4x" title="Exchange"></i> <i class="fa-solid fa-list fa-4x"></i>
               </div> -->
         <div class="font-italic">  
   
 
-        <p class="lead mb-5 font-italic text-center ">Всеобъемлющий взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
+        <p class="lead mb-5 font-italic text-center ">Всесторонний взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
         из Палийских Сутт и Винайи в удобных таблицах<br> для далнейшего изучения. 
 
                         </p></div> 
@@ -394,7 +395,8 @@ $arg = $language . ' ' . $pattern;
                         </p>
 							   <a  target="_blank"  class="btn btn-outline-light btn-social mx-1" href="https://github.com/o28o/find-dhamma#readme"><i class="fa-brands fa-github"></i></a>
                         <a  target="_blank"  class="btn btn-outline-light btn-social mx-1" href="mailto:o@dhamma.gift"><i class="fa-solid fa-at"></i></a>
-						
+			
+						<a href="https://m.youtube.com/channel/UCoyL5T0wMubqrj4OnKVOlMw" class="btn btn-outline-light btn-social mx-1" title="YouTube" target="_blank" rel="nofollow"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -427,8 +429,9 @@ $arg = $language . ' ' . $pattern;
                                     <!-- Portfolio Modal - Image
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/sangha.jpg" alt="..." /> -->
                                     <!-- Portfolio Modal - Text-->
-                                   <iframe width="560" height="315" src="https://www.youtube.com/embed/iKRaa9D07-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									
+                                       <div class="embed-container"> 
+                                   <iframe src="https://www.youtube.com/embed/iKRaa9D07-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							                    		</div>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Закрыть Окно

@@ -296,6 +296,20 @@ $arg = $language . ' ' . $pattern;
                 -->
             </div>
         </header>
+        
+                   <div class="divider-custom-icon text-center">   
+              <div class="sidebar-social">
+<a href="URL-HERE" title="Facebook" target="_blank" rel="nofollow">
+    <i class="fa-solid fa-book fa-4x" title="Exchange"></i> 
+<span>Google plus</span>
+  </a>
+<a href="URL-HERE" title="Instagram" target="_blank" rel="nofollow">
+    <i class="fa-solid fa-list fa-4x"></i>
+    <span>Google plus</span>
+  </a>
+  
+</div>
+ </div> 
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
