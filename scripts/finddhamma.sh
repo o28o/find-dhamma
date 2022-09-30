@@ -138,7 +138,7 @@ else
 fi
 
 #filename
-fn=`echo $pattern | sed 's/ /_/g' | sed 's/\\\//g' |  awk '{print tolower($0)}'`
+fn=`echo $pattern | sed 's/|/_/g' | sed 's/ /_/g' | sed 's/\\\//g' |  awk '{print tolower($0)}'`
 fn=${fn}${fileprefix}${fnlang}
 
 extention=txt
