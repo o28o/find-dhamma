@@ -53,7 +53,8 @@ echo "<tr>
 <td>$creationdate</td>
 </tr>"
 done
-
+echo "</table>
+<a href="/">Main page </a>"
 cat $templatefolder/Footer.html 
 
 

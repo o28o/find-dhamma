@@ -169,7 +169,7 @@ md5_file=$(md5sum ${functionfile} | cut -d" " -f1)
 
 filesize=$(stat -c%s "${table}")
 
-if (( $filesize >= 1000000 ))
+if (( $filesize >= 800000 )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
 then
 	echo Already ${pattern}
 	

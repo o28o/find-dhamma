@@ -121,7 +121,7 @@ form:before {
 				<img src="./assets/dhammafindlogo.png" alt="Dhammafind" class="center">
 
                     <h2 class=" py-3 text-truncate">BG mode Dhamma Find</h2>
-                    <p>In case of timeout in normal mode: Run, wait, check result in </br><a href='list.php'>all searches</a></p>
+                    <p>In case of timeout in normal mode</br></p>
                     <div class="px-4">
                         
 						<form method="post" action=
@@ -143,10 +143,17 @@ form:before {
  			echo "<br>";
 			echo $pitaka; */
 			
-			$old_path = getcwd();
+			
+			$fp = fopen('./input/input.txt', 'a');
+fwrite($fp, $pattern);
+fwrite($fp, "\n");
+fclose($fp);
+echo "<p>Wait for 15-20 minutes and check the result in <a href='list.php'>All Searches</a></p>";
+
+	/*		$old_path = getcwd();
 			$output = shell_exec("nohup ./scripts/finddhamma.sh $pattern &" ); 
 			echo "<p>$output</p>";
-			
+			*/
 		?>
 		<p><a href='list.php'>All Searches</a></p>
                 </div>
