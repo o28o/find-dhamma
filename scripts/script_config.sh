@@ -1,6 +1,6 @@
 #for grepallsuttas.sh
 rootpath=/home/a0092061/domains/find.dhamma.gift/public_html/scripts
-suttapath=/home/a0092061/domains/find.dhamma.gift/public_html/suttacentral.net/
+suttapath=/home/a0092061/data/suttacentral.net/
 output=/home/a0092061/domains/find.dhamma.gift/public_html/output/
 wbefore=1
 wafter=3
@@ -11,7 +11,7 @@ templatefolder=/home/a0092061/domains/find.dhamma.gift/public_html/templates
 
 #for find in all theravada.ru suttas
 scriptdir=$rootpath
-searchdir=$scriptdir/theravada.ru/Teaching/Canon/Suttanta/Texts
+searchdir=/home/a0092061/data/theravada.ru/Teaching/Canon/Suttanta/Texts
 outputdir=$output
 
 
