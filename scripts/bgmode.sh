@@ -19,7 +19,8 @@ fi
 
 #clean emptly lines
 #sed -i '/^$/d' ./input.txt
-grep -v "^$" $inputfile > temp && mv temp $inputfile
+grep -v "^$" $inputfile > temp  
+mv temp $inputfile
 
 #run the main script
 cat input.txt | sort | uniq | while read -r line 
