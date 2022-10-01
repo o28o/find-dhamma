@@ -184,7 +184,9 @@ $arg = $language . ' ' . $pattern;
                         </p></div> 
          
                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Examples</h2>  
-              <ol class="mb-5">
+              <div class="mb-5">
+              <ol class="col-lg-8 col-md-10 ms-auto">
+			  
                      <li>All <a href="./list.php">previous searches</a></li>
              <li>All variants of the words <a href="https://find.dhamma.gift/assets/demo/pa%E1%B9%ADiccasamupp_sutta_pali_words.html">paṭiccasamuppado</a> in Pali</li>
             
@@ -194,7 +196,7 @@ $arg = $language . ' ' . $pattern;
       
              <li>All suttas about or containing the word <a href="https://find.dhamma.gift/assets/demo/ocean_sutta_en.html">ocean</a> in English</li>
               </ol>    
-         
+</div>         
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">How to Search</h2>
                 <!-- Icon Divider-->
