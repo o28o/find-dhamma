@@ -170,7 +170,8 @@ filesize=$(stat -c%s "${table}")
 
 if (( $filesize >= 1024 )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
 then
-	#echo Already ${pattern}
+	#echo Already 
+	echo ${pattern}
 	echo "$language - "	
 	if [[ "$language" == "Pali" ]] 
 	then 
@@ -515,7 +516,7 @@ sed -i 's/TitletoReplace/'"$title"'/g' table.html
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
 sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 
-#echo "${pattern^}"
+echo "${pattern^}"
 #echo "${fortitle^} $language"
 echo "$language - "
 
