@@ -167,10 +167,10 @@ $arg = $language . ' ' . $pattern;
 			echo $lang;
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $pattern);
-			$output = shell_exec("./scripts/finddhamma.sh $language $string"); 
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
 		?>	
-	<p><a class="outlink" href="/list.php">All Searches</a></p>
+<!--	<p><a class="outlink" href="/list.php">All Searches</a></p> -->
         </header>
 	
         <!-- Portfolio Section-->
@@ -184,7 +184,8 @@ $arg = $language . ' ' . $pattern;
                         </p></div> 
          
                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Examples</h2>  
-              <ul class="mb-5">
+              <ol class="mb-5">
+                     <li>All <a href="./list.php">previous searches</a></li>
              <li>All variants of the words <a href="https://find.dhamma.gift/output/pa%E1%B9%ADiccasamupp_sutta_pali_words.html">paṭiccasamuppado</a> in Pali</li>
             
                 <li>All suttas about <a href="https://find.dhamma.gift/output/eightfold_sutta_en.html">Eightfold</a> Path in English</li>
@@ -192,7 +193,7 @@ $arg = $language . ' ' . $pattern;
                 <li>All suttas where <a href="https://find.dhamma.gift/output/%D1%81%D0%B0%D1%80%D0%B8%D0%BF%D1%83%D1%82%D1%82_sutta_ru.html">Sariputta</a> was mentioned in Russian</li>
       
              <li>All suttas about or containing the word <a href="https://find.dhamma.gift/output/ocean_sutta_en.html">ocean</a> in English</li>
-              </ul>    
+              </ol>    
          
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">How to Search</h2>

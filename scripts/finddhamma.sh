@@ -168,15 +168,16 @@ md5_file=$(md5sum ${functionfile} | cut -d" " -f1)
 
 filesize=$(stat -c%s "${table}")
 
-if (( $filesize >= 102400 )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
+if (( $filesize >= 1024 )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
 then
 	#echo Already ${pattern}
 	
-	if [[ "$language" == "Pali" ]] ||  [[ "$language" == "English" ]] 
+	if [[ "$language" == "Pali" ]] 
 	then 
+	echo "$language -"
 	  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
 	fi
-	php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a>\");"
+	php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a><br>\n\");"
 
 	exit 0
 #else 
@@ -521,11 +522,12 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 echo "$language - "
 
 rm $basefile $tempfile > /dev/null 2>&1
-php -r 'header("Location: ./output/table.html");'
+#php -r 'header("Location: ./output/table.html");'
 
 if [[ "$language" == "Pali" ]]
 then 
+#echo "$language -"
   php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
 fi
-php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a><br>\");"
+php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a><br>\n\");"
 exit 0
