@@ -106,7 +106,8 @@ $pattern = $language = $arg = "";
                 <!-- Masthead Avatar Image-->
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading mb-0">Тестовый Режим</h1>
+                <h1 class="masthead-heading mb-3">Тестовый Режим</h1>
+                <h5 class="mr=5">на Пали, Русском, ไทย и English</h5>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -122,7 +123,7 @@ $pattern = $language = $arg = "";
 
                             <div class="form-group">
                                 <label class="sr-only">Что искать?</label>
-                                <input name="pattern"  type="text" class="form-control" placeholder="прим. Kāyagat" autofocus>
+                                <input name="pattern"  type="text" class="form-control" placeholder="прим. Kāyagat " autofocus>
                             </div>
                    <!--      <br>
  <div class="form-check form-check-inline">
@@ -156,7 +157,7 @@ $arg = $language . ' ' . $pattern;
 			$output = shell_exec("./scripts/findinall.sh $language $string"); 
 			echo "<p>$output</p>";
 		?>	
-	<p><a class="outlink" href="./list.php">История Поиска</a></p>
+<!--	<p><a class="outlink" href="./list.php">История Поиска</a></p> -->
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->

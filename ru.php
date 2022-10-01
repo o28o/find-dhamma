@@ -155,7 +155,7 @@ $arg = $language . ' ' . $pattern;
 			$output = shell_exec("./scripts/finddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
 		?>	
-	<p><a class="outlink" href="./list.php">История Поиска</a></p>
+<!--	<p><a class="outlink" href="./list.php">История Поиска</a></p> -->
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->
@@ -177,8 +177,10 @@ $arg = $language . ' ' . $pattern;
                         </p>
                                                 </div> 
                                                 
-                      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2>  
+                      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2> 
+
               <ul class="mb-5">
+                <li>Вся <a href="./list.php">история поиска</a></li>
                 <li>Все сутты о <a href="https://find.dhamma.gift/output/%D0%B2%D0%BE%D1%81%D1%8C%D0%BC%D0%B5%D1%80%D0%B8%D1%87%D0%BD_sutta_ru.html">Восьмеричном</a> Пути на Русском</li>
                 <li>Все сутты со словом <a href="https://find.dhamma.gift/output/%D0%BD%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D1%8C_sutta_ru.html">нравственность</a> на Русском</li>
                 <li>Все сутты, где упомянут <a href="https://find.dhamma.gift/output/%D1%81%D0%B0%D1%80%D0%B8%D0%BF%D1%83%D1%82%D1%82_sutta_ru.html">Сарипутта</a> на Русском</li>
