@@ -107,7 +107,7 @@ $pattern = $language = $arg = "";
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading mb-3">Найдите Истину</h1>
-                <h5 class="mr=5">на Пали, Русском, ไทย и English</h5>
+                <h5 class="mr=5">Pāḷi, Русский, ไทย и English</h5>
 				
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
