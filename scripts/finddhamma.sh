@@ -224,7 +224,7 @@ uniqwordtotal=`cat $tempfile | wc -l `
 
 cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$title/TitletoReplace/g' > $tempfilewords 
 
-cat $tempfile | while IFS= read -r line ; do
+cat $tempfile | pv -L 10m -q | while IFS= read -r line ; do
 uniqword=`echo $line | awk '{print $1}'`
 uniqwordcount=`echo $line | awk '{print $2}'`
 linkscount=`grep -i "\b$uniqword\b" $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | wc -l`
@@ -274,9 +274,9 @@ function linklist {
 
 cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
-textlist=`cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq`
+textlist=`cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq`
 
-for filenameblock in `cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq` ; do 
+for filenameblock in `cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq` ; do 
 
     roottext=`find $lookup/root -name "*${filenameblock}_*"`
     translation=`find $lookup/translation/en/ -name "*${filenameblock}_*"`
@@ -323,7 +323,7 @@ echo $count >> $tempfile
 word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
 indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
-metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
+metaphorindexlist=`cat $file | pv -L 10m -q | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
 
 metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
