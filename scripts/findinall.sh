@@ -38,23 +38,23 @@ fi
 if [[ "$@" =~ "-en" ]] || [[ "$@" =~ "-ru" ]] || [[ "$@" =~ "-pli" ]] || [[ "$@" =~ "-th" ]]
 then
     #echo "single language mode<br>"
-    $mainscript "$pattern"
+  nice -19  $mainscript "$pattern"
 exit 0
 fi 
 
 
 #run for all
-$mainscript $pitaka -pli "$pattern" 
+nice -19 $mainscript $pitaka -pli "$pattern" 
 status=$?
 if (( "$status" == "3" ))
 then                                                                   #echo status=$status
     exit 3
 fi
 
-$mainscript $pitaka -ru "$pattern"
-$mainscript $pitaka -en "$pattern"
-$mainscript $pitaka -th "$pattern"
-
+nice -19 $mainscript $pitaka -ru "$pattern"
+nice -19 $mainscript $pitaka -en "$pattern"
+nice -19 $mainscript $pitaka -th "$pattern"
+ 
 exit 0
 
 status=$?
