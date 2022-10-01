@@ -120,7 +120,7 @@ form:before {
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
 				<img src="./assets/dhammafindlogo.png" alt="Dhammafind" class="center">
 
-                    <h2 class=" py-3 text-truncate">BG mode Dhamma Find</h2>
+                    <h2 class=" py-3 text-truncate">Background mode</h2>
                     <p>In case of timeout in normal mode</br></p>
                     <div class="px-4">
                         

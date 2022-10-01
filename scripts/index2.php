@@ -173,6 +173,16 @@ $pattern = $language = $arg = "";
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div>
   <span class="error"><?php echo $languageErr;?></span>
+  
+  
+  
+  <button>Reset</button>
+   
+   <script type="text/javascript">
+   $('button').click(function () {
+	$('.btn-group').find('label').removeClass('active').end().find('[type="radio"]').prop('checked', false);
+});
+   </script>
   <br><br>
                         <button type="submit" name="submit"
 				value="Search" class="btn btn-primary btn-lg">Find</button>  

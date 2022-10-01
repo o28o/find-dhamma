@@ -10,21 +10,16 @@
         <meta name="author" content="" />
         <!-- Favicon-->
 		
-		    <meta property="og:locale" content="ru_RU" />
+	<meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="find.Dhamma.gift - Поисковая Система Освобождения" />
     <meta property="og:description" content="Находите информацию в Суттах и Винайе на Пали, Русском, Английском и Тайском" />
-
     <meta property="og:url" content="https://find.dhamma.gift/" />
     <meta property="og:site_name" content="find.Dhamma.gift" />
     <meta property="og:image" itemprop="image" content="https://find.dhamma.gift/assets/social_sharing_gift_rus.jpg" />
-	
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Поисковая Система Освобобждения">
 	<meta name="twitter:description" content="Находите информацию в Суттах и Винайе на Пали, Русском, Английском и Тайском">
-	
-	
-	
 	<link rel="icon" type="image/png" href="./assets/favico.png" />
     
         <!-- Font Awesome icons (free version)-->
@@ -38,7 +33,6 @@
     </head>
       <body id="page-top"> 
     	<?php
-
 		// Defining variables
 $nameErr = $languageErr  = "";
 $pattern = $language = $arg = "";
@@ -60,12 +54,10 @@ $pattern = $language = $arg = "";
     $language = test_input($_POST["language"]);
   }
 }	
-		
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$pattern = test_input($_POST["pattern"]);
 /* 		$pitaka = test_input($_POST["pitaka"]);
  */		}
-
 		// Removing the redundant HTML characters if any exist.
 		function test_input($data) {
 		$data = trim($data);
@@ -94,7 +86,6 @@ $pattern = $language = $arg = "";
       <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li> 
 	  nav-link -->
   
-           
 		   <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
              
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/list.php?lang=pali">История Поиска</a></li>
@@ -112,7 +103,6 @@ $pattern = $language = $arg = "";
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                         
-
                 <!-- Masthead Avatar Image-->
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
@@ -136,7 +126,7 @@ $pattern = $language = $arg = "";
                             </div>
                             <br>
                             <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Пали
+  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Пали
   </div>
                           <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
@@ -147,28 +137,23 @@ $pattern = $language = $arg = "";
                               <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div>
+   
   <span class="error"><?php echo $languageErr;?></span>
   <br><br>
-                        <button type="submit" name="submit"
+         <button type="submit" name="submit"
 				value="Search" class="btn btn-primary btn-lg">Найти</button>  
-			
-				
 				</form>
 <?php
-
 $arg = $language . ' ' . $pattern;
 ?>
  </div>
-					</br>
+		</br>
 	<?php
-
-			    				echo $lang;
+ 			echo $lang;
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $pattern);
 			$output = shell_exec("./scripts/finddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
-			
-	
 		?>	
 	<p><a class="outlink" href="./list.php">История Поиска</a></p>
                 <!-- Masthead Subheading
@@ -187,9 +172,20 @@ $arg = $language . ' ' . $pattern;
   
 
         <p class="lead mb-5 font-italic text-center ">Всесторонний взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
-        из Палийских Сутт и Винайи в удобных таблицах<br> для далнейшего изучения. 
+        из Палийских Сутт и Винайи в удобных таблицах<br> для далнейшего изучения.
 
-                        </p></div> 
+                        </p>
+                                                </div> 
+                                                
+                      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2>  
+              <ul class="mb-5">
+                <li>Все сутты о <a href="https://find.dhamma.gift/output/%D0%B2%D0%BE%D1%81%D1%8C%D0%BC%D0%B5%D1%80%D0%B8%D1%87%D0%BD_sutta_ru.html">Восьмеричном</a> Пути на Русском</li>
+                <li>Все сутты со словом <a href="https://find.dhamma.gift/output/%D0%BD%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D1%8C_sutta_ru.html">нравственность</a> на Русском</li>
+                <li>Все сутты, где упомянут <a href="https://find.dhamma.gift/output/%D1%81%D0%B0%D1%80%D0%B8%D0%BF%D1%83%D1%82%D1%82_sutta_ru.html">Сарипутта</a> на Русском</li>
+               <li>Все варианты словосочетания <a href="https://find.dhamma.gift/output/pa%E1%B9%ADiccasamupp_sutta_pali_words.html">paṭiccasamuppado</a> на Пали</li>
+               <li>Все сутты где, говорится об <a href="https://find.dhamma.gift/output/%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD_sutta_ru.html">океане</a> на Русском</li>
+              </ul>    
+
          
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Как Искать?</h2>
@@ -560,9 +556,6 @@ $arg = $language . ' ' . $pattern;
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
     </body>
 </html>

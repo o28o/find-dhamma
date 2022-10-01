@@ -5,8 +5,8 @@ source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config
 cd $output 
 
 function grepbrief {
-	
-	awk -v ptn="$pattern" -v cnt1=$wbefore -v cnt2=$wafter '
+    
+    awk -v ptn="$pattern" -v cnt1=$wbefore -v cnt2=$wafter '
 { for (i=1;i<=NF;i++)
       if ($i ~ ptn) {
          sep=""
@@ -24,11 +24,11 @@ function grepbrief {
 pattern="$@"
 #pattern=океан
 minlength=3
-if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]] 
+if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] 
 then   
 #echo -e "Content-Type: text/html\n\n"
    echo Empty pattern 
-   exit 3
+   exit 1
 elif   [ "${#pattern}" -lt "$minlength" ]
 then
 echo Too short. Min is $minlength
@@ -38,7 +38,7 @@ fi
 #pattern=adhivacanas
 
 function clearargs {
-sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g'
+sed -e 's/-pil//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g'
 }
 #set search language from args or set default
 
@@ -62,14 +62,14 @@ fileprefix=_sutta
 if [[ "$@" == *"-vin"* ]]; then
     vin=
     sutta=sutta
-	fortitle=Vinaya
+    fortitle=Vinaya
     #echo search in vinaya
     fileprefix=_vinaya
 fi
 if [[ "$@" == *"-abhi"* ]]; then
     abhi=
     sutta=sutta
-	fortitle=Abhidhamma
+    fortitle=Abhidhamma
     fileprefix=_abhidhamma
     #echo search in abhidhamma
 fi
@@ -85,14 +85,14 @@ if [[ "$" == *"-h"* ]]; then
     -abhi - to search in abhidhamma texts only
     -en - to search in english
     -ru - to search in russian
-    -pli - search in pali on legacy.suttacentral.net archive
+    -pil - search in pali on legacy.suttacentral.net archive
     "
     exit 0
 elif [[ "$@" == *"-th"* ]]; then
     fnlang=_th
     pali_or_lang=sc-data/html_text/th/pli 
     language=Thai
-	printlang=ไทย
+    printlang=ไทย
     directlink=
     type=html   
     metaphorkeys="подобно|представь|обозначение"
@@ -101,25 +101,26 @@ elif [[ "$@" == *"-ru"* ]]; then
     fnlang=_ru
     pali_or_lang=sc-data/html_text/ru/pli 
     language=Russian
-	printlang=Русский
+    printlang=Русский
     directlink=
     type=html   
     metaphorkeys="подобно|представь|обозначение|пример"
     nonmetaphorkeys="подобного"
-elif [[ "$@" == *"-pli"* ]]; then
-    fnlang=_pali
-    pali_or_lang=sc-data/sc_bilara_data/root/pli/ms
-    directlink=/pli/ms
-    #directlink=/en/?layout=linebyline
+elif [[ "$@" == *"-pil"* ]]; then
+   fnlang=_pali
+    pali_or_lang=legacy-suttacentral-data-master/text/pi
     language=Pali
-    type=json
-    metaphorkeys="seyyathāpi|adhivacan"
+    directlink=/pli/ms
+    directlink=/en/?layout=linebyline
+    directlink=
+    type=html
+    metaphorkeys="seyyathāpi|adhivacan|ūpamā|ūpama|opama|upamā"
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath"
    #modify pattern as legacy uses different letters
     #pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs`
 elif [[ "$@" == *"-en"* ]]; then
     fnlang=_en
-	printlang=English
+    printlang=English
     pali_or_lang=sc-data/sc_bilara_data/translation/
     language=English
     type=json
@@ -168,19 +169,19 @@ md5_file=$(md5sum ${functionfile} | cut -d" " -f1)
 
 filesize=$(stat -c%s "${table}")
 
-if (( $filesize >= 102400 )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
+if (( $filesize >= 800000 )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
 then
-	#echo Already ${pattern}
-	
-	if [[ "$language" == "Pali" ]] ||  [[ "$language" == "English" ]] 
-	then 
-	  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
-	fi
-	php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a>\");"
+    echo Already ${pattern}
+    
+    if [[ "$language" == "Pali" ]] ||  [[ "$language" == "English" ]] 
+    then 
+      php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
+    fi
+    php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a>\");"
 
-	exit 0
-#else 
-#	echo Already 
+    exit 0
+else 
+    echo Already 
 fi 
 
 fi
@@ -339,11 +340,11 @@ echo "<tr>
 
 for i in $indexlist
 do              
-		for f in  $roottext $translation #$variant
+        for f in  $roottext $translation #$variant
         do      
         #echo rt=$roottext
-		quote=`egrep -iE "${i}([^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
-echo "$quote<br class="btwntrn">"			
+        quote=`egrep -iE "${i}([^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
+echo "$quote<br class="btwntrn">"                       
         done 
 echo '<br class="styled">'
 done | tohtml 
@@ -419,7 +420,7 @@ rustr=$file
    # variant=`find $lookup/variant -name "*${filenameblock}_*"`
     
     suttanumber="$filenameblock"
-	linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
+    linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
 
 linklang=$linkgeneral
 
@@ -428,14 +429,14 @@ linklang=$linkgeneral
         file=$roottext
     elif [[ "$language" == "Russian" ]]; then
         file=$rustr
-		
-	
-	   rusnp=`echo $filenameblock | sed 's@\.@_@g'`
+        
+    
+       rusnp=`echo $filenameblock | sed 's@\.@_@g'`
     rustr=`find $searchdir -name "*${rusnp}-*"`
 
      rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
 
-linklang=$rusthrulink	
+linklang=$rusthrulink   
 elif [[ "$language" == "Thai" ]]; then
 linklang=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
 
@@ -491,7 +492,7 @@ egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude
 
 if [ ! -s $basefile ]
 then
-     echo "$language - no<br>"
+     echo "${pattern} not found in $fortitle $language" 
      rm $basefile
      exit 1
 fi
@@ -507,6 +508,7 @@ linklist
 
 genwordsfile
 
+
 textsqnty=`echo $textlist | wc -w`
 capitalized=`echo $pattern | sed 's/[[:lower:]]/\U&/'`
 title="${capitalized} $textsqnty texts and $matchqnty matches in $fortitle $language"
@@ -516,9 +518,7 @@ sed -i 's/TitletoReplace/'"$title"'/g' table.html
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
 sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 
-#echo "${pattern^}"
-#echo "${fortitle^} $language"
-echo "$language - "
+echo "${pattern^}"
 
 rm $basefile $tempfile > /dev/null 2>&1
 php -r 'header("Location: ./output/table.html");'
@@ -527,5 +527,6 @@ if [[ "$language" == "Pali" ]]
 then 
   php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
 fi
-php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a><br>\");"
+php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a>\");"
 exit 0
+
