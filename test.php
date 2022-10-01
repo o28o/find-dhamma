@@ -13,13 +13,13 @@
 	<meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="find.Dhamma.gift - Поисковая Система Освобождения" />
-    <meta property="og:description" content="Находите информацию в Суттах и Винайе на Пали, Русском, Английском и Тайском" />
+    <meta property="og:description" content="Находите информацию в Суттах и Винае на Пали, Русском, Английском и Тайском" />
     <meta property="og:url" content="https://find.dhamma.gift/" />
     <meta property="og:site_name" content="find.Dhamma.gift" />
     <meta property="og:image" itemprop="image" content="https://find.dhamma.gift/assets/social_sharing_gift_rus.jpg" />
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Поисковая Система Освобобждения">
-	<meta name="twitter:description" content="Находите информацию в Суттах и Винайе на Пали, Русском, Английском и Тайском">
+	<meta name="twitter:description" content="Находите информацию в Суттах и Винае на Пали, Русском, Английском и Тайском">
 	<link rel="icon" type="image/png" href="./assets/favico.png" />
     
         <!-- Font Awesome icons (free version)-->
@@ -75,8 +75,8 @@ $pattern = $language = $arg = "";
  
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
-            <a class="navbar-brand mobile-center" href="/test.php"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
-                <a class="navbar-brand mobile-none" href="/test.php#page-top">find.dhamma.gift</a>
+            <a class="navbar-brand mobile-center" href="/ru.php"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
+                <a class="navbar-brand mobile-none" href="/ru.php#page-top">find.dhamma.gift</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Меню
                     <i class="fas fa-bars"></i>
@@ -106,8 +106,9 @@ $pattern = $language = $arg = "";
                 <!-- Masthead Avatar Image-->
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading mb-3">Тестовый Режим</h1>
+                <h1 class="masthead-heading mb-3">Найдите Истину</h1>
                 <h5 class="mr=5">на Пали, Русском, ไทย и English</h5>
+				
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -157,12 +158,16 @@ $arg = $language . ' ' . $pattern;
 			$output = shell_exec("nice -19 ./scripts/findinall.sh $language $string"); 
 			echo "<p>$output</p>";
 		?>	
-<!--	<p><a class="outlink" href="./list.php">История Поиска</a></p> -->
+	<p><a class="outlink" href="./list.php">История Поиска</a></p> 
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->
             </div>
         </header>
+						   
+						   
+						   
+						   
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
@@ -174,9 +179,22 @@ $arg = $language . ' ' . $pattern;
   
 
         <p class="lead mb-5 font-italic text-center ">Всесторонний взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
-        из Палийских Сутт и Винайи в удобных таблицах<br> для далнейшего изучения. 
+        из Палийских Сутт и Винаи в удобных таблицах<br> для далнейшего изучения.
 
-                        </p></div> 
+                        </p>
+                                                </div> 
+                                                
+                      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2> 
+<div class="row mb-5">
+              <ol class="col-lg-8 ms-auto">
+                <!-- <li>Вся <a href="./list.php">история поиска</a></li> -->
+                <li>Все сутты о <a href="https://find.dhamma.gift/output/%D0%B2%D0%BE%D1%81%D1%8C%D0%BC%D0%B5%D1%80%D0%B8%D1%87%D0%BD_sutta_ru.html">Восьмеричном</a> Пути на Русском</li>
+                <li>Все сутты со словом <a href="https://find.dhamma.gift/output/%D0%BD%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D1%8C_sutta_ru.html">нравственность</a> на Русском</li>
+                <li>Все сутты, где упомянут <a href="https://find.dhamma.gift/output/%D1%81%D0%B0%D1%80%D0%B8%D0%BF%D1%83%D1%82%D1%82_sutta_ru.html">Сарипутта</a> на Русском</li>
+               <li>Все варианты словосочетания <a href="https://find.dhamma.gift/output/pa%E1%B9%ADiccasamupp_sutta_pali_words.html">paṭiccasamuppado</a> на Пали</li>
+               <li>Все сутты где, говорится об <a href="https://find.dhamma.gift/output/%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD_sutta_ru.html">океане</a> на Русском</li>
+              </ol>    
+</div>
          
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Как Искать?</h2>
@@ -253,7 +271,7 @@ $arg = $language . ' ' . $pattern;
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Find.Dhamma.Gift это посиковая система Освобождения, инструмент для поиска освнованный на материалах SuttaCentral.net и Theravada.ru. Вы можете искать понятия, определения, метафоры, объяснения, людей, места и другое описанное в Суттах и Винайе на Пали, Русском, Тайском и Английском.
+                    <div class="col-lg-4 ms-auto"><p class="lead">Find.Dhamma.Gift это посиковая система Освобождения, инструмент для поиска освнованный на материалах SuttaCentral.net и Theravada.ru. Вы можете искать понятия, определения, метафоры, объяснения, людей, места и другое описанное в Суттах и Винае на Пали, Русском, Тайском и Английском.
                     </p></div>
                     <div class="col-lg-4 me-auto"><p class="lead">Дхамма энтузиасты, разработчики горячо привествуются, у проекта большой потенциал в поисках настоящего значения текстов. Но, я не разработчик и это всего лишь скрипт на Bash и PHP-обертка😊</p></div>
                     
@@ -270,7 +288,7 @@ $arg = $language . ' ' . $pattern;
   
         <!-- Footer-->
         <footer id="links" class="footer text-center ">
-               <h2 class="page-section-heading text-center text-uppercase text-white mb-5">Рекомендованное</h2>
+               <h2 class="page-section-heading text-center text-uppercase text-white mb-5">Полезные Ссылки</h2>
 			   
             <div class="container">
                 <div  class="row">
@@ -287,7 +305,7 @@ $arg = $language . ' ' . $pattern;
       <h5 class="mb-1">find.dhamma.gift</h5>
       <small class="text-muted">онлайн</small>
     </div>
-    <p class="mb-1">Всепроникающий поиск на Сутты и Винайю.</p>
+    <p class="mb-1">Всепроникающий поиск на Сутты и Винаю.</p>
     <small class="text-muted"></small>
   </a>
         <a target="_blank" href="https://digitalpalidictionary.github.io/" class="list-group-item list-group-item-action">
@@ -500,7 +518,7 @@ $arg = $language . ' ' . $pattern;
                                     <!-- Portfolio Modal - Text-->
 
                                      <p class="mb-4"><strong>Совет #0</strong><br>
-										Если вы ищете на Пали, то его можно не выделять с помощью кнопки. Пали установлен по умолчанию.<br><br>
+										Поиск производится на Пали, Русском, Английском и Тайском в материалах SuttaCentral.net и Theravada.ru, то есть если того или иного перевода нет на этих ресурсах здесь их также не будет.<br><br>
 									 <strong>Совет #1</strong><br>
                                     Используйте специальные символы ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br><br>
                                      <strong>Совет #2</strong><br>

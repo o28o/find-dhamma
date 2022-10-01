@@ -171,10 +171,9 @@ filesize=$(stat -c%s "${table}")
 if (( $filesize >= 1024 )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
 then
 	#echo Already ${pattern}
-	
+	echo "$language - "	
 	if [[ "$language" == "Pali" ]] 
 	then 
-	echo "$language -"
 	  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
 	fi
 	php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a><br>\n\");"
