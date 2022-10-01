@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eightfold 0 related words in 1 texts and 3 matches in Suttas Russian</title>
+  <link rel="icon" type="image/png" href="https://find.dhamma.gift/assets/favico.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <script
+    type="text/javascript"
+    src="https://code.jquery.com/jquery-1.11.0.js"
+  ></script>
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/r-2.2.1/datatables.min.css">
+      <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/r-2.2.1/datatables.min.js"></script>
+   
+   <style>
+    * {
+      font-family: sans-serif;
+    }
+
+	table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before{
+    content:'+';
+    background-color:#054a99
+}
+table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before,table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before{
+    content:'-';
+    background-color:#912a07
+}
+
+freebutton {
+text-align: left;
+}
+	
+	.quote {
+	color=#6A6969;
+	}
+    b {
+    color:#912a07;
+    }
+	
+	 br {
+            display: block; 
+            content: ""; 
+            margin-top: 8;
+	}
+
+	.skip {
+	  display: none;
+	}
+
+	.styled {
+	  content: "";
+	  display: block;
+	  height: 0.8em;
+	}
+	.btwntrn {
+	    content: "";
+	  display: block;
+	  height: 0.3em;
+	  
+	}
+      </style>
+
+
+</head>
+<body>
+    <h3>Eightfold 0 related words in 1 texts and 3 matches in Suttas Russian</h3>
+    <button id="btn-hide-all-children" type="button">Saṁvaṭṭo</button>    
+<button id="btn-show-all-children" type="button">Vivaṭṭo</button>
+<hr>
+<table id="pali" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Word</th>
+            <th>Texts</th>
+            <th>Matches</th>
+            <th class="none"></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<a href=/>Main page </a>
+<a href=/output/eightfold_sutta_ru.html>Quotes</a>
+
+
+    <script type='text/javascript'>
+$(document).ready(function (){
+    var table = $('#pali').DataTable({
+        'responsive': true
+    });
+    // Handle click on "Expand All" button
+    $('#btn-show-all-children').on('click', function(){
+        // Expand row details
+        table.rows(':not(.parent)').nodes().to$().find('td:first-child').trigger('click');
+    });
+    // Handle click on "Collapse All" button
+    $('#btn-hide-all-children').on('click', function(){
+        // Collapse row details
+        table.rows('.parent').nodes().to$().find('td:first-child').trigger('click');
+    });
+});
+  </script>
+
+</body>
+</html>

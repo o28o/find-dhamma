@@ -186,13 +186,13 @@ $arg = $language . ' ' . $pattern;
                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Examples</h2>  
               <ol class="mb-5">
                      <li>All <a href="./list.php">previous searches</a></li>
-             <li>All variants of the words <a href="https://find.dhamma.gift/output/pa%E1%B9%ADiccasamupp_sutta_pali_words.html">paṭiccasamuppado</a> in Pali</li>
+             <li>All variants of the words <a href="https://find.dhamma.gift/assets/demo/pa%E1%B9%ADiccasamupp_sutta_pali_words.html">paṭiccasamuppado</a> in Pali</li>
             
-                <li>All suttas about <a href="https://find.dhamma.gift/output/eightfold_sutta_en.html">Eightfold</a> Path in English</li>
-                <li>All suttas that took place or related to <a href="https://find.dhamma.gift/output/%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%B1%E0%B8%95%E0%B8%96%E0%B8%B5_sutta_th.html">Savathi</a> in Thai</li>
-                <li>All suttas where <a href="https://find.dhamma.gift/output/%D1%81%D0%B0%D1%80%D0%B8%D0%BF%D1%83%D1%82%D1%82_sutta_ru.html">Sariputta</a> was mentioned in Russian</li>
+                <li>All suttas about <a href="https://find.dhamma.gift/assets/demo/eightfold_sutta_en.html">Eightfold</a> Path in English</li>
+                <li>All suttas that took place or related to <a href="https://find.dhamma.gift/assets/demo/%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%B1%E0%B8%95%E0%B8%96%E0%B8%B5_sutta_th.html">Savathi</a> in Thai</li>
+                <li>All suttas where <a href="https://find.dhamma.gift/assets/demo/%D1%81%D0%B0%D1%80%D0%B8%D0%BF%D1%83%D1%82%D1%82_sutta_ru.html">Sariputta</a> was mentioned in Russian</li>
       
-             <li>All suttas about or containing the word <a href="https://find.dhamma.gift/output/ocean_sutta_en.html">ocean</a> in English</li>
+             <li>All suttas about or containing the word <a href="https://find.dhamma.gift/assets/demo/ocean_sutta_en.html">ocean</a> in English</li>
               </ol>    
          
                 <!-- Portfolio Section Heading-->
