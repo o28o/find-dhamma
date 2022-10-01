@@ -120,7 +120,7 @@ elif [[ "$@" == *"-pli"* ]]; then
 elif [[ "$@" == *"-en"* ]]; then
     fnlang=_en
 	printlang=English
-    pali_or_lang=sc-data/sc_bilara_data/translation/
+    pali_or_lang=sc-data/sc_bilara_data/translation/en/
     language=English
     type=json
     metaphorkeys="suppose|is a term for|similar to "
@@ -278,11 +278,10 @@ textlist=`cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{pr
 
 for filenameblock in `cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq` ; do 
 
-    roottext=`find $lookup/root -name "*${filenameblock}_*"`
-    translation=`find $lookup/translation/en/ -name "*${filenameblock}_*"`
-    rustr=`find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*"`
-    variant=`find $lookup/variant -name "*${filenameblock}_*"`
-    
+    roottext=`find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+    translation=`find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+    rustr=`find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+    variant=`find $lookup/variant -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     
     rusnp=`echo $filenameblock | sed 's@\.@_@g'`
     rustr=`find $searchdir -name "*${rusnp}-*"`
@@ -487,7 +486,7 @@ cat $templatefolder/Footer.html | tohtml
 fi
 
 function getbasefile {
-egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={xplayground,$sutta,$abhi,$vin,ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | clearsed > $basefile
+egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={xplayground,name,site,$sutta,$abhi,$vin,ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | clearsed > $basefile
 
 if [ ! -s $basefile ]
 then
