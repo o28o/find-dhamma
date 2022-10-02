@@ -158,10 +158,8 @@ $arg = $language . ' ' . $pattern;
 ?>
  </div>
 		</br>
-	            <!-- <p><a class="outlink" href="/list.php">Search History</a></p>
-     Masthead Subheading
-                <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
-                -->
+	            
+				
             </div>		
 		<?php
 			echo $lang;
@@ -170,7 +168,7 @@ $arg = $language . ' ' . $pattern;
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
 		?>	
-<!--	<p><a class="outlink" href="/list.php">All Searches</a></p> -->
+	<p><a class="outlink" href="/list.php">Search History</a></p> 
         </header>
 	
         <!-- Portfolio Section-->
@@ -187,7 +185,7 @@ $arg = $language . ' ' . $pattern;
               <div class="mb-5">
               <ol class="col-lg-8 col-md-10 ms-auto">
 			  
-                     <li>All <a href="./list.php">previous searches</a></li>
+                     <!-- <li>All <a href="./list.php">previous searches</a></li> -->
              <li>All variants of the words <a href="https://find.dhamma.gift/assets/demo/pa%E1%B9%ADiccasamupp_sutta_pali_words.html">paṭiccasamuppado</a> in Pali</li>
             
                 <li>All suttas about <a href="https://find.dhamma.gift/assets/demo/eightfold_sutta_en.html">Eightfold</a> Path in English</li>
