@@ -136,6 +136,16 @@ else
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath"
 fi
 
+function OKresponse {
+echo "${pattern^} $language $fortitle - "
+#echo "$language - "
+}
+
+function Erresponse {
+     echo "${pattern} not in $language $fortitle<br>"
+     #echo "$language - no<br>"
+}
+
 #filename
 fn=`echo $pattern | sed 's/\*//g' | sed 's/|/_/g' | sed 's/ /_/g' | sed 's/\\\//g' |  awk '{print tolower($0)}'`
 fn=${fn}${fileprefix}${fnlang}
@@ -171,8 +181,8 @@ filesize=$(stat -c%s "${table}")
 if (( $filesize >= 1024 )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
 then
 	#echo Already 
-	echo ${pattern}
-	echo "$language - "	
+OKresponse
+
 	if [[ "$language" == "Pali" ]] 
 	then 
 	  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
@@ -491,8 +501,7 @@ egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude
 
 if [ ! -s $basefile ]
 then
-     echo "${pattern} not in $language $fortitle<br>"
-     #echo "$language - no<br>"
+	Erresponse
      rm $basefile
      exit 1
 fi
@@ -517,9 +526,8 @@ sed -i 's/TitletoReplace/'"$title"'/g' table.html
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
 sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 
-echo "${pattern^}"
 #echo "${fortitle^} $language"
-echo "$language - "
+OKresponse
 
 rm $basefile $tempfile > /dev/null 2>&1
 #php -r 'header("Location: ./output/table.html");'
