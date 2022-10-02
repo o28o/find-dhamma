@@ -381,7 +381,7 @@ $arg = $language . ' ' . $pattern;
       <small class="text-muted">online</small>
     </div>
     <p class="mb-1">Multiple translation options. Pali-English-Russian line-by-line.</p>
-    <small class="text-muted">Especially recommended for stuyding Digha Nikaya</small>
+    <small class="text-muted">Especially recommended for studying Digha Nikaya</small>
   </a>
   
   <a href="https://www.theravada.ru/" target="_blank"   class="list-group-item list-group-item-action">
