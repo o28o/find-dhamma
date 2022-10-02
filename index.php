@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
 
-<title>find.Dhamma.gift - For Suttas and Vinaya it's better then Google</title>
+<title>find.Dhamma.gift - For Suttas and Vinaya it's better than Google</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -13,7 +13,7 @@
 		    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="find.Dhamma.gift - Liberation Search Engine" />
-    <meta property="og:description" content="Search for Pali Suttas and Vinaya in Pali, Russian, English and Thai" />
+    <meta property="og:description" content="Search in Pali Suttas and Vinaya in Pali, Russian, English and Thai" />
 
     <meta property="og:url" content="https://find.dhamma.gift/" />
     <meta property="og:site_name" content="find.Dhamma.gift" />
@@ -21,7 +21,7 @@
 	
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="find.Dhamma.gift - Liberation Search Engine">
-	<meta name="twitter:description" content="Search for Pali Suttas and Vinaya in Pali, Russian, English and Thai">
+	<meta name="twitter:description" content="Search in Pali Suttas and Vinaya in Pali, Russian, English and Thai">
 	
 	
 	
