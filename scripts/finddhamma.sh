@@ -58,7 +58,7 @@ vin=vinaya
 abhi=abhidhamma
 sutta=mutta
 fortitle=Suttanta
-fileprefix=_sutta
+fileprefix=_suttanta
 if [[ "$@" == *"-vin"* ]]; then
     vin=
     sutta=sutta
@@ -137,12 +137,12 @@ else
 fi
 
 function OKresponse {
-echo "${pattern^} $language $fortitle - "
+echo "${pattern^} $fortitle $language - "
 #echo "$language - "
 }
 
 function Erresponse {
-     echo "${pattern} not in $language $fortitle<br>"
+     echo "${pattern} not in $fortitle $language<br>"
      #echo "$language - no<br>"
 }
 

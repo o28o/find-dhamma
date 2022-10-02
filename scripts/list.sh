@@ -27,7 +27,7 @@ fi
 ls -lpah --time-style="+%d-%m-%Y" *_${switch}* | egrep -v "_words.html|\.tmp|_fn.txt|table|.git|итого|total|/" | grep -v "^_" | awk '{print substr($0, index($0, $5))}'  | while IFS= read -r line ; do
 
 file=`echo $line | awk '{print $NF}'`
-pitaka=`echo $file | awk -F'_' '{mu=(NF-1); print $mu}' `
+pitaka=`echo $file | awk -F'_' '{mu=(NF-1); print $mu}' | sed 's/nta//g'`
 language=`echo $file | awk -F'_' '{print $NF}' | awk -F'.' '{print $1 }'`
 link=/output/$file
 searchedpattern=`echo $file | awk -F'_' '{mu=(NF-1); $mu=$NF=""; print }'`
