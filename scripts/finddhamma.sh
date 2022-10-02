@@ -57,7 +57,7 @@ sed 's/<p>/\n/g; s/<[^>]*>//g'  | sed  's/": "/ /g' | sed  's/"//1' | sed 's/",$
 vin=vinaya
 abhi=abhidhamma
 sutta=mutta
-fortitle=Suttas
+fortitle=Suttanta
 fileprefix=_sutta
 if [[ "$@" == *"-vin"* ]]; then
     vin=
@@ -491,7 +491,8 @@ egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude
 
 if [ ! -s $basefile ]
 then
-     echo "$language - no<br>"
+     echo "${pattern} not in $language $fortitle<br>"
+     #echo "$language - no<br>"
      rm $basefile
      exit 1
 fi
