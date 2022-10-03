@@ -4,7 +4,6 @@
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
 cd $output 
 
-
 if [[ "$@" == *"-oru"* ]]; then
 
 function bgswitch {
@@ -98,18 +97,37 @@ function grepbrief {
 }
 
 function clearargs {
-sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g' -e 's/-nkn//g' | sed 's/-oru //g' | sed 's/-nbg //g'
+sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g' -e 's/-kn //g' | sed 's/-oru //g' | sed 's/-nbg //g'
 }
 
 pattern="$@"
 #pattern=океан
+if [[ "$@" == *"-h"* ]]; then
+    echo "
+    without arguments - starts with prompt in pali<br>
+    also search words can be used as arguments e.g.<br>
+    <br>
+    $> ./scriptname.sh moggall<br>
+    <br>
+    -vin - to search in vinaya texts only <br>
+    -abhi - to search in abhidhamma texts only <br>
+    -en - to search in english <br>
+    -ru - to search in russian <br>
+    -th - to search in thai <br>
+    -pli - to search in pali (default option) <br>
+    -nbg - no background <br>
+	-kn - include Khuddaka Nikaya selected books <br>
+	-oru - output messages in Russian<br>"
+    exit 0
+fi
 
 if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] 
 then   
 #echo -e "Content-Type: text/html\n\n"
 emptypattern
    exit 3
-fi    
+fi
+    
 pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs `
 if   [ "${#pattern}" -lt "$minlength" ]
 then
@@ -151,32 +169,20 @@ if [[ "$@" == *"-abhi"* ]]; then
     #echo search in abhidhamma
 fi
 
-if [[ "$@" == *"-nkn"* ]]; then
-thag=thag
-thig=thig
-snp=snp
-dhp=dhp
-iti=iti
-ud=ud
-nkn="--exclude-dir=kn"
+
+
+function grepbasefile {
+nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv,thag,thig,snp,dhp,iti,ud} | clearsed > $basefile
+}
+
+if [[ "$@" == *"-kn"* ]]; then
+function grepbasefile {
+nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | clearsed > $basefile
+}
 #| egrep -v "snp|thag|thig|dhp|iti|ud"
 fi
 
-if [[ "$" == *"-h"* ]]; then
-    echo "
-    without arguments - starts with prompt in pali
-    also search words can be used as arguments e.g.
-    
-    $> ./scriptname.sh moggall
-    
-    -vin - to search in vinaya texts only 
-    -abhi - to search in abhidhamma texts only
-    -en - to search in english
-    -ru - to search in russian
-    -pli - search in pali on legacy.suttacentral.net archive
-    "
-    exit 0
-elif [[ "$@" == *"-th"* ]]; then
+if [[ "$@" == *"-th"* ]]; then
     fnlang=_th
     pali_or_lang=sc-data/html_text/th/pli 
     language=Thai
@@ -316,7 +322,7 @@ uniqwordtotal=`cat $tempfile | wc -l `
 
 cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$title/TitletoReplace/g' > $tempfilewords 
 
-cat $tempfile | pv -L 10m -q | while IFS= read -r line ; do
+nice -19 cat $tempfile | pv -L 10m -q | while IFS= read -r line ; do
 uniqword=`echo $line | awk '{print $1}'`
 uniqwordcount=`echo $line | awk '{print $2}'`
 linkscount=`grep -i "\b$uniqword\b" $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | wc -l`
@@ -366,17 +372,17 @@ function linklist {
 
 cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
-textlist=`cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq`
+textlist=`nice -19  cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq`
 
-for filenameblock in `cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq` ; do 
+for filenameblock in `nice -19 cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq` ; do 
 
-    roottext=`find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
-    translation=`find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
-    rustr=`find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
-    variant=`find $lookup/variant -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+    roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+    translation=`nice -19 find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+    rustr=`nice -19 find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+    variant=`nice -19 find $lookup/variant -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     
     rusnp=`echo $filenameblock | sed 's@\.@_@g'`
-    rustr=`find $searchdir -name "*${rusnp}-*"`
+    rustr=`nice -19 find $searchdir -name "*${rusnp}-*"`
 
      rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
 
@@ -400,7 +406,7 @@ linkgeneral=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q=
 linken=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=eng"}' `
 linkpli=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=pli"}' `
 #linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
-count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
+count=`nice -19 egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 #russian text 
 #link ru 
@@ -414,11 +420,11 @@ echo $count >> $tempfile
 word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
 indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
 
-metaphorindexlist=`cat $file | pv -L 10m -q | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
+metaphorindexlist=`nice -19 cat $file | pv -L 10m -q | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
 
-metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
+metaphorcount=`nice -19 cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
-suttatitle=`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+suttatitle=`nice -19 grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 echo "<tr>
 <td><a class=\"freebutton\" target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
@@ -556,7 +562,7 @@ echo "<tr>
 <td>$metaphorcount</td>
 <td><strong>$suttatitle</strong></td>
 <td>" | tohtml
-egrep -ih "${pattern}" $file | clearsed | highlightpattern  | while IFS= read -r line ; do
+nice -19 egrep -ih "${pattern}" $file | clearsed | highlightpattern  | while IFS= read -r line ; do
 echo "$line"
 echo '<br class="styled">'
 done | tohtml
@@ -578,7 +584,7 @@ cat $templatefolder/Footer.html | tohtml
 fi
 
 function getbasefile {
-nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | clearsed > $basefile
+grepbasefile 
 
 linescount=`wc -l $basefile | awk '{print $1}'`
 if [ ! -s $basefile ]

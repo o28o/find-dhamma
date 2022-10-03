@@ -485,29 +485,39 @@ $arg = $language . ' ' . $pattern;
 										If you search in Pali you don't need to check it in options. Pali is default.<br><br>
 									 <strong>Tip #1</strong><br>
                                     Use special characters ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br><br>
-                                     <strong>Tip #2</strong><br>
-									 Search is performed in All DN, MN, SN, AN, and following books of KN: Dhammapada, Udāna, Itivuttaka, Suttanipāta, Theragāthā, Therīgāthā. Other books of KN will not be used in the search, you may use alternative services to make searches in Jatakas and other book of KN.<br><br>
+                                   
+								   <strong>Tip #2 Khuddaka NIkaya</strong><br>
+									 Search is performed in All DN, MN, SN, AN. use <strong>-kn</strong> option if you also want to include results from the following books of KN: Dhammapada, Udāna, Itivuttaka, Suttanipāta, Theragāthā, Therīgāthā. Other books of KN will not be used in the search even with option. You may use alternative services to make searches in Jatakas and other book of KN.<br>
+									 Example #1: -kn jamm
+									 <br>Will search in DN, MN, SN, AN + books of KN listed above
+									 <br>
+									 Example #2: jamm
+									 <br>Will search in DN, MN, SN, AN only.
+									 <br><br>
+									 
+									 <strong>Tip #3 Vinaya</strong><br> 
+                                   if you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br><br>
 
-									 <strong>Tip #3</strong><br>
+									 <strong>Tip #4 Stem</strong><br>
                                     Use stem of the word for broader results with or without prefixes or endings. 
 									<br><br>
-									                                      <strong>Tip #4</strong><br>
+									          <strong>Tip #5</strong><br>
                                     Prefer Pali to other languages. Pali is the language in which the oldest Dhamma related texts are written.	
 									<br><br>
-									<strong>Tip #5</strong><br>For Pali search results you have two options: results sorted by Suttas/Texts with quotes and by words. Use both to get some extra details.<br><br>
-                                   <strong>Tip #6</strong><br>Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br><br>
+									<strong>Tip #6</strong><br>
+									For Pali search results you have two options: results sorted by Suttas/Texts with quotes and by words. Use both to get some extra details.<br><br>
+                                   <strong>Tip #7</strong><br>Minimal length of search pattern is 3 symbols. But if possible search for longer patterns. Then you will get more precise results.<br><br>
                                    
 								 
-									<strong>Tip #7</strong><br> 
+									<strong>Tip #8</strong><br> 
                                    We highly recommend to search in Pali. As it will give the best results, and you will develop a very important habit to look into Pali and do not rely blindly on the translations. But obviously you can get some benefits from searches in translations. If you are looking for animals, plants, etc. There are at least 4 different pali words for a snake but in Russian or English - it's just "a snake" or "a viper". <br><br>
 				
-									<strong>Tip #8</strong><br>
+									<strong>Tip #9</strong><br>
                                    if your request fails due to timeout try longer search pattern.  <br><br>
-								   <strong>Tip #9</strong><br>
+								   <strong>Tip #10</strong><br>
                                    if your request fails due to timeout, and you can't use longer search pattern try background mode menu option. It might work.<br><br> 
 								   
-                                   <strong>Tip #10</strong><br> 
-                                   if you're willing to search in Vinaya add -vin to your search request. For pali vinaya search for cetana the line will look like: -vin cetana <br><br>
+                                   
 									
 									</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
