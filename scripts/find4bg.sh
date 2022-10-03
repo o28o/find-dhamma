@@ -515,14 +515,6 @@ then
 	Erresponse
      rm $basefile
      exit 1
-elif [ $linescount -ge $maxmatchesbg ];  then  
-	echo "$linescount $pattern found.<br> 
-	Switched to background mode.<br>
-	Wait for 20-30 minutes <br>
-	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
-	or in search history." 
-	echo "$@" >> ../input/input.txt
-	exit 0
 fi
 
 }

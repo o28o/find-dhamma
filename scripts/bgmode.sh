@@ -12,7 +12,7 @@ ps -ef | grep bgmode.sh | grep -v grep
 echo end 
 echo
 #quit if already running
-if (( "$pscheck" >= 4 ))
+if (( $pscheck >= 5 ))
 then 
   echo "`date` already running"
   exit 1
@@ -27,10 +27,11 @@ sed -i '/^$/d' ./input.txt
 cat input.txt | sort | uniq | while read -r line 
 do  
   #echo working on $line 
+sed -i '/^'"$line"'$/Id' ./input.txt 
 nice -19 ../scripts/findinall.sh "$line" 
 #  grep -v "$line" $inputfile > ./temp ;
 #  mv ./temp $inputfile
-  sed -i '/^'"$line"'$/Id' ./input.txt 
+  
 done 
 
 exit 0
