@@ -5,8 +5,9 @@ output=/home/a0092061/domains/find.dhamma.gift/public_html/output/
 wbefore=1
 wafter=3
 truncatelength=30
-filesizenooverwrite=702400
-maxmatchesbg=900
+filesizenooverwrite=70000000000
+maxmatchesbg=9
+minlength=3
 
 sitename=https://find.dhamma.gift
 templatefolder=/home/a0092061/domains/find.dhamma.gift/public_html/templates

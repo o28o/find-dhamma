@@ -1,7 +1,7 @@
 #1/bin/bash
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
 
-mainscript=$rootpath/find4bg.sh
+mainscript="$rootpath/finddhamma.sh -nbg"
 
 
 function clearargs {

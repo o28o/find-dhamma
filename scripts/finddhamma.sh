@@ -4,6 +4,83 @@
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
 cd $output 
 
+
+if [[ "$@" == *"-oru"* ]]; then
+
+function bgswitch {
+	echo "Найдено $linescount строк с $pattern<br> 
+	Отправлено в фоновый режим.<br>
+	Подождите 20-30 минут<br>
+	и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
+	или в истории поиска." 
+}
+
+function emptypattern {
+   echo "Что искать?"
+}
+
+function OKresponse {
+echo "${pattern^} $fortitle $language - "
+#echo "$language - "
+}
+
+function Erresponse {
+     echo "${pattern} нет в $fortitle $language<br>"
+     #echo "$language - no<br>"
+}
+
+function wordsresponse {
+php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Слова</a> и \");"  
+}
+
+function quoteresponse {
+	php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
+	
+}
+function minlengtherror {
+echo "Слишком коротко. Мин $minlength символа"
+}
+
+
+else #eng
+
+function bgswitch {
+	echo "$linescount $pattern lines found.<br> 
+	Switched to background mode.<br>
+	Wait for 20-30 minutes <br>
+	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
+	or in search history." 
+}
+
+function emptypattern {
+   echo "Emptry pattern"
+}
+
+
+function OKresponse {
+echo "${pattern^} $fortitle $language - "
+#echo "$language - "
+}
+
+function Erresponse {
+     echo "${pattern} not in $fortitle $language<br>"
+     #echo "$language - no<br>"
+}
+
+function wordsresponse {
+php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Words</a> and \");"
+}
+
+function quoteresponse {
+php -r "print(\"<a class="outlink" href="./output/${table}">Quotes</a><br>\n\");"
+
+}
+
+function minlengtherror {
+echo Too short. Min is $minlength
+}
+
+fi
 function grepbrief {
 	
 	awk -v ptn="$pattern" -v cnt1=$wbefore -v cnt2=$wafter '
@@ -20,28 +97,29 @@ function grepbrief {
 }'
 }
 
+function clearargs {
+sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g' -e 's/-nkn//g' | sed 's/-oru //g' | sed 's/-nbg //g'
+}
+
 pattern="$@"
 #pattern=океан
-minlength=3
-if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]] 
+
+if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] 
 then   
 #echo -e "Content-Type: text/html\n\n"
-   echo Empty pattern 
+emptypattern
    exit 3
-elif   [ "${#pattern}" -lt "$minlength" ]
+fi    
+pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs `
+if   [ "${#pattern}" -lt "$minlength" ]
 then
-echo Too short. Min is $minlength
+minlengtherror
 exit 1 
 fi
 #echo searching $pattern
 #pattern=adhivacanas
-
-function clearargs {
-sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g' -e 's/-nkn//g'
-}
 #set search language from args or set default
 
-pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs `
 grepgenparam=E
 
 
@@ -146,18 +224,11 @@ else
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath"
 fi
 
-function OKresponse {
-echo "${pattern^} $fortitle $language - "
-#echo "$language - "
-}
 
-function Erresponse {
-     echo "${pattern} not in $fortitle $language<br>"
-     #echo "$language - no<br>"
-}
+
 
 #filename
-fn=`echo $pattern | sed 's/\*//g' | sed 's/|/_/g' | sed 's/ /_/g' | sed 's/\\\//g' |  awk '{print tolower($0)}'`
+fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/_/g' | sed 's/ /_/g' | sed 's/\\\//g' |  awk '{print tolower($0)}'`
 fn=${fn}${fileprefix}${fnlang}
 
 extention=txt
@@ -195,10 +266,10 @@ OKresponse
 
 	if [[ "$language" == "Pali" ]] 
 	then 
-	  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
+	wordsresponse
 	fi
-	php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a><br>\n\");"
-
+	quoteresponse
+	
 	exit 0
 #else 
 #	echo Already 
@@ -515,13 +586,9 @@ then
 	Erresponse
      rm $basefile
      exit 1
-elif [ $linescount -ge $maxmatchesbg ];  then  
-	echo "$linescount $pattern lines found.<br> 
-	Switched to background mode.<br>
-	Wait for 20-30 minutes <br>
-	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
-	or in search history." 
-	echo "$@" >> ../input/input.txt
+elif [ $linescount -ge $maxmatchesbg ] && [[ "$@" != *"-nbg"* ]];  then  
+bgswitch
+	echo "$@" | sed 's/-oru //g' | sed 's/-nbg //g' >> ../input/input.txt
 	exit 0
 fi
 
@@ -554,7 +621,8 @@ rm $basefile $tempfile > /dev/null 2>&1
 if [[ "$language" == "Pali" ]]
 then 
 #echo "$language -"
-  php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Words</a> and \");"
+wordsresponse
+
 fi
-php -r "print(\"<a class="outlink" href="./output/${table}">Quotes</a><br>\n\");"
+quoteresponse
 exit 0
