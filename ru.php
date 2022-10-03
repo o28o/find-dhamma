@@ -155,7 +155,7 @@ $arg = $language . ' ' . $pattern;
  			echo $lang;
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $pattern);
-			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $language $string"); 
+			$output = shell_exec("nice -19 ./scripts/rufinddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
 		?>	
 		

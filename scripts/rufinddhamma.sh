@@ -26,7 +26,7 @@ minlength=3
 if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]] 
 then   
 #echo -e "Content-Type: text/html\n\n"
-   echo Empty pattern 
+   echo "Что искать?" 
    exit 3
 elif   [ "${#pattern}" -lt "$minlength" ]
 then
@@ -152,7 +152,7 @@ echo "${pattern^} $fortitle $language - "
 }
 
 function Erresponse {
-     echo "${pattern} not in $fortitle $language<br>"
+     echo "${pattern} нет в $fortitle $language<br>"
      #echo "$language - no<br>"
 }
 
@@ -195,9 +195,9 @@ OKresponse
 
 	if [[ "$language" == "Pali" ]] 
 	then 
-	  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Words</a> and \");"
+	  php -r "print(\"<a class="outlink" href="/output/${tempfilewords}">Слова</a> и \");"
 	fi
-	php -r "print(\"<a class="outlink" href="/output/${table}">Quotes</a><br>\n\");"
+	php -r "print(\"<a class="outlink" href="/output/${table}">Цитаты</a><br>\n\");"
 
 	exit 0
 #else 
@@ -516,11 +516,11 @@ then
      rm $basefile
      exit 1
 elif [ $linescount -ge $maxmatchesbg ];  then  
-	echo "$linescount $pattern lines found.<br> 
-	Switched to background mode.<br>
-	Wait for 20-30 minutes <br>
-	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
-	or in search history." 
+	echo "Найдено $linescount строк с $pattern<br> 
+	Отправлено в фоновый режим.<br>
+	Подождите 20-30 минут<br>
+	и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
+	или в истории поиска." 
 	echo "$@" >> ../input/input.txt
 	exit 0
 fi
@@ -554,7 +554,7 @@ rm $basefile $tempfile > /dev/null 2>&1
 if [[ "$language" == "Pali" ]]
 then 
 #echo "$language -"
-  php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Words</a> and \");"
+  php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Слова</a> и \");"
 fi
-php -r "print(\"<a class="outlink" href="./output/${table}">Quotes</a><br>\n\");"
+php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
 exit 0
