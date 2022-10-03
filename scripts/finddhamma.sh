@@ -38,7 +38,7 @@ fi
 #pattern=adhivacanas
 
 function clearargs {
-sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g'
+sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g' -e 's/-nkn//g'
 }
 #set search language from args or set default
 
@@ -72,6 +72,17 @@ if [[ "$@" == *"-abhi"* ]]; then
 	fortitle=Abhidhamma
     fileprefix=_abhidhamma
     #echo search in abhidhamma
+fi
+
+if [[ "$@" == *"-nkn"* ]]; then
+thag=thag
+thig=thig
+snp=snp
+dhp=dhp
+iti=iti
+ud=ud
+nkn="--exclude-dir=kn"
+#| egrep -v "snp|thag|thig|dhp|iti|ud"
 fi
 
 if [[ "$" == *"-h"* ]]; then
@@ -178,7 +189,7 @@ md5_file=$(md5sum ${functionfile} | cut -d" " -f1)
 
 filesize=$(stat -c%s "${table}")
 
-if (( $filesize >= 1024 )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
+if (( $filesize >= 1024000000 )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
 then
 	#echo Already 
 OKresponse
@@ -497,7 +508,7 @@ cat $templatefolder/Footer.html | tohtml
 fi
 
 function getbasefile {
-egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={xplayground,name,site,$sutta,$abhi,$vin,ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | clearsed > $basefile
+nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | clearsed > $basefile
 
 if [ ! -s $basefile ]
 then
