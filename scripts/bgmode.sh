@@ -28,7 +28,7 @@ cat input.txt | sort | uniq | while read -r line
 do  
   #echo working on $line 
 sed -i '/^'"$line"'$/Id' ./input.txt 
-nice -19 ../scripts/findinall.sh "$line" 
+nice -19 ../scripts/findinall.sh -nbg "$line" 
 #  grep -v "$line" $inputfile > ./temp ;
 #  mv ./temp $inputfile
   

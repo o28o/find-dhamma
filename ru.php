@@ -88,7 +88,6 @@ $pattern = $language = $arg = "";
 	  
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="/list.php?lang=pali">История Поиска</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="./bg.php">Фоновый Режим</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
@@ -559,9 +558,7 @@ $arg = $language . ' ' . $pattern;
                                    Если запрос завершается ошибкой из-за таймаута, попробуйте более длинный поисковый запрос.  <br><br>
 								  
 								  <strong>Совет #10</strong><br>
-                                   Если запрос завершается ошибкой из-за таймаута и вы не можете использовать  более длинный поисковый запрос, попробуйте фоновый режим из соответствующего пункта меню. Это может помочь.<br><br> 
-								   
-                                
+                                   Если запрос завершается ошибкой из-за таймаута и вы не можете использовать  более длинный поисковый запрос, попробуйте <a href="./bg.php">Фоновый Режим</a>. Он может помочь.<br><br>  
 									</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>

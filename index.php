@@ -95,7 +95,6 @@ $pattern = $language = $arg = "";
             
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Light</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="/list.php?lang=pali">Search History</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="/bg.php">Background Mode</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#help">How to</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">About</a></li>             
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Useful Links </a></li>
@@ -515,7 +514,8 @@ $arg = $language . ' ' . $pattern;
 									<strong>Tip #9</strong><br>
                                    if your request fails due to timeout try longer search pattern.  <br><br>
 								   <strong>Tip #10</strong><br>
-                                   if your request fails due to timeout, and you can't use longer search pattern try background mode menu option. It might work.<br><br> 
+                                   if your request fails due to timeout, and you can't use longer search pattern try <a href="./bg.php">Background Mode</a>. It might work.
+								   <br><br> 
 								   
                                    
 									

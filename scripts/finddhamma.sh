@@ -40,6 +40,81 @@ function minlengtherror {
 echo "Слишком коротко. Мин $minlength символа"
 }
 
+elif [[ "$@" == *"-ogr"* ]]; then
+
+function bgswitch {
+	echo "Найдено $linescount строк с $pattern<br> 
+	Отправлено в фоновый режим.<br>
+	Подождите 20-30 минут<br>
+	и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
+	или в истории поиска." 
+}
+
+function emptypattern {
+   echo "Что искать?"
+}
+
+function OKresponse {
+echo "$language - "
+#echo "$language - "
+}
+
+function Erresponse {
+     echo "нет в $language<br>"
+     #echo "$language - no<br>"
+}
+
+function wordsresponse {
+php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Слова</a> и \");"  
+}
+
+function quoteresponse {
+	php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
+	
+}
+function minlengtherror {
+echo "Слишком коротко. Мин $minlength символа"
+}
+
+elif [[ "$@" == *"-oge"* ]]; then
+
+function bgswitch {
+	echo "$linescount $pattern lines found.<br> 
+	Switched to background mode.<br>
+	Wait for 20-30 minutes <br>
+	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
+	or in search history." 
+}
+
+function emptypattern {
+   echo "Emptry pattern"
+}
+
+
+function OKresponse {
+echo "$language - "
+#echo "$language - "
+}
+
+function Erresponse {
+     echo "not fount<br>"
+     #echo "$language - no<br>"
+}
+
+function wordsresponse {
+php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Words</a> and \");"
+}
+
+function quoteresponse {
+php -r "print(\"<a class="outlink" href="./output/${table}">Quotes</a><br>\n\");"
+
+}
+
+function minlengtherror {
+echo Too short. Min is $minlength
+}
+
+
 
 else #eng
 
@@ -80,6 +155,7 @@ echo Too short. Min is $minlength
 }
 
 fi
+
 function grepbrief {
 	
 	awk -v ptn="$pattern" -v cnt1=$wbefore -v cnt2=$wafter '
@@ -97,7 +173,7 @@ function grepbrief {
 }
 
 function clearargs {
-sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g' -e 's/-kn //g' | sed 's/-oru //g' | sed 's/-nbg //g'
+sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g' -e 's/-kn //g' | sed 's/-oru //g' | sed 's/-ogr //g' | sed 's/-oge //g'| sed 's/-nbg //g'
 }
 
 pattern="$@"
@@ -121,7 +197,7 @@ if [[ "$@" == *"-h"* ]]; then
     exit 0
 fi
 
-if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] 
+if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] || [[ "$pattern" == "-ogr" ]] || [[ "$pattern" == "-oge" ]] 
 then   
 #echo -e "Content-Type: text/html\n\n"
 emptypattern
@@ -594,8 +670,8 @@ then
      exit 1
 elif [ $linescount -ge $maxmatchesbg ] && [[ "$@" != *"-nbg"* ]];  then  
 bgswitch
-	echo "$@" | sed 's/-oru //g' | sed 's/-nbg //g' >> ../input/input.txt
-	exit 0
+	echo "$@" | sed 's/-oru //g' | sed 's/-oge //g' | sed 's/-ogr //g'   | sed 's/-nbg //g' >> ../input/input.txt
+	exit 3
 fi
 
 }
