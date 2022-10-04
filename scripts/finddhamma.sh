@@ -97,7 +97,7 @@ echo "$language - "
 }
 
 function Erresponse {
-     echo "not fount<br>"
+     echo "not in $language<br>"
      #echo "$language - no<br>"
 }
 
@@ -193,6 +193,7 @@ if [[ "$@" == *"-h"* ]]; then
     exit 0
 fi
 
+pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs `
 if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] || [[ "$pattern" == "-ogr" ]] || [[ "$pattern" == "-oge" ]] 
 then   
 #echo -e "Content-Type: text/html\n\n"
@@ -200,7 +201,7 @@ emptypattern
    exit 3
 fi
     
-pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs `
+
 if   [ "${#pattern}" -lt "$minlength" ]
 then
 minlengtherror
@@ -251,7 +252,7 @@ if [[ "$@" == *"-kn"* ]]; then
 function grepbasefile {
 nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | clearsed > $basefile
 }
-#| egrep -v "snp|thag|thig|dhp|iti|ud"
+#| nice -19 egrep -v "snp|thag|thig|dhp|iti|ud"
 fi
 
 if [[ "$@" == *"-th"* ]]; then
@@ -358,23 +359,23 @@ fi
 
 function genwordsfile {
 
-cat $tempfilewords  | sedexpr | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
+cat $tempfilewords | pvlimit | sedexpr | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
 
-uniqwordtotal=`cat $tempfile | wc -l `
+uniqwordtotal=`cat $tempfile | pvlimit | wc -l `
 #| sed 's/(//g' | sed 's/)//g'
 #cat $tempfile
 #echo cat
 
 cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$title/TitletoReplace/g' > $tempfilewords 
 
-nice -19 cat $tempfile | pv -L 10m -q | while IFS= read -r line ; do
+nice -19 cat $tempfile | pvlimit | while IFS= read -r line ; do
 uniqword=`echo $line | awk '{print $1}'`
 uniqwordcount=`echo $line | awk '{print $2}'`
 linkscount=`grep -i "\b$uniqword\b" $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | wc -l`
 linkswwords=`grep -i "\b$uniqword\b" $basefile | sort -V | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -V | uniq | awk -F'_' '{print "<a target=_blank href=https://find.dhamma.gift/sc/?q="$1">"$1"</a>"}'| xargs`
 
 #echo $linkswwords
-#cat ${links_and_words}  | tr ' ' '\n' |  egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
+#cat ${links_and_words}  | tr ' ' '\n' |  nice -19 egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
 
 
 #cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”"]/ /g'| grep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq >> ${links_and_words}
@@ -417,9 +418,9 @@ function linklist {
 
 cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
-textlist=`nice -19  cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq`
+textlist=`nice -19  cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq`
 
-for filenameblock in `nice -19 cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq` ; do 
+for filenameblock in `nice -19 cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq` ; do 
 
     roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     translation=`nice -19 find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
@@ -463,11 +464,11 @@ echo $count >> $tempfile
 
 
 word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
-indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
+indexlist=`nice -19 egrep -i $filenameblock $basefile | awk '{print $2}'`
 
-metaphorindexlist=`nice -19 cat $file | pv -L 10m -q | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
+metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
 
-metaphorcount=`nice -19 cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
+metaphorcount=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
 suttatitle=`nice -19 grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
@@ -484,7 +485,7 @@ do
 		for f in  $roottext $translation #$variant
         do      
         #echo rt=$roottext
-		quote=`egrep -iE "${i}([^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
+		quote=`nice -19 egrep -iE "${i}([^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
 echo "$quote<br class="btwntrn">"			
         done 
 echo '<br class="styled">'
@@ -542,7 +543,7 @@ function linklist {
 cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
 
-uniquelist=`cat $basefile | awk -F'/' '{print $NF}' | sort -V | uniq`
+uniquelist=`cat $basefile | pvlimit | awk -F'/' '{print $NF}' | sort -V | uniq`
 
 textlist=$uniquelist
 
@@ -552,7 +553,7 @@ do
 
     filenameblock=`echo $i |  sed 's/.html//g' | sort -V | uniq `
 file=`grep -m1 $filenameblock $basefile`
-   # count=`egrep -oi$grepgenparam "$pattern" $file | wc -l` 
+   # count=`nice -19 egrep -oi$grepgenparam "$pattern" $file | wc -l` 
 rustr=$file
 
     #roottext=`find $lookup/root -name "*${filenameblock}_*"`
@@ -588,18 +589,18 @@ linklang=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/s
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 #linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 linkpli=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=pli"}' `
-count=`egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
+count=`nice -19 egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 
 word=`getwords | xargs | clearsed | sedexpr | highlightpattern`
-indexlist=`egrep -i $filenameblock $basefile | awk '{print $2}'`
+indexlist=`nice -19 egrep -i $filenameblock $basefile | awk '{print $2}'`
 
-metaphorindexlist=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
+metaphorindexlist=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
 
-metaphorcount=`cat $file | clearsed | egrep -i "$metaphorkeys" | egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
+metaphorcount=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
 suttatitle=`grep 'h1' $file | clearsed | xargs `
-#quote=`egrep -ih "${pattern}" $file | clearsed | highlightpattern `
+#quote=`nice -19 egrep -ih "${pattern}" $file | clearsed | highlightpattern `
 echo "<tr>
 <td><a target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
 <td>$word</td>

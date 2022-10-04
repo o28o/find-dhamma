@@ -9,6 +9,10 @@ truncatelength=30
 filesizenooverwrite=700000
 maxmatchesbg=1800
 
+
+function pvlimit {
+pv -L 1m -q
+}
 function clearargs {
 sed -e 's/-pli //g' -e 's/-pi //g' -e 's/-ru //g' -e 's/-en //g' -e 's/-abhi //g' -e 's/-vin //g' -e 's/-th //g' -e 's/^ //g' -e 's/-kn //g' | sed 's/-oru //g' | sed 's/-ogr //g' | sed 's/-oge //g'| sed 's/-nbg //g'
 }

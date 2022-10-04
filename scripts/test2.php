@@ -106,8 +106,8 @@ $pattern = $language = $arg = "";
                 <!-- Masthead Avatar Image-->
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading mb-3">Найдите Истину</h1>
-                <h5 class="mr=5">Pāḷi, Русский, ไทย и English</h5>
+                <h1 class="masthead-heading mb-3">Search the Truth</h1>
+                <h5 class="mr=5">Pāḷi, English, ไทย  & Russian</h5>
 				
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
@@ -123,8 +123,8 @@ $pattern = $language = $arg = "";
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
                             <div class="form-group">
-                                <label class="sr-only">Что искать?</label>
-                                <input name="pattern"  type="text" class="form-control" placeholder="прим. Kāyagat " autofocus>
+                                <label class="sr-only">Find</label>
+                                <input name="pattern"  type="text" class="form-control" placeholder="e.g. Kāyagat " autofocus>
                             </div>
                    <!--      <br>
  <div class="form-check form-check-inline">
@@ -144,7 +144,7 @@ $pattern = $language = $arg = "";
   <br> -->
   <br>
          <button type="submit" name="submit"
-				value="Search" class="btn btn-primary btn-lg">Найти</button>  
+				value="Search" class="btn btn-primary btn-lg">Find</button>  
 				</form>
 <?php
 $arg = $language . ' ' . $pattern;
@@ -155,10 +155,10 @@ $arg = $language . ' ' . $pattern;
  			echo $lang;
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $pattern);
-			$output = shell_exec("nice -19 ./scripts/findinall.sh -ogr $string"); 
+			$output = shell_exec("nice -19 ./scripts/findinall.sh $string"); 
 			echo "<p>$output</p>";
 		?>
-	<p><a class="outlink" href="./list.php">История Поиска</a></p> 
+	<p><a class="outlink" href="./list.php">Search History</a></p> 
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->
