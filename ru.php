@@ -160,7 +160,9 @@ $arg = $language . ' ' . $pattern;
 		
 		
 		
-	<p><a class="outlink" href="./list.php">История Поиска</a></p> 
+<!--	<p><a class="outlink" href="./list.php">История Поиска</a></p> -->
+	<p><a class="outlink" target="_blank" href="https://www.youtube.com/embed/iKRaa9D07-I">Видео "Как Искать"</a></p> 
+
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->

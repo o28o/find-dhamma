@@ -167,7 +167,9 @@ $arg = $language . ' ' . $pattern;
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
 		?>	
-	<p><a class="outlink" href="/list.php">Search History</a></p> 
+		
+			<p><a class="outlink" target="_blank" href="https://www.youtube.com/embed/Q_SLMrg6L1k">Watch How-To Video</a></p> 
+<!--	<p><a class="outlink" href="/list.php">Search History</a></p> -->
         </header>
 	
         <!-- Portfolio Section-->
