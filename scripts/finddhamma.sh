@@ -402,7 +402,7 @@ nice -19 cat $tempfile | pv -L 10m -q | while IFS= read -r line ; do
 uniqword=`echo $line | awk '{print $1}'`
 uniqwordcount=`echo $line | awk '{print $2}'`
 linkscount=`grep -i "\b$uniqword\b" $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | wc -l`
-linkswwords=`grep -i "\b$uniqword\b" $basefile | sort -n | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -n | uniq | awk -F'_' '{print "<a target=_blank href=https://find.dhamma.gift/sc/?q="$1">"$1"</a>"}'| xargs`
+linkswwords=`grep -i "\b$uniqword\b" $basefile | sort -V | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -V | uniq | awk -F'_' '{print "<a target=_blank href=https://find.dhamma.gift/sc/?q="$1">"$1"</a>"}'| xargs`
 
 #echo $linkswwords
 #cat ${links_and_words}  | tr ' ' '\n' |  egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
@@ -448,9 +448,9 @@ function linklist {
 
 cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
-textlist=`nice -19  cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq`
+textlist=`nice -19  cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq`
 
-for filenameblock in `nice -19 cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -n | uniq` ; do 
+for filenameblock in `nice -19 cat $basefile | pv -L 10m -q | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq` ; do 
 
     roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     translation=`nice -19 find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
@@ -573,7 +573,7 @@ function linklist {
 cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
 
-uniquelist=`cat $basefile | awk -F'/' '{print $NF}' | sort -n | uniq`
+uniquelist=`cat $basefile | awk -F'/' '{print $NF}' | sort -V | uniq`
 
 textlist=$uniquelist
 
@@ -581,7 +581,7 @@ textlist=$uniquelist
     for i in $uniquelist
 do
 
-    filenameblock=`echo $i |  sed 's/.html//g' | sort -n | uniq `
+    filenameblock=`echo $i |  sed 's/.html//g' | sort -V | uniq `
 file=`grep -m1 $filenameblock $basefile`
    # count=`egrep -oi$grepgenparam "$pattern" $file | wc -l` 
 rustr=$file

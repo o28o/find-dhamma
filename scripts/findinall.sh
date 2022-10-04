@@ -1,7 +1,6 @@
 #1/bin/bash
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
 
-mainscript="$rootpath/finddhamma.sh -ogr"
 
 function clearargs {
 sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 's/-vin//g' -e 's/-th//g' -e 's/^ //g' -e 's/-kn //g' | sed 's/-oru //g' | sed 's/-ogr //g' | sed 's/-oge //g'| sed 's/-nbg //g'
@@ -11,6 +10,16 @@ sed -e 's/-pli//g' -e 's/-pi//g' -e 's/-ru//g' -e 's/-en//g' -e 's/-abhi//g' -e 
 
 args="$@"
 pattern=`echo ${args} | clearargs` 
+
+
+if [[ "$@" == *"-nbg"* ]];  then 
+nbg="-nbg"
+else 
+nbg=
+fi
+
+mainscript="nice -19 $rootpath/finddhamma.sh -ogr $nbg"
+
 #check if not empty
 if [[ "$pattern" != "" ]]
 then
@@ -40,37 +49,21 @@ fi
 if [[ "$@" =~ "-en" ]] || [[ "$@" =~ "-ru" ]] || [[ "$@" =~ "-pli" ]] || [[ "$@" =~ "-th" ]]
 then
     #echo "single language mode<br>"
-  nice -19  $mainscript "$pattern"
+$mainscript $pitaka "$pattern"
 exit 0
 fi 
 
 
 #run for all
-nice -19 $mainscript $pitaka -pli "$pattern" 
+$mainscript $pitaka "$pattern" 
 status=$?
 if (( "$status" == "3" ))
 then                                                                   #echo status=$status
     exit 3
 fi
 
-nice -19 $mainscript $pitaka -ru "$pattern"
-nice -19 $mainscript $pitaka -en "$pattern"
-nice -19 $mainscript $pitaka -th "$pattern"
+$mainscript $pitaka -ru "$pattern"
+$mainscript $pitaka -en "$pattern"
+$mainscript $pitaka -th "$pattern"
  
 exit 0
-
-status=$?
-if (( "$status" == "3" ))
-then 
-#echo status=$status
-    exit 3
-fi
-
-
-
-for i in -en -ru -th
-do 
-/home/a0092061/domains/find.dhamma.gift/public_html/scripts/finddhamma.sh $i $@ 
-done 2>&1
-
-
