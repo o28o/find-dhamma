@@ -1,16 +1,8 @@
 #1/bin/bash
-source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
-
-
-function clearargs {
-sed -e 's/-pli //g' -e 's/-pi //g' -e 's/-ru //g' -e 's/-en //g' -e 's/-abhi //g' -e 's/-vin //g' -e 's/-th //g' -e 's/^ //g' -e 's/-kn //g' | sed 's/-oru //g' | sed 's/-ogr //g' | sed 's/-oge //g'| sed 's/-nbg //g'
-}
-
-
+source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 
 args="$@"
 pattern=`echo ${args} | clearargs` 
-
 
 if [[ "$@" == *"-nbg"* ]];  then 
 nbg="-nbg"
@@ -53,7 +45,7 @@ $mainscript $pitaka "$pattern"
 exit 0
 fi 
 
-echo $mainscript $pitaka "$pattern" 
+#echo $mainscript $pitaka "$pattern" 
 #run for all
 $mainscript $pitaka "$pattern" 
 status=$?

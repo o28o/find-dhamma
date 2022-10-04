@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh
+source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 
 
 title="All Searches"

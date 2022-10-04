@@ -9,6 +9,40 @@ truncatelength=30
 filesizenooverwrite=700000
 maxmatchesbg=900
 
+function clearargs {
+sed -e 's/-pli //g' -e 's/-pi //g' -e 's/-ru //g' -e 's/-en //g' -e 's/-abhi //g' -e 's/-vin //g' -e 's/-th //g' -e 's/^ //g' -e 's/-kn //g' | sed 's/-oru //g' | sed 's/-ogr //g' | sed 's/-oge //g'| sed 's/-nbg //g'
+}
+
+
+function removeindex {
+sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
+}
+
+function tohtml {
+tee -a ${table} table.html > /dev/null
+} 
+
+function sedexpr {
+sed 's/\.$//g' | sed 's/:$//g' | sed 's/[,!?;«—”“‘"]/ /g' | sed 's/)//g' | sed 's/(//g'  
+}
+
+function cleanwords {
+  cat $file | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
+  }
+  
+#| sed 's/’ti//g'  
+function getwords {
+cleanwords | sort | uniq 
+cleanwords | tee -a $tempfilewords > /dev/null
+
+}
+
+function highlightpattern {
+sed "s@$pattern@<b>&</b>@gI"
+}
+
+
+
 sitename=https://find.dhamma.gift
 templatefolder=/home/a0092061/domains/find.dhamma.gift/public_html/templates
 
