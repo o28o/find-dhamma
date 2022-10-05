@@ -176,7 +176,7 @@ then
     emptypattern
     exit 1
 fi 
-
+echo ${pattern^}
 #check suttanta vinatya or abhidhamma
 if [[ "$@" =~ "-vin" ]]
 then
