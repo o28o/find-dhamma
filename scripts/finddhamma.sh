@@ -280,8 +280,8 @@ elif [[ "$@" == *"-pli"* ]]; then
     #directlink=/en/?layout=linebyline
     language=Pali
     type=json
-    metaphorkeys="seyyathāpi|adhivacan"
-    nonmetaphorkeys="adhivacanasamphass|adhivacanapath"
+    metaphorkeys="seyyathāpi|adhivacan|ūpama|opama"
+    nonmetaphorkeys="adhivacanasamphass|adhivacanapath|ekarūp|tathārūpa|āmarūpa|\brūpa|evarūpa|\banopam|\battūpa|\bnillopa|opamaññ"
    #modify pattern as legacy uses different letters
     #pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs`
 elif [[ "$@" == *"-en"* ]]; then
@@ -290,7 +290,7 @@ elif [[ "$@" == *"-en"* ]]; then
     pali_or_lang=sc-data/sc_bilara_data/translation/en/
     language=English
     type=json
-    metaphorkeys="suppose|is a term for|similar to "
+    metaphorkeys="suppose|is a term for|similar to |simile"
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath" 
 else
     fnlang=_pali
@@ -299,8 +299,8 @@ else
     #directlink=/en/?layout=linebyline
     language=Pali
     type=json
-    metaphorkeys="seyyathāpi|adhivacan"
-    nonmetaphorkeys="adhivacanasamphass|adhivacanapath"
+    metaphorkeys="seyyathāpi|adhivacan|ūpama|opama"
+    nonmetaphorkeys="adhivacanasamphass|adhivacanapath|ekarūp|tathārūpa|āmarūpa|\brūpa|evarūpa|\banopam|\battūpa|\bnillopa|opamaññ"
 fi
 
 
@@ -361,7 +361,7 @@ function genwordsfile {
 
 cat $tempfilewords | pvlimit | sedexpr | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
 
-uniqwordtotal=`cat $tempfile | pvlimit | wc -l `
+uniqwordtotal=`cat $tempfile | pvlimit | sort | uniq | wc -l `
 #| sed 's/(//g' | sed 's/)//g'
 #cat $tempfile
 #echo cat
@@ -466,9 +466,9 @@ echo $count >> $tempfile
 word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
 indexlist=`nice -19 egrep -i $filenameblock $basefile | awk '{print $2}'`
 
-metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
+metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
 
-metaphorcount=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
+metaphorcount=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -iE "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
 suttatitle=`nice -19 grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
@@ -595,9 +595,9 @@ echo $count >> $tempfile
 word=`getwords | xargs | clearsed | sedexpr | highlightpattern`
 indexlist=`nice -19 egrep -i $filenameblock $basefile | awk '{print $2}'`
 
-metaphorindexlist=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -v "$nonmetaphorkeys" | awk '{print $1}'` 
+metaphorindexlist=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
 
-metaphorcount=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -v "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
+metaphorcount=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
 suttatitle=`grep 'h1' $file | clearsed | xargs `
 #quote=`nice -19 egrep -ih "${pattern}" $file | clearsed | highlightpattern `
