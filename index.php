@@ -99,8 +99,8 @@ $pattern = $language = $arg = "";
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">About</a></li>             
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Useful Links </a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Contacts</a></li>
-<li class="nav-item mx-0 mx-lg-2"><p><a class=" py-3 px-0 px-lg-0 rounded" href="/">En</a> 
-									 <a class=" py-3 px-0 px-lg-0 rounded" href="/ru.php">Ru</a></p></li>	
+<li class="nav-item mx-0 mx-lg-2"><p><a class="py-1 px-0 px-lg-1 rounded link-light" href="/">En</a> 
+									<a class="link-light text-decoration-none py-1 px-0 px-lg-1 rounded" href="/ru.php">Ru</a></p></li>		
                     </ul>
                 </div>
             </div>

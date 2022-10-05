@@ -92,8 +92,8 @@ $pattern = $language = $arg = "";
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Контакты</a></li>
-<li class="nav-item mx-0 mx-lg-2"><p><a class="py-1 px-0 px-lg-1 rounded" href="/">En</a> 
-									<a class=" py-1 px-0 px-lg-1 rounded" href="/ru.php">Ru</a></p></li>	
+<li class="nav-item mx-0 mx-lg-2"><p><a class="py-1 px-0 px-lg-1 rounded link-light text-decoration-none" href="/">En</a> 
+									<a class="link-light py-1 px-0 px-lg-1 rounded" href="/ru.php">Ru</a></p></li>	
                     </ul>
                 </div>
             </div>
