@@ -374,6 +374,16 @@ uniqwordcount=`echo $line | awk '{print $2}'`
 linkscount=`nice -19 grep -i "\b$uniqword\b" $basefile | sort | awk '{print $1}' | awk -F'/' '{print $NF}' | sort | uniq | wc -l`
 linkswwords=`grep -i "\b$uniqword\b" $basefile | sort -V | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -V | uniq | awk -F'_' '{print "<a target=_blank href=https://find.dhamma.gift/sc/?q="$1">"$1"</a>"}'| xargs`
 
+#linkswwords=$(nice -19 grep -i "\b$uniqword\b" $basefile | sort -V | while read -r wordqoute 
+#do 
+#linkqoute=`echo $wordqoute | awk '{print substr($0, index($0, $2))"<br><br>"}'`
+#linkword=`echo $wordqoute | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -V | uniq | awk -F'_' '{print "<a target=_blank href=https://find.dhamma.gift/sc/?q="$1">"$1"</a>"}'`
+#done)
+
+#| awk '{print $1}' | awk -F'/' '{print $NF}' | awk -F'_' '{print "<a target=_blank href=https://find.dhamma.gift/sc/?q="$1">"$1"</a>"}' | sort -V | uniq | awk -F'_' '{print "<a target=_blank href=https://find.dhamma.gift/sc/?q="$1">"$1"</a>"}'| xargs
+
+
+
 #echo $linkswwords
 #cat ${links_and_words}  | tr ' ' '\n' |  nice -19 egrep -i$grepgenparam "$pattern"  | sed -e 's/<[^>]*>//g' | sed 's/[".;:?,]/ /g' | sed -e 's/“/ /g' -e 's/‘/ /g'| sed 's/.*= //g' | sed 's@/legacy-suttacentral-data-master/text/pi/su@@g' | sed 's/.*>//g'| sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]'  | sort | uniq > ${words}
 
