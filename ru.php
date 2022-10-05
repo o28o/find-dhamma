@@ -160,8 +160,7 @@ $arg = $language . ' ' . $pattern;
 		
 		
 		
-<!--	<p><a class="outlink" href="./list.php">История Поиска</a></p> -->
-	<p><a class="outlink" target="_blank" href="https://www.youtube.com/embed/iKRaa9D07-I">Видео "Как Искать"</a></p> 
+	<p><a class="outlink" href="./list.php">История Поиска</a></p> 
 
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
@@ -179,10 +178,15 @@ $arg = $language . ' ' . $pattern;
       <!-- <div class="divider-custom-icon text-center">
               <i class="fa-solid fa-book fa-4x" title="Exchange"></i> <i class="fa-solid fa-list fa-4x"></i>
               </div> -->
-        <div class="font-italic">  
-  
+        <div class="font-italic"> 
+	
+	<h4 class="page-section-heading text-center mb-4">Как пользоваться?</h4>
+	        <div class="embed-container mb-5 text-center"> 
+                                   <iframe src="https://www.youtube.com/embed/iKRaa9D07-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							                    		</div>
 
-        <p class="lead mb-5 font-italic text-center ">Всесторонний взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
+        <p class="lead mb-5 text-center">
+		Всесторонний взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
         из Палийских Сутт и Винаи в удобных таблицах<br> для дальнейшего изучения.
 
                         </p>
@@ -211,7 +215,7 @@ $arg = $language . ' ' . $pattern;
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                   
-                            <h4 class="page-section-heading text-center mb-4">Демо Видео</h4>
+                            <h4 class="page-section-heading text-center mb-4">Подробное Видео</h4>
                     <div class="col-md-6 col-lg-4 mb-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -431,7 +435,7 @@ $arg = $language . ' ' . $pattern;
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Обучающее Видео</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Подробное Видео</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>

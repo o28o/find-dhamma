@@ -168,13 +168,23 @@ $arg = $language . ' ' . $pattern;
 			echo "<p>$output</p>";
 		?>	
 		
-			<p><a class="outlink" target="_blank" href="https://www.youtube.com/embed/Q_SLMrg6L1k">Watch How-To Video</a></p> 
+		
+	<p><a class="outlink" href="./list.php">Search History</a></p> 
+
+									  
+									  
 <!--	<p><a class="outlink" href="/list.php">Search History</a></p> -->
         </header>
 	
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
+				<h4 class="page-section-heading text-center mb-4">How-To Video</h4>
+		
+			<div class="embed-container mb-5 text-center"> 
+                   <iframe src="https://www.youtube.com/embed/Q_SLMrg6L1k?modestbranding=1&hl=en-US" title="How to search in Pali Suttas and Vinaya with find.dhamma.gift" frameborder="0" allowfullscreen></iframe>
+							                    		</div>
+			
         <div class="font-italic">  <p class="lead mb-5 font-italic text-center ">  All-round view on meanings, definitions, <br>
             metaphors, persons, locations and everything else<br>
             from Pali Suttas and Vinaya<br> 
@@ -205,11 +215,9 @@ $arg = $language . ' ' . $pattern;
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                  
-                                 
-								 
-         <h4 class="page-section-heading text-center mb-4">Demo Video</h4>
+                <div class="row justify-content-center">		 
+                  		 
+         <h4 class="page-section-heading text-center mb-4">Detailed Video</h4>
                     <div class="col-md-6 col-lg-4 mb-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
