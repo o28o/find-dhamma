@@ -87,7 +87,7 @@ function bgswitch {
 }
 
 function emptypattern {
-   echo "Emptry pattern"
+   echo "Empty pattern"
 }
 
 
@@ -127,7 +127,7 @@ function bgswitch {
 }
 
 function emptypattern {
-   echo "Emptry pattern"
+   echo "Empty pattern"
 }
 
 

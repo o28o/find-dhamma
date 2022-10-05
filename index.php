@@ -406,7 +406,7 @@ $arg = $language . ' ' . $pattern;
                     </div>
 					
 					 <div class="col-lg-4 mb-5 mb-lg-0">
-					<h4 class="text-uppercase mb-4">Изучение</h4>
+					<h4 class="text-uppercase mb-4">Study</h4>
 	
 	<div class="list-group">
 
