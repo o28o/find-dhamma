@@ -38,25 +38,25 @@ $nameErr = $languageErr  = "";
 $pattern = $language = $arg = "";
 		// Checking for a POST request
 		
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
+		if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  if (empty($_GET["name"])) {
     $nameErr = "Name is required";
   } else {
-    $name = test_input($_POST["name"]);
+    $name = test_input($_GET["name"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
       $nameErr = "Only letters and white space allowed";
     }
   }
-	if (empty($_POST["language"])) {
+	if (empty($_GET["language"])) {
     $languageErr = "language is required";
   } else {
-    $language = test_input($_POST["language"]);
+    $language = test_input($_GET["language"]);
   }
 }	
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$pattern = test_input($_POST["pattern"]);
-/* 		$pitaka = test_input($_POST["pitaka"]);
+		$pattern = test_input($_GET["pattern"]);
+/* 		$pitaka = test_input($_GET["pitaka"]);
  */		}
 		// Removing the redundant HTML characters if any exist.
 		function test_input($data) {
@@ -66,10 +66,10 @@ $pattern = $language = $arg = "";
 		return $data;
 		}
 		
-      if (empty($_POST["language"])) {
+      if (empty($_GET["language"])) {
     $languageErr = "";
   } else {
-    $language = test_input($_POST["language"]);
+    $language = test_input($_GET["language"]);
   }
 		?>
  
@@ -88,12 +88,13 @@ $pattern = $language = $arg = "";
 	  
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="/list.php?lang=pali">История Поиска</a></li>
+<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="./bg.php">Фоновый Режим</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
 <li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Контакты</a></li>
-<li class="nav-item mx-0 mx-lg-2"><p><a class="py-1 px-0 px-lg-1 rounded link-light text-decoration-none" href="/">En</a> 
-									<a class="link-light py-1 px-0 px-lg-1 rounded" href="/ru.php">Ru</a></p></li>	
+<li class="nav-item mx-0 mx-lg-2"><p><a class="py-1 px-0 px-lg-1 rounded" href="/">En</a> 
+									<a class=" py-1 px-0 px-lg-1 rounded" href="/ru.php">Ru</a></p></li>	
                     </ul>
                 </div>
             </div>
@@ -105,8 +106,8 @@ $pattern = $language = $arg = "";
                 <!-- Masthead Avatar Image-->
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading mb-3">Найдите Истину</h1>
-                <!-- <h5 class="mr=5">Pāḷi, Русский, ไทย и English</h5> -->
+                <h1 class="masthead-heading mb-3">Найдите Истину GET edition</h1>
+                <h5 class="mr=5">Pāḷi, Русский, ไทย и English</h5>
 				
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
@@ -123,10 +124,10 @@ $pattern = $language = $arg = "";
 
                             <div class="form-group">
                                 <label class="sr-only">Что искать?</label>
-                                <input name="pattern"  type="text" class="form-control" placeholder="прим. Kāyagat" autofocus>
+                                <input name="pattern"  type="text" class="form-control" placeholder="прим. Kāyagat " autofocus>
                             </div>
-                            <br>
-                            <div class="form-check form-check-inline">
+                   <!--      <br>
+ <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Пали
   </div>
                           <div class="form-check form-check-inline">
@@ -137,15 +138,15 @@ $pattern = $language = $arg = "";
   </div>
                               <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
-  </div>
+  </div> 
    
   <span class="error"><?php echo $languageErr;?></span>
-  <br><br>
+  <br> -->
+  <br>
          <button type="submit" name="submit"
 				value="Search" class="btn btn-primary btn-lg">Найти</button>  
 				</form>
-				
-				<?php
+<?php
 $arg = $language . ' ' . $pattern;
 ?>
  </div>
@@ -154,14 +155,10 @@ $arg = $language . ' ' . $pattern;
  			echo $lang;
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $pattern);
-			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $language $string"); 
+			$output = shell_exec("nice -19 ./scripts/findinall.sh -ogr $string"); 
 			echo "<p>$output</p>";
-		?>	
-		
-		
-		
+		?>
 	<p><a class="outlink" href="./list.php">История Поиска</a></p> 
-
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->
@@ -178,15 +175,10 @@ $arg = $language . ' ' . $pattern;
       <!-- <div class="divider-custom-icon text-center">
               <i class="fa-solid fa-book fa-4x" title="Exchange"></i> <i class="fa-solid fa-list fa-4x"></i>
               </div> -->
-        <div class="font-italic"> 
-	
-	<h4 class="page-section-heading text-center mb-4">Как пользоваться?</h4>
-	        <div class="embed-container mb-5 text-center"> 
-                                   <iframe src="https://www.youtube.com/embed/iKRaa9D07-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							                    		</div>
+        <div class="font-italic">  
+  
 
-        <p class="lead mb-5 text-center">
-		Всесторонний взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
+        <p class="lead mb-5 font-italic text-center ">Всесторонний взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
         из Палийских Сутт и Винаи в удобных таблицах<br> для дальнейшего изучения.
 
                         </p>
@@ -215,7 +207,7 @@ $arg = $language . ' ' . $pattern;
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                   
-                            <h4 class="page-section-heading text-center mb-4">Подробное Видео</h4>
+                            <h4 class="page-section-heading text-center mb-4">Демо Видео</h4>
                     <div class="col-md-6 col-lg-4 mb-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -399,68 +391,14 @@ $arg = $language . ' ' . $pattern;
     <p class="mb-1">Самая полная коллекция Русских переводов Суттанты.</p>
     <small class="text-muted"></small>
   </a>
-</div>  		
-
-
-                        
-	
+</div>  			
                     </div>
-					
-					 <div class="col-lg-4 mb-5 mb-lg-0">
-					<h4 class="text-uppercase mb-4">Изучение</h4>
-	
-	<div class="list-group">
-
-
-  <a target="_blank" href="https://drive.google.com/file/d/1H_mhKNgrBYevOOnax-FUBgxkfSuwHItu/view?usp=sharing" class="list-group-item list-group-item-action active" aria-current="true">
-    <div class="d-flex w-100 justify-content-between text-left ">
-      <h5 class="mb-1">Новый Курс по Чтению Пали</h5>
-      <small>учебник</small>
-    </div>
-    <p class="mb-1 text-left">Рекомендуемый Учебник</p>
-    <small></small>
-  </a>
-
-    <a target="_blank"   href="https://drive.google.com/file/d/1HVRK6yTMT59uHCCvTdQukRy7fmHNntOr/view?usp=sharing" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Окончания Падежей в Пали</h5>
-      <small class="text-muted">таблица</small>
-    </div>
-    <p class="mb-1">В англ. переводах и соответственно русских переводах с англ. языка падежи часто переведены неправильно.</p>
-    <small class="text-muted">Обязательно сверяйте с Пали</small>
-  </a>
-
-  <a target="_blank" href="https://drive.google.com/file/d/1HzPCYsVBEkWErAk6TqSWRYKseM1hqMCb/view?usp=sharing" class="list-group-item list-group-item-action" aria-current="true">
-    <div class="d-flex w-100 justify-content-between text-left">
-      <h5 class="mb-1">Спряжения Палийских глаголов</h5>
-      <small>таблица</small>
-    </div>
-    <p class="mb-1 text-left">Спряжения неправильно переведены реже чем падежи, но все же встречаются</p>
-    <small>Обязательно сверяйте с Пали</small>
-  </a>
-  
-  
-  <a target="_blank"  href="
-  https://drive.google.com/drive/u/1/folders/1UU-y5idRNpfcVTripRUtyTVcOgdwjMGN" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Учебные материалы на русском и агнлийском</h5>
-      <small class="text-muted">оффлайн</small>
-    </div>
-    <p class="mb-1">Подборка учебников и таблиц</p>
-    <small class="text-muted"></small>
-  </a>
-  
-</div>  
-</div>
-				</div>	
                     <!-- Footer About Text-->
-                    <div id="contacts" class="col-lg-0 text-center">
-                        <h4 class="text-uppercase mt-5 mb-4">Контакты</h4>
+                    <div id="contacts" class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">Контакты</h4>
 						
                         <p class="lead mb-4">
-                            Найдите Благородный Восьмеричный Путь.<br>
-							Поймите Четыре Благородные Истины.<br>
-							Дхамма - это Действительность.
+                            Найдите Благородный Восьмеричный Путь. Поймите Четыре Благородные Истины. Дхамма - это Действительность.
                       
                         </p>
 							   <a  target="_blank"  class="btn btn-outline-light btn-social mx-1" href="https://github.com/o28o/find-dhamma#readme"><i class="fa-brands fa-github"></i></a>
@@ -468,7 +406,7 @@ $arg = $language . ' ' . $pattern;
 			
 						<a href="https://m.youtube.com/channel/UCoyL5T0wMubqrj4OnKVOlMw" class="btn btn-outline-light btn-social mx-1" title="YouTube" target="_blank" rel="nofollow"><i class="fa-brands fa-youtube"></i></a>
                     </div>
-                
+                </div>
             </div>
         </footer>
         <!-- Copyright Section-->
@@ -489,7 +427,7 @@ $arg = $language . ' ' . $pattern;
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Подробное Видео</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Обучающее Видео</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -584,41 +522,31 @@ $arg = $language . ' ' . $pattern;
 										Поиск производится на Пали, Русском, Английском и Тайском в материалах SuttaCentral.net и Theravada.ru, то есть если того или иного перевода нет на этих ресурсах здесь их также не будет.<br><br>
 									 <strong>Совет #1</strong><br>
                                     Используйте специальные символы ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br><br>
-                                     <strong>Совет #2 Кхуддака Никая</strong><br>
-									 Поиск делается во всех суттах ДН, МН, СН, АН. Запустите поиск с опцией -kn, чтобы также искать в следующих книгах КН: Дхаммапада, Удана, Итивуттака, Суттанипата, Тхерагатха, Тхеригатха. Другие книги КН не будут использоваться в поиске даже с параметром -kn. Вы можете использовать альтернативные ресурсы для поиска в Джатаках и остальных книгах КН.
-									 <br>
-									 Пример #1: -kn jamm 
-									 <br>
-									 Этот запрос выведет все совпадения по корню jamm из DN, MN, SN, AN + перечисленные книги KN.
-									 									 <br>
-									 Пример #2: jamm 
-									 <br>
-									 Выведет совпадения только из DN, MN, SN, AN.
-									 <br><br>
+                                     <strong>Совет #2</strong><br>
+									 Поиск делается во всех суттах ДН, МН, СН, АН и в следующих книгах КН: Дхаммапада, Удана, Итивуттака, Суттанипата, Тхерагатха, Тхеригатха. Другие книги КН не будут использоваться в поиске. Вы можете использовать альтернативные ресурсы для поиска в Джатаках и других книгах КН.<br><br>
 
-
-							<strong>Совет #3 Виная</strong><br> 
-                                   Если вы хотите искать в текстах Винаи добавьте -vin к поисковому запросу. К примеру, чтобы искать совпадение по cetana в Винае запрос должен выглядеть так: -vin cetana <br><br>
-								   
-									 <strong>Совет #4</strong><br>
+									 <strong>Совет #3</strong><br>
                                     Используйте корень слова для более широких результатов поиска. Или к примеру с или без приставок, или окончаний, чтобы сузить результаты. 
 									<br><br>
-																												<strong>Совет #5</strong><br>
+																												<strong>Совет #4</strong><br>
                                     Сделайте упор на Пали, используйте другие языки во вторую очередь. Пали - это язык на котором записаны самые древние тексты связанные с Дхаммой.	
 									<br><br>
-									<strong>Совет #6</strong><br>Результаты поиска на Пали - это: таблица совпадений по Суттам/Текстам с цитатами и таблица по словам. Используйте оба типа результатов, чтобы повысить пользу для вас.<br><br>
-                                   <strong>Совет #7</strong><br>Минимальная длинна поискового запроса - 3 символа. Но если возможно ищите более длинные шаблоны. Так вы получите более точные результаты.<br><br>
+									<strong>Совет #5</strong><br>Результаты поиска на Пали - это: таблица совпадений по Суттам/Текстам с цитатами и таблица по словам. Используйте оба типа результатов, чтобы повысить пользу для вас.<br><br>
+                                   <strong>Совет #6</strong><br>Минимальная длинна поискового запроса - 3 символа. Но если возможно ищите более длинные шаблоны. Так вы получите более точные результаты.<br><br>
                                    
 								 
 								 
-									<strong>Совет #8</strong><br> 
+									<strong>Совет #7</strong><br> 
                                    Мы рекомендуем искать на Пали. Так вы получите наилучшие результаты и вы разовьёте очень важную привычку - не полагаться слепо на переводы. Но очевидно, вы также можете получить некоторые преимущества от поисков на других языках. Если вы ищете животных, растения и т.п. К примеру, в текстах на Пали используется как минимум четыре разных слова. Тогда как на русском и английском это "змея" и "гадюка".<br><br>
 				
-									<strong>Совет #9</strong><br>
+									<strong>Совет #8</strong><br>
                                    Если запрос завершается ошибкой из-за таймаута, попробуйте более длинный поисковый запрос.  <br><br>
-								  
-								  <strong>Совет #10</strong><br>
-                                   Если запрос завершается ошибкой из-за таймаута и вы не можете использовать  более длинный поисковый запрос, попробуйте <a href="./bg.php">Фоновый Режим</a>. Он может помочь.<br><br>  
+								   <strong>Совет #9</strong><br>
+                                   Если запрос завершается ошибкой из-за таймаута и вы не можете использовать  более длинный поисковый запрос, попробуйте фоновый режим из соответствующего пункта меню. Это может помочь.<br><br> 
+								   
+                                   <strong>Совет #10</strong><br> 
+                                   Если вы хотите искать в текстах Винаи добавьте -vin к поисковому запросу. К примеру, чтобы искать совпадение по cetana в Винае запрос должен выглядеть так: -vin cetana <br><br>
+									
 									</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>

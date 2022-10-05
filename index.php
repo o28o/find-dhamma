@@ -404,9 +404,56 @@ $arg = $language . ' ' . $pattern;
 
 				
                     </div>
+					
+					 <div class="col-lg-4 mb-5 mb-lg-0">
+					<h4 class="text-uppercase mb-4">Изучение</h4>
+	
+	<div class="list-group">
+
+
+  <a target="_blank" href="https://drive.google.com/file/d/1O_wZ_DLMbTMPnyl34Xxr9_t-Px6g8Hb0/view?usp=sharing" class="list-group-item list-group-item-action active" aria-current="true">
+    <div class="d-flex w-100 justify-content-between text-left ">
+      <h5 class="mb-1">New Pali Course</h5>
+      <small>textbook</small>
+    </div>
+    <p class="mb-1 text-left">Highly recommended</p>
+    <small></small>
+  </a>
+
+    <a target="_blank"   href="https://drive.google.com/file/d/1HVRK6yTMT59uHCCvTdQukRy7fmHNntOr/view?usp=sharing" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Pali cases</h5>
+      <small class="text-muted">table</small>
+    </div>
+    <p class="mb-1">Cases are mistranslated pretty often.</p>
+    <small class="text-muted">Check Pali original</small>
+  </a>
+
+  <a target="_blank" href="https://drive.google.com/file/d/1HzPCYsVBEkWErAk6TqSWRYKseM1hqMCb/view?usp=sharing" class="list-group-item list-group-item-action" aria-current="true">
+    <div class="d-flex w-100 justify-content-between text-left">
+      <h5 class="mb-1">Pali veb conjugation</h5>
+      <small>table</small>
+    </div>
+    <p class="mb-1 text-left">Conjugations sometimes mistranslated.</p>
+    <small>Check Pali original</small>
+  </a>
+  
+
+  <a target="_blank"  href="
+  https://drive.google.com/drive/u/1/folders/1UU-y5idRNpfcVTripRUtyTVcOgdwjMGN" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Materials for studying Pali in English and Russian</h5>
+      <small class="text-muted">offline</small>
+    </div>
+    <p class="mb-1">Collection of textbooks and tables</p>
+    <small class="text-muted"></small>
+  </a>
+  
+</div>  
+</div>
                     <!-- Footer About Text-->
-                    <div id="contacts" class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">Contacts</h4>
+                    <div id="contacts" class="col-lg-0 text-center">
+                        <h4 class="text-uppercase mt-5 mb-4">Contacts</h4>
 						
                         <p class="lead mb-4">
                             Find the Noble Eightfold Path.<br>
