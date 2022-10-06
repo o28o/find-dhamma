@@ -1,6 +1,6 @@
 #!/bin/bash -i
-#set -x 
-#trap read debug
+set -x 
+trap read debug
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 
 
@@ -366,6 +366,7 @@ uniqwordtotal=`cat $tempfile | pvlimit | sort | uniq | wc -l `
 #cat $tempfile
 #echo cat
 
+#cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$title/TitletoReplace/g' > $tempfilewords 
 cat $templatefolder/Header.html $templatefolder/WordTableHeader.html | sed 's/$title/TitletoReplace/g' > $tempfilewords 
 
 nice -19 cat $tempfile | pvlimit | while IFS= read -r line ; do
@@ -432,7 +433,7 @@ for filenameblock in `nice -19 cat $basefile | pvlimit | awk -F':' '{print $1}' 
 
      rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
 
-  if [[ $filenameblock == *"dn"* ]]
+if [[ $filenameblock == *"dn"* ]]
 then 
 dnnumber=`echo $filenameblock | sed 's/dn//g'`
 rusthrulink=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "ДН $dnnumber" | sed 's#href="#href="https://tipitaka.theravada.su#' |awk -F'"' '{print $2}'`
@@ -583,16 +584,16 @@ linklang=$linkgeneral
 
 
 linklang=$rusthrulink	
-elif [[ $filenameblock == *"dn"* ]]
-then 
-dnnumber=`echo $filenameblock | sed 's/dn//g'`
-linklang=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "ДН $dnnumber" | sed 's#href="#href="https://tipitaka.theravada.su#' |awk -F'"' '{print $2}'`
 
 elif [[ "$language" == "Thai" ]]; then
 linklang=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
 
     fi 
-    
+ if [[ $filenameblock == *"dn"* ]]
+then 
+dnnumber=`echo $filenameblock | sed 's/dn//g'`
+linklang=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "ДН $dnnumber" | sed 's#href="#href="https://tipitaka.theravada.su#' |awk -F'"' '{print $2}'`
+  fi    
         
 #translatorsname=`echo $translation | awk -F'/ru/' '{print $2}' | awk -F'/' '{print $1}'`
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
@@ -622,7 +623,7 @@ echo "$line"
 echo '<br class="styled">'
 done | tohtml
 echo "</td>
-<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linklang">"$printlang"</a></td>
+<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linklang">"$printlang"</a>`[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink"> Вариант 2</a>"`</td>
 </tr>" | tohtml
 
 done
