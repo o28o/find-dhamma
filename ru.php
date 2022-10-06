@@ -87,13 +87,13 @@ $pattern = $language = $arg = "";
 	  nav-link -->
 	  
 	  
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link my-3 py-10 px-0 px-lg-0 rounded" href="/list.php?lang=pali">История Поиска</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link my-3 py-10 px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Контакты</a></li>
-<li class="nav-item mx-0 mx-lg-2"><p><a class="py-3 px-0 px-lg-1 rounded link-light text-decoration-none" href="/">En</a> 
+<li class="nav-item mt-2 mb-3 mx-0 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
+<li class="nav-item mb-3 mx-0 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/list.php?lang=pali">История Поиска</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Контакты</a></li>
+<li class="nav-item mb-0 mx-lg-2"><p><a class="py-3 px-0 px-lg-1 rounded link-light text-decoration-none" href="/">En</a> 
 									<a class="py-3 px-0 px-lg-1 rounded link-light" href="/ru.php">Ru</a></p></li>	
                     </ul>
                 </div>

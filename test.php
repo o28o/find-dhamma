@@ -155,7 +155,7 @@ $arg = $language . ' ' . $pattern;
  			echo $lang;
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $pattern);
-			$output = shell_exec("nice -19 ./scripts/testfindinall.sh -ogr $string"); 
+			$output = shell_exec("nice -19 ./scripts/findinall.sh -ogr $string"); 
 			echo "<p>$output</p>";
 		?>
 	<p><a class="outlink" href="./list.php">История Поиска</a></p> 
