@@ -10,26 +10,25 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script>
-  $( function() {
-    var names = [ 
+ $.ajax({
+    url: "/scripts/sutta_words.txt",
+    dataType: "text",
+    success: function(data) {
 	
-	"yuñjatha", "yuñjati", "yūpaṁ", "yūpassa", "yūpatthāya", "yūpo", "yutā", "yūthā", "yūthāni", "yūthapo", "yuto", "yuttā", "yuttaṁ", "yuttāni", "yuttappaṭibhāno", "yuttayogo",
-"yutto", "yuvā", "yuvāsi", "yvāhaṁ", "yvāssa", "yvāyaṁ", "yyāssa"
-
-	];
- 
     var accentMap = {	
       "ā": "a",
       "ī": "i",
       "ū": "u",
       "ḍ": "d",
-      "ṁ": "m",
+      "ṁ": "n",
       "ṁ": "m",
       "ṅ": "n",
       "ṇ": "n",
       "ṭ": "t",
       "ñ": "n"
     };
+ 
+        		
     var normalize = function( term ) {
       var ret = "";
       for ( var i = 0; i < term.length; i++ ) {
@@ -38,19 +37,25 @@
       return ret;
     };
  
+  	var allWords = data.split('\n');
+
     $( "#tags" ).autocomplete({
 	minLength: 3,
       source: function( request, response ) {
-        var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
-        response( $.grep( names, function( value ) {
-          value = value.label || value.value || value;
-          return matcher.test( value ) || matcher.test( normalize( value ) );
-        }) );
-      }
+		var re = $.ui.autocomplete.escapeRegex(request.term);
+		var matcher = new RegExp("^"+re, "i");
+
+var a = $.grep( allWords , function( value ) {value = value.label || value.value || value; 
+var firstresults = matcher.test( value ) || matcher.test( normalize( value ) );
+return  firstresults ;       
+	   })
+var b = $.grep(allWords, function(item, index){return ((item.toLowerCase()).indexOf(re.toLowerCase())>0);});
+response( a.concat(b) );
+ }
     });
-  } );  
-  
-  
+    }
+});
+ 
   </script>
 </head>
 <body>
