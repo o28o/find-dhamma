@@ -448,6 +448,8 @@ translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{pri
 
 suttanumber="$filenameblock"
 
+linkthai=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
+
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}'`
 linkgeneral=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=pli-eng"}' `
 #linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
@@ -496,7 +498,7 @@ echo '<br class="styled">'
 done | tohtml 
 
 echo  "</td>
-<td><a target=\"_blank\" href="$linkpli">Pali</a> `[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Русский</a>"` `[[ $thailink != "" ]] && echo "<a target=\"_blank\" href="$thailink">Thai</a>"` <a target=\"_blank\" href="$linken">English</a></td>
+<td><a target=\"_blank\" href="$linkpli">Pāḷi</a> `[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Русский</a>"` `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">English</a></td>
 </tr>" | tohtml
 
 done
@@ -584,11 +586,11 @@ linklang=$linkgeneral
 
 
 linklang=$rusthrulink	
+fi
 
-elif [[ "$language" == "Thai" ]]; then
-linklang=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
+linkthai=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
 
-    fi 
+  
  if [[ $filenameblock == *"dn"* ]]
 then 
 dnnumber=`echo $filenameblock | sed 's/dn//g'`
@@ -623,7 +625,7 @@ echo "$line"
 echo '<br class="styled">'
 done | tohtml
 echo "</td>
-<td><a target=\"_blank\" href="$linkpli">Pali</a>    <a target=\"_blank\" href="$linklang">"$printlang"</a>`[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink"> Вариант 2</a>"`</td>
+<td><a target=\"_blank\" href="$linkpli">Pāḷi</a>    <a target=\"_blank\" href="$linklang">"$printlang"</a>`[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink"> Вариант 2</a>"` `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai"> ไทย</a>"` </td>
 </tr>" | tohtml
 
 done

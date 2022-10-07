@@ -22,19 +22,72 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="find.Dhamma.gift - Liberation Search Engine">
 	<meta name="twitter:description" content="Search in Pali Suttas and Vinaya in Pali, Russian, English and Thai">
-	
-	
-	
+
 	<link rel="icon" type="image/png" href="./assets/favico.png" />
-    
+	
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/extrastyles.css" rel="stylesheet" />
+        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="/css/extrastyles.css" rel="stylesheet" />
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+ 
+<script>
+ $.ajax({
+    url: "/scripts/sutta_words.txt",
+    dataType: "text",
+    success: function(data) {
+	
+    var accentMap = {	
+      "ā": "a",
+      "ī": "i",
+      "ū": "u",
+      "ḍ": "d",
+      "ṁ": "n",
+      "ṁ": "m",
+      "ṅ": "n",
+      "ṇ": "n",
+      "ṭ": "t",
+      "ñ": "n"
+    };
+ 
+        		
+    var normalize = function( term ) {
+      var ret = "";
+      for ( var i = 0; i < term.length; i++ ) {
+        ret += accentMap[ term.charAt(i) ] || term.charAt(i);
+      }
+      return ret;
+    };
+ 
+  	var allWords = data.split('\n');
+
+    $( "#paliauto" ).autocomplete({
+	minLength: 3,
+      source: function( request, response ) {
+		var re = $.ui.autocomplete.escapeRegex(request.term);
+		var matcher = new RegExp("^"+re, "i");
+
+var a = $.grep( allWords , function( value ) {value = value.label || value.value || value; 
+var firstresults = matcher.test( value ) || matcher.test( normalize( value ) );
+return  firstresults ;       
+	   })
+var b = $.grep(allWords, function(item, index){return ((item.toLowerCase()).indexOf(re.toLowerCase())>0);});
+response( a.concat(b) );
+ }
+    });
+    }
+});
+ </script>
+
+		
+    
     </head>
       <body id="page-top"> 
     	<?php
@@ -127,10 +180,11 @@ $pattern = $language = $arg = "";
 			<form method="post" action=
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
-                            <div class="form-group">
-                                <label class="sr-only">Pattern</label>
-                                <input name="pattern"  type="text" class="form-control" placeholder="e.g. Kāyagat" autofocus>
+							<div class="form-group ui-widget">
+                                <label class="sr-only" for="paliauto">Pattern</label>
+                                <input name="pattern"  type="text" class="form-control" id="paliauto" placeholder="e.g. Kāyagat" autofocus>
                             </div>
+							
                             <br>
                             <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pali

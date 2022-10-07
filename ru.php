@@ -65,7 +65,7 @@
  
   	var allWords = data.split('\n');
 
-    $( "#tags" ).autocomplete({
+    $( "#paliauto" ).autocomplete({
 	minLength: 3,
       source: function( request, response ) {
 		var re = $.ui.autocomplete.escapeRegex(request.term);
@@ -177,8 +177,8 @@ $pattern = $language = $arg = "";
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
                             <div class="form-group ui-widget">
-                                <label class="sr-only" for="tags">Что искать?</label>
-                                <input name="pattern"  type="text" class="form-control" id="tags" placeholder="прим. Kāyagat" autofocus>
+                                <label class="sr-only" for="paliauto">Что искать?</label>
+                                <input name="pattern"  type="text" class="form-control" id="paliauto" placeholder="прим. Kāyagat" autofocus>
                             </div>
 							
 					
