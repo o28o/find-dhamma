@@ -40,9 +40,6 @@
  
 <script src="/js/autopali.js"></script>
 
-
-		
-    
     </head>
       <body id="page-top"> 
     	<?php
@@ -101,7 +98,7 @@ $pattern = $language = $arg = "";
                     <ul class="navbar-nav ms-auto">
       <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li> -->
             
-<li class="nav-item mt-2 mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Light</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Light</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="/list.php?lang=pali">Search History</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#help">How to</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">About</a></li>             

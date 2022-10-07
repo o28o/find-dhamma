@@ -391,7 +391,7 @@ done
 
 echo "</tbody>
 </table>
-<a href="/">Main page </a>
+<a href="/">Main page</a>&nbsp;
 <a href="/output/${table}">Quotes</a>
 " >> $tempfilewords
 
@@ -517,7 +517,7 @@ matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
 #Sibbin 999 matches in 444 texts of Pali Suttas
 echo "</tbody>
 </table>
-<a href="/">Main page </a>
+<a href="/">Main page</a>&nbsp;
 <a href="/output/${tempfilewords}">Words</a>
 " | tohtml
 
@@ -639,7 +639,7 @@ done
 matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
 echo "</tbody>
 </table>
-<a href="/">Main page </a>
+<a href="/">Main page</a>&nbsp;
 <a href="/output/${tempfilewords}">Words</a>
 " | tohtml
 

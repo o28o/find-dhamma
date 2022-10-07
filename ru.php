@@ -103,8 +103,8 @@ $pattern = $language = $arg = "";
 	  nav-link -->
 	  
 	  
-<li class="nav-item mt-2 mb-3 mx-0 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
-<li class="nav-item mb-3 mx-0 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/list.php?lang=pali">История Поиска</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/list.php?lang=pali">История Поиска</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>

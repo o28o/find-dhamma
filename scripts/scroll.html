@@ -18,7 +18,7 @@ input{
 	</style>
 	
 	
-<script type="text/javascript">
+<script>
  
 $('input').on('focus',function(){
 		var inputHeight=$(this).offset().top;
@@ -29,15 +29,7 @@ $('input').on('focus',function(){
   </script>
 </head>
 <body>
-  <script>
- 
-$('input').on('focus',function(){
-		var inputHeight=$(this).offset().top;
-    $("html, body").animate({ scrollTop: inputHeight}, 600);
-    return false;
- });
 
-  </script>
 <div class="gdbox">
     <div id="gdb1" class="gdbutton fontwhitenshadow">Q</div>
     <input id="one" type="text"><br><br>
