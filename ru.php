@@ -35,55 +35,7 @@
         <link href="/css/extrastyles.css" rel="stylesheet" />
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   
-<script>
- $.ajax({
-    url: "/scripts/sutta_words.txt",
-    dataType: "text",
-    success: function(data) {
-	
-    var accentMap = {	
-      "ā": "a",
-      "ī": "i",
-      "ū": "u",
-      "ḍ": "d",
-      "ṁ": "n",
-      "ṁ": "m",
-      "ṅ": "n",
-      "ṇ": "n",
-      "ṭ": "t",
-      "ñ": "n"
-    };
- 
-        		
-    var normalize = function( term ) {
-      var ret = "";
-      for ( var i = 0; i < term.length; i++ ) {
-        ret += accentMap[ term.charAt(i) ] || term.charAt(i);
-      }
-      return ret;
-    };
- 
-  	var allWords = data.split('\n');
-
-    $( "#paliauto" ).autocomplete({
-	minLength: 3,
-      source: function( request, response ) {
-		var re = $.ui.autocomplete.escapeRegex(request.term);
-		var matcher = new RegExp("^"+re, "i");
-
-var a = $.grep( allWords , function( value ) {value = value.label || value.value || value; 
-var firstresults = matcher.test( value ) || matcher.test( normalize( value ) );
-return  firstresults ;       
-	   })
-var b = $.grep(allWords, function(item, index){return ((item.toLowerCase()).indexOf(re.toLowerCase())>0);});
-response( a.concat(b) );
- }
-    });
-    }
-});
-
-
- </script>
+<script src="/js/autopali.js"></script>
 	
 	 <script>	
 	$('input, textarea').focus(function () {
