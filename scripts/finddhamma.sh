@@ -228,14 +228,14 @@ sutta=mutta
 fortitle=Suttanta
 fileprefix=_suttanta
 if [[ "$@" == *"-vin"* ]]; then
-    vin=
+    vin=dummy
     sutta=sutta
 	fortitle=Vinaya
     #echo search in vinaya
     fileprefix=_vinaya
 fi
 if [[ "$@" == *"-abhi"* ]]; then
-    abhi=
+    abhi=dummy
     sutta=sutta
 	fortitle=Abhidhamma
     fileprefix=_abhidhamma
