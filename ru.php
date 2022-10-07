@@ -37,7 +37,7 @@
   
 <script>
   $( function() {
-    var names = [ 
+    var allWords = [ 
 	
 	"ababā", "ababo", "abaddho", "ābādhā", "ābādhabhūtaṁ", "ābādhabhūto", "ābādhaṁ", "ābādhānaṁ", "ābādhatīti", "ābādhato", "ābādhāya", "ābādhayitthāti", "ābādhe", "ābādhena", "ābādhikā", "ābādhikaṁ", "ābādhikinī", "ābādhiko", "ābādho", "ābādhoti", "abahigatena", "abāhiraṁ", "abahukato", "abahulīkatā", "abahulīkataṁ", "abahulīkatattā", "abahulīkato", "abalā", "abālajātikā", "abalaṁ", "abālassa", "abalassaṁva", "abalāya", "abāḷhaṁ", "abalo", "abandhananti", "abandhanāti", "abandhano", "abandhanoti", "abbahe", "abbahī", "abbahitvāna", "abbaje", "abbatā", "abbato", "abbhā", "abbhācikkhāma", "abbhācikkhāmi", "abbhācikkhanaṁ", "abbhācikkhanti", "abbhācikkhantīti", "abbhācikkhasi", "abbhācikkhatha", "abbhācikkhati", "abbhācikkheyya", "abbhācikkheyyaṁ", "abbhācikkheyyāma", "abbhācikkheyyātha", "abbhācikkheyyuṁ", "abbhācikkhi", "abbhācikkhiṁ", "abbhācikkhimhāti", "abbhācikkhituṁ", "abbhāgamanaṁ", "abbhāgate", "abbhaghanā", "abbhaghanaṁ", "abbhāhatuḍḍito", "abbhakkhānaṁ", "abbhākuṭiko", "abbhaṁ", "abbhamattaṁva", "abbhāmattaṁva", "abbhānaṁ", "abbhañca", "abbhāni", "abbhañjeyya", "abbhañjitvā", "abbhaññaṁsu", "abbhaññāsi", "abbhaññāsiṁ", "abbhaññāsinti", "abbhaññāsuṁ", "abbhaññiṁsu", "abbhaññiṁsūti", "abbhantarā", "abbhantaraṁ", "abbhantaramassa", "abbhantarānaṁ", "abbhantarāni", "abbhantarehi", "abbhantaro", "abbhanujānāti", "abbhanujānātīti", "abbhanumodasi", "abbhanumodati", "abbhanumodi", "abbhānumodi", "abbhanumoditā", "abbhasamaṁ", "abbhasampilāpo", "abbhatītā", "abbhatītaṁ", "abbhatītasahāyassa", "abbhatīte", "abbhatītehi", "abbhatīto", "abbhatthaṁ", "abbhavalāhakā", "abbhavalāhakānaṁ", "abbhavalāhakasutta", "abbhayena", "abbhokāsagataṁ", "abbhokāsagatassa", "abbhokāsagato", "abbhokāsagatopi", "abbhokāsaṁ", "abbhokāse", "abbhokāsetināmayi", "abbhokāsī", "abbhokāsikā", "abbhokāsikaṁ", "abbhokāsikamattena", "abbhokāsikassa", "abbhokāsikasutta", "abbhokāsiko", "abbhokāsikopi", "abbhokāso", "abbhokāsova", "abbhudāhāsīti", "abbhudeti", "abbhudīresuṁ", "abbhuggacchati", "abbhuggacchatīti", "abbhuggaccheyya", "abbhuggacchi", "abbhuggacchissati", "abbhuggañchuṁ", "abbhuggantvā", "abbhuggato", "abbhujjalanaṁ", "abbhukkirati", "abbhukkiri", "abbhunnaditā", "abbhunnāmetvā", "abbhunnāmeyyaṁ", "abbhunnamitvā",
 "abbhussakkamāno", "abbhutā", "abbhutadhammabākulaṁ", "abbhutadhammaṁ", "abbhutadhammasamannāgatā", "abbhutadhammaso", "abbhutadhammāti", "abbhutagāmiñca", "abbhutaṁ", "abbhutamidaṁ", "abbhutañca", "abbhutañcāti", "abbhutavittajātā", "abbhutehi", "abbhutena", "abbhuto", "abbhuṭṭhāsi", "abbhuyyāsi", "abbhuyyāto", "abbocchinnaṁ", "abbokiṇṇaṁ", "abbokiṇṇāni", "abbudā", "abbudaṁ", "abbudāni", "abbudo", "abbuhanahetu", "abbuhetvā", "abbuheyya", "abbuhi", "abbūḷhaṁ", "abbuḷhanti", "abbūḷhasallāhaṁ", "abbūḷhasallo", "abbūḷhesiko", "ābhā", "abhabba", "abhabbā", "abhabbābhāsaṁ", "abhabbābhāsanti", "abhabbaṁ", "abhabbasutta", "abhabbatā", "abhabbaṭṭhānāni", "abhabbaṭṭhānānīti", "abhabbāva", "abhabbo", "abhabboti", "ābhādhātu", "ābhādhātuayaṁ", "abhajanto", "abhajato", "abhajitabbe", "ābhaṁ", "ābhānaṁ", "ābhānānattaṁ", "ābhānānattañca", "abhaṇḍanaṁ", "abhaṇḍante", "abhaṇi", "ābhanti", "ābhāpi", "ābharaṇaṁ", "abhāsamāno", "abhāsatha", "abhāsato", "abhāsayi", "abhāsi", "abhāsiṁ", "abhāsinti", "abhāsitaṁ", "abhāsīti", "abhāsittha", "abhāsitthāti", "abhāsitvā", "ābhassarā", "ābhassarakāyā", "ābhassarānaṁ", "ābhassarānampi", "ābhassarasaṁvattanikā", "ābhassarato", "ābhassarattena", "ābhassare", "ābhassaresu", "ābhassarūpago", "abhassatha", "ābhāsutta", "ābhatā", "ābhataṁ", "ābhāvagga", "ābhāvaggo", "abhāvanīyo", "abhāvayato", "abhavenassa", "abhaviṁsu", "abhavissa", "abhavissaṁsu", "abhavissāti", "abhāvitā", "abhāvitacittā", "abhāvitacitto", "abhāvitakāyā", "abhāvitakāyo", "abhāvitaṁ", "abhāvitāni", "abhāvitapaññā", "abhāvitapañño", "abhāvitasīlā", "abhāvitasīlo", "abhāvitattā", "abhāvitattātissa", "abhāvito", "abhaya", "ābhāya", "abhayā", "abhayadakkhiṇaṁ", "abhayaṁ", "abhayamātā", "abhayamātutherīgāthā", "abhayāni", "abhayanti", "abhayappattasutta", "abhayappatto", "abhayappattoti", "abhayarājakumārasutta", "abhayarājakumārasuttaṁ", "abhayarājakumāravatthu", "abhayassa", "abhayasutta", "abhayātherīgāthā", "abhayattheragāthā", "abhaye", "abhayena", "abhayo", "abhayūparato", "abhayūparatohamasmi", "abhedanamukhāni", "abhedi", "abhejjaṁ", "abhejjapariso", "abhejjāssa", "abhejjo", "abhibhāyatanaṁ", "abhibhāyatanānaṁ", "abhibhāyatanañhetaṁ", "abhibhāyatanāni", "abhibhāyatanānīti", "abhibhāyatanasutta", "abhibhosmi", "abhibhotvāna",
@@ -503,7 +503,6 @@
       "ū": "u",
       "ḍ": "d",
       "ṁ": "m",
-      "ṁ": "m",
       "ṅ": "n",
       "ṇ": "n",
       "ṭ": "t",
@@ -520,16 +519,30 @@
     $( "#tags" ).autocomplete({
 	minLength: 3,
       source: function( request, response ) {
-        var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
-        response( $.grep( names, function( value ) {
+        var re = $.ui.autocomplete.escapeRegex(request.term);
+var matcher = new RegExp("^"+re, "i");
+
+        response( $.grep( allWords, function( value ) {
           value = value.label || value.value || value;
           return matcher.test( value ) || matcher.test( normalize( value ) );
         }) );
       }
     });
   } );  
+  
+//  source:function(request, response){
+//  var re = $.ui.autocomplete.escapeRegex(request.term);
+//  var matcher = new RegExp("^"+re, "i");
+  
+//  var a = $.grep(allWords, function(item, index){return matcher.test(item);}); //build array item begins with input string
+ // var b = $.grep(allWords, function(item, index){return ((item.toLowerCase()).indexOf(re.toLowerCase())>0);}); //build array items with input string somewhere
+ // response( a.concat(b) );
+ // }
+
+
   </script>
-		
+	
+	
     </head>
       <body id="page-top"> 
     	<?php
