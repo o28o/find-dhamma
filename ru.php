@@ -81,11 +81,21 @@ response( a.concat(b) );
     });
     }
 });
+
+
  </script>
 	
-	
+	 <script>	
+	$('input, textarea').focus(function () {
+    $('html, body').animate({ scrollTop: ($('input, textarea').offset().top - 10) }, 1);
+    return false;
+});
+	 </script>
+	 
     </head>
       <body id="page-top"> 
+	  
+	  
     	<?php
 		// Defining variables
 $nameErr = $languageErr  = "";
@@ -178,7 +188,7 @@ $pattern = $language = $arg = "";
 
                             <div class="form-group ui-widget">
                                 <label class="sr-only" for="paliauto">Что искать?</label>
-                                <input name="pattern"  type="text" class="form-control" id="paliauto" placeholder="прим. Kāyagat" autofocus>
+                                <input name="pattern"  type="text" class="form-control" id="paliauto" placeholder="прим. Kāyagat">
                             </div>
 							
 					
