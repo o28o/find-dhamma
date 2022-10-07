@@ -1,3 +1,11 @@
+.ui-autocomplete { 
+max-height: 200px; 
+overflow-y: auto; 
+overflow-x: hidden;
+scrollbar-color: #6969dd #e0e0e0;
+}
+
+
 .outlink {
   color:#0d6efd;
 }

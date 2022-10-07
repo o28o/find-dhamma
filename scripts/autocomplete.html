@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+  
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+   <link href="/css/extrastyles.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    var names = [ 
+	
+	"yuñjatha", "yuñjati", "yūpaṁ", "yūpassa", "yūpatthāya", "yūpo", "yutā", "yūthā", "yūthāni", "yūthapo", "yuto", "yuttā", "yuttaṁ", "yuttāni", "yuttappaṭibhāno", "yuttayogo",
+"yutto", "yuvā", "yuvāsi", "yvāhaṁ", "yvāssa", "yvāyaṁ", "yyāssa"
+
+	];
+ 
+    var accentMap = {	
+      "ā": "a",
+      "ī": "i",
+      "ū": "u",
+      "ḍ": "d",
+      "ṁ": "m",
+      "ṁ": "m",
+      "ṅ": "n",
+      "ṇ": "n",
+      "ṭ": "t",
+      "ñ": "n"
+    };
+    var normalize = function( term ) {
+      var ret = "";
+      for ( var i = 0; i < term.length; i++ ) {
+        ret += accentMap[ term.charAt(i) ] || term.charAt(i);
+      }
+      return ret;
+    };
+ 
+    $( "#tags" ).autocomplete({
+	minLength: 3,
+      source: function( request, response ) {
+        var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
+        response( $.grep( names, function( value ) {
+          value = value.label || value.value || value;
+          return matcher.test( value ) || matcher.test( normalize( value ) );
+        }) );
+      }
+    });
+  } );  
+  </script>
+</head>
+<body>
+ 
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
+
+</body>
+</html>
