@@ -1,6 +1,6 @@
 #!/bin/bash -i
-set -x 
-trap read debug
+#set -x 
+#trap read debug
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 
 
@@ -19,7 +19,7 @@ function emptypattern {
 }
 
 function OKresponse {
-echo "${pattern^} $fortitle $language - "
+echo "${pattern^}${addtotitleifexclude} $fortitle $language - "
 #echo "$language - "
 }
 
@@ -132,7 +132,7 @@ function emptypattern {
 
 
 function OKresponse {
-echo "${pattern^} $fortitle $language - "
+echo "${pattern^}${addtotitleifexclude} $fortitle $language - "
 #echo "$language - "
 }
 
@@ -241,16 +241,14 @@ if [[ "$@" == *"-abhi"* ]]; then
     fileprefix=_abhidhamma
     #echo search in abhidhamma
 fi
-
-
-
+ 
 function grepbasefile {
-nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv,thag,thig,snp,dhp,iti,ud} | clearsed > $basefile
+nice -19 egrep -A${linesafter} -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv,thag,thig,snp,dhp,iti,ud} | grep -v "^--$" | grepexclude | clearsed > $basefile
 }
 
 if [[ "$@" == *"-kn"* ]]; then
 function grepbasefile {
-nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | clearsed > $basefile
+nice -19 egrep -A${linesafter} -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | grep -v "^--$" | clearsed > $basefile
 }
 #| nice -19 egrep -v "snp|thag|thig|dhp|iti|ud"
 fi
@@ -304,22 +302,34 @@ else
 fi
 
 
-
+if [[ "$@" == *"-exc"* ]]
+then
+excludepattern=`echo $@ | awk -F'-exc ' '{print $2}'`
+addtotitleifexclude=" excluding $excludepattern"
+function grepexclude {
+egrep -viE "$excludepattern"
+}
+excfn=_exc_$excludepattern
+else
+function grepexclude {
+pvlimit 
+}
+fi
 
 #filename
 fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/_/g' | sed 's/ /_/g' | sed 's/\\\//g' |  awk '{print tolower($0)}'`
-fn=${fn}${fileprefix}${fnlang}
+fn=${fn}${excfn}${fileprefix}${fnlang}
 
 extention=txt
 basefile=${fn}_fn.$extention
 
 #filelist
-words=${fn}_words.$extention
-links=${fn}_links.$extention
-links_and_words=${fn}_links_words.$extention
-quotes=${fn}_quotes.$extention
-brief=${fn}_brief.$extention
-metaphors=${fn}_metaphors.$extention
+#words=${fn}_words.$extention
+#links=${fn}_links.$extention
+#links_and_words=${fn}_links_words.$extention
+#quotes=${fn}_quotes.$extention
+#brief=${fn}_brief.$extention
+#metaphors=${fn}_metaphors.$extention
 table=${fn}.html
 tempfile=${fn}.tmp
 tempfilewords=${fn}_words.html
@@ -676,7 +686,7 @@ genwordsfile
 
 textsqnty=`echo $textlist | wc -w`
 capitalized=`echo $pattern | sed 's/[[:lower:]]/\U&/'`
-title="${capitalized} $textsqnty texts and $matchqnty matches in $fortitle $language"
+title="${capitalized}${addtotitleifexclude} $textsqnty texts and $matchqnty matches in $fortitle $language"
 titlewords="${capitalized} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 

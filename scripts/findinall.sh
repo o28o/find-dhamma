@@ -2,7 +2,25 @@
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 
 args="$@"
+
+if [[ "$@" == *"-exc"* ]]
+then
+pattern=`echo ${args} | sed 's/-exc/savemeforlater/g' | clearargs | sed 's/savemeforlater/-exc/g' ` 
+
+excludepattern=`echo $@ | awk -F'-exc ' '{print $2}'`
+addtotitleifexclude=" excluding $excludepattern"
+function grepexclude {
+egrep -viE "$excludepattern"
+}
+excfn=_exc_$excludepattern
+else
+
 pattern=`echo ${args} | clearargs` 
+function grepexclude {
+pvlimit 
+}
+fi
+
 
 if [[ "$@" == *"-nbg"* ]];  then 
 nbg="-nbg"
@@ -31,7 +49,7 @@ function emptypattern {
 }
 
 function OKresponse {
-echo "${pattern^} $fortitle $language - "
+echo "${pattern^}${addtotitleifexclude} $fortitle $language - "
 #echo "$language - "
 }
 
@@ -54,6 +72,7 @@ echo "Слишком коротко. Мин $minlength символа"
 
 elif [[ "$@" == *"-ogr"* ]]; then
 
+globalpattern=`echo ${pattern^} | sed 's/-exc/исключая/g'`
 function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	Отправлено в фоновый режим.<br>
@@ -89,7 +108,7 @@ echo "Слишком коротко. Мин $minlength символа"
 }
 
 elif [[ "$@" == *"-oge"* ]]; then
-
+globalpattern=`echo ${pattern^} | sed 's/-exc/excluding/g'`
 function bgswitch {
 	echo "$linescount $pattern lines found.<br> 
 	Switched to background mode.<br>
@@ -129,7 +148,7 @@ echo Too short. Min is $minlength
 
 
 else #eng
-
+globalpattern=`echo ${pattern^} | sed 's/-exc/excluding/g'`
 function bgswitch {
 	echo "$linescount $pattern lines found.<br> 
 	Switched to background mode.<br>
@@ -176,7 +195,7 @@ then
     emptypattern
     exit 1
 fi 
-echo ${pattern^}
+echo ${globalpattern^}
 #check suttanta vinatya or abhidhamma
 if [[ "$@" =~ "-vin" ]]
 then
