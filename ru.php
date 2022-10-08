@@ -176,7 +176,8 @@ $arg = $language . ' ' . $pattern;
 		?>	
 </div>		
 		
-		<button href="./list.php" class="btn btn-primary">История Поиска</button>  
+
+<a class="btn btn-primary" href="./list.php" class="btn btn-primary" role="button">История Поиска</a>
 
 
                 <!-- Masthead Subheading

@@ -177,8 +177,8 @@ $arg = $language . ' ' . $pattern;
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
 		?>	
-		
-				<button href="./list.php" class="btn btn-primary">Search History</button>  
+		<a class="btn btn-primary" href="./list.php" class="btn btn-primary" role="button">Search History</a>
+
 
 									  
 									  
