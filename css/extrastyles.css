@@ -1,3 +1,4 @@
+
 .mainbutton{
 	background-color: #10806A!important;
 	/*border-radius: 0.5rem;*/
@@ -120,4 +121,19 @@ video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px;
   text-transform:uppercase;
   font-family:'Josefin Sans';
   letter-spacing:1px;
+}
+
+@media screen and (max-width: 531px) {
+    .masthead { 
+    padding-top: calc(1rem + 20px);
+	
+	}
+	
+.masthead .masthead-heading
+ {
+	 font-size: 2rem ; 
+}
+
+.divider-custom {
+    margin: 0.5rem 0 1.2rem ;
 }

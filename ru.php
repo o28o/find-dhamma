@@ -37,6 +37,24 @@
   
 <script src="/js/autopali.js"></script>
 	 
+	 <style>
+
+@media screen and (max-width: 531px) {
+    .masthead { 
+    padding-top: calc(1rem + 20px);
+	
+	}
+	
+.masthead .masthead-heading
+ {
+	 font-size: 2rem ; 
+}
+
+.divider-custom {
+    margin: 0.5rem 0 1.2rem ;
+}
+	 </style>
+	 
     </head>
       <body id="page-top"> 
 	  
@@ -110,12 +128,12 @@ $pattern = $language = $arg = "";
         </nav>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
+            <div class="container d-flex align-items-center flex-column mb-4">
                         
                 <!-- Masthead Avatar Image-->
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading mb-3">Найдите Истину</h1>
+                <h1 class="masthead-heading">Найдите Истину</h1>
                 <!-- <h5 class="mr=5">Pāḷi, Русский, ไทย и English</h5> -->
 				
                 <!-- Icon Divider-->
@@ -161,7 +179,7 @@ $pattern = $language = $arg = "";
 $arg = $language . ' ' . $pattern;
 ?>
  </div>
-		</br>
+<div>	
 	<?php
  			echo $lang;
 			$old_path = getcwd();
@@ -169,10 +187,10 @@ $arg = $language . ' ' . $pattern;
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $language $string"); 
 			echo "<p>$output</p>";
 		?>	
+</div>		
 		
-		
-		
-	<p><a class="outlink" href="./list.php">История Поиска</a></p> 
+		<button href="./list.php" class="btn btn-primary">История Поиска</button>  
+
 
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
