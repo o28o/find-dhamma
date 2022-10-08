@@ -36,13 +36,6 @@
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   
 <script src="/js/autopali.js"></script>
-	
-	 <script>	
-	$('input, textarea').focus(function () {
-    $('html, body').animate({ scrollTop: ($('input, textarea').offset().top - 10) }, 1);
-    return false;
-});
-	 </script>
 	 
     </head>
       <body id="page-top"> 
@@ -140,7 +133,7 @@ $pattern = $language = $arg = "";
 
                             <div class="form-group ui-widget">
                                 <label class="sr-only" for="paliauto">Что искать?</label>
-                                <input name="pattern"  type="text" class="form-control" id="paliauto" placeholder="прим. Kāyagat">
+                                <input name="pattern"  type="text" class="form-control" id="paliauto" placeholder="прим. Kāyagat" autofocus>
                             </div>
 							
 					

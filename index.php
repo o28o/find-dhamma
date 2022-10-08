@@ -139,7 +139,7 @@ $pattern = $language = $arg = "";
 							
                             <br>
                             <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pali
+  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pāḷi
   </div>
                           <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус

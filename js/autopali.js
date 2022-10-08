@@ -1,4 +1,4 @@
-//get vars from file
+//get vars from file src="/js/autopali.js"
 $.ajax({
     url: "/scripts/sutta_words.txt",
     dataType: "text",
@@ -32,16 +32,25 @@ $.ajax({
 	minLength: 3,
       source: function( request, response ) {
 		var re = $.ui.autocomplete.escapeRegex(request.term);
-		var matcher = new RegExp("^"+re, "i");
-
-var a = $.grep( allWords , function( value ) {value = value.label || value.value || value; 
-var firstresults = matcher.test( value ) || matcher.test( normalize( value ) );
-return  firstresults ;       
-	   })
-var b = $.grep(allWords, function(item, index){return ((item.toLowerCase()).indexOf(re.toLowerCase())>0);});
-response( a.concat(b) );
+		var matchbeginonly = new RegExp("^"+re, "i");
+		var matchall = new RegExp( re, "i");
+		
+var listBeginOnly = $.grep( allWords , function( value ) {value = value.label || value.value || value; 
+var results = matchbeginonly.test( value ) || matchbeginonly.test( normalize( value ) );
+	return results
+	   });
+var listAll = $.grep( allWords , function( value ) {value = value.label || value.value || value; 
+var results = matchall.test( value ) || matchall.test( normalize( value ) );
+	return results ;       
+	   });   
+	   
+listAll = listAll.filter( function( el ) {
+  return !listBeginOnly.includes( el );
+} );
+	   
+//var b = $.grep(allWords, function(item, index){return ((item.toLowerCase()).indexOf(re.toLowerCase())>0);});
+response(listBeginOnly.concat(listAll) );
  }
     });
     }
 });
-

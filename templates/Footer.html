@@ -4,9 +4,14 @@ $(document).ready(function (){
 
 	 var table = $('#pali').DataTable({
 	   'stateSave': true,
+	    'paging'  : false,
 	  'responsive': true,
 	  'columnDefs': [{ type: 'natural', targets: '_all' }
-                    ]    
+                    ],
+		'renderer': {
+		  "header": "jqueryui",
+      "pageButton": "bootstrap"
+    }					
     });
 	  
 	  
