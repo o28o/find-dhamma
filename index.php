@@ -89,7 +89,7 @@ $pattern = $language = $arg = "";
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
             <a class="navbar-brand mobile-center" href="/"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
-                <a class="navbar-brand mobile-none" href="/#page-top">find.dhamma.gift</a>
+                <a class="navbar-brand mobile-none" href="/">find.dhamma.gift</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -132,12 +132,15 @@ $pattern = $language = $arg = "";
 			<form method="post" action=
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
-							<div class="form-group ui-widget">
-                                <label class="sr-only" for="paliauto">Pattern</label>
-                                <input name="pattern"  type="text" class="form-control" id="paliauto" placeholder="e.g. Kāyagat" autofocus>
-                            </div>
-							
-                            <br>
+					                 		<div class="mb-3 form-group input-group ui-widget">
+		<label class="sr-only" for="paliauto">What are you looking for?</label>
+			
+			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. Kāyagat" autofocus>
+			 
+			<div class="input-group-append"><button type="submit" name="submit" value="Search"  class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+		</div>
+
+					
                             <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pāḷi
   </div>
@@ -151,11 +154,8 @@ $pattern = $language = $arg = "";
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div>
   <span class="error"><?php echo $languageErr;?></span>
-  <br><br>
-                        <button type="submit" name="submit"
-				value="Search" class="btn btn-primary btn-lg">Find</button>  
-			
-				
+  
+  
 				</form>
 <?php
 

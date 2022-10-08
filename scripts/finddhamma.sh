@@ -260,8 +260,8 @@ if [[ "$@" == *"-th"* ]]; then
 	printlang=ไทย
     directlink=
     type=html   
-    metaphorkeys="подобно|представь|обозначение"
-    nonmetaphorkeys="подобного"
+    metaphorkeys="подоб|представь|обозначение"
+    nonmetaphorkeys="подобного|подоба"
 elif [[ "$@" == *"-ru"* ]]; then
     fnlang=_ru
     pali_or_lang=sc-data/html_text/ru/pli 
