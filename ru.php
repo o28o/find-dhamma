@@ -39,20 +39,7 @@
 	 
 	 	 <style>
 
-@media screen and (max-width: 531px) {
-    .masthead { 
-    padding-top: calc(1rem + 20px);
-	
-	}
-	
-.masthead .masthead-heading
- {
-	 font-size: 2rem ; 
-}
 
-.divider-custom {
-    margin: 0.5rem 0 1.2rem ;
-}
 	 </style>
 	 
     </head>

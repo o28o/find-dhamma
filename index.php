@@ -178,8 +178,7 @@ $arg = $language . ' ' . $pattern;
 			echo "<p>$output</p>";
 		?>	
 		
-		
-	<p><a class="outlink" href="./list.php">Search History</a></p> 
+				<button href="./list.php" class="btn btn-primary">Search History</button>  
 
 									  
 									  
