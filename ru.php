@@ -108,7 +108,7 @@ $pattern = $language = $arg = "";
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Контакты</a></li>
 <li class="nav-item mb-0 mx-lg-2"><p><a class="py-3 px-0 px-lg-1 rounded link-light text-decoration-none" href="/">En</a> 
-									<a class="py-3 px-0 px-lg-1 rounded link-light" href="/ru.php">Ru</a></p></li>	
+		<a class="py-3 px-0 px-lg-1 rounded link-light" href="/ru.php">Ru</a></p></li>	
                     </ul>
                 </div>
             </div>
@@ -177,7 +177,7 @@ $arg = $language . ' ' . $pattern;
 </div>		
 		
 
-<a class="btn btn-primary" href="./list.php" class="btn btn-primary" role="button">История Поиска</a>
+<a href="./list.php" class="btn btn-primary" role="button">История Поиска</a>
 
 
                 <!-- Masthead Subheading

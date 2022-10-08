@@ -116,7 +116,7 @@ $pattern = $language = $arg = "";
         </nav>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
+            <div class="container d-flex align-items-center flex-column mb-4">
                         
 
                 <!-- Masthead Avatar Image-->
@@ -149,7 +149,7 @@ $pattern = $language = $arg = "";
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pāḷi
   </div>
                           <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
+  <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Rus
   </div>
     <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
@@ -166,9 +166,7 @@ $pattern = $language = $arg = "";
 $arg = $language . ' ' . $pattern;
 ?>
  </div>
-		</br>
-	            
-				
+	
             </div>		
 		<?php
 			echo $lang;
@@ -177,7 +175,7 @@ $arg = $language . ' ' . $pattern;
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
 		?>	
-		<a class="btn btn-primary" href="./list.php" class="btn btn-primary" role="button">Search History</a>
+		<a href="./list.php" class="btn btn-primary" role="button">Search History</a>
 
 
 									  

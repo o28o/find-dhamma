@@ -70,6 +70,11 @@ max-width: 274px;
 
 @media only screen and (max-width: 530px) {
 
+
+.h5mobile {
+	font-size: 0.8rem;	
+}
+
     .masthead { 
     padding-top: calc(1rem + 20px);
 	

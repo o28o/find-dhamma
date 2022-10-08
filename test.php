@@ -5,9 +5,9 @@
 
 <title>find.Dhamma.gift - Поисковый сайт Освобождения. Пали Сутты и Виная</title>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <meta name="description" content="" />
+   <meta name="author" content="" />
         <!-- Favicon-->
 		
 	<meta property="og:locale" content="ru_RU" />
@@ -31,9 +31,9 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
         <link href="/css/styles.css" rel="stylesheet" />
         <link href="/css/extrastyles.css" rel="stylesheet" />
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   
 <script src="/js/autopali.js"></script>
 	
@@ -85,37 +85,35 @@ $pattern = $language = $arg = "";
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
             <a class="navbar-brand mobile-center" href="/ru.php"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
                 <a class="navbar-brand mobile-none" href="/ru.php#page-top">find.dhamma.gift</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded mr-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Меню
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars mr-4"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
       <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li> 
 	  nav-link -->
 	  
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="/list.php?lang=pali">История Поиска</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="./bg.php">Фоновый Режим</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
-<li class="nav-item mx-0 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Контакты</a></li>
-<li class="nav-item mx-0 mx-lg-2"><p><a class="py-1 px-0 px-lg-1 rounded" href="/">En</a> 
-									<a class=" py-1 px-0 px-lg-1 rounded" href="/ru.php">Ru</a></p></li>	
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/list.php?lang=pali">История Поиска</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Контакты</a></li>
+<li class="nav-item mb-0 mx-lg-2"><p><a class="py-3 px-0 px-lg-1 rounded link-light text-decoration-none" href="/">En</a> 
+		<a class="py-3 px-0 px-lg-1 rounded link-light" href="/ru.php">Ru</a></p></li>	
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                        
+            <div class="container d-flex align-items-center flex-column mb-4">
                 <!-- Masthead Avatar Image-->
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading mb-3">Найдите Истину</h1>
-                <h5 class="mr=5">Pāḷi, Русский, ไทย и English</h5>
+                <h5 class="h5mobile mr-5">Pāḷi, Русский, ไทย и English</h5>
 				
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
@@ -127,38 +125,41 @@ $pattern = $language = $arg = "";
                     <div class="divider-custom-line"></div>
                 </div>
     
-			<form method="post" action=
-			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
+		<form method="post" action=
+			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center"> 
 
-           <div class="form-group ui-widget">
-                                <label class="sr-only" for="paliauto">Что искать?</label>
-                                <input name="pattern"  type="text" class="form-control" id="paliauto" placeholder="прим. Kāyagat">
-                            </div>
+      		<div class="mb-3 form-group input-group ui-widget">
+		<label class="sr-only" for="paliauto">Что искать?</label>
+			
+			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. Kāyagat" autofocus>
+			 
+			<div class="input-group-append"><button type="submit" name="submit" value="Search"  class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+		</div>
+	  
                    <!--      <br>
  <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Пали
   </div>
-                          <div class="form-check form-check-inline">
+        <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
   </div>
     <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
   </div>
-                              <div class="form-check form-check-inline">
+     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div> 
    
   <span class="error"><?php echo $languageErr;?></span>
   <br> -->
-  <br>
-         <button type="submit" name="submit"
-				value="Search" class="btn btn-primary btn-lg">Найти</button>  
-				</form>
+  
+
+ </div>
+ <div>
+
 <?php
 $arg = $language . ' ' . $pattern;
-?>
- </div>
-		</br>
+?>		
 	<?php
  			echo $lang;
 			$old_path = getcwd();
@@ -166,7 +167,10 @@ $arg = $language . ' ' . $pattern;
 			$output = shell_exec("nice -19 ./scripts/findinall.sh -ogr $string"); 
 			echo "<p>$output</p>";
 		?>
-	<p><a class="outlink" href="./list.php">История Поиска</a></p> 
+</div>
+	<a href="./list.php" class="btn btn-primary" role="button">История Поиска</a>
+
+
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->
