@@ -22,9 +22,8 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="find.Dhamma.gift - Liberation Search Engine">
 	<meta name="twitter:description" content="Search in Pali Suttas and Vinaya in Pali, Russian, English and Thai">
-
-	<link rel="icon" type="image/png" href="./assets/favico.png" />
-	
+	<link rel="icon" type="image/png" href="./assets/favico-noglass.png" />
+ 	
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   

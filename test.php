@@ -20,7 +20,6 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Поисковая Система Освобобждения">
 	<meta name="twitter:description" content="Находите информацию в Суттах и Винае на Пали, Русском, Английском и Тайском">
-	<link rel="icon" type="image/png" href="./assets/favico-fdg.png" />
 	<link rel="icon" type="image/png" href="./assets/favico-noglass.png" />
  
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>

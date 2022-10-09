@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>BG Find the Dhamma</title>
-<link rel="icon" type="image/png" href="https://find.dhamma.gift/assets/favico.png" />
+<link rel="icon" type="image/png" href="https://find.dhamma.gift/assets/favico-fdg.png" />
+ 
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -51,7 +52,7 @@ form:before {
 	  	height: 20%;
 
 	width: 100%;
-	zoom: 260%;
+	zoom: 120%;
   }
   
 #cover {
