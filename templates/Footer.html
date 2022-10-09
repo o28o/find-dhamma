@@ -3,11 +3,13 @@
 $(document).ready(function (){
 
 	 var table = $('#pali').DataTable({
+	   'autoWidth': true,
 	   'stateSave': true,
 	    'paging'  : true,
 	  'responsive': true,
-	  'columnDefs': [{ type: 'natural', targets: '_all' }
-                    ]
+	  'columnDefs': [
+	            { type: 'natural', targets: '_all' }
+					]				
     });
 	  
 	  

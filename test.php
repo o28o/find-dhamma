@@ -168,8 +168,6 @@ $arg = $language . ' ' . $pattern;
 			echo "<p>$output</p>";
 		?>
 </div>
-	<a href="./list.php" class="btn btn-primary" role="button">История Поиска</a>
-
 
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
@@ -183,6 +181,11 @@ $arg = $language . ' ' . $pattern;
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
+
+	<p class="text-center">
+	<a href="./list.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>
+	</p>
+
 
       <!-- <div class="divider-custom-icon text-center">
               <i class="fa-solid fa-book fa-4x" title="Exchange"></i> <i class="fa-solid fa-list fa-4x"></i>

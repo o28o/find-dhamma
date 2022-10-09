@@ -96,7 +96,7 @@ $pattern = $language = $arg = "";
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto text-center">
+                    <ul class="navbar-nav ms-auto">
       <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li> 
 	  nav-link -->
 	  
@@ -145,7 +145,7 @@ $pattern = $language = $arg = "";
 		</div>
 				 
                             <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Пали
+  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Pāḷi
   </div>
                           <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
@@ -177,7 +177,7 @@ $arg = $language . ' ' . $pattern;
 </div>		
 		
 
-<a href="./list.php" class="btn btn-primary" role="button">История Поиска</a>
+<!-- <a href="./list.php" class="btn btn-primary" role="button">История Поиска</a> -->
 
 
                 <!-- Masthead Subheading

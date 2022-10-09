@@ -392,7 +392,7 @@ linkswwords=`grep -i "\b$uniqword\b" $basefile | sort -V | awk '{print $1}' | aw
 #cat $file | clearsed | sed 's/[.,?;:]//g' | sed 's/[—”"]/ /g'| grep -io$grepgenparam "[^ ]*$pattern[^ ]*" | sort | uniq >> ${links_and_words}
 
 echo "<tr>
-<td>`echo $uniqword | highlightpattern`</td>
+<td class=\"longword\">`echo $uniqword | highlightpattern`</td>
 <td>$linkscount</td>   
 <td>$uniqwordcount</td>   
 <td>$linkswwords</td>
@@ -494,7 +494,7 @@ suttatitle=`nice -19 grep ':0\.' $file | clearsed | awk '{print substr($0, index
 
 echo "<tr>
 <td><a class=\"freebutton\" target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
-<td>$word</td>
+<td><div class=\"wordwrap\">$word<div></td>
 <td>$count</td>   
 <td>$metaphorcount</td>
 <td><strong>$suttatitle</strong></td>

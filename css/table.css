@@ -13,6 +13,18 @@ a {
     --bs-link-hover-color: #912a07;
 	}
 
+/*
+table {
+	table-layout: fixed; 
+	width: 100%
+}
+*/
+.wordwrap {
+    word-wrap:break-word;
+    vertical-align: top;
+}
+
+
     table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before{
     content:'+';
     background-color:#16A085
