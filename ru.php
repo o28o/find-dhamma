@@ -38,8 +38,6 @@
 <script src="/js/autopali.js"></script>
 	 
 	 	 <style>
-
-
 	 </style>
 	 
     </head>
@@ -136,30 +134,26 @@ $pattern = $language = $arg = "";
 			<form method="post" action=
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
-                 		<div class="mb-3 form-group input-group ui-widget">
+  	<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto">Что искать?</label>
 			
 			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. Kāyagat" autofocus>
-			 
+	
 			<div class="input-group-append"><button type="submit" name="submit" value="Search"  class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
 		</div>
-				 
-                            <div class="form-check form-check-inline">
+  <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Pāḷi
   </div>
-                          <div class="form-check form-check-inline">
+  <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
   </div>
     <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
   </div>
-                              <div class="form-check form-check-inline">
+  <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div>
-   
   <span class="error"><?php echo $languageErr;?></span>
-  
-  
 				</form>
 				
 				<?php
