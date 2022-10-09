@@ -75,8 +75,8 @@ $pattern = $language = $arg = "";
 		// Removing the redundant HTML characters if any exist.
 		function test_input($data) {
 		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
+	/*	$data = stripslashes($data);
+		$data = htmlspecialchars($data); */
 		return $data;
 		}
 		
@@ -563,10 +563,18 @@ $arg = $language . ' ' . $pattern;
 								 <br><br>
 						
 									<strong>Совет #3</strong><br>
-								   Если вы хотите найти слова начинающиеся или заканчивающиеся с определенного шаблона, используйте \\\\b в начале и\или в конце шаблона поиска, к примеру<strong>\\\\bkummo\\\\b</strong> выведет в таблицы только kummo и пропустит kummova и любые другие совпадения<br><br>
+								   Если вы хотите найти слова начинающиеся или заканчивающиеся с определенного шаблона, используйте \\b в начале и\или в конце шаблона поиска, к примеру<strong>\\bkummo\\b</strong> выведет в таблицы только kummo и пропустит kummova и любые другие совпадения<br><br>
 									<strong>Совет #4</strong><br>
-								   Вы можете использовать регулярные выражения (regex) синтаксиса GNU grep -E. С использованием escape-последовательности (\\\\) они должны работать.<br><br>
+								   Вы можете использовать регулярные выражения (regex) синтаксиса GNU grep -E. С использованием escape-последовательности (\\) они должны работать.<br><br>
+								   	<strong>Совет #5 Подборки</strong><br>
+								   Вы можете создавать подборки текстов. <br>
+								   Примеры запросов:<br> 
+								   "sn42.8|sn20.5" (включая кавычки) выведет в одну таблицу две Сутты полностью<br>
+								   "Sn20.1" (включая кавычки) выведет Sn20.1 sn20.10 sn20.11 и тд в один файл<br>
+								   "Sn20.1\\b" (включая кавычки) выведет только одну Сутту
+								   <br><br>
 								</p>
+								
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Закрыть Окно

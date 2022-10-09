@@ -78,8 +78,6 @@ $pattern = $language = $arg = "";
 		// Removing the redundant HTML characters if any exist.
 		function test_input($data) {
 		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
 		return $data;
 		}
 		
@@ -141,7 +139,7 @@ $pattern = $language = $arg = "";
 			
 			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. Kāyagat" autofocus>
 			 
-			<div class="input-group-append"><button type="submit" name="submit" value="Search"  class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+			<div class="input-group-append"><button type="submit" name="submit" value="Search"  class="btn btn-primary"><i class="fas fa-search"></i></button></div>
 		</div>
 
 					

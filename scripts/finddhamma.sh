@@ -278,7 +278,7 @@ elif [[ "$@" == *"-pli"* ]]; then
     #directlink=/en/?layout=linebyline
     language=Pali
     type=json
-    metaphorkeys="seyyathāpi|adhivacan|ūpama|opama"
+    metaphorkeys="seyyathāpi|adhivacan|ūpama|opama|opamma"
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath|ekarūp|tathārūpa|āmarūpa|\brūpa|evarūpa|\banopam|\battūpa|\bnillopa|opamaññ"
    #modify pattern as legacy uses different letters
     #pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs`
@@ -297,7 +297,7 @@ else
     #directlink=/en/?layout=linebyline
     language=Pali
     type=json
-    metaphorkeys="seyyathāpi|adhivacan|ūpama|opama"
+    metaphorkeys="seyyathāpi|adhivacan|ūpama|opama|opamma"
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath|ekarūp|tathārūpa|āmarūpa|\brūpa|evarūpa|\banopam|\battūpa|\bnillopa|opamaññ"
 fi
 
@@ -484,9 +484,9 @@ echo $count >> $tempfile
 
 
 word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
-indexlist=`nice -19 egrep -i $filenameblock $basefile | awk '{print $2}'`
+indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V `
 
-metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
+#metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
 
 metaphorcount=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -iE "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
@@ -501,12 +501,13 @@ echo "<tr>
 <td>" | tohtml 
 
 for i in $indexlist
-do              
-		for f in  $roottext $translation #$variant
+do
+#echo sn=$suttanumber index=$i
+		for f in $roottext $translation #$variant
         do      
         #echo rt=$roottext
-		quote=`nice -19 egrep -iE "${i}([^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
-echo "$quote<br class="btwntrn">"			
+		quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
+		[[ "$quote" != "" ]] && echo "$quote<br class="btwntrn">"			
         done 
 echo '<br class="styled">'
 done | tohtml 
@@ -624,7 +625,7 @@ echo $count >> $tempfile
 word=`getwords | xargs | clearsed | sedexpr | highlightpattern`
 indexlist=`nice -19 egrep -i $filenameblock $basefile | awk '{print $2}'`
 
-metaphorindexlist=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
+#metaphorindexlist=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
 
 metaphorcount=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
