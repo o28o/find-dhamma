@@ -83,7 +83,7 @@ $pattern = $language = $arg = "";
  
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
-            <a class="navbar-brand mobile-center" href="/ru.php"> <div class="container"><img style="height: 50px" src="./assets/white_white.png"  style="width:100px;"></a>
+            <a class="navbar-brand mobile-center" href="/ru.php"> <div class="container"><img style="height: 40px" src="./assets/white_white.png"  style="width:100px;"></a>
                 <a class="navbar-brand mobile-none" href="/ru.php#page-top">find.dhamma.gift</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded mr-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Меню
