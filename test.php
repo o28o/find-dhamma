@@ -168,16 +168,11 @@ $arg = $language . ' ' . $pattern;
 			echo "<p>$output</p>";
 		?>
 </div>
-
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->
             </div>
         </header>
-						   
-						   
-						   
-						   
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
