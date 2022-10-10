@@ -304,13 +304,13 @@ fi
 
 if [[ "$@" == *"-exc"* ]]
 then
-excludepattern=`echo $@ | awk -F'-exc ' '{print $2}'`
+excludepattern="`echo $@ | awk -F'-exc ' '{print $2}'`"
 addtotitleifexclude=" excluding $excludepattern"
 addtoresponseexclude=" $excluderesponse $excludepattern"
 function grepexclude {
 egrep -Evi "$excludepattern"
 }
-excfn=_exc_$excludepattern
+excfn="-exc-${excludepattern}"
 else
 function grepexclude {
 pvlimit 
