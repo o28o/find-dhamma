@@ -432,8 +432,8 @@ cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/
 
 textlist=`nice -19  cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq`
 
-for filenameblock in `nice -19 cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq` ; do 
-
+for filenameblock in `nice -19 cat $basefile | pvlimit | grep "html:"| awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq` ; do 
+echo fnb=====$filenameblock
     roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     translation=`nice -19 find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     rustr=`nice -19 find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
@@ -572,7 +572,7 @@ function linklist {
 cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
 
-uniquelist=`cat $basefile | pvlimit | awk -F'/' '{print $NF}' | sort -V | uniq`
+uniquelist=`cat $basefile | pvlimit awk '{print $1}' | awk -F'/' '{print $NF}' | sort -V | uniq`
 
 textlist=$uniquelist
 
@@ -643,7 +643,7 @@ echo "<tr>
 <td>$metaphorcount</td>
 <td><strong>$suttatitle</strong></td>
 <td>" | tohtml
-nice -19 egrep -ih "${pattern}" $file | clearsed | highlightpattern  | while IFS= read -r line ; do
+nice -19 egrep -A${linesafter} -ih "${pattern}" $file | clearsed | highlightpattern  | while IFS= read -r line ; do
 echo "$line"
 echo '<br class="styled">'
 done | tohtml
@@ -667,12 +667,13 @@ fi
 function getbasefile {
 grepbasefile | grep -v "^--$" | grepexclude | clearsed > $basefile
 
+if [[ "$type" == json ]]; then
 for i in `cat $basefile | awk -F':' '{print $1}'`
 do 
 nice -19 egrep -A${linesafter} -Ei --with-filename "$pattern" $i  | grep -v "^--$" | clearsed
 done > tmp
 mv tmp $basefile
-
+fi
 linescount=`wc -l $basefile | awk '{print $1}'`
 if [ ! -s $basefile ]
 then
@@ -709,7 +710,7 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 #echo "${fortitle^} $language"
 OKresponse
 
-#rm $basefile $tempfile > /dev/null 2>&1
+rm $basefile $tempfile > /dev/null 2>&1
 #php -r 'header("Location: ./output/table.html");'
 
 if [[ "$language" == "Pali" ]]
