@@ -485,7 +485,7 @@ echo $count >> $tempfile
 
 
 word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
-indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V `
+indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V | uniq`
 
 #metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
 
@@ -508,7 +508,7 @@ do
         do      
         #echo rt=$roottext
 		quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
-		[[ "$quote" != "" ]] && echo "$quote<br class="btwntrn">"			
+		[[ "$quote" != "" ]] && echo "$i $quote<br class="btwntrn">"			
         done 
 echo '<br class="styled">'
 done | tohtml 
