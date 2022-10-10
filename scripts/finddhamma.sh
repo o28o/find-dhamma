@@ -665,8 +665,8 @@ grepbasefile | grep -v "^--$" | grepexclude | clearsed > $basefile
 
 for i in `cat $basefile | awk -F':' '{print $1}'`
 do 
-nice -19 egrep -A${linesafter} -Ei --with-filename "$pattern" $i  
-done | clearsed > tmp
+nice -19 egrep -A${linesafter} -Ei --with-filename "$pattern" $i  | grep -v "^--$" | clearsed
+done > tmp
 mv tmp $basefile
 
 linescount=`wc -l $basefile | awk '{print $1}'`
