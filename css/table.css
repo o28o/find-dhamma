@@ -1,18 +1,20 @@
 	* {
       font-family: sans-serif;
     }
-	
-	
-	root {
-	--bs-link-color: #16A085;
-    --bs-link-hover-color: #2C3E50;
-	}
 
 a {
 	--bs-link-color: #0000EE;
     --bs-link-hover-color: #912a07;
 	}
 
+
+.div light {
+  color: #8f8f8f;
+}
+
+.light div {
+  color: #8f8f8f;
+}
 /*
 table {
 	table-layout: fixed; 

@@ -508,8 +508,12 @@ do
         do      
         #echo rt=$roottext
 		quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
-		[[ "$quote" != "" ]] && echo "$i $quote<br class="btwntrn">"			
+		if [[ "$quote" != "" ]] 
+		then
+	    [[ "$f" == *"root"* ]] && echo "<p>$quote</p>" || echo "<p style=\"font-color: while;\" calss=\"text-muted\">$quote</p>"	
+		fi 
         done 
+        
 echo '<br class="styled">'
 done | tohtml 
 
