@@ -172,17 +172,20 @@ $arg = $language . ' ' . $pattern;
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
 		?>	
-		<a href="./list.php" class="btn btn-primary" role="button">Search History</a>
-
-
-									  
-									  
 <!--	<p><a class="outlink" href="/list.php">Search History</a></p> -->
         </header>
 	
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
+				
+				              	<p class="text-center">
+<a href="./list.php" class="btn btn-primary" role="button btn-lg">Search History</a>
+	</p>
+	
+					
+					
+
 				<h4 class="page-section-heading text-center mb-4">How-To Video</h4>
 		
 			<div class="embed-container mb-5 text-center"> 
