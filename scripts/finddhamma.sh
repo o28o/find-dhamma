@@ -19,7 +19,8 @@ function emptypattern {
 }
 
 function OKresponse {
-echo "${pattern^}${addtotitleifexclude} $fortitle $language - "
+  capitalized
+echo "${capitalized}${addtotitleifexclude} $textsqnty в $fortitle $language - "
 #echo "$language - "
 }
 
@@ -132,7 +133,8 @@ function emptypattern {
 
 
 function OKresponse {
-echo "${pattern^}${addtotitleifexclude} $fortitle $language - "
+  capitalized
+echo "${capitalized}${addtotitleifexclude} $textsqnty in $fortitle $language - "
 #echo "$language - "
 }
 
@@ -643,7 +645,7 @@ echo "<tr>
 <td>$metaphorcount</td>
 <td><strong>$suttatitle</strong></td>
 <td>" | tohtml
-nice -19 egrep -A${linesafter} -ih "${pattern}" $file | clearsed | highlightpattern  | while IFS= read -r line ; do
+nice -19 egrep -A${linesafter} -ih "${pattern}" $file | grep -v "^--$" | clearsed | highlightpattern  | while IFS= read -r line ; do
 echo "$line"
 echo '<br class="styled">'
 done | tohtml
