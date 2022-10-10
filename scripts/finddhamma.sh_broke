@@ -5,13 +5,13 @@ source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config
 cd $output 
 
 if [[ "$@" == *"-oru"* ]]; then
-
+excluderesponse="исключая"
 function bgswitch {
-	echo "Найдено $linescount строк с $pattern<br> 
-	Отправлено в фоновый режим.<br>
-	Подождите 20-30 минут<br>
-	и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
-	или в истории поиска." 
+    echo "Найдено $linescount строк с $pattern<br> 
+    Отправлено в фоновый режим.<br>
+    Подождите 20-30 минут<br>
+    и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
+    или в истории поиска." 
 }
 
 function emptypattern {
@@ -19,7 +19,7 @@ function emptypattern {
 }
 
 function OKresponse {
-echo "${pattern^}${addtotitleifexclude} $fortitle $language - "
+echo "${capitalized}${addtotitleifexclude} $textsqnty в $fortitle $language - "
 #echo "$language - "
 }
 
@@ -33,21 +33,21 @@ php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Слова</
 }
 
 function quoteresponse {
-	php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
-	
+    php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
+    
 }
 function minlengtherror {
 echo "Слишком коротко. Мин $minlength символа"
 }
 
 elif [[ "$@" == *"-ogr"* ]]; then
-
+excluderesponse="исключая"
 function bgswitch {
-	echo "Найдено $linescount строк с $pattern<br> 
-	Отправлено в фоновый режим.<br>
-	Подождите 20-30 минут<br>
-	и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
-	или в истории поиска." 
+    echo "Найдено $linescount строк с $pattern<br> 
+    Отправлено в фоновый режим.<br>
+    Подождите 20-30 минут<br>
+    и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
+    или в истории поиска." 
 }
 
 function emptypattern {
@@ -69,21 +69,21 @@ php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Слова</
 }
 
 function quoteresponse {
-	php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
-	
+    php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
+    
 }
 function minlengtherror {
 echo "Слишком коротко. Мин $minlength символа"
 }
 
 elif [[ "$@" == *"-oge"* ]]; then
-
+excluderesponse="excluding"
 function bgswitch {
-	echo "$linescount $pattern lines found.<br> 
-	Switched to background mode.<br>
-	Wait for 20-30 minutes <br>
-	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
-	or in search history." 
+    echo "$linescount $pattern lines found.<br> 
+    Switched to background mode.<br>
+    Wait for 20-30 minutes <br>
+    and check <a class=\"outlink\" href="./output/${table}">here</a><br>
+    or in search history." 
 }
 
 function emptypattern {
@@ -117,13 +117,13 @@ echo Too short. Min is $minlength
 
 
 else #eng
-
+excluderesponse="excluding"
 function bgswitch {
-	echo "$linescount $pattern lines found.<br> 
-	Switched to background mode.<br>
-	Wait for 20-30 minutes <br>
-	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
-	or in search history." 
+    echo "$linescount $pattern lines found.<br> 
+    Switched to background mode.<br>
+    Wait for 20-30 minutes <br>
+    and check <a class=\"outlink\" href="./output/${table}">here</a><br>
+    or in search history." 
 }
 
 function emptypattern {
@@ -157,8 +157,8 @@ echo Too short. Min is $minlength
 fi
 
 function grepbrief {
-	
-	awk -v ptn="$pattern" -v cnt1=$wbefore -v cnt2=$wafter '
+    
+    awk -v ptn="$pattern" -v cnt1=$wbefore -v cnt2=$wafter '
 { for (i=1;i<=NF;i++)
       if ($i ~ ptn) {
          sep=""
@@ -188,8 +188,8 @@ if [[ "$@" == *"-h"* ]]; then
     -th - to search in thai <br>
     -pli - to search in pali (default option) <br>
     -nbg - no background <br>
-	-kn - include Khuddaka Nikaya selected books <br>
-	-oru - output messages in Russian<br>"
+    -kn - include Khuddaka Nikaya selected books <br>
+    -oru - output messages in Russian<br>"
     exit 0
 fi
 
@@ -230,25 +230,25 @@ fileprefix=_suttanta
 if [[ "$@" == *"-vin"* ]]; then
     vin=dummy
     sutta=sutta
-	fortitle=Vinaya
+    fortitle=Vinaya
     #echo search in vinaya
     fileprefix=_vinaya
 fi
 if [[ "$@" == *"-abhi"* ]]; then
     abhi=dummy
     sutta=sutta
-	fortitle=Abhidhamma
+    fortitle=Abhidhamma
     fileprefix=_abhidhamma
     #echo search in abhidhamma
 fi
  
 function grepbasefile {
-nice -19 egrep -A${linesafter} -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv,thag,thig,snp,dhp,iti,ud} | grep -v "^--$" | grepexclude | clearsed > $basefile
+nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv,thag,thig,snp,dhp,iti,ud} 
 }
-
+ 
 if [[ "$@" == *"-kn"* ]]; then
 function grepbasefile {
-nice -19 egrep -A${linesafter} -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | grep -v "^--$" | clearsed > $basefile
+nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
 #| nice -19 egrep -v "snp|thag|thig|dhp|iti|ud"
 fi
@@ -257,7 +257,7 @@ if [[ "$@" == *"-th"* ]]; then
     fnlang=_th
     pali_or_lang=sc-data/html_text/th/pli 
     language=Thai
-	printlang=ไทย
+    printlang=ไทย
     directlink=
     type=html   
     metaphorkeys="подоб|представь|обозначение"
@@ -266,7 +266,7 @@ elif [[ "$@" == *"-ru"* ]]; then
     fnlang=_ru
     pali_or_lang=sc-data/html_text/ru/pli 
     language=Russian
-	printlang=Русский
+    printlang=Русский
     directlink=
     type=html   
     metaphorkeys="подобно|представь|обозначение|пример"
@@ -284,7 +284,7 @@ elif [[ "$@" == *"-pli"* ]]; then
     #pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs`
 elif [[ "$@" == *"-en"* ]]; then
     fnlang=_en
-	printlang=English
+    printlang=English
     pali_or_lang=sc-data/sc_bilara_data/translation/en/
     language=English
     type=json
@@ -304,12 +304,13 @@ fi
 
 if [[ "$@" == *"-exc"* ]]
 then
-excludepattern=`echo $@ | awk -F'-exc ' '{print $2}'`
+excludepattern="`echo $@ | awk -F'-exc ' '{print $2}'`"
 addtotitleifexclude=" excluding $excludepattern"
+addtoresponseexclude=" $excluderesponse $excludepattern"
 function grepexclude {
-egrep -viE "$excludepattern"
+egrep -Evi "$excludepattern"
 }
-excfn=_exc_$excludepattern
+excfn="-exc-${excludepattern}"
 else
 function grepexclude {
 pvlimit 
@@ -350,18 +351,18 @@ filesize=$(stat -c%s "${table}")
 
 if (( $filesize >= $filesizenooverwrite )) && [[ "`tail -n1 ${table}`" == "</html>" ]] 
 then
-	#echo Already 
+    #echo Already 
 OKresponse
 
-	if [[ "$language" == "Pali" ]] 
-	then 
-	wordsresponse
-	fi
-	quoteresponse
-	
-	exit 0
+    if [[ "$language" == "Pali" ]] 
+    then 
+    wordsresponse
+    fi
+    quoteresponse
+    
+    exit 0
 #else 
-#	echo Already 
+#       echo Already 
 fi 
 
 fi
@@ -431,7 +432,7 @@ cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/
 
 textlist=`nice -19  cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq`
 
-for filenameblock in `nice -19 cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq` ; do 
+for filenameblock in `nice -19 cat $basefile | pvlimit | grep "html:"| awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq` ; do
 
     roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     translation=`nice -19 find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
@@ -484,7 +485,7 @@ echo $count >> $tempfile
 
 
 word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
-indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V `
+indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V | uniq`
 
 #metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
 
@@ -503,12 +504,16 @@ echo "<tr>
 for i in $indexlist
 do
 #echo sn=$suttanumber index=$i
-		for f in $roottext $translation #$variant
+        for f in $roottext $translation #$variant
         do      
         #echo rt=$roottext
-		quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
-		[[ "$quote" != "" ]] && echo "$quote<br class="btwntrn">"			
+        quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
+        if [[ "$quote" != "" ]] 
+        then
+        [[ "$f" == *"root"* ]] && echo "<p>$quote</p>" || echo "<p style=\"font-color: while;\" calss=\"text-muted\">$quote</p>"      
+        fi 
         done 
+        
 echo '<br class="styled">'
 done | tohtml 
 
@@ -567,7 +572,8 @@ function linklist {
 cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
 
-uniquelist=`cat $basefile | pvlimit | awk -F'/' '{print $NF}' | sort -V | uniq`
+uniquelist=`cat $basefile | pvlimit | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -V | uniq`
+
 
 textlist=$uniquelist
 
@@ -586,7 +592,7 @@ rustr=$file
    # variant=`find $lookup/variant -name "*${filenameblock}_*"`
     
     suttanumber="$filenameblock"
-	linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
+    linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
 
 linklang=$linkgeneral
 
@@ -595,15 +601,15 @@ linklang=$linkgeneral
         file=$roottext
     elif [[ "$language" == "Russian" ]]; then
         file=$rustr
-		
-	
-	   rusnp=`echo $filenameblock | sed 's@\.@_@g'`
+        
+    
+       rusnp=`echo $filenameblock | sed 's@\.@_@g'`
     rustr=`find $searchdir -name "*${rusnp}-*"`
 
      rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
 
 
-linklang=$rusthrulink	
+linklang=$rusthrulink   
 fi
 
 linkthai=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
@@ -638,7 +644,7 @@ echo "<tr>
 <td>$metaphorcount</td>
 <td><strong>$suttatitle</strong></td>
 <td>" | tohtml
-nice -19 egrep -ih "${pattern}" $file | clearsed | highlightpattern  | while IFS= read -r line ; do
+nice -19 egrep -A${linesafter} -ih "${pattern}" $file | grep -v "^--$" | clearsed | highlightpattern  | while IFS= read -r line ; do
 echo "$line"
 echo '<br class="styled">'
 done | tohtml
@@ -660,25 +666,32 @@ cat $templatefolder/Footer.html | tohtml
 fi
 
 function getbasefile {
-grepbasefile 
-
+grepbasefile | grep -v "^--$" | grepexclude | clearsed > $basefile
+	if [[ "$type" == json ]]; then
+for i in `cat $basefile | awk -F':' '{print $1}'`
+do 
+nice -19 egrep -A${linesafter} -Ei --with-filename "$pattern" $i  | grep -v "^--$" | clearsed
+done > tmp
+mv tmp $basefile
+fi 
 linescount=`wc -l $basefile | awk '{print $1}'`
 if [ ! -s $basefile ]
 then
-	Erresponse
+    Erresponse
      rm $basefile
      exit 1
 elif [ $linescount -ge $maxmatchesbg ] && [[ "$@" != *"-nbg"* ]];  then  
 bgswitch
-	echo "$@" | sed 's/-oru //g' | sed 's/-oge //g' | sed 's/-ogr //g'   | sed 's/-nbg //g' >> ../input/input.txt
-	exit 3
+    echo "$@" | sed 's/-oru //g' | sed 's/-oge //g' | sed 's/-ogr //g'   | sed 's/-nbg //g' >> ../input/input.txt
+    exit 3
 fi
 
 }
+#rm $basefile > /dev/null 2>&1
 
 getbasefile $@ 
 #cleanup in case the same search was launched before
-rm ${table} table.html $tempfile  $tempfilewords > /dev/null 2>&1
+#rm ${table} table.html $tempfile  $tempfilewords > /dev/null 2>&1
 
 #add links to each file
 linklist
@@ -697,7 +710,7 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 #echo "${fortitle^} $language"
 OKresponse
 
-rm $basefile $tempfile > /dev/null 2>&1
+#rm $basefile $tempfile > /dev/null 2>&1
 #php -r 'header("Location: ./output/table.html");'
 
 if [[ "$language" == "Pali" ]]
@@ -708,3 +721,5 @@ wordsresponse
 fi
 quoteresponse
 exit 0
+
+
