@@ -72,7 +72,10 @@ text-align: left;
     .btwntrn {
         content: "";
       display: block;
-      height: 0.5em;
+      height: 0.7em;
       
     }
-	 
+	 p {
+	     color: #6A6969;
+	   
+	 }

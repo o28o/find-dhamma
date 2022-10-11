@@ -503,7 +503,7 @@ echo "<tr>
 
 for i in $indexlist
 do
-#echo sn=$suttanumber index=$i
+#echo "<strong>$i</strong>"
 		for f in $roottext $translation #$variant
         do      
         #echo rt=$roottext
