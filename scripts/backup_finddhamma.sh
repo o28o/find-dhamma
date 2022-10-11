@@ -5,7 +5,7 @@ source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config
 cd $output 
 
 if [[ "$@" == *"-oru"* ]]; then
-
+excluderesponse="исключая"
 function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	Отправлено в фоновый режим.<br>
@@ -19,7 +19,7 @@ function emptypattern {
 }
 
 function OKresponse {
-echo "${pattern^}${addtotitleifexclude} $fortitle $language - "
+  echo "${capitalized}${addtotitleifexclude} $textsqnty в $fortitle $language - "
 #echo "$language - "
 }
 
@@ -41,7 +41,7 @@ echo "Слишком коротко. Мин $minlength символа"
 }
 
 elif [[ "$@" == *"-ogr"* ]]; then
-
+excluderesponse="исключая"
 function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	Отправлено в фоновый режим.<br>
@@ -77,7 +77,7 @@ echo "Слишком коротко. Мин $minlength символа"
 }
 
 elif [[ "$@" == *"-oge"* ]]; then
-
+excluderesponse="excluding"
 function bgswitch {
 	echo "$linescount $pattern lines found.<br> 
 	Switched to background mode.<br>
@@ -117,7 +117,7 @@ echo Too short. Min is $minlength
 
 
 else #eng
-
+excluderesponse="excluding"
 function bgswitch {
 	echo "$linescount $pattern lines found.<br> 
 	Switched to background mode.<br>
@@ -132,7 +132,7 @@ function emptypattern {
 
 
 function OKresponse {
-echo "${pattern^}${addtotitleifexclude} $fortitle $language - "
+echo "${capitalized}${addtotitleifexclude} $textsqnty in $fortitle $language - "
 #echo "$language - "
 }
 
@@ -243,12 +243,12 @@ if [[ "$@" == *"-abhi"* ]]; then
 fi
  
 function grepbasefile {
-nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv,thag,thig,snp,dhp,iti,ud} | grep -v "^--$" | grepexclude | clearsed > $basefile
+nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv,thag,thig,snp,dhp,iti,ud} 
 }
-#-A${linesafter} 
+
 if [[ "$@" == *"-kn"* ]]; then
 function grepbasefile {
-nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | grep -v "^--$" | grepexclude | clearsed > $basefile
+nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
 #| nice -19 egrep -v "snp|thag|thig|dhp|iti|ud"
 fi
@@ -304,12 +304,13 @@ fi
 
 if [[ "$@" == *"-exc"* ]]
 then
-excludepattern=`echo $@ | awk -F'-exc ' '{print $2}'`
+excludepattern="`echo $@ | awk -F'-exc ' '{print $2}'`"
 addtotitleifexclude=" excluding $excludepattern"
+addtoresponseexclude=" $excluderesponse $excludepattern"
 function grepexclude {
-egrep -Evi "$excludepattern"
+egrep -viE "$excludepattern"
 }
-excfn=_exc_$excludepattern
+excfn="-exc-${excludepattern}"
 else
 function grepexclude {
 pvlimit 
@@ -484,7 +485,12 @@ echo $count >> $tempfile
 
 
 word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
-indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V `
+indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V | uniq`
+
+indexlist=$(for i in $indexlist
+do
+nice -19 egrep -A${linesafter} -iE "${i}(:|[^0-9]|$)" $roottext | grep -v "^--$" | awk '{print $1}' | clearsed | sedexpr | sort -V | uniq
+done)
 
 #metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
 
@@ -500,15 +506,20 @@ echo "<tr>
 <td><strong>$suttatitle</strong></td>
 <td>" | tohtml 
 
+ 
 for i in $indexlist
 do
-#echo sn=$suttanumber index=$i
+#echo "<strong>$i</strong>"
 		for f in $roottext $translation #$variant
-        do      
+        do     
         #echo rt=$roottext
-		quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
-		[[ "$quote" != "" ]] && echo "$quote<br class="btwntrn">"			
-        done 
+		quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | grep -v "^--$" | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
+      if [[ "$quote" != "" ]]
+then 
+[[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">" || echo "<p class=\"text-muted font-weight-light\">$quote</p>"
+fi
+done
+
 echo '<br class="styled">'
 done | tohtml 
 
@@ -567,8 +578,8 @@ function linklist {
 cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
 
-uniquelist=`cat $basefile | pvlimit | awk -F'/' '{print $NF}' | sort -V | uniq`
-
+uniquelist=`cat $basefile | pvlimit | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -V | uniq`
+#| grep "html:"
 textlist=$uniquelist
 
 #edit me edn
@@ -638,7 +649,7 @@ echo "<tr>
 <td>$metaphorcount</td>
 <td><strong>$suttatitle</strong></td>
 <td>" | tohtml
-nice -19 egrep -ih "${pattern}" $file | clearsed | highlightpattern  | while IFS= read -r line ; do
+nice -19 egrep -A${linesafter} -ih "${pattern}" $file | grep -v "^--$" | clearsed | highlightpattern  | while IFS= read -r line ; do
 echo "$line"
 echo '<br class="styled">'
 done | tohtml
@@ -660,7 +671,7 @@ cat $templatefolder/Footer.html | tohtml
 fi
 
 function getbasefile {
-grepbasefile 
+grepbasefile | grep -v "^--$" | grepexclude | clearsed > $basefile
 
 linescount=`wc -l $basefile | awk '{print $1}'`
 if [ ! -s $basefile ]
@@ -675,8 +686,7 @@ bgswitch
 fi
 
 }
-#rm $basefile > /dev/null 2>&1
-
+rm $basefile > /dev/null 2>&1
 getbasefile $@ 
 #cleanup in case the same search was launched before
 rm ${table} table.html $tempfile  $tempfilewords > /dev/null 2>&1
