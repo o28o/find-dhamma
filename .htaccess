@@ -14,3 +14,7 @@ RewriteRule ^/$ / [L,R=302]
   
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+
+
+RewriteCond %{HTTP_USER_AGENT} (bingbot|AhrefsBot|SemrushBot|PetalBot|DataForSeoBot|MegaIndex.ru|Barkrowler|SeekportBot|SemrushBot|Barkrowler) [NC]
+RewriteRule .* - [F]

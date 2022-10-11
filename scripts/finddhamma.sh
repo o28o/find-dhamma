@@ -487,6 +487,11 @@ echo $count >> $tempfile
 word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
 indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V | uniq`
 
+indexlist=$(for i in $indexlist
+do
+nice -19 egrep -A${linesafter} -iE "${i}(:|[^0-9]|$)" $roottext | grep -v "^--$" | awk '{print $1}' | clearsed | sedexpr | sort -V | uniq
+done)
+
 #metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
 
 metaphorcount=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -iE "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
@@ -501,16 +506,17 @@ echo "<tr>
 <td><strong>$suttatitle</strong></td>
 <td>" | tohtml 
 
+ 
 for i in $indexlist
 do
 #echo "<strong>$i</strong>"
 		for f in $roottext $translation #$variant
-        do      
+        do     
         #echo rt=$roottext
-		quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
+		quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | grep -v "^--$" | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
       if [[ "$quote" != "" ]]
 then 
-[[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">" || echo "<p style=\"font-color: #fff;\" calss=\"text-muted\">$quote</p>"
+[[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">" || echo "<p class=\"text-muted font-weight-light\">$quote</p>"
 fi
 done
 
@@ -666,14 +672,6 @@ fi
 
 function getbasefile {
 grepbasefile | grep -v "^--$" | grepexclude | clearsed > $basefile
-
-if [[ "$type" == json ]]; then
-for i in `cat $basefile | awk -F':' '{print $1}'`
-do
-nice -19 egrep -A${linesafter} -Ei --with-filename "$pattern" $i | grep -v "^--$" | clearsed
-done > tmp
-mv tmp $basefile
-fi 
 
 linescount=`wc -l $basefile | awk '{print $1}'`
 if [ ! -s $basefile ]
