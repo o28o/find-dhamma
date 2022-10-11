@@ -308,7 +308,7 @@ excludepattern="`echo $@ | awk -F'-exc ' '{print $2}'`"
 addtotitleifexclude=" excluding $excludepattern"
 addtoresponseexclude=" $excluderesponse $excludepattern"
 function grepexclude {
-egrep -Evi "$excludepattern"
+egrep -viE "$excludepattern"
 }
 excfn="-exc-${excludepattern}"
 else
@@ -432,7 +432,7 @@ cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/
 
 textlist=`nice -19  cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq`
 
-for filenameblock in `nice -19 cat $basefile | pvlimit | grep "html:"| awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq` ; do 
+for filenameblock in `nice -19 cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq` ; do 
 
     roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     translation=`nice -19 find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
@@ -573,7 +573,7 @@ cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/
 
 
 uniquelist=`cat $basefile | pvlimit | awk '{print $1}' | awk -F'/' '{print $NF}' | sort -V | uniq`
-
+# | grep "html:"
 textlist=$uniquelist
 
 #edit me edn
@@ -687,11 +687,11 @@ bgswitch
 fi
 
 }
-#rm $basefile > /dev/null 2>&1
+rm $basefile > /dev/null 2>&1
 
 getbasefile $@ 
 #cleanup in case the same search was launched before
-rm ${table} table.html $tempfile  $tempfilewords > /dev/null 2>&1
+#rm ${table} table.html $tempfile  $tempfilewords > /dev/null 2>&1
 
 #add links to each file
 linklist
