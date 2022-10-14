@@ -513,6 +513,7 @@ $arg = $language . ' ' . $pattern;
                                        <div class="embed-container"> 
                                    <iframe src="https://www.youtube.com/embed/iKRaa9D07-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							                    		</div>
+							   
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Закрыть Окно
@@ -556,9 +557,12 @@ $arg = $language . ' ' . $pattern;
 						
 									<strong>Совет #3</strong><br>
 								   Если вы хотите найти слова начинающиеся или заканчивающиеся с определенного шаблона, используйте \\b в начале и\или в конце шаблона поиска, к примеру<strong>\\bkummo\\b</strong> выведет в таблицы только kummo и пропустит kummova и любые другие совпадения<br><br>
-									<strong>Совет #4</strong><br>
+								   	<strong>Совет #4</strong><br>
+								   Чтобы исключить один шаблон из результатов другого шаблона используйте аргумент -exc.<br>
+								   Пример: dundubh -exc devadundubh - этот запрос позволит вам выгрузить совпадения по словам похожим на dundubh, но без devadundubh<br><br>
+									<strong>Совет #5</strong><br>
 								   Вы можете использовать регулярные выражения (regex) синтаксиса GNU grep -E. С использованием escape-последовательности (\\) они должны работать.<br><br>
-								   	<strong>Совет #5 Подборки</strong><br>
+								   	<strong>Совет #6 Подборки</strong><br>
 								   Вы можете создавать подборки текстов. <br>
 								   Примеры запросов:<br> 
 								   "sn42.8|sn20.5" (включая кавычки) выведет в одну таблицу две Сутты полностью<br>
