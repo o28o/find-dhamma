@@ -630,6 +630,7 @@ linklang=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "Д
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 #linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 linkpli=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=pli"}' `
+linken=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=eng"}' `
 count=`nice -19 egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 
@@ -654,7 +655,7 @@ echo "$line"
 echo '<br class="styled">'
 done | tohtml
 echo "</td>
-<td><a target=\"_blank\" href="$linkpli">Pāḷi</a>&nbsp;<a target=\"_blank\" href="$linklang">"$printlang"</a>`[[ $rusthrulink != "" ]] && [[ "$rusthrulink" != "$linklang" ]] && echo "&nbsp;<a target=\"_blank\" href="$rusthrulink">Вариант 2</a>"` `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"`</td>
+<td><a target=\"_blank\" href="$linkpli">Pāḷi</a>&nbsp;<a target=\"_blank\" href="$linklang">"$printlang"</a>`[[ $rusthrulink != "" ]] && [[ "$rusthrulink" != "$linklang" ]] && echo "&nbsp;<a target=\"_blank\" href="$rusthrulink">Вариант 2</a>"` `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"`&nbsp;<a target=\"_blank\" href="$linken">"English"</a></td>
 </tr>" | tohtml
 
 done
