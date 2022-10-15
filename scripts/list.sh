@@ -2,7 +2,7 @@
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 
 
-title="All Searches"
+title="Search History"
 
 cat $templatefolder/Header.html $templatefolder/ListTableHeader.html | sed 's/$title/'"$title"'/g'
 #`grep ':0\.' $file | clearsed |
