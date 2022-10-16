@@ -353,6 +353,17 @@ $arg = $language . ' ' . $pattern;
     <small class="text-muted"></small>
   </a>
 
+    <a target="_blank"  href="
+  https://drive.google.com/drive/folders/1bdkm-g_ReZi5QEior_gNTok8r4flAfa3?usp=sharing" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">All Pali words from Suttanta (except KN) & Vinaya</h5>
+      <small class="text-muted">offline</small>
+    </div>
+    <p class="mb-1">In alphabetical order with count number</p>
+    <small class="text-muted"></small>
+  </a>
+
+
 </div>  
 
 

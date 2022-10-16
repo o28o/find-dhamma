@@ -1,6 +1,6 @@
 //get vars from file src="/js/autopali.js"
 $.ajax({
-    url: "/scripts/sutta_words.txt",
+    url: "/assets/texts/sutta_words.txt",
     dataType: "text",
     success: function(data) {
 	

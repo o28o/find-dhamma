@@ -356,6 +356,16 @@ $arg = $language . ' ' . $pattern;
     <small class="text-muted"></small>
   </a>
 
+    <a target="_blank"  href="
+  https://drive.google.com/drive/folders/1bdkm-g_ReZi5QEior_gNTok8r4flAfa3?usp=sharing" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Все Пали слова из Суттанты (кроме КН) и Винаи</h5>
+      <small class="text-muted">оффлайн</small>
+    </div>
+    <p class="mb-1">По алфавиту с указанием количества</p>
+    <small class="text-muted"></small>
+  </a>
+  
 </div>  
 
 
@@ -460,6 +470,8 @@ $arg = $language . ' ' . $pattern;
     <p class="mb-1">Подборка учебников и таблиц</p>
     <small class="text-muted"></small>
   </a>
+  
+
   
 </div>  
 </div>
