@@ -5,22 +5,22 @@
 
 <title>find.Dhamma.gift - Поисковый сайт Освобождения. Пали Сутты и Виная</title>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
         <!-- Favicon-->
 		
-	<meta property="og:locale" content="ru_RU" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="find.Dhamma.gift - Поисковая Система Освобождения" />
-    <meta property="og:description" content="Находите информацию в Суттах и Винае на Пали, Русском, Английском и Тайском" />
-    <meta property="og:url" content="https://find.dhamma.gift/" />
-    <meta property="og:site_name" content="find.Dhamma.gift" />
-    <meta property="og:image" itemprop="image" content="https://find.dhamma.gift/assets/social_sharing_gift_rus.jpg" />
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Поисковая Система Освобобждения">
-	<meta name="twitter:description" content="Находите информацию в Суттах и Винае на Пали, Русском, Английском и Тайском">
-	<link rel="icon" type="image/png" href="/assets/favico-noglass.png" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="find.Dhamma.gift - Поисковая Система Освобождения" />
+<meta property="og:description" content="Находите информацию в Суттах и Винае на Пали, Русском, Английском и Тайском" />
+<meta property="og:url" content="https://find.dhamma.gift/" />
+<meta property="og:site_name" content="find.Dhamma.gift" />
+<meta property="og:image" itemprop="image" content="https://find.dhamma.gift/assets/social_sharing_gift_rus.jpg" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Поисковая Система Освобобждения">
+<meta name="twitter:description" content="Находите информацию в Суттах и Винае на Пали, Русском, Английском и Тайском">
+<link rel="icon" type="image/png" href="/assets/favico-noglass.png" />
  
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
