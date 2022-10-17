@@ -288,7 +288,7 @@ elif [[ "$@" == *"-en"* ]]; then
     pali_or_lang=sc-data/sc_bilara_data/translation/en/
     language=English
     type=json
-    metaphorkeys="suppose|is a term for|similar to |simile"
+    metaphorkeys="It’s like a |suppose|is a term for|similar to |simile"
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath" 
 else
     fnlang=_pali
