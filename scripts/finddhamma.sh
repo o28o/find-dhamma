@@ -260,7 +260,7 @@ if [[ "$@" == *"-th"* ]]; then
 	printlang=ไทย
     directlink=
     type=html   
-    metaphorkeys="подоб|представь|обозначение"
+    metaphorkeys="как если бы|подоб|представь|обозначение"
     nonmetaphorkeys="подобного|подоба"
 elif [[ "$@" == *"-ru"* ]]; then
     fnlang=_ru
@@ -269,7 +269,7 @@ elif [[ "$@" == *"-ru"* ]]; then
 	printlang=Русский
     directlink=
     type=html   
-    metaphorkeys="подобно|представь|обозначение|пример"
+    metaphorkeys="как если бы|подобно|представь|обозначение|пример"
     nonmetaphorkeys="подобного"
 elif [[ "$@" == *"-pli"* ]]; then
     fnlang=_pali
@@ -503,6 +503,10 @@ echo "<tr>
 <td><div class=\"wordwrap\">$word<div></td>
 <td>$count</td>   
 <td>$metaphorcount</td>
+<td><a target=\"_blank\" href="$linkpli">Pāḷi</a> 
+`[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Русский</a>"` 
+`[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Русский</a>"` 
+`[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">English</a></td>
 <td><strong>$suttatitle</strong></td>
 <td>" | tohtml 
 
@@ -524,10 +528,6 @@ echo '<br class="styled">'
 done | tohtml 
 
 echo  "</td>
-<td><a target=\"_blank\" href="$linkpli">Pāḷi</a> 
-`[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Русский</a>"` 
-`[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Русский</a>"` 
-`[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">English</a></td>
 </tr>" | tohtml
 
 done
@@ -648,6 +648,7 @@ echo "<tr>
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
+<td><a target=\"_blank\" href="$linkpli">Pāḷi</a>&nbsp;<a target=\"_blank\" href="$linklang">"$printlang"</a>`[[ $rusthrulink != "" ]] && [[ "$rusthrulink" != "$linklang" ]] && echo "&nbsp;<a target=\"_blank\" href="$rusthrulink">Вариант 2</a>"` `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"`&nbsp;<a target=\"_blank\" href="$linken">"English"</a></td>
 <td><strong>$suttatitle</strong></td>
 <td>" | tohtml
 nice -19 egrep -A${linesafter} -ih "${pattern}" $file | grep -v "^--$" | clearsed | highlightpattern  | while IFS= read -r line ; do
@@ -655,7 +656,6 @@ echo "$line"
 echo '<br class="styled">'
 done | tohtml
 echo "</td>
-<td><a target=\"_blank\" href="$linkpli">Pāḷi</a>&nbsp;<a target=\"_blank\" href="$linklang">"$printlang"</a>`[[ $rusthrulink != "" ]] && [[ "$rusthrulink" != "$linklang" ]] && echo "&nbsp;<a target=\"_blank\" href="$rusthrulink">Вариант 2</a>"` `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"`&nbsp;<a target=\"_blank\" href="$linken">"English"</a></td>
 </tr>" | tohtml
 
 done
