@@ -641,7 +641,7 @@ indexlist=`nice -19 egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 metaphorcount=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
-suttatitle=`grep 'h1' $file | clearsed | xargs `
+suttatitle=`grep 'h1' $file | clearsed | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
 #quote=`nice -19 egrep -ih "${pattern}" $file | clearsed | highlightpattern `
 echo "<tr>
 <td><a target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
