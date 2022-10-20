@@ -333,10 +333,17 @@ $arg = $language . ' ' . $pattern;
       <h5 class="mb-1">Digital Pali Dictionary</h5>
       <small class="text-muted">приложение</small>
     </div>
-    <p class="mb-1">Крупнейший и самый быстры словарь и грамматика Пали.</p>
+    <p class="mb-1">Крупнейший и самый быстрый Пали-Англ словарь и грамматика Пали.</p>
     <small class="text-muted">Доступно для ПК, Mac, Android, IOS</small>
   </a>
-
+        <a target="_blank" href="https://devamitta.github.io/" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">DPD Русская Версия</h5>
+      <small class="text-muted">приложение</small>
+    </div>
+    <p class="mb-1">Небольшой Пали-Русский словарь основанный на Digital Pali Dictionary</p>
+    <small class="text-muted">Альтернатива DPD, для тех кто не владеет английским</small>
+  </a>
 
     <a target="_blank" href="https://www.wisdomlib.org/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
