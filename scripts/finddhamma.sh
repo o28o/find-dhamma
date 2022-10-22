@@ -451,8 +451,17 @@ rusthrulink=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep 
   fi 
     if [[ "$language" == "Pali" ]]; then
         file=$roottext
+        suttatitle=`nice -19 grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
+
     elif [[ "$language" == "English" ]]; then
         file=$translation
+        if [[ "$file" == *"/dn/"* ]] || [[ "$file" == *"/mn/"* ]] 
+        then 
+        suttatitle=`nice -19 grep ':0\.2' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+        else
+        suttatitle=`nice -19 grep ':0\.3' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+        fi 
+
     fi 
     
 translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{print $1}'`
@@ -496,10 +505,11 @@ done)
 
 metaphorcount=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -iE "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
-suttatitle=`nice -19 grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 echo "<tr>
 <td><a class=\"freebutton\" target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
+<td><strong>$suttatitle</strong></td>
+
 <td><div class=\"wordwrap\">$word<div></td>
 <td>$count</td>   
 <td>$metaphorcount</td>
@@ -507,7 +517,6 @@ echo "<tr>
 `[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Русский</a>"` 
 `[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Русский</a>"` 
 `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">English</a></td>
-<td><strong>$suttatitle</strong></td>
 <td>" | tohtml 
 
  
@@ -604,8 +613,11 @@ linklang=$linkgeneral
     
         if [[ "$language" == "Pali" ]]; then
         file=$roottext
+        suttatitle=`grep 'h1' $file | clearsed | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
+
     elif [[ "$language" == "Russian" ]]; then
         file=$rustr
+suttatitle=`grep 'h1' $file | clearsed | xargs`
 		
 	
 	   rusnp=`echo $filenameblock | sed 's@\.@_@g'`
@@ -641,15 +653,15 @@ indexlist=`nice -19 egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 metaphorcount=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
 
-suttatitle=`grep 'h1' $file | clearsed | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
 #quote=`nice -19 egrep -ih "${pattern}" $file | clearsed | highlightpattern `
 echo "<tr>
 <td><a target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
+<td><strong>$suttatitle</strong></td>
+
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
 <td><a target=\"_blank\" href="$linkpli">Pāḷi</a>&nbsp;<a target=\"_blank\" href="$linklang">"$printlang"</a>`[[ $rusthrulink != "" ]] && [[ "$rusthrulink" != "$linklang" ]] && echo "&nbsp;<a target=\"_blank\" href="$rusthrulink">Вариант 2</a>"` `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"`&nbsp;<a target=\"_blank\" href="$linken">"English"</a></td>
-<td><strong>$suttatitle</strong></td>
 <td>" | tohtml
 nice -19 egrep -A${linesafter} -ih "${pattern}" $file | grep -v "^--$" | clearsed | highlightpattern  | while IFS= read -r line ; do
 echo "$line"
