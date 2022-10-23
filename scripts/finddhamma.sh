@@ -449,21 +449,24 @@ then
 dnnumber=`echo $filenameblock | sed 's/dn//g'`
 rusthrulink=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "ДН $dnnumber" | sed 's#href="#href="https://tipitaka.theravada.su#' |awk -F'"' '{print $2}'`
   fi 
-    if [[ "$language" == "Pali" ]]; then
-        file=$roottext
-        suttatitle=`nice -19 grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
 
-    elif [[ "$language" == "English" ]]; then
+#orig suttatitle block was here
+if [[ "$language" == "Pali" ]]; then
+        file=$roottext
+elif [[ "$language" == "English" ]]; then
         file=$translation
-        if [[ "$file" == *"/dn/"* ]] || [[ "$file" == *"/mn/"* ]] 
+fi 
+    
+
+roottitle=`nice -19 grep ':0\.' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
+
+if [[ "$translation" == *"/dn/"* ]] || [[ "$translation" == *"/mn/"* ]] 
         then 
-        suttatitle=`nice -19 grep ':0\.2' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+        trntitle=`nice -19 grep ':0\.2' $translation | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
         else
-        suttatitle=`nice -19 grep ':0\.3' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+        trntitle=`nice -19 grep ':0\.3' $translation | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
         fi 
 
-    fi 
-    
 translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{print $1}'`
 
 suttanumber="$filenameblock"
@@ -508,18 +511,18 @@ metaphorcount=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -iE "$me
 
 echo "<tr>
 <td><a class=\"freebutton\" target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
-<td><strong>$suttatitle</strong></td>
-
-<td><div class=\"wordwrap\">$word<div></td>
+<td><strong>`echo $roottitle | highlightpattern`. </strong>`echo ${trntitle}  | highlightpattern ` </td>
+<td><div class=\"wordwrap\">${word}<div></td>
 <td>$count</td>   
 <td>$metaphorcount</td>
 <td><a target=\"_blank\" href="$linkpli">Pāḷi</a> 
 `[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Русский</a>"` 
 `[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Русский</a>"` 
-`[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">English</a></td>
-<td>" | tohtml 
+`[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">English</a></td>" | tohtml 
 
- 
+#quote part
+echo "<td>" | tohtml 
+
 for i in $indexlist
 do
 #echo "<strong>$i</strong>"
@@ -610,14 +613,16 @@ rustr=$file
 
 linklang=$linkgeneral
 
-    
+roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+ 
         if [[ "$language" == "Pali" ]]; then
         file=$roottext
-        suttatitle=`grep 'h1' $file | clearsed | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
+        
 
     elif [[ "$language" == "Russian" ]]; then
         file=$rustr
-suttatitle=`grep 'h1' $file | clearsed | xargs`
+        remtitle=`echo $filenameblock | sed 's/[A-Za-z]//g'`
+suttatitle=`grep 'h1' $file | clearsed | xargs | sed 's@'$remtitle'@@g'`
 		
 	
 	   rusnp=`echo $filenameblock | sed 's@\.@_@g'`
@@ -625,9 +630,12 @@ suttatitle=`grep 'h1' $file | clearsed | xargs`
 
      rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
 
-
 linklang=$rusthrulink	
 fi
+
+roottitle=`nice -19 grep ':0\.' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
+
+
 
 linkthai=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
 
@@ -656,8 +664,7 @@ metaphorcount=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys
 #quote=`nice -19 egrep -ih "${pattern}" $file | clearsed | highlightpattern `
 echo "<tr>
 <td><a target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
-<td><strong>$suttatitle</strong></td>
-
+<td><strong>`echo $roottitle | highlightpattern`</strong>`echo "${suttatitle}" | highlightpattern ` </td>
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
@@ -732,3 +739,21 @@ wordsresponse
 fi
 quoteresponse
 exit 0
+
+
+
+#orig suttatitle block
+    if [[ "$language" == "Pali" ]]; then
+        file=$roottext
+        suttatitle=`nice -19 grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
+
+    elif [[ "$language" == "English" ]]; then
+        file=$translation
+        if [[ "$file" == *"/dn/"* ]] || [[ "$file" == *"/mn/"* ]] 
+        then 
+        suttatitle=`nice -19 grep ':0\.2' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+        else
+        suttatitle=`nice -19 grep ':0\.3' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+        fi 
+
+    fi 
