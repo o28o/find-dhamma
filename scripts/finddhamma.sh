@@ -511,7 +511,7 @@ metaphorcount=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -iE "$me
 
 echo "<tr>
 <td><a class=\"freebutton\" target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
-<td><strong>`echo $roottitle | highlightpattern`. </strong>`echo ${trntitle}  | highlightpattern ` </td>
+<td><strong>`echo $roottitle | highlightpattern` </strong>`echo ${trntitle}  | highlightpattern ` </td>
 <td><div class=\"wordwrap\">${word}<div></td>
 <td>$count</td>   
 <td>$metaphorcount</td>

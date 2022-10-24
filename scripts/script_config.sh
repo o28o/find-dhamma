@@ -8,7 +8,7 @@ linesafter=0
 minlength=4
 truncatelength=30
 filesizenooverwrite=700000
-maxmatchesbg=1800
+maxmatchesbg=1400
 
 
 function pvlimit {
