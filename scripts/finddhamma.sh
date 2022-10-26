@@ -251,6 +251,8 @@ function grepbasefile {
 nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
 #| nice -19 egrep -v "snp|thag|thig|dhp|iti|ud"
+fileprefix=${fileprefix}-kn
+fortitle="${fortitle} +KN"
 fi
 
 if [[ "$@" == *"-th"* ]]; then
@@ -728,7 +730,7 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 #echo "${fortitle^} $language"
 OKresponse
 
-#rm $basefile $tempfile > /dev/null 2>&1
+rm $basefile $tempfile > /dev/null 2>&1
 #php -r 'header("Location: ./output/table.html");'
 
 if [[ "$language" == "Pali" ]]
