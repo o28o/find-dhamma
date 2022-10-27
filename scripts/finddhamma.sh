@@ -538,7 +538,7 @@ do
 		quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | grep -v "^--$" | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
       if [[ "$quote" != "" ]]
 then 
-[[ "$f" == *"root"* ]] && echo "$i $quote<br class=\"btwntrn\">" || echo "<p class=\"text-muted font-weight-light\">$i $quote</p>"
+[[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">" || echo "<p class=\"text-muted font-weight-light\">$quote</p>"
 fi
 done
 
@@ -734,7 +734,7 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 #echo "${fortitle^} $language"
 OKresponse
 
-#rm $basefile $tempfile > /dev/null 2>&1
+rm $basefile $tempfile > /dev/null 2>&1
 #php -r 'header("Location: ./output/table.html");'
 
 if [[ "$language" == "Pali" ]]
