@@ -251,8 +251,6 @@ function grepbasefile {
 nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
 #| nice -19 egrep -v "snp|thag|thig|dhp|iti|ud"
-fileprefix=${fileprefix}-kn
-fortitle="${fortitle} +KN"
 fi
 
 if [[ "$@" == *"-th"* ]]; then
@@ -471,7 +469,13 @@ if [[ "$translation" == *"/dn/"* ]] || [[ "$translation" == *"/mn/"* ]]
 
 translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{print $1}'`
 
-suttanumber="$filenameblock"
+if [[ $filenameblock == *"-"* ]]
+then 
+suttanumber=`nice -19 egrep -Ei $filenameblock $basefile | awk '{print $2}' | awk -F':' '{print $1}' | sort | uniq `
+else 
+suttanumber=$filenameblock
+fi 
+
 
 if [[ "$fortitle" == "Suttanta" ]]
 then
@@ -498,7 +502,7 @@ echo $count >> $tempfile
 #`grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
 
-word=`getwords | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
+word=`getwords | grepexclude | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
 indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V | uniq`
 
 indexlist=$(for i in $indexlist
@@ -534,7 +538,7 @@ do
 		quote=`nice -19 egrep -iE "${i}(:|[^0-9]|$)" $f | grep -v "^--$" | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
       if [[ "$quote" != "" ]]
 then 
-[[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">" || echo "<p class=\"text-muted font-weight-light\">$quote</p>"
+[[ "$f" == *"root"* ]] && echo "$i $quote<br class=\"btwntrn\">" || echo "<p class=\"text-muted font-weight-light\">$i $quote</p>"
 fi
 done
 
@@ -656,7 +660,7 @@ linken=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&
 count=`nice -19 egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 
-word=`getwords | xargs | clearsed | sedexpr | highlightpattern`
+word=`getwords | grepexclude | xargs | clearsed | sedexpr | highlightpattern`
 indexlist=`nice -19 egrep -i $filenameblock $basefile | awk '{print $2}'`
 
 #metaphorindexlist=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
@@ -693,7 +697,7 @@ cat $templatefolder/Footer.html | tohtml
 fi
 
 function getbasefile {
-grepbasefile | grep -v "^--$" | grepexclude | clearsed > $basefile
+grepbasefile | grep -v "^--$" | grepexclude | clearsed | sort -V > $basefile
 
 linescount=`wc -l $basefile | awk '{print $1}'`
 if [ ! -s $basefile ]
@@ -730,7 +734,7 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 #echo "${fortitle^} $language"
 OKresponse
 
-rm $basefile $tempfile > /dev/null 2>&1
+#rm $basefile $tempfile > /dev/null 2>&1
 #php -r 'header("Location: ./output/table.html");'
 
 if [[ "$language" == "Pali" ]]
