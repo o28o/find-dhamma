@@ -250,6 +250,8 @@ if [[ "$@" == *"-kn"* ]]; then
 function grepbasefile {
 nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
+fileprefix=${fileprefix}-kn
+fortitle="${fortitle} +KN"
 #| nice -19 egrep -v "snp|thag|thig|dhp|iti|ud"
 fi
 
