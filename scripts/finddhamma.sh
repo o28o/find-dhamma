@@ -458,12 +458,27 @@ elif [[ "$language" == "English" ]]; then
         file=$translation
 fi 
     
-
+if [[ "$roottext" == *"/dhp/"* ]] 
+        then 
+        roottitle=`nice -19 grep ':0\.4' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+        #доделать
+elif [[ "$roottext" == *"an2.141-"* ]]  
+        then 
+        roottitle=`nice -19 grep "$pattern" $roottext | clearsed | awk '{print $1}' | awk -F':' '{print $1}' | sort -V |  xargs `
+        else 
 roottitle=`nice -19 grep ':0\.' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
+fi 
+
+
+
 
 if [[ "$translation" == *"/dn/"* ]] || [[ "$translation" == *"/mn/"* ]] 
         then 
         trntitle=`nice -19 grep ':0\.2' $translation | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+elif [[ "$translation" == *"/dhp/"* ]] 
+        then 
+        trntitle=`nice -19 grep ':0\.4' $translation | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+
         else
         trntitle=`nice -19 grep ':0\.3' $translation | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
         fi 
