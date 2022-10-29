@@ -320,7 +320,7 @@ pvlimit
 fi
 
 #filename
-fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/_/g' | sed 's/ /_/g' | sed 's/\\\//g' |  awk '{print tolower($0)}'`
+fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/_/g' | sed 's/ /_/g' | sed 's/\\\//g' | sed 's@?@_question@g'|  awk '{print tolower($0)}'`
 fn=${fn}${excfn}${fileprefix}${fnlang}
 
 extention=txt
@@ -452,7 +452,6 @@ dnnumber=`echo $filenameblock | sed 's/dn//g'`
 rusthrulink=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "ДН $dnnumber" | sed 's#href="#href="https://tipitaka.theravada.su#' |awk -F'"' '{print $2}'`
   fi 
 
-#orig suttatitle block was here
 if [[ "$language" == "Pali" ]]; then
         file=$roottext
 elif [[ "$language" == "English" ]]; then
@@ -760,6 +759,13 @@ exit 0
         if [[ "$file" == *"/dn/"* ]] || [[ "$file" == *"/mn/"* ]] 
         then 
         suttatitle=`nice -19 grep ':0\.2' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+elif [[ "$file" == *"/an/"* ]] 
+        then 
+        suttatitle=`nice -19 grep ':0\.4' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs ` 
+     
+    elif [[ "$file" == *"/dhp/"* ]] 
+        then 
+        suttatitle=`nice -19 grep ':0\.4' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs ` 
         else
         suttatitle=`nice -19 grep ':0\.3' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
         fi 
