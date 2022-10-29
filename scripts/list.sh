@@ -31,10 +31,10 @@ pitaka=`echo $file | awk -F'_' '{mu=(NF-1); print $mu}' | sed 's/nta//g'`
 language=`echo $file | awk -F'_' '{print $NF}' | awk -F'.' '{print $1 }'`
 link=/output/$file
 searchedpattern=`echo $file | awk -F'_' '{mu=(NF-1); $mu=$NF=""; print }'`
-if [ ${#searchedpattern} -ge $truncatelength ]
-then
-  searchedpattern="`echo $searchedpattern | head -c $truncatelength`..."
-fi
+#if [ ${#searchedpattern} -ge $truncatelength ]
+#then
+#  searchedpattern="`echo $searchedpattern | head -c $truncatelength`..."
+#fi
 
 
 creationdate=`echo $line | awk '{print $2}'`
