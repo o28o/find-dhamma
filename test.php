@@ -176,13 +176,35 @@ $arg = $language . ' ' . $pattern;
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
+              
+       
 
 	<p class="text-center">
-	<a href="./list.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>
+
+
+   	<div class="d-sm-inline-block">	
+    	<a href="./sc/" class="btn btn-primary" role="button btn-lg">Читать Pli-En</a>
+   </div> 	
+ 
+   	<div class="d-sm-inline-block">	
+    	<a href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm" class="btn btn-primary" role="button btn-lg">Читать Ru</a>
+</div>
+
+<div class="d-sm-inline-block">	
+	<a href="./list.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>      	         	
+</div>
+
+<div class="d-sm-inline-block">	
+<a href="#links" class="btn btn-primary" role="button btn-lg">Изучать</a>
+</div>
+
+
 	</p>
 
 
-      <!-- <div class="divider-custom-icon text-center">
+      <!-- 
+      	<a href="./list.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>
+      <div class="divider-custom-icon text-center">
               <i class="fa-solid fa-book fa-4x" title="Exchange"></i> <i class="fa-solid fa-list fa-4x"></i>
               </div> -->
         <div class="font-italic">  
