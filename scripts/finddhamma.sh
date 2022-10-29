@@ -461,8 +461,8 @@ fi
 if [[ "$roottext" == *"/dhp/"* ]] ||  [[ "$roottext" == *"/iti/"* ]] 
         then 
         roottitle=`nice -19 grep ':0\.4' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
-        #доделать
-elif ls $roottext | egrep -q "(sn|an)[0-9]{0,2}.[0-9]*-[0-9]*_"
+
+elif ls $roottext | egrep -q "(sn|an)[0-9]{0,3}.[0-9]*-[0-9]*_"
 then
       roottitle=`nice -19 grep "$pattern" $roottext | clearsed | awk '{print $1}' | awk -F':' '{print $1}' | sort -V | uniq |  xargs `
         else 
