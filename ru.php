@@ -325,7 +325,7 @@ $arg = $language . ' ' . $pattern;
       <h5 class="mb-1">find.dhamma.gift</h5>
       <small class="text-muted">онлайн</small>
     </div>
-    <p class="mb-1">Всепроникающий поиск на Сутты и Винаю.</p>
+    <p class="mb-1">Всепроникающий поиск по Суттам и Винае.</p>
     <small class="text-muted"></small>
   </a>
         <a target="_blank" href="https://digitalpalidictionary.github.io/" class="list-group-item list-group-item-action">
@@ -390,12 +390,19 @@ $arg = $language . ' ' . $pattern;
                         <h4 class="text-uppercase mb-4">Чтение</h4>
                        
  <div class="list-group">
-
+  <a target="_blank" href="https://sc.dhamma.gift" class="list-group-item list-group-item-action active" aria-current="true">
+    <div class="d-flex w-100 justify-content-between text-left">
+      <h5 class="mb-1">sc.dhamma.gift</h5>
+      <small>Пали-Англ</small>
+    </div>
+    <p class="mb-1 text-left">Пали-Англ построчно с удобным переключением</p>
+    <small>Открывайте тексты suttacentral.net в разы быстрее</small>
+  </a>
 
   <a target="_blank" href="https://Suttacentral.net" class="list-group-item list-group-item-action" aria-current="true">
     <div class="d-flex w-100 justify-content-between text-left">
       <h5 class="mb-1">Suttacentral.net</h5>
-      <small>онлайн и оффлайн</small>
+      <small>Пали-Англ и Русский</small>
     </div>
     <p class="mb-1 text-left">Самая полная коллекция построчных переводов Типитаки Пали-Англ.</p>
     <small>Пали-Англ словарь можно включить в настройках</small>
@@ -404,7 +411,7 @@ $arg = $language . ' ' . $pattern;
     <a target="_blank"   href="https://www.digitalpalireader.online/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Digital Pali Reader</h5>
-      <small class="text-muted">онлайн и оффлайн</small>
+      <small class="text-muted">Пали</small>
     </div>
     <p class="mb-1">Мощный инструмент для исследования Сутт и изучения Пали.</p>
     <small class="text-muted">Встроенный Пали-Англ словарь</small>
@@ -413,7 +420,7 @@ $arg = $language . ' ' . $pattern;
   <a target="_blank"  href="https://tipitaka.theravada.su/toc/translations/1097" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Tipitaka.Theravada.su</h5>
-      <small class="text-muted">онлайн</small>
+      <small class="text-muted">Русский</small>
     </div>
     <p class="mb-1">Много вариантов переводов. Построчно Пали-Англ-Русский.</p>
     <small class="text-muted">Особенно рекомендован для изучения текстов Дигха Никаи</small>
@@ -422,16 +429,31 @@ $arg = $language . ' ' . $pattern;
   <a href="https://www.theravada.ru/" target="_blank"   class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Theravada.ru </h5>
-      <small class="text-muted">онлайн</small>
+      <small class="text-muted">Русский</small>
     </div>
     <p class="mb-1">Самая полная коллекция Русских переводов Суттанты.</p>
     <small class="text-muted"></small>
   </a>
+  
+ <a href="https://play.google.com/store/apps/details?id=hesoft.T2S" target="_blank"   class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">T2S android</h5>
+      <small class="text-muted">аудио</small>
+    </div>
+    <p class="mb-1">Преобразование Русс и Англ текстов в речь</p>
+    <small class="text-muted">для прослушивания текстов theravada.ru и др. html-сайтов</small>
+  </a>
+                      
+ <a href="https://voice.suttacentral.net" target="_blank"   class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Voice.suttacentral.net</h5>
+      <small class="text-muted">аудио</small>
+    </div>
+    <p class="mb-1">Преобразование Пали и Англ текстов в речь</p>
+    <small class="text-muted">для прослушивания текстов suttacentral.net</small>
+  </a>
 </div>  		
-
-
-                        
-	
+                      	
                     </div>
 					
 					 <div class="col-lg-4 mb-5 mb-lg-0">
@@ -455,23 +477,23 @@ $arg = $language . ' ' . $pattern;
       <small class="text-muted">таблица</small>
     </div>
     <p class="mb-1">В англ. переводах и соответственно русских переводах с англ. языка падежи часто переведены неправильно.</p>
-    <small class="text-muted">Обязательно сверяйте с Пали</small>
+    <small class="text-muted">Обязательно сверяйтесь с Пали</small>
   </a>
 
   <a target="_blank" href="https://drive.google.com/file/d/1HzPCYsVBEkWErAk6TqSWRYKseM1hqMCb/view?usp=sharing" class="list-group-item list-group-item-action" aria-current="true">
     <div class="d-flex w-100 justify-content-between text-left">
       <h5 class="mb-1">Спряжения Палийских глаголов</h5>
-      <small>таблица</small>
+      <small>таблица на англ</small>
     </div>
     <p class="mb-1 text-left">Спряжения неправильно переведены реже чем падежи, но все же встречаются</p>
-    <small>Обязательно сверяйте с Пали</small>
+    <small>Обязательно сверяйтесь с Пали</small>
   </a>
   
   
   <a target="_blank"  href="
   https://drive.google.com/drive/u/1/folders/1UU-y5idRNpfcVTripRUtyTVcOgdwjMGN" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Учебные материалы на русском и агнлийском</h5>
+      <h5 class="mb-1">Учебные материалы на русском и английском</h5>
       <small class="text-muted">оффлайн</small>
     </div>
     <p class="mb-1">Подборка учебников и таблиц</p>

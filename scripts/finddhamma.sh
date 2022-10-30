@@ -542,9 +542,11 @@ echo "<tr>
 <td>$count</td>   
 <td>$metaphorcount</td>
 <td><a target=\"_blank\" href="$linkpli">Pāḷi</a> 
-`[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Русский</a>"` 
-`[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Русский</a>"` 
-`[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">English</a></td>" | tohtml 
+`[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Ru</a>"` 
+`[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Ru</a>"` 
+`[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">En</a> 
+<a target=\"_blank\" href=\"https://voice.suttacentral.net/scv/index.html?#/sutta?search=${filenameblock}\">mp3</a>
+</td>" | tohtml 
 
 #quote part
 echo "<td>" | tohtml 
