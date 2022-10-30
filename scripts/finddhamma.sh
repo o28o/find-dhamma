@@ -253,6 +253,12 @@ nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang 
 fileprefix=${fileprefix}-kn
 fortitle="${fortitle} +KN"
 #| nice -19 egrep -v "snp|thag|thig|dhp|iti|ud"
+elif [[ "$@" == *"-all"* ]]; then
+function grepbasefile {
+nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site}
+}
+fileprefix=${fileprefix}-all
+fortitle="${fortitle} +All"
 fi
 
 if [[ "$@" == *"-th"* ]]; then
