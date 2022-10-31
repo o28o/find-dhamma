@@ -7,7 +7,7 @@ wafter=3
 linesafter=0
 minlength=4
 truncatelength=30
-filesizenooverwrite=700000
+filesizenooverwrite=800000
 maxmatchesbg=1400
 
 
