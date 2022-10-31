@@ -176,59 +176,52 @@ $arg = $language . ' ' . $pattern;
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
-              
-       
-
-
-
-
-
       	  		<p class="text-center">
       	  		  
    	<div class="d-md-inline-block text-center">	
 
-<a class="text-decoration-none mx-2" href="./sc/">
+<a class="text-decoration-none mx-1" href="./sc/">
 <figure class="figure text-decoration-none">
-  <i style="font-size: 2.5em; color: #16a085;" class="fa-solid fa-book-bookmark"></i>
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book-bookmark"></i>
   <figcaption class="figure-caption text-center">Pli-Eng</figcaption>
 </figure>
 </a>
-<a class="text-decoration-none mx-2" href="https://tipitaka.theravada.su/toc/translations/1098">
+<a class="text-decoration-none mx-1" href="https://tipitaka.theravada.su/toc/translations/1098">
 <figure class="figure">
-  <i style="font-size: 2.5em; color: #16a085;" class="fa-solid fa-book"></i>
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
 <figcaption class="figure-caption text-center">Русский ДН</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-2" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">
+<a class="text-decoration-none mx-1" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">
 <figure class="figure">
-  <i style="font-size: 2.5em; color: #16a085;" class="fa-solid fa-book"></i>
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
 <figcaption class="figure-caption text-center">Русский</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-2" href="./list.php">
+<a class="text-decoration-none mx-1" href="./list.php">
 <figure class="figure">
-  <i style="font-size: 2.5em; color: #16a085;" class="fa-solid fa-clock-rotate-left"></i>
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-clock-rotate-left"></i>
 <figcaption class="figure-caption text-center">История</figcaption>   
 </figure>	  
 </a>
 
-<a class="text-decoration-none mx-2" href="#links">
+<a class="text-decoration-none mx-1" href="#links">
 <figure class="figure">
-  <i style="font-size: 2.5em; color: #16a085;" class="fa-solid fa-link"></i>
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-link"></i>
 <figcaption class="figure-caption text-center">Полезное</figcaption>   
 </figure>	    
 </a> 
 
-<a class="text-decoration-none mx-2" target="_blank" href="https://voice.suttacentral.net">
+<a class="text-decoration-none mx-1" target="_blank" href="https://voice.suttacentral.net">
 <figure class="figure">
-  <i style="font-size: 2.5em; color: #16a085;" class="fa-solid fa-headphones"></i>
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-headphones"></i>
 <figcaption class="figure-caption text-center">Слушать</figcaption>   
 </figure>	    
 </a> 
 
-<a class="text-decoration-none mx-2" href="https://drive.google.com/drive/folders/1UudXBibx8srzOUI4bXAXi5EwzWMFpMtT">
+<a class="text-decoration-none mx-1" href="https://drive.google.com/drive/folders/1UudXBibx8srzOUI4bXAXi5EwzWMFpMtT">
 <figure class="figure">
-  <i style="font-size: 2.5em; color: #16a085;" class="fa-solid fa-graduation-cap"></i>
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-graduation-cap"></i>
 <figcaption class="figure-caption text-center">Материалы</figcaption>   
 </figure>	  
 </a>
@@ -250,9 +243,9 @@ $arg = $language . ' ' . $pattern;
                                                 </div> 
                   	<div class="d-md-inline-block">	
    		<p class="text-center">
-    	<a href="./sc/" class="btn btn-primary" role="button btn-lg">Читать Pli-En</a>
-    	    	<a href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm" class="btn btn-primary" role="button btn-lg">Читать Ru</a>
-    	    	 	<a href="./list.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>  <a href="#links" class="btn btn-primary" role="button btn-lg">Изучать</a> 
+    	<a href="./sc/" class="btn btn-primary mb-2" role="button btn-lg">Читать Pli-En</a>
+    	    	<a href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm" class="btn btn-primary mb-2" role="button btn-lg">Читать Ru</a>
+    	    	 	<a href="./list.php" class="btn btn-primary mb-2" role="button btn-lg">История Поиска</a>  <a href="#links" class="btn mb-2 btn-primary" role="button btn-lg">Изучать</a> 
  	</p>
    </div> 	                                 
                       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2> 

@@ -182,10 +182,63 @@ $arg = $language . ' ' . $pattern;
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container">
-              	<p class="text-center">
+              
+                  	  		<p class="text-center">
+      	  		  
+   	<div class="d-md-inline-block text-center">	
+
+<a class="text-decoration-none mx-1" href="./sc/">
+<figure class="figure text-decoration-none">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book-bookmark"></i>
+  <figcaption class="figure-caption text-center">Pāḷi-Eng</figcaption>
+</figure>
+</a>
+<a class="text-decoration-none mx-1" href="https://tipitaka.theravada.su/toc/translations/1098">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
+<figcaption class="figure-caption text-center">Русский ДН</figcaption>   
+</figure>	  
+</a>
+<a class="text-decoration-none mx-1" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
+<figcaption class="figure-caption text-center">Русский</figcaption>   
+</figure>	  
+</a>
+<a class="text-decoration-none mx-1" href="./list.php">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-clock-rotate-left"></i>
+<figcaption class="figure-caption text-center">История</figcaption>   
+</figure>	  
+</a>
+
+<a class="text-decoration-none mx-1" href="#links">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-link"></i>
+<figcaption class="figure-caption text-center">Полезное</figcaption>   
+</figure>	    
+</a> 
+
+<a class="text-decoration-none mx-1" target="_blank" href="https://voice.suttacentral.net">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-headphones"></i>
+<figcaption class="figure-caption text-center">Слушать</figcaption>   
+</figure>	    
+</a> 
+
+<a class="text-decoration-none mx-1" href="https://drive.google.com/drive/folders/1UudXBibx8srzOUI4bXAXi5EwzWMFpMtT">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-graduation-cap"></i>
+<figcaption class="figure-caption text-center">Материалы</figcaption>   
+</figure>	  
+</a>
+
+</div> 
+ 	</p> 
+         <!--            	<p class="text-center">
 	<a href="./list.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>
 	</p>
-      <!-- <div class="divider-custom-icon text-center">
+<div class="divider-custom-icon text-center">
               <i class="fa-solid fa-book fa-4x" title="Exchange"></i> <i class="fa-solid fa-list fa-4x"></i>
               </div> -->
         <div class="font-italic"> 
