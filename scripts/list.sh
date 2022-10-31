@@ -2,9 +2,10 @@
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 
 
+listfile=listhtml.tmp
+lsout=lsout.tmp
 title="Search History"
 
-cat $templatefolder/Header.html $templatefolder/ListTableHeader.html | sed 's/$title/'"$title"'/g'
 #`grep ':0\.' $file | clearsed |
 
 case=$@ 
@@ -24,7 +25,30 @@ else
 switch=
 fi
 
-ls -lpah --time-style="+%d-%m-%Y" *_${switch}* | egrep -v "_words.html|\.tmp|_fn.txt|table|.git|итого|total|/" | grep -v "^_" | awk '{print substr($0, index($0, $5))}'  | while IFS= read -r line ; do
+
+function listsearchresults {
+  ls -lpah --time-style="+%d-%m-%Y" *_${switch}* | egrep -v "$listfile|$lsout|_words.html|\.tmp|_fn.txt|table|.git|итого|total|/" | grep -v "^_" | awk '{print substr($0, index($0, $5))}'
+}
+
+function md5checkwrite {
+md5_stdout=$( listsearchresults | md5sum | cut -d" " -f 1)
+md5_file=$(md5sum $lsout | cut -d" " -f1)
+if [[ "$md5_stdin" == "$md5_file" ]]
+then 
+cat $listfile 
+exit 0
+fi 
+}
+md5checkwrite
+listsearchresults > $lsout
+
+
+cat $templatefolder/Header.html $templatefolder/ListTableHeader.html | sed 's/$title/'"$title"'/g' | tee $listfile
+
+
+
+
+listsearchresults | while IFS= read -r line ; do
 
 file=`echo $line | awk '{print $NF}'`
 pitaka=`echo $file | awk -F'_' '{mu=(NF-1); print $mu}' | sed 's/nta//g'`
@@ -52,10 +76,10 @@ echo "<tr>
 <td>$size</td>
 <td>$creationdate</td>
 </tr>"
-done
+done  | tee -a $listfile
 echo "</table>
-<a href="/">Main page </a>"
-cat $templatefolder/Footer.html 
+<a href="/">Main page </a>" | tee -a $listfile
+cat $templatefolder/Footer.html  | tee -a $listfile
 
 
 exit 0
