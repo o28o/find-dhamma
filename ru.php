@@ -259,6 +259,11 @@ $arg = $language . ' ' . $pattern;
 <div class="mb-5">
               <ol class="col-lg-8 col-md-10 ms-auto">
                 <!-- <li>Вся <a href="./list.php">история поиска</a></li> -->
+             <li>Определение понятия <a href="/assets/demo/kata.dukkhaṁ_question_suttanta_pali.html">dukkha</a> на Пали со ссылками на Русские переводы. Запрос: <a href="/assets/demo/kata.dukkhaṁ_question_suttanta_pali.html">Kata.*dukkhaṁ\\?</a>
+             </li>
+             
+              <li>Сутта, в которой Будда говорит, что не делает <a href="/assets/demo/dvayagāminī_suttanta_pali.html">двусмысленных (dvayagāminī) утверждений</a> на Пали со ссылками на Русский перевод</li>
+               
                 <li>Все сутты о <a href="https://find.dhamma.gift/assets/demo/%D0%B2%D0%BE%D1%81%D1%8C%D0%BC%D0%B5%D1%80%D0%B8%D1%87%D0%BD_suttanta_ru.html">Восьмеричном</a> Пути на Русском</li>
                 <li>Все сутты со словом <a href="https://find.dhamma.gift/assets/demo/%D0%BD%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D1%8C_suttanta_ru.html">нравственность</a> на Русском</li>
                 <li>Все сутты, где упомянут <a href="https://find.dhamma.gift/assets/demo/%D1%81%D0%B0%D1%80%D0%B8%D0%BF%D1%83%D1%82%D1%82_suttanta_ru.html">Сарипутта</a> на Русском</li>

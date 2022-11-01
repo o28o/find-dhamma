@@ -258,6 +258,10 @@ $arg = $language . ' ' . $pattern;
               <ol class="col-lg-8 col-md-10 ms-auto">
 			  
                    <!-- <li>All <a href="./list.php">previous searches</a></li> -->
+           <li>Definition of the <a href="/assets/demo/kata.dukkhaṁ_question_suttanta_pali.html">dukkha</a> in Pali with quotes in English. Query is: <a href="/assets/demo/kata.dukkhaṁ_question_suttanta_pali.html">Kata.*dukkhaṁ\\?</a></li>
+
+ <li>Sutta where Buddha says that he doesn't make <a href="/assets/demo/dvayagāminī_suttanta_pali.html">ambiguous (dvayagāminī) statements</a> in Pali with English quote</li>
+
              <li>All variants of the word <a href="https://find.dhamma.gift/assets/demo/pa%E1%B9%ADiccasamupp_suttanta_pali_words.html">paṭiccasamuppado</a> in Pali with quotes in English</li>
             
                 <li>All suttas about <a href="https://find.dhamma.gift/assets/demo/eightfold_suttanta_en.html">Eightfold</a> Path in English</li>
