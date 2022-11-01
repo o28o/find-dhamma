@@ -18,8 +18,4 @@ parse_str($url_components['query'], $params);
 /* echo ' '.$params['lang']; */
    $output = shell_exec("./scripts/list.sh " ); 
    echo "$output";
-
- 
-
- 
 ?>

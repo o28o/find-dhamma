@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/bash -i
+#set -x 
+#trap read debug
+
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 
 
@@ -30,22 +33,19 @@ function listsearchresults {
   ls -lpah --time-style="+%d-%m-%Y" *_${switch}* | egrep -v "$listfile|$lsout|_words.html|\.tmp|_fn.txt|table|.git|итого|total|/" | grep -v "^_" | awk '{print substr($0, index($0, $5))}'
 }
 
-function md5checkwrite {
-md5_stdout=$( listsearchresults | md5sum | cut -d" " -f 1)
-md5_file=$(md5sum $lsout | cut -d" " -f1)
-if [[ "$md5_stdin" == "$md5_file" ]]
+md5_stdout=`listsearchresults | md5sum | cut -d" " -f 1`
+md5_file=`md5sum $lsout | cut -d" " -f1`
+#echo $md5_stdout $md5_file
+if [[ "$md5_stdout" == "$md5_file" ]]
 then 
 cat $listfile 
 exit 0
 fi 
-}
-md5checkwrite
+
 listsearchresults > $lsout
 
 
 cat $templatefolder/Header.html $templatefolder/ListTableHeader.html | sed 's/$title/'"$title"'/g' | tee $listfile
-
-
 
 
 listsearchresults | while IFS= read -r line ; do
@@ -75,6 +75,7 @@ echo "<tr>
 <td>${pitaka^}</td>
 <td>$size</td>
 <td>$creationdate</td>
+
 </tr>"
 done  | tee -a $listfile
 echo "</table>
@@ -83,6 +84,7 @@ cat $templatefolder/Footer.html  | tee -a $listfile
 
 
 exit 0
+<td><a target=\"_blank\" href="/scripts/remove.php?file\=${link">$creationdate</a>  </td>
 
             <th>Pattern</th>
             <th>Pitaka</th>
