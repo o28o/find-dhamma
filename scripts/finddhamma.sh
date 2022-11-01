@@ -1,6 +1,6 @@
 #!/bin/bash -i
-#set -x 
-#trap read debug
+set -x 
+trap read debug
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 
 
@@ -490,7 +490,8 @@ elif [[ "$translation" == *"/dhp/"* ]] ||  [[ "$translation" == *"/iti/"* ]]
 translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{print $1}'`
 
 #if [[ $filenameblock == *"-"* ]]
-if echo $filenameblock | egrep -q "(sn|an)[0-9]{0,3}.[0-9]*-[0-9]*_"
+echo "check this"
+if echo $filenameblock | egrep "(sn|an)[0-9]{0,2}.[0-9]{0,3}-[0-9]{0,3}"
 then 
 suttanumber=`nice -19 egrep -Ei $filenameblock $basefile | awk '{print $2}' | awk -F':' '{print $1}' | sort | uniq `
 else 
@@ -526,10 +527,10 @@ echo $count >> $tempfile
 word=`getwords | grepexclude | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
 indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V | uniq`
 
-indexlist=$(for i in $indexlist
-do
-nice -19 egrep -A${linesafter} -iE "${i}(:|[^0-9]|$)" $roottext | grep -v "^--$" | awk '{print $1}' | clearsed | sedexpr | sort -V | uniq
-done)
+#indexlist=$(for i in $indexlist
+#do
+#nice -19 egrep -A${linesafter} -iE "${i}(:|[^0-9]|$)" $roottext | grep -v "^--$" | awk '{print $1}' | clearsed | sedexpr | sort -V | uniq
+#done)
 
 #metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
 
@@ -567,8 +568,7 @@ done
 
 echo '<br class="styled">'
 done | tohtml 
-
-echo  "</td>
+echo "</td>
 </tr>" | tohtml
 
 done
