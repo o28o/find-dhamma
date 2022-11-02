@@ -470,7 +470,7 @@ if [[ "$roottext" == *"/dhp/"* ]] ||  [[ "$roottext" == *"/iti/"* ]]
 
 elif ls $roottext | egrep -q "(sn|an)[0-9]{0,3}.[0-9]*-[0-9]*_"
 then
-      roottitle=`nice -19 grep "$pattern" $roottext | clearsed | awk '{print $1}' | awk -F':' '{print $1}' | sort -V | uniq |  xargs `
+      roottitle=`nice -19 egrep -i "$pattern" $roottext | clearsed | awk '{print $1}' | awk -F':' '{print $1}' | sort -V | uniq |  xargs `
         else 
 roottitle=`nice -19 grep ':0\.' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
 fi 
