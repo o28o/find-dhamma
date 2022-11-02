@@ -490,7 +490,7 @@ elif [[ "$translation" == *"/dhp/"* ]] ||  [[ "$translation" == *"/iti/"* ]]
 translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{print $1}'`
 
 #if [[ $filenameblock == *"-"* ]]
-if echo $filenameblock | egrep "(sn|an)[0-9]{0,2}.[0-9]{0,3}-[0-9]{0,3}"
+if echo $filenameblock | egrep "(sn|an)[0-9]{0,2}.[0-9]{0,3}-[0-9]{0,3}" >/dev/null
 then 
 suttanumber=`nice -19 egrep -Ei $filenameblock $basefile | awk '{print $2}' | awk -F':' '{print $1}' | sort | uniq `
 else 
