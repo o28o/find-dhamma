@@ -243,7 +243,7 @@ if [[ "$@" == *"-abhi"* ]]; then
 fi
  
 function grepbasefile {
-nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv,thag,thig,snp,dhp,iti,ud} 
+nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv,thag,thig,snp,dhp,iti} 
 }
 
 if [[ "$@" == *"-kn"* ]]; then
@@ -543,9 +543,9 @@ echo "<tr>
 <td>$count</td>   
 <td>$metaphorcount</td>
 <td><a target=\"_blank\" href="$linkpli">Pāḷi</a> 
-`[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Ru</a>"` 
-`[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Ru</a>"` 
-`[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">En</a> 
+`[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Rus</a>"` 
+`[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Rus</a>"` 
+`[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">Eng</a> 
 <a target=\"_blank\" href=\"https://voice.suttacentral.net/scv/index.html?#/sutta?search=${filenameblock}\">mp3</a>
 </td>" | tohtml 
 
