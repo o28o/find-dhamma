@@ -313,7 +313,7 @@ fi
 if [[ "$@" == *"-exc"* ]]
 then
 excludepattern="`echo $@ | awk -F'-exc ' '{print $2}'`"
-addtotitleifexclude=" excluding $excludepattern"
+addtotitleifexclude=" exc. ${excludepattern,,}"
 addtoresponseexclude=" $excluderesponse $excludepattern"
 function grepexclude {
 egrep -viE "$excludepattern"
@@ -749,7 +749,7 @@ genwordsfile
 textsqnty=`echo $textlist | wc -w`
 capitalized=`echo $pattern | sed 's/[[:lower:]]/\U&/'`
 title="${capitalized}${addtotitleifexclude} $textsqnty texts and $matchqnty matches in $fortitle $language"
-titlewords="${capitalized} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
+titlewords="${capitalized}${addtotitleifexclude} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
