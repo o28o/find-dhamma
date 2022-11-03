@@ -16,6 +16,6 @@ parse_str($url_components['query'], $params);
 // Display result
 
 /* echo ' '.$params['lang']; */
-   $output = shell_exec("./scripts/list.sh " ); 
+   $output = shell_exec("./scripts/list.sh" ); 
    echo "$output";
 ?>

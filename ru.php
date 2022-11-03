@@ -100,7 +100,7 @@ $pattern = $language = $arg = "";
 	  
 	  
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
-<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/list.php?lang=pali">История Поиска</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/list.php">История Поиска</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
@@ -649,7 +649,11 @@ $arg = $language . ' ' . $pattern;
                                     <p class="mb-4">	
 									<strong>Совет #1</strong><br>
 								   Если вы хотите найти определенное слово в определенной сутте, самьютте, никае - запустите поиск в таком виде: Sn17.*seyyathāpi
-								  <br>Запрос из примера выведет в таблицы все метафоры и сравнения из Sn17.<br><br>
+								  <br>Запрос из примера выведет в таблицы все метафоры и сравнения из Sn17.<br>
+								  Если вы хотите найти разные слова в определенной сутте или группе сутт, запрос должен выглядеть так, включая кавычки:
+								  "Sn51.*(seyyathāpi|adhivacan|ūpama|opama)" 
+								  <br>данный запрос выгрузит все метафоры, сравнения, перефразы и примеры из Sn51
+								  <br><br>
 								  <strong>Совет #2</strong><br>
 								   Чтобы добавить вариации используйте [], к примеру запрос nand[iī] выведет в таблицы совпадения по обоим вариантам nandi и nandī.
 								 <br><br>
