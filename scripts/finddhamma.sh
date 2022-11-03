@@ -55,7 +55,7 @@ function emptypattern {
 }
 
 function OKresponse {
-echo "$language - "
+echo "$textsqnty в $language - "
 #echo "$language - "
 }
 
@@ -92,7 +92,7 @@ function emptypattern {
 
 
 function OKresponse {
-echo "$language - "
+echo "$textsqnty in $language - "
 #echo "$language - "
 }
 
