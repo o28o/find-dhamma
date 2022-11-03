@@ -181,11 +181,11 @@ $arg = $language . ' ' . $pattern;
         </header>
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
-            <div class="container">
+            <div class="container text-center">
               
-                  	  		<p class="text-center">
+                  	
       	  		  
-   	<div class="d-md-inline-block text-center">	
+   	<div class="d-md-inline-block">	
 
 <a class="text-decoration-none mx-1" href="./sc/">
 <figure class="figure text-decoration-none">
@@ -234,7 +234,7 @@ $arg = $language . ' ' . $pattern;
 </a>
 
 </div> 
- 	</p> 
+
          <!--            	<p class="text-center">
 	<a href="./list.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>
 	</p>
@@ -244,11 +244,11 @@ $arg = $language . ' ' . $pattern;
         <div class="font-italic"> 
         
 	<h4 class="page-section-heading text-center mb-4">Как пользоваться?</h4>
-	        <div class="embed-container mb-5 text-center"> 
+	        <div class="embed-container mb-5"> 
                                    <iframe src="https://www.youtube.com/embed/4KIqQYSxTSE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							                    		</div>
 
-        <p class="lead mb-5 text-center">
+        <p class="lead mb-5">
 		Всесторонний взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
         из Палийских Сутт и Винаи в удобных таблицах<br> для дальнейшего изучения.
 
@@ -256,7 +256,7 @@ $arg = $language . ' ' . $pattern;
                                                 </div> 
                                                 
                       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2> 
-<div class="mb-5">
+<div class="mb-5 text-start">
               <ol class="col-lg-8 col-md-10 ms-auto">
                 <!-- <li>Вся <a href="./list.php">история поиска</a></li> -->
              <li>Определение понятия <a href="/assets/demo/kata.dukkhaṁ_question_suttanta_pali.html">dukkha</a> на Пали со ссылками на Русские переводы. Запрос: <a href="/assets/demo/kata.dukkhaṁ_question_suttanta_pali.html">Kata.*dukkhaṁ\\?</a>

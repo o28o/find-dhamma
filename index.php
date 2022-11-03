@@ -182,13 +182,13 @@ $arg = $language . ' ' . $pattern;
 	
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
-            <div class="container">
+            <div class="container text-center">
 				
 
 	
-			  		<p class="text-center">
+
       	  		  
-   	<div class="d-md-inline-block text-center">	
+   	<div class="d-md-inline-block">	
 
 <a class="text-decoration-none mx-1" href="./sc/">
 <figure class="figure text-decoration-none">
@@ -237,12 +237,10 @@ $arg = $language . ' ' . $pattern;
 </a>
 
 </div> 
- 	</p> 		
-					
 
 				<h4 class="page-section-heading text-center mb-4">How-To Video</h4>
 		
-			<div class="embed-container mb-5 text-center"> 
+			<div class="embed-container mb-5"> 
                    <iframe src="https://www.youtube.com/embed/Q_SLMrg6L1k?modestbranding=1&hl=en-US" title="How to search in Pali Suttas and Vinaya with find.dhamma.gift" frameborder="0" allowfullscreen></iframe>
 							                    		</div>
 			
@@ -255,7 +253,7 @@ $arg = $language . ' ' . $pattern;
          
                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Examples</h2>  
               <div class="mb-5">
-              <ol class="col-lg-8 col-md-10 ms-auto">
+              <ol class="col-lg-8 col-md-10 ms-auto text-start">
 			  
                    <!-- <li>All <a href="./list.php">previous searches</a></li> -->
            <li>Definition of the <a href="/assets/demo/kata.dukkhaṁ_question_suttanta_pali.html">dukkha</a> in Pali with quotes in English. Query is: <a href="/assets/demo/kata.dukkhaṁ_question_suttanta_pali.html">Kata.*dukkhaṁ\\?</a></li>
