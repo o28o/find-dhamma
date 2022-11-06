@@ -245,7 +245,7 @@ $arg = $language . ' ' . $pattern;
         
 	<h4 class="page-section-heading text-center mb-4">Как пользоваться?</h4>
 	        <div class="embed-container mb-5"> 
-                                   <iframe src="https://www.youtube.com/embed/4KIqQYSxTSE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                   <iframe src="https://www.youtube.com/embed/iKRaa9D07-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							                    		</div>
 
         <p class="lead mb-5">

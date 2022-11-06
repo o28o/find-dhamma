@@ -3,6 +3,7 @@
 #trap read debug
 
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
+output=/home/a0092061/domains/find.dhamma.gift/output/
 cd $output 
 
 listfile=listhtml.tmp
@@ -51,11 +52,11 @@ cat $templatefolder/Header.html $templatefolder/ListTableHeader.html | sed 's/$t
 listsearchresults | while IFS= read -r line ; do
 
 file=`echo $line | awk '{print $NF}'`
-pitaka=`echo $file | awk -F'_' '{mu=(NF-1); print $mu}' | sed 's/nta//g'`
-language=`echo $file | awk -F'_' '{print $NF}' | awk -F'.' '{print $1 }'`
+pitaka=`echo $file | awk -F'_' '{print $2}' | sed 's/nta//g'`
+language=`echo $file | awk -F'_' '{print $3}' | awk -F'.' '{print $1 }'`
 link=/output/$file
-#searchedpattern=`echo $file | awk -F'_' '{print $1}' | sed 's/-/ /g'`
-searchedpattern=`echo $file | awk -F'_' '{mu=(NF-1); $mu=$NF=""; print }' | sed 's/-/ /g'`
+#searchedpattern=`echo $file | awk -F'_' '{mu=(NF-2); $mu=$NF=""; print }'`
+searchedpattern=`echo $file | awk -F'_' '{print $1}' | sed 's/-/ /g'`
 #if [ ${#searchedpattern} -ge $truncatelength ]
 #then
 #  searchedpattern="`echo $searchedpattern | head -c $truncatelength`..."
@@ -65,8 +66,10 @@ searchedpattern=`echo $file | awk -F'_' '{mu=(NF-1); $mu=$NF=""; print }' | sed 
 creationdate=`echo $line | awk '{print $2}'`
 size=`echo $line | awk '{print $1}'`
 #extra=`grep "matech in"  $file`   <td>$extra</td>   
-matchescount=`cat ./$file | grep -m1 title | awk -F' matches in ' '{print $1}' | awk -F' texts and ' '{print $NF}'`
-textscount=`cat ./$file | grep -m1 title | awk -F' matches in ' '{print $1}' | awk -F' texts and ' '{print $1}' | awk '{print $NF}'`
+#matchescount=`cat ./$file | grep -m1 title | awk -F' matches in ' '{print $1}' | awk -F' texts and ' '{print $NF}'`
+matchescount=`echo $file | awk -F'_' '{print $NF}' | awk -F'-' '{print $2 }'`
+#textscount=`cat ./$file | grep -m1 title | awk -F' matches in ' '{print $1}' | awk -F' texts and ' '{print $1}' | awk '{print $NF}'`
+textscount=`echo $file | awk -F'_' '{print $NF}' | awk -F'-' '{print $1 }'`
 echo "<tr>
 <td><a target=\"_blank\" href="$link">$searchedpattern</a>  
 </td>
@@ -78,6 +81,8 @@ echo "<tr>
 <td>$creationdate</td>
 
 </tr>"
+#file=`echo $line | awk '{print $NF}' | sed 's/.html//g'`
+#mv $file.html ${file}_${textscount}_${matchescount}.html
 done  | tee -a $listfile
 echo "</table>
 <a href="/">Main page </a>" | tee -a $listfile

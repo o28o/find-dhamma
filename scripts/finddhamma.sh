@@ -326,7 +326,7 @@ pvlimit
 fi
 
 #filename
-fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/_/g' | sed 's/ /_/g' | sed 's/\\\//g' | sed 's@?@_question@g'|  awk '{print tolower($0)}'`
+fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/-/g' | sed 's/ /-/g' | sed 's/\\\//g' | sed 's@?@-question@g'|  awk '{print tolower($0)}'`
 fn=${fn}${excfn}${fileprefix}${fnlang}
 
 extention=txt
@@ -754,6 +754,11 @@ titlewords="${capitalized}${addtotitleifexclude} $uniqwordtotal related words in
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
 sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
+
+#file=`echo ${table} | awk '{print $NF}' | sed 's/.html//g'`
+#mv $file.html ${file}_${textsqnty}-${matchqnty}.html
+#file=`echo ${tempfilewords} | awk '{print $NF}' | sed 's/.html//g'`
+#mv $file.html ${file}_${textsqnty}-${matchqnty}-${uniqwordtotal}.html
 
 #echo "${fortitle^} $language"
 OKresponse
