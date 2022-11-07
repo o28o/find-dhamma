@@ -775,7 +775,14 @@ fi
 quoteresponse
 exit 0
 
-
+file=`echo ${table} | awk '{print $NF}' | sed 's/.html//g'`
+diact2normal
+newfilename=${newfilename}_t${textsqnty}-m${matchqnty}.html
+mv $file.html ${newfilename}
+file=`echo ${tempfilewords} | awk '{print $NF}' | sed 's/.html//g'`
+diact2normal
+newfilename=${newfilename}_t${textsqnty}-m${matchqnty}-w${uniqwordtotal}.html
+mv $file.html ${newfilename}
 
 #orig suttatitle block
     if [[ "$language" == "Pali" ]]; then
