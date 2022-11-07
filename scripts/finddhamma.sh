@@ -775,6 +775,32 @@ fi
 quoteresponse
 exit 0
 
+
+function diact2normal {
+  newfilename=`echo ${file} | sed "s/ā/aa/g" |
+sed "s/ī/ii/g" |
+sed "s/ū/uu/g" |
+sed "s/ḍ/d./g" |
+sed "s/ṁ/m./g" |
+sed "s/ṅ/n./g" |
+sed "s/ṇ/n./g" |
+sed "s/ṭ/t./g" |
+sed "s/ñ/n~/g"`
+}
+
+function normal2diact {
+sed "s/aa/ā/g" |
+sed "s/ii/ī/g" |
+sed "s/uu/ū/g" |
+sed "s/d./ḍ/g" |
+sed "s/m./ṁ/g" |
+sed "s/n./ṅ/g" |
+sed "s/n./ṇ/g" |
+sed "s/t./ṭ/g" |
+sed "s/n~/ñ/g"`
+}
+
+
 file=`echo ${table} | awk '{print $NF}' | sed 's/.html//g'`
 diact2normal
 newfilename=${newfilename}_t${textsqnty}-m${matchqnty}.html

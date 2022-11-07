@@ -47,29 +47,6 @@ sed "s@$pattern@<b>&</b>@gI"
 }
 
 
-function diact2normal {
-  newfilename=`echo ${file} | sed "s/ā/aa/g" |
-sed "s/ī/ii/g" |
-sed "s/ū/uu/g" |
-sed "s/ḍ/d./g" |
-sed "s/ṁ/m./g" |
-sed "s/ṅ/n./g" |
-sed "s/ṇ/n./g" |
-sed "s/ṭ/t./g" |
-sed "s/ñ/n~/g"`
-}
-
-function normal2diact {
-sed "s/aa/ā/g" |
-sed "s/ii/ī/g" |
-sed "s/uu/ū/g" |
-sed "s/d./ḍ/g" |
-sed "s/m./ṁ/g" |
-sed "s/n./ṅ/g" |
-sed "s/n./ṇ/g" |
-sed "s/t./ṭ/g" |
-sed "s/n~/ñ/g"`
-}
 
 
 sitename=https://find.dhamma.gift
