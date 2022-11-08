@@ -100,7 +100,7 @@ $pattern = $language = $arg = "";
 	  
 	  
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
-<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/list.php">История Поиска</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/output">История Поиска</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
@@ -205,7 +205,7 @@ $arg = $language . ' ' . $pattern;
 <figcaption class="figure-caption text-center">Русский</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-1" href="./list.php">
+<a class="text-decoration-none mx-1" href="/output">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-clock-rotate-left"></i>
 <figcaption class="figure-caption text-center">История</figcaption>   
