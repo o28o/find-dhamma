@@ -67,9 +67,9 @@ creationdate=`echo $line | awk '{print $2}'`
 size=`echo $line | awk '{print $1}'`
 #extra=`grep "matech in"  $file`   <td>$extra</td>   
 #matchescount=`cat ./$file | grep -m1 title | awk -F' matches in ' '{print $1}' | awk -F' texts and ' '{print $NF}'`
-matchescount=`echo $file | awk -F'_' '{print $NF}' | awk -F'-' '{print $2 }'`
+#matchescount=`echo $file | awk -F'_' '{print $NF}' | awk -F'-' '{print $2 }'`
 #textscount=`cat ./$file | grep -m1 title | awk -F' matches in ' '{print $1}' | awk -F' texts and ' '{print $1}' | awk '{print $NF}'`
-textscount=`echo $file | awk -F'_' '{print $NF}' | awk -F'-' '{print $1 }'`
+#textscount=`echo $file | awk -F'_' '{print $NF}' | awk -F'-' '{print $1 }'`
 echo "<tr>
 <td><a target=\"_blank\" href="$link">$searchedpattern</a>  
 </td>
