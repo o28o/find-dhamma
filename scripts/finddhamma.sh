@@ -10,8 +10,7 @@ function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	Отправлено в фоновый режим.<br>
 	Подождите 20-30 минут<br>
-	и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
-	или в истории поиска." 
+	и проверьте файл в истории поиска." 
 }
 
 function emptypattern {
@@ -82,8 +81,7 @@ function bgswitch {
 	echo "$linescount $pattern lines found.<br> 
 	Switched to background mode.<br>
 	Wait for 20-30 minutes <br>
-	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
-	or in search history." 
+	and check the result in the search history." 
 }
 
 function emptypattern {
@@ -790,11 +788,25 @@ wordsresponse
 
 fi
 quoteresponse
-echo "$pattern,<a class="outlink" href="./output/${table}">Quotes</a>,<a class="outlink" href="./output/${tempfilewords}">Words</a>,$fortitle,$language,$textsqnty,$matchqnty,$uniqwordtotal,`date +%d-%m-%Y`" >> ./history.csv
-ln -s ./$table $tableln > /dev/null 
-ln -s ./$tempfilewords $tempfilewordsln  > /dev/null 
+#echo "$pattern,<a class="outlink" href="./output/${table}">Quotes</a>,<a class="outlink" href="./output/${tempfilewords}">Words</a>,$fortitle,$language,$textsqnty,$matchqnty,$uniqwordtotal,`date +%d-%m-%Y`" >> ./history.csv
+#ln -s ./$table $tableln > /dev/null 
+#ln -s ./$tempfilewords $tempfilewordsln  > /dev/null 
+
+echo "
+<!-- begin $pattern --> 
+<tr><td><a class=\"outlink\" href=\"./output/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class="outlink" href="./output/${tempfilewords}">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td>`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
+<!-- end $pattern --> 
+
+"  >> ./.history.html
 
 exit 0
+
+
+
+
+
+
+
 
 
 function diact2normal {

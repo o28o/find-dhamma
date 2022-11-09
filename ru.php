@@ -100,7 +100,7 @@ $pattern = $language = $arg = "";
 	  
 	  
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
-<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/list.php">История Поиска</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/history.php">История Поиска</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
@@ -171,7 +171,7 @@ $arg = $language . ' ' . $pattern;
 </div>		
 		
 
-<!-- <a href="./list.php" class="btn btn-primary" role="button">История Поиска</a> -->
+<!-- <a href="./history.php" class="btn btn-primary" role="button">История Поиска</a> -->
 
 
                 <!-- Masthead Subheading
@@ -205,7 +205,7 @@ $arg = $language . ' ' . $pattern;
 <figcaption class="figure-caption text-center">Русский</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-1" href="/list.php">
+<a class="text-decoration-none mx-1" href="/history.php">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-clock-rotate-left"></i>
 <figcaption class="figure-caption text-center">История</figcaption>   
@@ -236,7 +236,7 @@ $arg = $language . ' ' . $pattern;
 </div> 
 
          <!--            	<p class="text-center">
-	<a href="./list.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>
+	<a href="./history.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>
 	</p>
 <div class="divider-custom-icon text-center">
               <i class="fa-solid fa-book fa-4x" title="Exchange"></i> <i class="fa-solid fa-list fa-4x"></i>
@@ -258,7 +258,7 @@ $arg = $language . ' ' . $pattern;
                       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2> 
 <div class="mb-5 text-start">
               <ol class="col-lg-8 col-md-10 ms-auto">
-                <!-- <li>Вся <a href="./list.php">история поиска</a></li> -->
+                <!-- <li>Вся <a href="./history.php">история поиска</a></li> -->
              <li>Определение понятия <a href="/assets/demo/kata.dukkhaṁ-question_suttanta_pali.html">dukkha</a> на Пали со ссылками на Русские переводы. Запрос: <a href="/assets/demo/kata.dukkhaṁ-question_suttanta_pali.html">Kata.*dukkhaṁ\\?</a>
              </li>
              

@@ -100,7 +100,7 @@ $pattern = $language = $arg = "";
       <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Main</a></li> -->
             
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Light</a></li>
-<li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="/list.php">Search History</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="/history.php">Search History</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#help">How to</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">About</a></li>             
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Useful Links </a></li>
@@ -174,7 +174,7 @@ $arg = $language . ' ' . $pattern;
 		?>	
 <!--
 				              	<p class="text-center">
-<a href="./list.php" class="btn btn-primary" role="button btn-lg">Search History</a>
+<a href="./history.php" class="btn btn-primary" role="button btn-lg">Search History</a>
 	</p>
 	
 -->
@@ -208,7 +208,7 @@ $arg = $language . ' ' . $pattern;
 <figcaption class="figure-caption text-center">DPR.online</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-1" href="/list.php">
+<a class="text-decoration-none mx-1" href="/history.php">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-clock-rotate-left"></i>
 <figcaption class="figure-caption text-center">History</figcaption>   
@@ -255,7 +255,7 @@ $arg = $language . ' ' . $pattern;
               <div class="mb-5">
               <ol class="col-lg-8 col-md-10 ms-auto text-start">
 			  
-                   <!-- <li>All <a href="./list.php">previous searches</a></li> -->
+                   <!-- <li>All <a href="./history.php">previous searches</a></li> -->
            <li>Definition of the <a href="/assets/demo/kata.dukkhaṁ-question_suttanta_pali.html">dukkha</a> in Pali with quotes in English. Query is: <a href="/assets/demo/kata.dukkhaṁ-question_suttanta_pali.html">Kata.*dukkhaṁ\\?</a></li>
 
  <li>Sutta where Buddha says that he doesn't make <a href="/assets/demo/dvayagāminī_suttanta_pali.html">ambiguous (dvayagāminī) statements</a> in Pali with English quote</li>
