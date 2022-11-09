@@ -1,6 +1,6 @@
 #!/bin/bash -i
-set -x 
-trap read debug
+#set -x 
+#trap read debug
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 
 
@@ -325,9 +325,24 @@ pvlimit
 }
 fi
 
-#filename
+
+function diact2normal {
+sed "s/ā/aa/g" |
+sed "s/ī/ii/g" |
+sed "s/ū/uu/g" |
+sed "s/ḍ/d./g" |
+sed "s/ṁ/m./g" |
+sed "s/ṅ/n./g" |
+sed "s/ṇ/n./g" |
+sed "s/ṭ/t./g" |
+sed "s/ñ/n~/g"
+}
+
+#link and filename
+
 fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/-/g' | sed 's/ /-/g' | sed 's/\\\//g' | sed 's@?@-question@g'|  awk '{print tolower($0)}'`
 fn=${fn}${excfn}${fileprefix}${fnlang}
+modifiedfn=`echo $fn | diact2normal`
 
 extention=txt
 basefile=${fn}_fn.$extention
@@ -339,9 +354,11 @@ basefile=${fn}_fn.$extention
 #quotes=${fn}_quotes.$extention
 #brief=${fn}_brief.$extention
 #metaphors=${fn}_metaphors.$extention
-table=${fn}.html
+table=${modifiedfn}.html
+tableln=${fn}.html
 tempfile=${fn}.tmp
-tempfilewords=${fn}_words.html
+tempfilewords=${modifiedfn}_words.html
+tempfilewordsln=${fn}_words.html
 
 if [[ -s ${table} ]] ; then 
 function md5checkwrite {
@@ -756,7 +773,7 @@ sed -i 's/TitletoReplace/'"$title"'/g' ${table}
 sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 
 #file=`echo ${table} | awk '{print $NF}' | sed 's/.html//g'`
-#mv $file.html ${file}_${textsqnty}-${matchqnty}.html
+#mv $file.html 
 #file=`echo ${tempfilewords} | awk '{print $NF}' | sed 's/.html//g'`
 #mv $file.html ${file}_${textsqnty}-${matchqnty}-${uniqwordtotal}.html
 
@@ -773,11 +790,15 @@ wordsresponse
 
 fi
 quoteresponse
+echo "$pattern,<a class="outlink" href="./output/${table}">Quotes</a>,<a class="outlink" href="./output/${tempfilewords}">Words</a>,$fortitle,$language,$textsqnty,$matchqnty,$uniqwordtotal,`date +%d-%m-%Y`" >> ./history.csv
+ln -s ./$table $tableln > /dev/null 
+ln -s ./$tempfilewords $tempfilewordsln  > /dev/null 
+
 exit 0
 
 
 function diact2normal {
-  newfilename=`echo ${file} | sed "s/ā/aa/g" |
+sed "s/ā/aa/g" |
 sed "s/ī/ii/g" |
 sed "s/ū/uu/g" |
 sed "s/ḍ/d./g" |
