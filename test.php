@@ -95,7 +95,7 @@ $pattern = $language = $arg = "";
 	  nav-link -->
 	  
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="https://find.dhamma.gift/sc/">SC Лайт</a></li>
-<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/list.php?lang=pali">История Поиска</a></li>
+<li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="/history.php?lang=pali">История Поиска</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link px-0 px-lg-0 rounded" href="#help">Помощь</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#project">О Нас</a></li>             
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
@@ -198,7 +198,7 @@ $arg = $language . ' ' . $pattern;
 <figcaption class="figure-caption text-center">Русский</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-1" href="./list.php">
+<a class="text-decoration-none mx-1" href="./history.php">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-clock-rotate-left"></i>
 <figcaption class="figure-caption text-center">История</figcaption>   
@@ -229,7 +229,7 @@ $arg = $language . ' ' . $pattern;
 </div> 
  	</p>
       <!-- 
-      	<a href="./list.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>
+      	<a href="./history.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>
       <div class="divider-custom-icon text-center">
               <i class="fa-solid fa-book fa-4x" title="Exchange"></i> <i class="fa-solid fa-list fa-4x"></i>
               </div> -->
@@ -245,13 +245,13 @@ $arg = $language . ' ' . $pattern;
    		<p class="text-center">
     	<a href="./sc/" class="btn btn-primary mb-2" role="button btn-lg">Читать Pli-En</a>
     	    	<a href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm" class="btn btn-primary mb-2" role="button btn-lg">Читать Ru</a>
-    	    	 	<a href="./list.php" class="btn btn-primary mb-2" role="button btn-lg">История Поиска</a>  <a href="#links" class="btn mb-2 btn-primary" role="button btn-lg">Изучать</a> 
+    	    	 	<a href="./history.php" class="btn btn-primary mb-2" role="button btn-lg">История Поиска</a>  <a href="#links" class="btn mb-2 btn-primary" role="button btn-lg">Изучать</a> 
  	</p>
    </div> 	                                 
                       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2> 
 <div class="mb-5">
               <ol class="col-lg-8 col-md-10 ms-auto">
-                <!-- <li>Вся <a href="./list.php">история поиска</a></li> -->
+                <!-- <li>Вся <a href="./history.php">история поиска</a></li> -->
                 <li>Все сутты о <a href="https://find.dhamma.gift/assets/demo/%D0%B2%D0%BE%D1%81%D1%8C%D0%BC%D0%B5%D1%80%D0%B8%D1%87%D0%BD_sutta_ru.html">Восьмеричном</a> Пути на Русском</li>
                 <li>Все сутты со словом <a href="https://find.dhamma.gift/assets/demo/%D0%BD%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D1%8C_sutta_ru.html">нравственность</a> на Русском</li>
                 <li>Все сутты, где упомянут <a href="https://find.dhamma.gift/assets/demo/%D1%81%D0%B0%D1%80%D0%B8%D0%BF%D1%83%D1%82%D1%82_sutta_ru.html">Сарипутта</a> на Русском</li>
