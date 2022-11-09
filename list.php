@@ -72,7 +72,8 @@
 	 $atext="Show";}
 
 	 // Opens directory
-	 $myDirectory=opendir("./output");
+	 $myDirectory=opendir("/home/a0092061/domains/find.dhamma.gift/public_html/output/");
+	
 
 	// Gets each entry
 	while($entryName=readdir($myDirectory)) {
