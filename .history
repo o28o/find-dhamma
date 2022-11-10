@@ -14,17 +14,14 @@
 <!-- end мышь --> 
 
 <!-- begin мышь --> 
-<tr><td><a class="outlink" href="./output/mysh'_suttanta_ru_t3-m4.html">мышь</a></td><th>3</th><th>4</th><th><a class="outlink" href="./output/mysh'_suttanta_ru_words_t3-m4-w1.html">1</a></th><td>Suttanta</td><td>Russian</td><td class="daterow">10-11-2022</td><td>9.7K</td></tr>
 <!-- end мышь --> 
 
 
 <!-- begin кошка --> 
-<tr><td><a class="outlink" href="./output/koshka_suttanta_ru_t6-m9.html">кошка</a></td><th>6</th><th>9</th><th><a class="outlink" href="./output/koshka_suttanta_ru_words_t6-m9-w1.html">1</a></th><td>Suttanta</td><td>Russian</td><td class="daterow">10-11-2022</td><td>18K</td></tr>
 <!-- end кошка --> 
 
 
 <!-- begin кошка --> 
-<tr><td><a class="outlink" href="./output/koshka_suttanta-kn_ru_t6-m9.html">кошка</a></td><th>6</th><th>9</th><th><a class="outlink" href="./output/koshka_suttanta-kn_ru_words_t6-m9-w1.html">1</a></th><td>Suttanta +KN</td><td>Russian</td><td class="daterow">10-11-2022</td><td>18K</td></tr>
 <!-- end кошка --> 
 
 
@@ -38,3 +35,14 @@
 <!-- end soḷasi --> 
 
 
+<!-- begin мышь --> 
+<!-- begin мышь --> 
+<!-- begin мышь --> 
+<!-- begin мышь --> 
+<tr><td><a class="outlink" href="./output/mysh'_suttanta_ru_t3-m4.html">мышь</a></td><th>3</th><th>4</th><th><a class="outlink" href="./output/mysh'_suttanta_ru_words_t3-m4-w1.html">1</a></th><td>Suttanta</td><td>Russian</td><td class="daterow">10-11-2022</td><td>9,7K</td></tr>
+<!-- begin кошка --> 
+<tr><td><a class="outlink" href="./output/koshka_suttanta_ru_t6-m9.html">кошка</a></td><th>6</th><th>9</th><th><a class="outlink" href="./output/koshka_suttanta_ru_words_t6-m9-w1.html">1</a></th><td>Suttanta</td><td>Russian</td><td class="daterow">10-11-2022</td><td>18K</td></tr>
+<!-- begin kevali --> 
+<tr><td><a class="outlink" href="./output/kevali_suttanta_pali_t6-m14.html">kevali</a></td><th>6</th><th>14</th><th><a class="outlink" href="./output/kevali_suttanta_pali_words_t6-m14-w3.html">3</a></th><td>Suttanta</td><td>Pali</td><td class="daterow">10-11-2022</td><td>11K</td></tr>
+<!-- begin шага вперёд --> 
+<tr><td><a class="outlink" href="./output/shaga-vperyod_suttanta_ru_t1-m1.html">шага вперёд</a></td><th>1</th><th>1</th><th><a class="outlink" href="./output/shaga-vperyod_suttanta_ru_words_t1-m1-w2.html">2</a></th><td>Suttanta</td><td>Russian</td><td class="daterow">10-11-2022</td><td>4.8K</td></tr>

@@ -830,16 +830,16 @@ quoteresponse
 #echo "$pattern,<a class="outlink" href="./output/${table}">Quotes</a>,<a class="outlink" href="./output/${tempfilewords}">Words</a>,$fortitle,$language,$textsqnty,$matchqnty,$uniqwordtotal,`date +%d-%m-%Y`" >> ./history.csv
 #ln -s ./$table $tableln > /dev/null 
 #ln -s ./$tempfilewords $tempfilewordsln  > /dev/null 
-echo historypart
-linenumbers=`cat -n .history.html | grep daterow | egrep "$pattern" | grep "${fortitle^}" | grep "$language" | grep "$textsqnty" | grep "$matchqnty" | awk '{print $1}' | tac`
+history="../.history"
+linenumbers=`cat -n $history | grep daterow | egrep "$pattern" | grep "${fortitle^}" | grep "$language" | grep "$textsqnty" | grep "$matchqnty" | awk '{print $1}' | tac`
 
 for i in $linenumbers
 do 
-sed -i "${i}d" ../.history 
+sed -i "${i}d" $history 
 done 
 
 echo "<!-- begin $pattern --> 
-<tr><td><a class=\"outlink\" href=\"./output/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./output/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>" >> ../.history
+<tr><td><a class=\"outlink\" href=\"./output/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./output/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>" >> $history
 
 exit 0
 
