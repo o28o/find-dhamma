@@ -822,13 +822,13 @@ rm $basefile $tempfile > /dev/null 2>&1
 #php -r 'header("Location: ./output/table.html");'
 
 oldname=$table
-table=${table}_t${textsqnty}-m${matchqnty}.html
+table=${table}_${textsqnty}-${matchqnty}.html
 sed -i "s/$oldname/$table/g" $tempfilewords
 mv ./$oldname ./$table
 
 oldname=
 oldname=$tempfilewords
-tempfilewords=${tempfilewords}_t${textsqnty}-m${matchqnty}-w${uniqwordtotal}.html
+tempfilewords=${tempfilewords}_${textsqnty}-${matchqnty}-${uniqwordtotal}.html
 sed -i "s/$oldname/$tempfilewords/g" $table
 mv ./$oldname ./$tempfilewords
 
@@ -848,30 +848,16 @@ do
 sed -i "${i}d" $history 
 done 
 
+if [[ $excludepattern != "" ]]
+then
+pattern="$pattern exc. $excludepattern"
+fi 
+
 echo "<!-- begin $pattern --> 
 <tr><td><a class=\"outlink\" href=\"./output/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./output/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>" >> $history
 
 exit 0
 
-
-
-
-
-
-
-
-
-function diact2normal {
-sed "s/ā/aa/g" |
-sed "s/ī/ii/g" |
-sed "s/ū/uu/g" |
-sed "s/ḍ/d./g" |
-sed "s/ṁ/m./g" |
-sed "s/ṅ/n./g" |
-sed "s/ṇ/n./g" |
-sed "s/ṭ/t./g" |
-sed "s/ñ/n~/g"`
-}
 
 function normal2diact {
 sed "s/aa/ā/g" |
