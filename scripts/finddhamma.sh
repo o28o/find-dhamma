@@ -336,11 +336,47 @@ sed "s/ṭ/t./g" |
 sed "s/ñ/n~/g"
 }
 
+function cyr2lat {
+sed "s/а/a/g" |
+sed "s/б/b/g" |
+sed "s/в/v/g" |
+sed "s/г/g/g" |
+sed "s/д/d/g" |
+sed "s/е/e/g" |
+sed "s/ё/yo/g" |
+sed "s/ж/zh/g" |
+sed "s/з/z/g" |
+sed "s/и/i/g" |
+sed "s/й/i/g" |
+sed "s/к/k/g" |
+sed "s/л/l/g" |
+sed "s/м/m/g" |
+sed "s/н/n/g" |
+sed "s/о/o/g" |
+sed "s/п/p/g" |
+sed "s/р/r/g" |
+sed "s/с/s/g" |
+sed "s/т/t/g" |
+sed "s/у/u/g" |
+sed "s/ф/f/g" |
+sed "s/х/h/g" |
+sed "s/ц/ts/g" |
+sed "s/ч/ch/g" |
+sed "s/ш/sh/g" |
+sed "s/щ/sh/g" |
+sed "s/ъ//g" |
+sed "s/ы/y/g" |
+sed "s/ь/'/g" |
+sed "s/э/e/g" |
+sed "s/ю/yu/g" |
+sed "s/я/ya/g" 
+}
+
 #link and filename
 
 fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/-/g' | sed 's/ /-/g' | sed 's/\\\//g' | sed 's@?@-question@g'|  awk '{print tolower($0)}'`
 fn=${fn}${excfn}${fileprefix}${fnlang}
-modifiedfn=`echo $fn | diact2normal`
+modifiedfn=`echo $fn | diact2normal | cyr2lat`
 
 extention=txt
 basefile=${fn}_fn.$extention
@@ -352,11 +388,9 @@ basefile=${fn}_fn.$extention
 #quotes=${fn}_quotes.$extention
 #brief=${fn}_brief.$extention
 #metaphors=${fn}_metaphors.$extention
-table=${modifiedfn}.html
-tableln=${fn}.html
-tempfile=${fn}.tmp
-tempfilewords=${modifiedfn}_words.html
-tempfilewordsln=${fn}_words.html
+table=${modifiedfn}
+tempfile=${modifiedfn}.tmp
+tempfilewords=${modifiedfn}_words
 
 if [[ -s ${table} ]] ; then 
 function md5checkwrite {
@@ -780,24 +814,32 @@ OKresponse
 
 rm $basefile $tempfile > /dev/null 2>&1
 #php -r 'header("Location: ./output/table.html");'
+oldname=$table
+table=${table}_t${textsqnty}-m${matchqnty}.html
+mv ./$oldname ./$table
+oldname=$tempfilewords
+tempfilewords=${tempfilewords}_t${textsqnty}-m${matchqnty}-w${uniqwordtotal}.html
+mv ./$oldname ./$tempfilewords
 
 if [[ "$language" == "Pali" ]]
 then 
 #echo "$language -"
 wordsresponse
-
 fi
 quoteresponse
 #echo "$pattern,<a class="outlink" href="./output/${table}">Quotes</a>,<a class="outlink" href="./output/${tempfilewords}">Words</a>,$fortitle,$language,$textsqnty,$matchqnty,$uniqwordtotal,`date +%d-%m-%Y`" >> ./history.csv
 #ln -s ./$table $tableln > /dev/null 
 #ln -s ./$tempfilewords $tempfilewordsln  > /dev/null 
+echo historypart
+linenumbers=`cat -n .history.html | grep daterow | egrep "$pattern" | grep "${fortitle^}" | grep "$language" | grep "$textsqnty" | grep "$matchqnty" | awk '{print $1}' | tac`
 
-echo "
-<!-- begin $pattern --> 
-<tr><td><a class=\"outlink\" href=\"./output/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class="outlink" href="./output/${tempfilewords}">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td>`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
-<!-- end $pattern --> 
+for i in $linenumbers
+do 
+sed -i "${i}d" ../.history 
+done 
 
-"  >> ./.history.html
+echo "<!-- begin $pattern --> 
+<tr><td><a class=\"outlink\" href=\"./output/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./output/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>" >> ../.history
 
 exit 0
 
