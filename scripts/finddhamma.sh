@@ -13,12 +13,15 @@ function bgswitch {
 	и проверьте файл в истории поиска." 
 }
 
+function capitalized {
+echo $pattern | sed 's/[[:lower:]]/\U&/'
+}
 function emptypattern {
    echo "Что искать?"
 }
 
 function OKresponse {
-  echo "${capitalized}${addtotitleifexclude} $textsqnty в $fortitle $language - "
+  echo "$(capitalized)${addtotitleifexclude} $textsqnty в $fortitle $language - "
 #echo "$language - "
 }
 
@@ -130,7 +133,7 @@ function emptypattern {
 
 
 function OKresponse {
-echo "${capitalized}${addtotitleifexclude} $textsqnty in $fortitle $language - "
+echo "$(capitalized)${addtotitleifexclude} $textsqnty in $fortitle $language - "
 #echo "$language - "
 }
 
@@ -277,6 +280,7 @@ elif [[ "$@" == *"-ru"* ]]; then
     type=html   
     metaphorkeys="как если бы|подобно|представь|обозначение|пример"
     nonmetaphorkeys="подобного"
+    
 elif [[ "$@" == *"-pli"* ]]; then
     fnlang=_pali
     pali_or_lang=sc-data/sc_bilara_data/root/pli/ms
@@ -770,6 +774,7 @@ cat $templatefolder/Footer.html | tohtml
 fi
 
 function getbasefile {
+pattern=`echo $pattern | sed 's/е/[ёе]/g'`
 grepbasefile | grep -v "^--$" | grepexclude | clearsed | sort -V > $basefile
 
 linescount=`wc -l $basefile | awk '{print $1}'`
@@ -796,9 +801,9 @@ linklist
 genwordsfile
 
 textsqnty=`echo $textlist | wc -w`
-capitalized=`echo $pattern | sed 's/[[:lower:]]/\U&/'`
-title="${capitalized}${addtotitleifexclude} $textsqnty texts and $matchqnty matches in $fortitle $language"
-titlewords="${capitalized}${addtotitleifexclude} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
+pattern="`echo $pattern | sed 's/\[ёе\]/е/g'`"
+title="$(capitalized)${addtotitleifexclude} $textsqnty texts and $matchqnty matches in $fortitle $language"
+titlewords="$(capitalized)${addtotitleifexclude} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
@@ -810,15 +815,21 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 #mv $file.html ${file}_${textsqnty}-${matchqnty}-${uniqwordtotal}.html
 
 #echo "${fortitle^} $language"
+
 OKresponse
 
 rm $basefile $tempfile > /dev/null 2>&1
 #php -r 'header("Location: ./output/table.html");'
+
 oldname=$table
 table=${table}_t${textsqnty}-m${matchqnty}.html
+sed -i "s/$oldname/$table/g" $tempfilewords
 mv ./$oldname ./$table
+
+oldname=
 oldname=$tempfilewords
 tempfilewords=${tempfilewords}_t${textsqnty}-m${matchqnty}-w${uniqwordtotal}.html
+sed -i "s/$oldname/$tempfilewords/g" $table
 mv ./$oldname ./$tempfilewords
 
 if [[ "$language" == "Pali" ]]
@@ -827,10 +838,9 @@ then
 wordsresponse
 fi
 quoteresponse
-#echo "$pattern,<a class="outlink" href="./output/${table}">Quotes</a>,<a class="outlink" href="./output/${tempfilewords}">Words</a>,$fortitle,$language,$textsqnty,$matchqnty,$uniqwordtotal,`date +%d-%m-%Y`" >> ./history.csv
-#ln -s ./$table $tableln > /dev/null 
-#ln -s ./$tempfilewords $tempfilewordsln  > /dev/null 
+
 history="../.history"
+
 linenumbers=`cat -n $history | grep daterow | egrep "$pattern" | grep "${fortitle^}" | grep "$language" | grep "$textsqnty" | grep "$matchqnty" | awk '{print $1}' | tac`
 
 for i in $linenumbers
