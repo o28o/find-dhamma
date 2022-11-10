@@ -460,15 +460,6 @@ echo "<tr>
 <td>$linkswwords</td>
 </tr>" >>$tempfilewords
 done
-
-echo "</tbody>
-</table>
-<a href="/">Main page</a>&nbsp;
-<a href="/output/${table}">Quotes</a>
-" >> $tempfilewords
-
-cat $templatefolder/Footer.html >> $tempfilewords
-
 }
 
 
@@ -626,20 +617,7 @@ echo "</td>
 done
 matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
 
-
-
-
 #Sibbin 999 matches in 444 texts of Pali Suttas
-echo "</tbody>
-</table>
-<a href="/">Main page</a>&nbsp;
-<a href="/output/${tempfilewords}">Words</a>
-" | tohtml
-
-
-cat $templatefolder/Footer.html | tohtml
-
-
 }
 #e g for russian language
 elif [[ "$type" == html ]]; then
@@ -762,13 +740,6 @@ echo "</td>
 
 done
 matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
-echo "</tbody>
-</table>
-<a href="/">Main page</a>&nbsp;
-<a href="/output/${tempfilewords}">Words</a>
-" | tohtml
-
-cat $templatefolder/Footer.html | tohtml
 }
 
 fi
@@ -821,16 +792,30 @@ OKresponse
 rm $basefile $tempfile > /dev/null 2>&1
 #php -r 'header("Location: ./output/table.html");'
 
-oldname=$table
-table=${table}_${textsqnty}-${matchqnty}.html
-sed -i "s/$oldname/$table/g" $tempfilewords
-mv ./$oldname ./$table
 
-oldname=
+#finalize words file 
 oldname=$tempfilewords
 tempfilewords=${tempfilewords}_${textsqnty}-${matchqnty}-${uniqwordtotal}.html
-sed -i "s/$oldname/$tempfilewords/g" $table
+#sed -i "s/$oldname/$tempfilewords/g" $table
+echo "</tbody>
+</table>
+<a href="/">Main page</a>&nbsp;
+<a href="/output/${tempfilewords}">Words</a>
+" | tohtml
+cat $templatefolder/Footer.html | tohtml
 mv ./$oldname ./$tempfilewords
+
+#finalize quotes file 
+oldname=$table
+table=${table}_${textsqnty}-${matchqnty}.html
+#sed -i "s/$oldname/$table/g" $tempfilewords
+echo "</tbody>
+</table>
+<a href="/">Main page</a>&nbsp;
+<a href="/output/${table}">Quotes</a>
+" >> $tempfilewords
+cat $templatefolder/Footer.html >> $tempfilewords
+mv ./$oldname ./$table
 
 if [[ "$language" == "Pali" ]]
 then 
@@ -850,11 +835,12 @@ done
 
 if [[ $excludepattern != "" ]]
 then
-pattern="$pattern exc. $excludepattern"
+pattern="$pattern exc. ${excludepattern,,}"
 fi 
 
 echo "<!-- begin $pattern --> 
-<tr><td><a class=\"outlink\" href=\"./output/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./output/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>" >> $history
+<tr><td><a class=\"outlink\" href=\"./output/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./output/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
+" >> $history
 
 exit 0
 
