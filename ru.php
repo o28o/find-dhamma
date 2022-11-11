@@ -499,7 +499,7 @@ $arg = $language . ' ' . $pattern;
       <small class="text-muted">Русский</small>
     </div>
     <p class="mb-1">Самая полная коллекция Русских переводов Суттанты.</p>
-    <small class="text-muted"></small>
+    <small class="text-muted">Внимание! Переводы сделаны с английских переводов Сутт.</small>
   </a>
   
  <a href="https://play.google.com/store/apps/details?id=hesoft.T2S" target="_blank"   class="list-group-item list-group-item-action">
