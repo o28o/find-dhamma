@@ -402,6 +402,15 @@ $arg = $language . ' ' . $pattern;
     <p class="mb-1">Небольшой Пали-Русский словарь основанный на Digital Pali Dictionary</p>
     <small class="text-muted">Альтернатива DPD, для тех кто не владеет английским</small>
   </a>
+  
+      <a target="_blank" href="https://dsal.uchicago.edu/dictionaries/pali/" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Словарь Pali Text Society</h5>
+      <small class="text-muted">онлайн</small>
+    </div>
+    <p class="mb-1">Один из самых известных Пали-Англ словарей</p>
+    <small class="text-muted"></small>
+  </a>
 
     <a target="_blank" href="https://www.wisdomlib.org/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">

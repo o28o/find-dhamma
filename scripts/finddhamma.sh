@@ -14,14 +14,15 @@ function bgswitch {
 }
 
 function capitalized {
-echo $pattern | sed 's/[[:lower:]]/\U&/'
+echo "$pattern" | sed 's/[[:lower:]]/\U&/'
 }
+
 function emptypattern {
    echo "Что искать?"
 }
 
 function OKresponse {
-  echo "$(capitalized)${addtotitleifexclude} $textsqnty в $fortitle $language - "
+  echo "`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $textsqnty в $fortitle $language - "
 #echo "$language - "
 }
 
@@ -133,7 +134,7 @@ function emptypattern {
 
 
 function OKresponse {
-echo "$(capitalized)${addtotitleifexclude} $textsqnty in $fortitle $language - "
+echo "`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $textsqnty in $fortitle $language - "
 #echo "$language - "
 }
 
@@ -174,7 +175,7 @@ function grepbrief {
 }
 
 pattern="$@"
-#pattern=океан
+
 if [[ "$@" == *"-h"* ]]; then
     echo "
     without arguments - starts with prompt in pali<br>
@@ -208,12 +209,8 @@ then
 minlengtherror
 exit 1 
 fi
-#echo searching $pattern
-#pattern=adhivacanas
-#set search language from args or set default
 
 grepgenparam=E
-
 
 #if you want to use this script for other languages, add blocks that are needed with your language which must be available on suttacentra.net
 lookup=$suttapath/sc-data/sc_bilara_data
@@ -291,7 +288,6 @@ elif [[ "$@" == *"-pli"* ]]; then
     metaphorkeys="seyyathāpi|adhivacan|ūpama|opama|opamma"
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath|ekarūp|tathārūpa|āmarūpa|\brūpa|evarūpa|\banopam|\battūpa|\bnillopa|opamaññ"
    #modify pattern as legacy uses different letters
-    #pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs`
 elif [[ "$@" == *"-en"* ]]; then
     fnlang=_en
 	printlang=English
@@ -314,13 +310,13 @@ fi
 
 if [[ "$@" == *"-exc"* ]]
 then
-excludepattern="`echo $@ | awk -F'-exc ' '{print $2}'`"
+excludepattern="`echo $@ | sed 's/.*-exc //g'`"
 addtotitleifexclude=" exc. ${excludepattern,,}"
 addtoresponseexclude=" $excluderesponse $excludepattern"
 function grepexclude {
 egrep -viE "$excludepattern"
 }
-excfn="-exc-${excludepattern}"
+excfn="` echo -exc-${excludepattern} | sed 's/ /-/g' `"
 else
 function grepexclude {
 pvlimit 
@@ -590,8 +586,8 @@ echo "<tr>
 `[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Rus</a>"` 
 `[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Rus</a>"` 
 `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">Eng</a> 
-<a target=\"_blank\" href=\"https://voice.suttacentral.net/scv/index.html?#/sutta?search=${filenameblock}\">mp3</a>
-</td>" | tohtml 
+</td>
+<td><a target=\"_blank\" href=\"https://voice.suttacentral.net/scv/index.html?#/sutta?search=${filenameblock}\">mp3</a></td>" | tohtml 
 
 #quote part
 echo "<td>" | tohtml 
@@ -773,8 +769,8 @@ genwordsfile
 
 textsqnty=`echo $textlist | wc -w`
 pattern="`echo $pattern | sed 's/\[ёе\]/е/g'`"
-title="$(capitalized)${addtotitleifexclude} $textsqnty texts and $matchqnty matches in $fortitle $language"
-titlewords="$(capitalized)${addtotitleifexclude} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
+title="`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $textsqnty texts and $matchqnty matches in $fortitle $language"
+titlewords="`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
 
 sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}

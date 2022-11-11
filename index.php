@@ -390,6 +390,15 @@ $arg = $language . ' ' . $pattern;
     <small class="text-muted">Available for PC, Mac, Android, IOS</small>
   </a>
 
+    <a target="_blank" href="https://dsal.uchicago.edu/dictionaries/pali/" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Pali Text Society Dictionary</h5>
+      <small class="text-muted">online</small>
+    </div>
+    <p class="mb-1">One of the most famous Pali English dictionaries</p>
+    <small class="text-muted"></small>
+  </a>
+
 
     <a target="_blank" href="https://www.wisdomlib.org/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
