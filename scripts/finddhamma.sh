@@ -586,8 +586,7 @@ echo "<tr>
 `[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Rus</a>"` 
 `[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Rus</a>"` 
 `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">Eng</a> 
-</td>
-<td><a target=\"_blank\" href=\"https://voice.suttacentral.net/scv/index.html?#/sutta?search=${filenameblock}\">mp3</a></td>" | tohtml 
+</td>" | tohtml 
 
 #quote part
 echo "<td>" | tohtml 
@@ -608,6 +607,7 @@ done
 echo '<br class="styled">'
 done | tohtml 
 echo "</td>
+<!-- <td><a target=\"_blank\" href=\"https://voice.suttacentral.net/scv/index.html?#/sutta?search=${filenameblock}\">mp3</a></td> -->
 </tr>" | tohtml
 
 done
@@ -724,7 +724,6 @@ echo "<tr>
 <td>$count</td>   
 <td>$metaphorcount</td>
 <td><a target=\"_blank\" href="$linkpli">Pāḷi</a>&nbsp;<a target=\"_blank\" href="$linklang">Рус</a>`[[ $rusthrulink != "" ]] && [[ "$rusthrulink" != "$linklang" ]] && echo "&nbsp;<a target=\"_blank\" href="$rusthrulink">Вар. 2</a>"` `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"`&nbsp;<a target=\"_blank\" href="$linken">"Eng"</a>
-<a target=\"_blank\" href=\"https://voice.suttacentral.net/scv/index.html?#/sutta?search=${filenameblock}\">mp3</a>
 </td>
 <td>" | tohtml
 nice -19 egrep -A${linesafter} -ih "${pattern}" $file | grep -v "^--$" | clearsed | highlightpattern  | while IFS= read -r line ; do
@@ -732,6 +731,7 @@ echo "$line"
 echo '<br class="styled">'
 done | tohtml
 echo "</td>
+<!-- <td><a target=\"_blank\" href=\"https://voice.suttacentral.net/scv/index.html?#/sutta?search=${filenameblock}\">mp3</a></td> -->
 </tr>" | tohtml
 
 done
