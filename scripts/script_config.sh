@@ -50,7 +50,7 @@ sed "s@$pattern@<b>&</b>@gI"
 
 
 sitename=https://find.dhamma.gift
-templatefolder=/home/a0092061/domains/find.dhamma.gift/public_html/templates
+templatefolder=/home/a0092061/domains/find.dhamma.gift/public_html/assets/templates
 
 #for find in all theravada.ru suttas
 scriptdir=$rootpath
