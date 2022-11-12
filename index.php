@@ -37,7 +37,7 @@
         <link href="/assets/css/styles.css" rel="stylesheet" />
         <link href="/assets/css/extrastyles.css" rel="stylesheet" />
  
-<script src="/js/autopali.js"></script>
+<script src="/assets/js/autopali.js"></script>
 
 	 <style>
 
