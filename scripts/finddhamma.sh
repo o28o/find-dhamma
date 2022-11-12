@@ -32,11 +32,11 @@ function Erresponse {
 }
 
 function wordsresponse {
-php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Слова</a> и \");"  
+php -r "print(\"<a class="outlink" href="./result/${tempfilewords}">Слова</a> и \");"  
 }
 
 function quoteresponse {
-	php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
+	php -r "print(\"<a class="outlink" href="./result/${table}">Цитаты</a><br>\n\");"
 	
 }
 function minlengtherror {
@@ -49,7 +49,7 @@ function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	Отправлено в фоновый режим.<br>
 	Подождите 20-30 минут<br>
-	и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
+	и проверьте <a class=\"outlink\" href="./result/${table}">здесь</a><br>
 	или в истории поиска." 
 }
 
@@ -68,11 +68,11 @@ function Erresponse {
 }
 
 function wordsresponse {
-php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Слова</a> и \");"  
+php -r "print(\"<a class="outlink" href="./result/${tempfilewords}">Слова</a> и \");"  
 }
 
 function quoteresponse {
-	php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
+	php -r "print(\"<a class="outlink" href="./result/${table}">Цитаты</a><br>\n\");"
 	
 }
 function minlengtherror {
@@ -104,11 +104,11 @@ function Erresponse {
 }
 
 function wordsresponse {
-php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Words</a> and \");"
+php -r "print(\"<a class="outlink" href="./result/${tempfilewords}">Words</a> and \");"
 }
 
 function quoteresponse {
-php -r "print(\"<a class="outlink" href="./output/${table}">Quotes</a><br>\n\");"
+php -r "print(\"<a class="outlink" href="./result/${table}">Quotes</a><br>\n\");"
 
 }
 
@@ -124,7 +124,7 @@ function bgswitch {
 	echo "$linescount $pattern lines found.<br> 
 	Switched to background mode.<br>
 	Wait for 20-30 minutes <br>
-	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
+	and check <a class=\"outlink\" href="./result/${table}">here</a><br>
 	or in search history." 
 }
 
@@ -144,11 +144,11 @@ function Erresponse {
 }
 
 function wordsresponse {
-php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Words</a> and \");"
+php -r "print(\"<a class="outlink" href="./result/${tempfilewords}">Words</a> and \");"
 }
 
 function quoteresponse {
-php -r "print(\"<a class="outlink" href="./output/${table}">Quotes</a><br>\n\");"
+php -r "print(\"<a class="outlink" href="./result/${table}">Quotes</a><br>\n\");"
 
 }
 
@@ -786,7 +786,7 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 OKresponse
 
 rm $basefile $tempfile > /dev/null 2>&1
-#php -r 'header("Location: ./output/table.html");'
+#php -r 'header("Location: ./result/table.html");'
 
 
 #finalize words file 
@@ -796,7 +796,7 @@ tempfilewords=${tempfilewords}_${textsqnty}-${matchqnty}-${uniqwordtotal}.html
 echo "</tbody>
 </table>
 <a href="/">Main page</a>&nbsp;
-<a href="/output/${tempfilewords}">Words</a>
+<a href="/result/${tempfilewords}">Words</a>
 " | tohtml
 cat $templatefolder/Footer.html | tohtml
 mv ./$oldname ./$tempfilewords
@@ -808,7 +808,7 @@ table=${table}_${textsqnty}-${matchqnty}.html
 echo "</tbody>
 </table>
 <a href="/">Main page</a>&nbsp;
-<a href="/output/${table}">Quotes</a>
+<a href="/result/${table}">Quotes</a>
 " >> $tempfilewords
 cat $templatefolder/Footer.html >> $tempfilewords
 mv ./$oldname ./$table
@@ -833,7 +833,7 @@ pattern="$pattern exc. ${excludepattern,,}"
 fi 
 
 echo "<!-- begin $pattern --> 
-<tr><td><a class=\"outlink\" href=\"./output/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./output/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
+<tr><td><a class=\"outlink\" href=\"./result/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./result/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
 " >> $history
 
 exit 0

@@ -3,7 +3,7 @@
 #trap read debug
 
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
-output=/home/a0092061/domains/find.dhamma.gift/output/
+output=/home/a0092061/domains/find.dhamma.gift/result/
 cd $output 
 
 listfile=listhtml.tmp
@@ -54,7 +54,7 @@ listsearchresults | while IFS= read -r line ; do
 file=`echo $line | awk '{print $NF}'`
 pitaka=`echo $file | awk -F'_' '{print $2}' | sed 's/nta//g'`
 language=`echo $file | awk -F'_' '{print $3}' | awk -F'.' '{print $1 }'`
-link=/output/$file
+link=/result/$file
 #searchedpattern=`echo $file | awk -F'_' '{mu=(NF-2); $mu=$NF=""; print }'`
 searchedpattern=`echo $file | awk -F'_' '{print $1}' | sed 's/-/ /g'`
 #if [ ${#searchedpattern} -ge $truncatelength ]

@@ -40,7 +40,7 @@ function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	Отправлено в фоновый режим.<br>
 	Подождите 20-30 минут<br>
-	и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
+	и проверьте <a class=\"outlink\" href="./result/${table}">здесь</a><br>
 	или в истории поиска." 
 }
 
@@ -59,11 +59,11 @@ function Erresponse {
 }
 
 function wordsresponse {
-php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Слова</a> и \");"  
+php -r "print(\"<a class="outlink" href="./result/${tempfilewords}">Слова</a> и \");"  
 }
 
 function quoteresponse {
-	php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
+	php -r "print(\"<a class="outlink" href="./result/${table}">Цитаты</a><br>\n\");"
 	
 }
 function minlengtherror {
@@ -77,7 +77,7 @@ function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	Отправлено в фоновый режим.<br>
 	Подождите 20-30 минут<br>
-	и проверьте <a class=\"outlink\" href="./output/${table}">здесь</a><br>
+	и проверьте <a class=\"outlink\" href="./result/${table}">здесь</a><br>
 	или в истории поиска." 
 }
 
@@ -96,11 +96,11 @@ function Erresponse {
 }
 
 function wordsresponse {
-php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Слова</a> и \");"  
+php -r "print(\"<a class="outlink" href="./result/${tempfilewords}">Слова</a> и \");"  
 }
 
 function quoteresponse {
-	php -r "print(\"<a class="outlink" href="./output/${table}">Цитаты</a><br>\n\");"
+	php -r "print(\"<a class="outlink" href="./result/${table}">Цитаты</a><br>\n\");"
 	
 }
 function minlengtherror {
@@ -113,7 +113,7 @@ function bgswitch {
 	echo "$linescount $pattern lines found.<br> 
 	Switched to background mode.<br>
 	Wait for 20-30 minutes <br>
-	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
+	and check <a class=\"outlink\" href="./result/${table}">here</a><br>
 	or in search history." 
 }
 
@@ -133,11 +133,11 @@ function Erresponse {
 }
 
 function wordsresponse {
-php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Words</a> and \");"
+php -r "print(\"<a class="outlink" href="./result/${tempfilewords}">Words</a> and \");"
 }
 
 function quoteresponse {
-php -r "print(\"<a class="outlink" href="./output/${table}">Quotes</a><br>\n\");"
+php -r "print(\"<a class="outlink" href="./result/${table}">Quotes</a><br>\n\");"
 
 }
 
@@ -153,7 +153,7 @@ function bgswitch {
 	echo "$linescount $pattern lines found.<br> 
 	Switched to background mode.<br>
 	Wait for 20-30 minutes <br>
-	and check <a class=\"outlink\" href="./output/${table}">here</a><br>
+	and check <a class=\"outlink\" href="./result/${table}">here</a><br>
 	or in search history." 
 }
 
@@ -173,11 +173,11 @@ function Erresponse {
 }
 
 function wordsresponse {
-php -r "print(\"<a class="outlink" href="./output/${tempfilewords}">Words</a> and \");"
+php -r "print(\"<a class="outlink" href="./result/${tempfilewords}">Words</a> and \");"
 }
 
 function quoteresponse {
-php -r "print(\"<a class="outlink" href="./output/${table}">Quotes</a><br>\n\");"
+php -r "print(\"<a class="outlink" href="./result/${table}">Quotes</a><br>\n\");"
 
 }
 

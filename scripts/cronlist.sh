@@ -54,7 +54,7 @@ listsearchresults | while IFS= read -r line ; do
 file=`echo $line | awk '{print $NF}'`
 pitaka=`echo $file | awk -F'_' '{mu=(NF-1); print $mu}' | sed 's/nta//g'`
 language=`echo $file | awk -F'_' '{print $NF}' | awk -F'.' '{print $1 }'`
-link=/output/$file
+link=/result/$file
 searchedpattern=`echo $file | awk -F'_' '{mu=(NF-1); $mu=$NF=""; print }'`
 #if [ ${#searchedpattern} -ge $truncatelength ]
 #then
