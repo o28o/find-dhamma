@@ -35,7 +35,7 @@ function listsearchresults {
 
 cat $templatefolder/Header.html $templatefolder/ListTableHeader.html | sed 's/$title/'"$title"'/g' #| tee $listfile
 
-tac ../.history
+tac $history
 echo "</tbody>
 </table>
 <a href=\"/\">Main page </a>" 

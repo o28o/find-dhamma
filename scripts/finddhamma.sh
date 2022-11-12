@@ -820,8 +820,6 @@ wordsresponse
 fi
 quoteresponse
 
-history="../.history"
-
 linenumbers=`cat -n $history | grep daterow | egrep "$pattern" | grep "${fortitle^}" | grep "$language" | grep "$textsqnty" | grep "$matchqnty" | awk '{print $1}' | tac`
 
 for i in $linenumbers

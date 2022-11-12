@@ -9,7 +9,7 @@ minlength=4
 truncatelength=30
 filesizenooverwrite=800000
 maxmatchesbg=1400
-
+history="/home/a0092061/domains/find.dhamma.gift/public_html/output/.history"
 
 function pvlimit {
 pv -L 1m -q
