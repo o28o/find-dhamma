@@ -741,7 +741,11 @@ matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
 fi
 
 function getbasefile {
+  
+if [[ "$pattern" != *"["* ]] &&  [[ "$pattern" != *"]"* ]];  then
 pattern=`echo $pattern | sed 's/е/[ёе]/g'`
+fi
+
 grepbasefile | grep -v "^--$" | grepexclude | clearsed | sort -V > $basefile
 
 linescount=`wc -l $basefile | awk '{print $1}'`
@@ -768,7 +772,9 @@ linklist
 genwordsfile
 
 textsqnty=`echo $textlist | wc -w`
+
 pattern="`echo $pattern | sed 's/\[ёе\]/е/g'`"
+
 title="`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $textsqnty texts and $matchqnty matches in $fortitle $language"
 titlewords="`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
 
