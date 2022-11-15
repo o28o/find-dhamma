@@ -13,6 +13,11 @@ function bgswitch {
 	и проверьте файл в истории поиска." 
 }
 
+function reverseyoinpattern {
+pattern="`echo $pattern | sed 's/\[ёе\]/е/g'`"
+}  
+
+
 function capitalized {
 echo "$pattern" | sed 's/[[:lower:]]/\U&/'
 }
@@ -139,6 +144,7 @@ echo "`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $textsq
 }
 
 function Erresponse {
+
      echo "${pattern} not in $fortitle $language<br>"
      #echo "$language - no<br>"
 }
@@ -751,6 +757,8 @@ grepbasefile | grep -v "^--$" | grepexclude | clearsed | sort -V > $basefile
 linescount=`wc -l $basefile | awk '{print $1}'`
 if [ ! -s $basefile ]
 then
+
+pattern="`echo $pattern | sed 's/\[ёе\]/е/g'`"
 	Erresponse
      rm $basefile
      exit 1
@@ -774,7 +782,6 @@ genwordsfile
 textsqnty=`echo $textlist | wc -w`
 
 pattern="`echo $pattern | sed 's/\[ёе\]/е/g'`"
-
 title="`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $textsqnty texts and $matchqnty matches in $fortitle $language"
 titlewords="`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
 
@@ -889,3 +896,15 @@ elif [[ "$file" == *"/an/"* ]]
         fi 
 
     fi 
+    
+    
+    
+    
+    function highlightpattern {
+if [[ "$pattern" == *"|"* ]]
+then
+echo $pattern | sed "s/|/ /g"
+else 
+sed "s@$pattern@<b>&</b>@gI"
+fi
+}
