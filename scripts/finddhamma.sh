@@ -509,18 +509,30 @@ if [[ "$language" == "Pali" ]]; then
 elif [[ "$language" == "English" ]]; then
         file=$translation
 fi 
+   
+  #if [[ $filenameblock == *"-"* ]]
+if echo $filenameblock | egrep "(sn|an)[0-9]{0,2}.[0-9]{0,3}-[0-9]{0,3}" >/dev/null
+then 
+suttanumber=`nice -19 egrep -Ei $filenameblock $basefile | awk '{print $2}' | awk -F':' '{print $1}' | sort | uniq `
+else 
+suttanumber=$filenameblock
+fi 
     
 if [[ "$roottext" == *"/dhp/"* ]] ||  [[ "$roottext" == *"/iti/"* ]] 
         then 
         roottitle=`nice -19 grep ':0\.4' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
+elif ls $roottext | egrep -q "sn[0-9]{0,2}.[0-9]*_"
+then
+roottitle=`nice -19 grep "${suttanumber}," $sntoccsv | awk -F',' '{print $8" "$4}' | sort -V | uniq`
+
 elif ls $roottext | egrep -q "(sn|an)[0-9]{0,3}.[0-9]*-[0-9]*_"
 then
       roottitle=`nice -19 egrep -i "$pattern" $roottext | clearsed | awk '{print $1}' | awk -F':' '{print $1}' | sort -V | uniq |  xargs `
-        else 
+else 
 roottitle=`nice -19 grep ':0\.' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
 fi 
-
+#" "substr($2, 1, length($2)-4)
 
 if [[ "$translation" == *"/dn/"* ]] || [[ "$translation" == *"/mn/"* ]] 
         then 
@@ -535,13 +547,7 @@ elif [[ "$translation" == *"/dhp/"* ]] ||  [[ "$translation" == *"/iti/"* ]]
 
 translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{print $1}'`
 
-#if [[ $filenameblock == *"-"* ]]
-if echo $filenameblock | egrep "(sn|an)[0-9]{0,2}.[0-9]{0,3}-[0-9]{0,3}" >/dev/null
-then 
-suttanumber=`nice -19 egrep -Ei $filenameblock $basefile | awk '{print $2}' | awk -F':' '{print $1}' | sort | uniq `
-else 
-suttanumber=$filenameblock
-fi 
+ 
 
 
 if [[ "$fortitle" == "Suttanta" ]]
