@@ -201,6 +201,10 @@ if [[ "$@" == *"-h"* ]]; then
     exit 0
 fi
 
+if [[ "$@" == *"-la"* ]]; then
+linesafter=`echo "$@" | awk -F'-la ' '{print $2 }' | awk '{print $1}'` 
+fi
+#echo la=$linesafter
 pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs `
 if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] || [[ "$pattern" == "-ogr" ]] || [[ "$pattern" == "-oge" ]] 
 then   
