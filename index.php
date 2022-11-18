@@ -24,27 +24,26 @@
 <meta name="twitter:description" content="Search in Pali Suttas and Vinaya in Pali, Russian, English and Thai">
 <link rel="icon" type="image/png" href="./assets/favico-noglass.png" />
 
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="/assets/js/jquery-3.6.0.js"></script>
+<script src="/assets/js/jquery-ui.js"></script>
   
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-        <link href="/assets/css/styles.css" rel="stylesheet" />
-        <link href="/assets/css/extrastyles.css" rel="stylesheet" />
+<!-- Font Awesome icons (free version)-->
+<script src="/assets/js/fontawesome.6.1.all.js" crossorigin="anonymous"></script>
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link rel="stylesheet" href="/assets/css/jquery-ui.css">
+<link href="/assets/css/styles.css" rel="stylesheet" />
+<link href="/assets/css/extrastyles.css" rel="stylesheet" />
  
 <script src="/assets/js/autopali.js"></script>
 
-	 <style>
+<style>
+</style>
 
-	 </style>
-
-    </head>
-      <body id="page-top"> 
+</head>
+    <body id="page-top"> 
     	<?php
 
 		// Defining variables

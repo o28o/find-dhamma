@@ -706,7 +706,10 @@ fi
 
 roottitle=`nice -19 grep ':0\.' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
 
-
+if ls $roottext | egrep -q "sn[0-9]{0,2}.[0-9]*_"
+then
+roottitle=`nice -19 grep "${suttanumber}," $sntoccsv | awk -F',' '{print $8" "$4}' | sort -V | uniq`
+fi
 
 linkthai=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
 
