@@ -921,3 +921,9 @@ else
 sed "s@$pattern@<b>&</b>@gI"
 fi
 }
+
+echo $pattern | awk -F'|' '{for(i=1;i<=NF;i++) {print "sed \"s@"$i"@<b>&</b>@gI\" \|"}}'
+awk: cmd. line:1: warning: escape sequence `\|' treated as plain `|'
+sed "s@apapp@<b>&</b>@gI" |
+sed "s@djfj@<b>&</b>@gI" |
+sed "s@pppfffp@<b>&</b>@gI" 
