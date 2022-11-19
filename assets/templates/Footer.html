@@ -2,19 +2,17 @@
 
     <script type='text/javascript'>
 $(document).ready(function (){
-
 	 var table = $('#pali').DataTable({
 	   'autoWidth': true,
 	   'stateSave': true,
 	    'paging'  : true,
 	  'responsive': true,
 	  'columnDefs': [
-	            { type: "html", target: [1,2] },
+	            { type: "html", target: [1,2,6] },
 	            { type: 'natural', targets: 0 }
 					]				
     });
-	  
-	  
+
     // Handle click on "Expand All" button
     $('#btn-show-all-children').on('click', function(){
         // Expand row details

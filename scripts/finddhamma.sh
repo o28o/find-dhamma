@@ -493,7 +493,7 @@ textlist=`nice -19  cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/'
 for filenameblock in `nice -19 cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq` ; do 
 
     roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
-    translation=`nice -19 find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+    translation=`nice -19 find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*" |head -n1`
     rustr=`nice -19 find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     variant=`nice -19 find $lookup/variant -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     
@@ -538,15 +538,14 @@ roottitle=`nice -19 grep ':0\.' $roottext | clearsed | awk '{print substr($0, in
 fi 
 #" "substr($2, 1, length($2)-4)
 
-if [[ "$translation" == *"/dn/"* ]] || [[ "$translation" == *"/mn/"* ]] 
+if [[ "$translation" == *"/dn/"* ]] || [[ "$translation" == *"/mn/"* ]] || [[ "$translation" == *"/ud/"* ]] 
         then 
         trntitle=`nice -19 grep ':0\.2' $translation | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 elif [[ "$translation" == *"/dhp/"* ]] ||  [[ "$translation" == *"/iti/"* ]] 
         then 
         trntitle=`nice -19 grep ':0\.4' $translation | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
-
         else
-        trntitle=`nice -19 grep ':0\.3' $translation | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+        trntitle=`nice -19 grep ':0\.3' $translation | clearsed | awk '{print substr($0, index($0, $2))}' | sort -V | uniq | xargs `
         fi 
 
 translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{print $1}'`
@@ -905,7 +904,7 @@ elif [[ "$file" == *"/an/"* ]]
         then 
         suttatitle=`nice -19 grep ':0\.4' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs ` 
         else
-        suttatitle=`nice -19 grep ':0\.3' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
+        suttatitle=`nice -19 grep ':0\.3' $file | clearsed | awk '{print substr($0, index($0, $2))}' | sort -V | uniq | xargs `
         fi 
 
     fi 
