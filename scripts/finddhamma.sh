@@ -224,8 +224,7 @@ fi
 pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs `
 if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] || [[ "$pattern" == "-ogr" ]] || [[ "$pattern" == "-oge" ]] 
 then   
-#echo -e "Content-Type: text/html\n\n"
-emptypattern
+#emptypattern
    exit 3
 fi
     
@@ -802,6 +801,7 @@ exit 3
 fi
 
 }
+
 rm $basefile > /dev/null 2>&1
 getbasefile $@ 
 #cleanup in case the same search was launched before
@@ -881,8 +881,9 @@ fi
 echo "<!-- begin $pattern --> 
 <tr><td><a class=\"outlink\" href=\"./result/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./result/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
 " >> $history
-echo "<script>window.location.href='./result/${table}';</script>";
-
+echo "<script>window.location.href='./result/${table}';</script>"
+#echo "<script>location.assign('_self');</script>"
+#echo "<script>window.open('./result/${table}', '_self');</script>"
 exit 0
 
 echo ""\$forredirect = \"./result/${table}\";"

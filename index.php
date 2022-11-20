@@ -135,10 +135,22 @@ $pattern = $language = $arg = "";
 					                 		<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto">What are you looking for?</label>
 			
-			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. Kāyagat" autofocus>
-			 
-			<div class="input-group-append"><button type="submit" name="submit" value="Search"  class="btn btn-primary"><i class="fas fa-search"></i></button></div>
+			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. Kāyagat or Sn56.11" autofocus>
+
+		<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="Search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
 		</div>
+
+<script>
+var input = document.getElementById("paliauto");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("searchbtn").click();
+  }
+});
+</script>
+
+
 
 					
                             <div class="form-check form-check-inline">
@@ -163,7 +175,9 @@ $arg = $language . ' ' . $pattern;
 ?>
  </div>
 	
-            </div>		
+            </div>	
+            <div id="spinner" class="justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
+
 		<?php
 			echo $lang;
 			$old_path = getcwd();
@@ -175,6 +189,7 @@ $arg = $language . ' ' . $pattern;
 }
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $language $string"); 
 			echo "<p>$output</p>";
+			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>	
 <!--
 				              	<p class="text-center">

@@ -137,10 +137,22 @@ $pattern = $language = $arg = "";
   	<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto">Что искать?</label>
 			
-			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. Kāyagat" autofocus>
+			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. Kāyagat или Sn56.11" autofocus>
 	
-			<div class="input-group-append"><button type="submit" name="submit" value="Search"  class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+				<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="Search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
 		</div>
+
+<script>
+var input = document.getElementById("paliauto");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("searchbtn").click();
+  }
+});
+</script>
+
+		
   <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Pāḷi
   </div>
@@ -161,6 +173,10 @@ $arg = $language . ' ' . $pattern;
 ?>
  </div>
 <div>	
+
+<div id="spinner" class="justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
+
+
 	<?php
  			echo $lang;
 			$old_path = getcwd();
@@ -172,6 +188,7 @@ $arg = $language . ' ' . $pattern;
 }
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $language $string"); 
 			echo "<p>$output</p>";
+			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>
 </div>		
 		
@@ -217,10 +234,10 @@ $arg = $language . ' ' . $pattern;
 </figure>	  
 </a>
 
-<a class="text-decoration-none mx-1" href="#links">
+<a class="text-decoration-none mx-1" href="#grammar">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-link"></i>
-<figcaption class="figure-caption text-center">Полезное</figcaption>   
+<figcaption class="figure-caption text-center">Изучение</figcaption>   
 </figure>	    
 </a> 
 
@@ -529,7 +546,7 @@ $arg = $language . ' ' . $pattern;
                     </div>
 					
 					 <div class="col-lg-4 mb-5 mb-lg-0">
-					<h4 class="text-uppercase mb-4">Изучение</h4>
+					<h4 id="grammar" class="text-uppercase mb-4">Изучение</h4>
 	
 	<div class="list-group">
 
@@ -725,13 +742,16 @@ $arg = $language . ' ' . $pattern;
                                     <!-- Portfolio Modal - Text-->
 
                                      <p class="mb-4"><strong>Совет #0</strong><br>
-										Поиск производится на Пали, Русском, Английском и Тайском в материалах SuttaCentral.net и Theravada.ru, то есть если того или иного перевода нет на этих ресурсах здесь их также не будет.<br><br>
+										Поиск производится на Пали, Русском, Английском и Тайском в материалах SuttaCentral.net и Theravada.ru, то есть если того или иного перевода или определенных слов нет на этих ресурсах здесь их также не будет.<br>
+										К примеру в переводах с theravada.ru может не быть слова "мораль", но есть слово "нравственность".<br><br>
 									 <strong>Совет #1</strong><br>
-                                    Используйте специальные символы ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ<br><br>
+                                Для поиска на Пали вы можете печатать латинскими буквами, варианты слов встречающихся в четырех никаях (ДН, МН, СН, АН) будут предлагаться автоматически.<br>
+                                    При желании вы можете копировать специальные символы отсюда ā ī ū ḍ ṁ ṁ ṇ ṅ ñ ṭ
+                                    <br><br>
                                      <strong>Совет #2 Кхуддака Никая</strong><br>
-									 Поиск делается во всех суттах ДН, МН, СН, АН.
-									 Крайне рекомендуется сначала разобраться с терминами и понятиями, так как они изложены в этих четырех сборниках текстов. И только при необходимости обращаться к малому собранию текстов, так как в него по большей части входят поздние работы.<br>
-									 Запустите поиск с опцией -kn, чтобы также искать в следующих книгах КН: Дхаммапада, Удана, Итивуттака, Суттанипата, Тхерагатха, Тхеригатха. Другие книги КН не используются в поиске даже с параметром -kn. Вы можете использовать альтернативные ресурсы для поиска в Джатаках и остальных книгах КН.
+									 Поиск делается во всех суттах ДН, МН, СН, АН + Удана из КН.
+									 Крайне рекомендуется сначала разобраться с терминами и понятиями, так как они изложены в этих четырех сборниках текстов. И только при необходимости обращаться к малому собранию текстов (КН), так как в него по большей части входят поздние работы.<br>
+									 Запустите поиск с опцией -kn, чтобы также искать в следующих книгах КН: Дхаммапада, Удана, Итивуттака, Суттанипата, Тхерагатха, Тхеригатха. Другие книги КН не используются в поиске даже с параметром -kn. Вы можете использовать другие поисковые сайты для поиска в Джатаках и остальных книгах КН.
 									 <br>
 									 Пример #1: -kn jamm 
 									 <br>
@@ -750,21 +770,22 @@ $arg = $language . ' ' . $pattern;
                                     Используйте корень слова для более широких результатов поиска. Или к примеру с или без приставок, или окончаний, чтобы сузить результаты. 
 									<br><br>
 																												<strong>Совет #5</strong><br>
-                                    Сделайте упор на Пали, используйте другие языки во вторую очередь. Пали - это язык на котором записаны самые древние тексты связанные с Дхаммой.	
+                                    Сделайте упор на Пали, используйте другие языки во вторую очередь. Пали - это язык на котором записаны самые древние тексты связанные с Дхаммой и Будда говорил на языке более близком или ставшим в последствии Пали, он гарантированно не говорил ни на Русском, ни на английском.	
 									<br><br>
-									<strong>Совет #6</strong><br>Результаты поиска на Пали - это: таблица совпадений по Суттам/Текстам с цитатами и таблица по словам. Используйте оба типа результатов, чтобы повысить пользу для вас.<br><br>
+									<strong>Совет #6</strong><br>Результаты поиска на Пали - это: таблица совпадений по Суттам/Текстам с цитатами и таблица по словам. Используйте оба типа результатов, чтобы повысить пользу для вас. Для доугих языков таблицы по словам тоже генерируются, но могут работать некорректно.<br><br>
                                    <strong>Совет #7</strong><br>Минимальная длинна поискового запроса - 3 символа. Но если возможно ищите более длинные шаблоны. Так вы получите более точные результаты.<br><br>
-                                   
-								 
-								 
+                  
 									<strong>Совет #8</strong><br> 
                                    Мы рекомендуем искать на Пали. Так вы получите наилучшие результаты и вы разовьёте очень важную привычку - не полагаться слепо на переводы. Но очевидно, вы также можете получить некоторые преимущества от поисков на других языках. Если вы ищете животных, растения и т.п. К примеру, в текстах на Пали используется как минимум четыре разных слова. Тогда как на русском и английском это "змея" и "гадюка".<br><br>
 				
 									<strong>Совет #9</strong><br>
-                                   Если запрос завершается ошибкой из-за таймаута, попробуйте более длинный поисковый запрос.  <br><br>
+                                   Если запрос завершается ошибкой из-за таймаута, попробуйте более длинный поисковый запрос или более специфичное слово.  <br><br>
+								  		<strong>Совет #10 Быстрые переходы</strong><br>
+                                   Также как на sc.dhamma.gift или find.dhamma.gift/sc вы можете вводить идентификаторы сутт так как они используются на suttacentral.net и вместо поиска вы перейдете в Палийский текст сутты, с возможностью быстрого переключения на построчный Английский перевод.<br>
+                                   Через строку поиска можно перейти в сутты dn, mn, sn, an и ud. Для остальных текстов Суттанты и Винаи вы можете использовать <a href="https://sc.dhamma.gift">sc.Dhamma.gift</a><br><br>
 								  
-								  <strong>Совет #10</strong><br>
-                                   Если запрос завершается ошибкой из-за таймаута и вы не можете использовать  более длинный поисковый запрос, попробуйте <a href="./bg.php">Фоновый Режим</a>. Он может помочь.<br><br>  
+								  <strong>Совет #11</strong><br>
+                                   !!!Временно отключён!!! Если запрос завершается ошибкой из-за таймаута и вы не можете использовать  более длинный поисковый запрос, попробуйте <a href="./bg.php">Фоновый Режим</a>. Он может помочь.<br><br>  
 									</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>

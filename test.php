@@ -131,10 +131,21 @@ $pattern = $language = $arg = "";
       		<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto">Что искать?</label>
 			
-			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. Kāyagat" autofocus>
+			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. Kāyagat или Sn56.11" autofocus>
 			 
-			<div class="input-group-append"><button type="submit" name="submit" value="Search"  class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+			<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="Search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
 		</div>
+
+<script>
+var input = document.getElementById("paliauto");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("searchbtn").click();
+  }
+});
+</script>
+
 	  
                    <!--      <br>
  <div class="form-check form-check-inline">
@@ -156,11 +167,10 @@ $pattern = $language = $arg = "";
 
  </div>
  <div>
+<div id="spinner" class="justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
 
 <?php
 $arg = $language . ' ' . $pattern;
-?>		
-	<?php
  			echo $lang;
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $pattern);
@@ -169,9 +179,9 @@ $arg = $language . ' ' . $pattern;
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
   exit();
 }
-
 			$output = shell_exec("nice -19 ./scripts/findinall.sh -ogr $string"); 
 			echo "<p>$output</p>";
+			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>
 </div>
                 <!-- Masthead Subheading
