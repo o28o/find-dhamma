@@ -135,7 +135,9 @@ $pattern = $language = $arg = "";
 					                 		<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto">What are you looking for?</label>
 			
-			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. Kāyagat or Sn56.11" autofocus>
+			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
+echo $words[array_rand($words)]; ?> or <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
+echo $suttas[array_rand($suttas)]; ?>" autofocus>
 
 		<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="Search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
 		</div>

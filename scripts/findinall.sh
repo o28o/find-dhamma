@@ -192,7 +192,7 @@ mainscript="nice -19 $rootpath/finddhamma.sh $tnr $nbg"
 #check if not empty
 if [[ "$args" == "" ]] || [[ "$args" == "-ogr" ]]
 then
-    emptypattern
+   # emptypattern
     exit 1
 fi 
 echo ${globalpattern^}
