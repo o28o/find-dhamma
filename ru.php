@@ -135,7 +135,7 @@ $pattern = $language = $arg = "";
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
   	<div class="mb-3 form-group input-group ui-widget">
-		<label class="sr-only" for="paliauto">Что искать?</label>
+		<label class="sr-only" for="paliauto"></label>
 			
 			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. Kāyagat или Sn56.11" autofocus>
 	
