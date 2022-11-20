@@ -8,9 +8,12 @@ if [[ "$@" == *"-oru"* ]]; then
 excluderesponse="исключая"
 function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
-	Отправлено в фоновый режим.<br>
-	Подождите 20-30 минут<br>
-	и проверьте файл в истории поиска." 
+	к сожалению ресурсы сервера ограничены.<br>
+	Этот запрос не может быть обработан.<br>
+	Пожалуйста, измените критерий поиска<br>
+	к примеру более длинное или<br>
+	более специфическое слово."
+	exit 3
 }
 
 function reverseyoinpattern {
@@ -52,11 +55,17 @@ elif [[ "$@" == *"-ogr"* ]]; then
 excluderesponse="исключая"
 function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
-	Отправлено в фоновый режим.<br>
-	Подождите 20-30 минут<br>
-	и проверьте <a class=\"outlink\" href="./result/${table}">здесь</a><br>
-	или в истории поиска." 
+	к сожалению ресурсы сервера ограничены 
+	и этот запрос не может быть обработан.<br>
+	Пожалуйста, измените критерий поиска<br>
+	к примеру более длинное или<br>
+	более специфическое слово."
+	exit 3
 }
+# Отправлено в фоновый режим.<br>
+#	Подождите 20-30 минут<br>
+#	и проверьте <a class=\"outlink\" href="./result/${table}">здесь</a><br>
+#	или в истории поиска." 
 
 function emptypattern {
    echo "Что искать?"
@@ -87,11 +96,18 @@ echo "Слишком коротко. Мин $minlength символа"
 elif [[ "$@" == *"-oge"* ]]; then
 excluderesponse="excluding"
 function bgswitch {
-	echo "$linescount $pattern lines found.<br> 
-	Switched to background mode.<br>
-	Wait for 20-30 minutes <br>
-	and check the result in the search history." 
+	echo "Found $linescount lines with $pattern<br> 
+	Unfortunately server resources are limited <br>
+	Please, change the search criteria<br>
+	Use longer or more specific word.<br>"
+	exit 3
 }
+#function bgswitch {
+#	echo "$linescount $pattern lines found.<br> 
+#	Switched to background mode.<br>
+#	Wait for 20-30 minutes <br>
+#	and check the result in the search history." 
+#}
 
 function emptypattern {
    echo "Empty pattern"
@@ -126,11 +142,11 @@ echo Too short. Min is $minlength
 else #eng
 excluderesponse="excluding"
 function bgswitch {
-	echo "$linescount $pattern lines found.<br> 
-	Switched to background mode.<br>
-	Wait for 20-30 minutes <br>
-	and check <a class=\"outlink\" href="./result/${table}">here</a><br>
-	or in search history." 
+	echo "Found $linescount lines with $pattern<br> 
+	Unfortunately server resources are limited <br>
+	Please, change the search criteria<br>
+	Use longer or more specific word.<br>"
+	exit 3
 }
 
 function emptypattern {
@@ -326,13 +342,15 @@ addtoresponseexclude=" $excluderesponse $excludepattern"
 function grepexclude {
 egrep -viE "$excludepattern"
 }
-excfn="` echo -exc-${excludepattern} | sed 's/ /-/g' `"
+#echo arg="$@"
+excfn="` echo -exc-${excludepattern} | sed 's/ /-/g' | sed 's@\\\@@g' `"
+
 else
 function grepexclude {
 pvlimit 
 }
 fi
-
+#echo exc=$excfn
 
 function diact2normal {
 sed "s/ā/aa/g" |
@@ -387,7 +405,7 @@ sed "s/я/ya/g"
 fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/-/g' | sed 's/ /-/g' | sed 's/\\\//g' | sed 's@?@-question@g'|  awk '{print tolower($0)}'`
 fn=${fn}${excfn}${fileprefix}${fnlang}
 modifiedfn=`echo $fn | diact2normal | cyr2lat`
-
+#echo fn=$fn modifiedfn=$modifiedfn
 extention=txt
 basefile=${fn}_fn.$extention
 
@@ -776,6 +794,7 @@ pattern="`echo $pattern | sed 's/\[ёе\]/е/g'`"
      exit 1
 elif [ $linescount -ge $maxmatchesbg ] && [[ "$@" != *"-nbg"* ]];  then  
 bgswitch
+exit 3
 	echo "$@" | sed 's/-oru //g' | sed 's/-oge //g' | sed 's/-ogr //g'   | sed 's/-nbg //g' >> ../input/input.txt
 	exit 3
 fi
