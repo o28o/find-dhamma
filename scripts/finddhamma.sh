@@ -550,7 +550,9 @@ roottitle=`nice -19 grep "${suttanumber}," $sntoccsv | awk -F',' '{print $8" "$4
 
 elif ls $roottext | egrep -q "(sn|an)[0-9]{0,3}.[0-9]*-[0-9]*_"
 then
-      roottitle=`nice -19 egrep -i "$pattern" $roottext | clearsed | awk '{print $1}' | awk -F':' '{print $1}' | sort -V | uniq |  xargs `
+
+samyuttaname=`grep -m1 \`echo $suttanumber | awk -F'.' '{print $1}'\` $sntoccsv | awk -F',' '{print $4}'`
+      roottitle="`nice -19 egrep -i "$pattern" $roottext | clearsed | awk '{print $1}' | awk -F':' '{print $1}' | sort -V | uniq |  xargs ` $samyuttaname"
 else 
 roottitle=`nice -19 grep ':0\.' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
 fi 
