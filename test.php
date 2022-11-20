@@ -83,8 +83,8 @@ $pattern = $language = $arg = "";
  
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
-            <a class="navbar-brand mobile-center" href="/ru.php"> <div class="container"><img style="height: 40px" src="./assets/white_white.png"  style="width:100px;"></a>
-                <a class="navbar-brand mobile-none" href="/ru.php#page-top">find.dhamma.gift</a>
+            <a class="navbar-brand mobile-center" href="/test.php"> <div class="container"><img style="height: 40px" src="./assets/white_white.png"  style="width:100px;"></a>
+                <a class="navbar-brand mobile-none" href="/test.php#page-top">find.dhamma.gift</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded mr-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Меню
                     <i class="fas fa-bars mr-4"></i>
@@ -101,7 +101,7 @@ $pattern = $language = $arg = "";
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Контакты</a></li>
 <li class="nav-item mb-0 mx-lg-2"><p><a class="py-3 px-0 px-lg-1 rounded link-light text-decoration-none" href="/">En</a> 
-		<a class="py-3 px-0 px-lg-1 rounded link-light" href="/ru.php">Ru</a></p></li>	
+		<a class="py-3 px-0 px-lg-1 rounded link-light" href="/test.php">Ru</a></p></li>	
                     </ul>
                 </div>
             </div>
@@ -164,6 +164,12 @@ $arg = $language . ' ' . $pattern;
  			echo $lang;
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $pattern);
+			
+			if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
+    echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
+  exit();
+}
+
 			$output = shell_exec("nice -19 ./scripts/findinall.sh -ogr $string"); 
 			echo "<p>$output</p>";
 		?>

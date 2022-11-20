@@ -854,7 +854,7 @@ echo "</tbody>
 <a href="/">Main page</a>&nbsp;
 <a href="/result/${table}">Quotes</a>
 " >> $tempfilewords
-cat $templatefolder/Footer.html >> $tempfilewords
+cat $templatefolder/WordsFooter.html >> $tempfilewords
 mv ./$oldname ./$table
 
 if [[ "$language" == "Pali" ]]
@@ -879,9 +879,11 @@ fi
 echo "<!-- begin $pattern --> 
 <tr><td><a class=\"outlink\" href=\"./result/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./result/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
 " >> $history
+echo "<script>window.location.href='./result/${table}';</script>";
 
 exit 0
 
+echo ""\$forredirect = \"./result/${table}\";"
 
 function normal2diact {
 sed "s/aa/ā/g" |

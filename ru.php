@@ -165,9 +165,14 @@ $arg = $language . ' ' . $pattern;
  			echo $lang;
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $pattern);
+			
+			if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
+    echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
+  exit();
+}
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $language $string"); 
 			echo "<p>$output</p>";
-		?>	
+		?>
 </div>		
 		
 
