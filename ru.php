@@ -138,7 +138,7 @@ $pattern = $language = $arg = "";
 		<label class="sr-only" for="paliauto"></label>
 			
 			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. Kāyagat или Sn56.11" autofocus>
-	
+			 
 				<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="Search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
 		</div>
 
@@ -152,7 +152,6 @@ input.addEventListener("keypress", function(event) {
 });
 </script>
 
-		
   <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Pāḷi
   </div>
@@ -175,7 +174,6 @@ $arg = $language . ' ' . $pattern;
 <div>	
 
 <div id="spinner" class="justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
-
 
 	<?php
  			echo $lang;
