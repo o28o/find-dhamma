@@ -1,7 +1,7 @@
 
 <?php
 function RandomWord() {
-  $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko");
+  $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
 return $words[array_rand($words)];
 }
 
