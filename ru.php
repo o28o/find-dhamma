@@ -42,8 +42,7 @@
 	 
     </head>
       <body id="page-top"> 
-	  
-	  
+
     	<?php
 		// Defining variables
 $nameErr = $languageErr  = "";
