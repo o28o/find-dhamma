@@ -141,7 +141,7 @@ $pattern = $language = $arg = "";
 echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 			 
-				<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="Search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+				<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
 		</div>
 
 <script>

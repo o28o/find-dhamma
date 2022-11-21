@@ -49,28 +49,28 @@
 		// Defining variables
 $nameErr = $languageErr  = "";
 $pattern = $language = $arg = "";
-		// Checking for a POST request
+		// Checking for a GET request
 		
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
+		if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  if (empty($_GET["name"])) {
     $nameErr = "Name is required";
   } else {
-    $name = test_input($_POST["name"]);
+    $name = test_input($_GET["name"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
       $nameErr = "Only letters and white space allowed";
     }
   }
-	if (empty($_POST["language"])) {
+	if (empty($_GET["language"])) {
     $languageErr = "language is required";
   } else {
-    $language = test_input($_POST["language"]);
+    $language = test_input($_GET["language"]);
   }
 }	
 		
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$pattern = test_input($_POST["pattern"]);
-/* 		$pitaka = test_input($_POST["pitaka"]);
+		if ($_SERVER["REQUEST_METHOD"] == "GET") {
+		$pattern = test_input($_GET["pattern"]);
+/* 		$pitaka = test_input($_GET["pitaka"]);
  */		}
 
 		// Removing the redundant HTML characters if any exist.
@@ -79,10 +79,10 @@ $pattern = $language = $arg = "";
 		return $data;
 		}
 		
-      if (empty($_POST["language"])) {
+      if (empty($_GET["language"])) {
     $languageErr = "";
   } else {
-    $language = test_input($_POST["language"]);
+    $language = test_input($_GET["language"]);
   }
 		?>
  
@@ -129,7 +129,7 @@ $pattern = $language = $arg = "";
                     <div class="divider-custom-line"></div>
                 </div>
     
-			<form method="post" action=
+			<form method="GET" action=
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
 					                 		<div class="mb-3 form-group input-group ui-widget">
@@ -139,7 +139,7 @@ $pattern = $language = $arg = "";
 echo $words[array_rand($words)]; ?> or <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 
-		<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="Search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+		<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
 		</div>
 
 <script>
