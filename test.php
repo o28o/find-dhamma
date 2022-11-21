@@ -46,25 +46,25 @@ $nameErr = $languageErr  = "";
 $pattern = $language = $arg = "";
 		// Checking for a POST request
 		
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
+		if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  if (empty($_GET["name"])) {
     $nameErr = "Name is required";
   } else {
-    $name = test_input($_POST["name"]);
+    $name = test_input($_GET["name"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
       $nameErr = "Only letters and white space allowed";
     }
   }
-	if (empty($_POST["language"])) {
+	if (empty($_GET["language"])) {
     $languageErr = "language is required";
   } else {
-    $language = test_input($_POST["language"]);
+    $language = test_input($_GET["language"]);
   }
 }	
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$pattern = test_input($_POST["pattern"]);
-/* 		$pitaka = test_input($_POST["pitaka"]);
+		if ($_SERVER["REQUEST_METHOD"] == "GET") {
+		$pattern = test_input($_GET["pattern"]);
+/* 		$pitaka = test_input($_GET["pitaka"]);
  */		}
 		// Removing the redundant HTML characters if any exist.
 		function test_input($data) {
@@ -74,10 +74,10 @@ $pattern = $language = $arg = "";
 		return $data;
 		}
 		
-      if (empty($_POST["language"])) {
+      if (empty($_GET["language"])) {
     $languageErr = "";
   } else {
-    $language = test_input($_POST["language"]);
+    $language = test_input($_GET["language"]);
   }
 		?>
  
@@ -125,7 +125,7 @@ $pattern = $language = $arg = "";
                     <div class="divider-custom-line"></div>
                 </div>
     
-		<form method="post" action=
+		<form method="GET" action=
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center"> 
 
       		<div class="mb-3 form-group input-group ui-widget">
@@ -176,6 +176,31 @@ input.addEventListener("keypress", function(event) {
  <div>
 <div id="spinner" class="justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
 
+<div id="liveAlertPlaceholder"></div>
+<button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
+
+<script>
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+const alert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+
+  alertPlaceholder.append(wrapper)
+}
+
+const alertTrigger = document.getElementById('liveAlertBtn')
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', () => {
+    alert('Nice, you triggered this alert message!', 'success')
+  })
+}
+</script>
 <?php
 $arg = $language . ' ' . $pattern;
  			echo $lang;

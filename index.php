@@ -133,7 +133,7 @@ $pattern = $language = $arg = "";
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
 					                 		<div class="mb-3 form-group input-group ui-widget">
-		<label class="sr-only" for="paliauto">What are you looking for?</label>
+		<label class="sr-only" for="paliauto"></label>
 			
 			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
 echo $words[array_rand($words)]; ?> or <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
