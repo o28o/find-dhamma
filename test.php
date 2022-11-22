@@ -130,17 +130,12 @@ $pattern = $language = $arg = "";
 
       		<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto"></label>
-			
-			
 
-
-
-
-			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
+			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
 echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 			 
-			<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+			<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="  search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
 		</div>
 
 <script>
@@ -174,7 +169,7 @@ input.addEventListener("keypress", function(event) {
 
  </div>
  <div>
-<div id="spinner" class="justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
+<div id="spinner" class="justify-content-center mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
 
 <div id="liveAlertPlaceholder"></div>
 <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
@@ -211,7 +206,7 @@ $arg = $language . ' ' . $pattern;
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
   exit();
 }
-			$output = shell_exec("nice -19 ./scripts/findinall.sh -ogr $string"); 
+	$output = shell_exec("nice -19 ./scripts/findinall.sh -ogr $string"); 
 			echo "<p>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>

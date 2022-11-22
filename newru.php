@@ -174,7 +174,7 @@ $arg = $language . ' ' . $pattern;
  </div>
 <div>	
 
-<div id="spinner" class="justify-content-center mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
+<div id="spinner" class="justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
 
 	<?php
  			echo $lang;
@@ -185,7 +185,8 @@ $arg = $language . ' ' . $pattern;
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
   exit();
 }
-			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $language $string"); 
+$output = shell_exec("curl https://find.dhamma.gift/search.php/?pattern=$string&language=$language");
+		/*	$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $language $string"); */
 			echo "<p>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>
