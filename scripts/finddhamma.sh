@@ -860,13 +860,6 @@ echo "</tbody>
 cat $templatefolder/WordsFooter.html >> $tempfilewords
 mv ./$oldname ./$table
 
-if [[ "$language" == "Pali" ]]
-then 
-#echo "$language -"
-wordsresponse
-fi
-quoteresponse
-
 linenumbers=`cat -n $history | grep daterow | egrep "$pattern" | grep "${fortitle^}" | grep "$language" | grep "$textsqnty" | grep "$matchqnty" | awk '{print $1}' | tac`
 
 for i in $linenumbers
@@ -882,24 +875,22 @@ fi
 echo "<!-- begin $pattern --> 
 <tr><td><a class=\"outlink\" href=\"./result/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./result/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
 " >> $history
+
+if [[ "$language" != "Pali" ]]; then
 echo "<script>window.location.href='./result/${table}';</script>"
 #echo "<script>location.assign('_self');</script>"
 #echo "<script>window.open('./result/${table}', '_self');</script>"
+elif  [[ "$language" == "Pali" ]]
+then 
+wordsresponse
+quoteresponse
+fi
+
 exit 0
 
 echo ""\$forredirect = \"./result/${table}\";"
 
-function normal2diact {
-sed "s/aa/ā/g" |
-sed "s/ii/ī/g" |
-sed "s/uu/ū/g" |
-sed "s/d./ḍ/g" |
-sed "s/m./ṁ/g" |
-sed "s/n./ṅ/g" |
-sed "s/n./ṇ/g" |
-sed "s/t./ṭ/g" |
-sed "s/n~/ñ/g"`
-}
+
 
 
 file=`echo ${table} | awk '{print $NF}' | sed 's/.html//g'`
