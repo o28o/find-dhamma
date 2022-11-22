@@ -1,11 +1,13 @@
 RewriteEngine on
+Redirect 301 /ru.php /ru/
+ 
 
 RewriteCond %{HTTP:Accept-Language} ^ru_RU [NC]
-RewriteRule ^/$ /ru.php [L,R=302]
+RewriteRule ^/$ /ru/ [L,R=302]
 
 # language starts with FR
 RewriteCond %{HTTP:Accept-Language} ^ru [NC]
-RewriteRule ^/$ /ru.php [L,R=302]
+RewriteRule ^/$ /ru/ [L,R=302]
 
 # else redirect to the English version
 RewriteRule ^/$ / [L,R=302]

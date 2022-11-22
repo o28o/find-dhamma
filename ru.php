@@ -186,7 +186,7 @@ $arg = $lang. ' ' . $q;
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
   exit();
 }
-			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $lang$string"); 
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $lang $string"); 
 			echo "<p>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>

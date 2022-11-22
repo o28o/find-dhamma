@@ -33,9 +33,10 @@
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="text-center">
                 <h1 class="display-1 fw-bold">404</h1>
-                <p class="fs-3"> <span class="text-danger">Opps!</span> Page not found.</p>
+                <p class="fs-3"> <span class="text-danger">Aho!</span> Page not found. But</p>
                 <p class="lead">
-                    The page you’re looking for doesn’t exist.
+                “Atthi kho, āvuso, maggo atthi paṭipadā,</br>  
+                etassa dukkhassa pariññāyā”ti. sn38.4
                   </p>
                 <a href="/" id="back" class="btn btn-primary">Go Home</a>
             </div>
