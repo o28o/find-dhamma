@@ -841,7 +841,8 @@ tempfilewords=${tempfilewords}_${textsqnty}-${matchqnty}-${uniqwordtotal}.html
 #sed -i "s/$oldname/$tempfilewords/g" $table
 echo "</tbody>
 </table>
-<a href="/">Main page</a>&nbsp;
+<a href='/' id='back'>Main page</a>&nbsp;
+
 <a href="/result/${tempfilewords}">Words</a>
 " | tohtml
 cat $templatefolder/Footer.html | tohtml
@@ -853,7 +854,7 @@ table=${table}_${textsqnty}-${matchqnty}.html
 #sed -i "s/$oldname/$table/g" $tempfilewords
 echo "</tbody>
 </table>
-<a href="/">Main page</a>&nbsp;
+<a href='/' id='back'>Main page</a>&nbsp;
 <a href="/result/${table}">Quotes</a>
 " >> $tempfilewords
 cat $templatefolder/WordsFooter.html >> $tempfilewords

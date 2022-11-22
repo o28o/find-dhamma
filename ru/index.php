@@ -86,8 +86,8 @@ $q = $lang = $arg = "";
  
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
-            <a class="navbar-brand mobile-center" href="/ru.php"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
-                <a class="navbar-brand mobile-none" href="/ru.php">find.dhamma.gift</a>
+            <a class="navbar-brand mobile-center" href="/ru/"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
+                <a class="navbar-brand mobile-none" href="/ru/">find.dhamma.gift</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Меню
                     <i class="fas fa-bars"></i>
@@ -105,7 +105,7 @@ $q = $lang = $arg = "";
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Полезное</a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Контакты</a></li>
 <li class="nav-item mb-0 mx-lg-2"><p><a class="py-3 px-0 px-lg-1 rounded link-light text-decoration-none" href="/">En</a> 
-		<a class="py-3 px-0 px-lg-1 rounded link-light" href="/ru.php">Ru</a></p></li>	
+		<a class="py-3 px-0 px-lg-1 rounded link-light" href="/ru/">Ru</a></p></li>	
                     </ul>
                 </div>
             </div>
@@ -178,7 +178,7 @@ $arg = $lang. ' ' . $q;
 <div id="spinner" class="justify-content-center mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
 
 	<?php
- 			echo $lang;
+
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $q);
 			
@@ -186,7 +186,7 @@ $arg = $lang. ' ' . $q;
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
   exit();
 }
-			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $lang$string"); 
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $lang $string"); 
 			echo "<p>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>

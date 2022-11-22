@@ -48,7 +48,7 @@
 
 		// Defining variables
 $nameErr = $languageErr  = "";
-$pattern = $language = $arg = "";
+$q = $lang = $arg = "";
 		// Checking for a GET request
 		
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -61,15 +61,15 @@ $pattern = $language = $arg = "";
       $nameErr = "Only letters and white space allowed";
     }
   }
-	if (empty($_GET["language"])) {
+	if (empty($_GET["lang"])) {
     $languageErr = "language is required";
   } else {
-    $language = test_input($_GET["language"]);
+    $lang = test_input($_GET["lang"]);
   }
 }	
 		
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
-		$pattern = test_input($_GET["pattern"]);
+		$q = test_input($_GET["q"]);
 /* 		$pitaka = test_input($_GET["pitaka"]);
  */		}
 
@@ -79,10 +79,10 @@ $pattern = $language = $arg = "";
 		return $data;
 		}
 		
-      if (empty($_GET["language"])) {
+      if (empty($_GET["lang"])) {
     $languageErr = "";
   } else {
-    $language = test_input($_GET["language"]);
+    $lang = test_input($_GET["lang"]);
   }
 		?>
  
@@ -105,7 +105,7 @@ $pattern = $language = $arg = "";
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#links">Useful Links </a></li>
 <li class="nav-item mb-3 mx-lg-2"><a class="nav-link py-3 px-0 px-lg-0 rounded" href="#contacts">Contacts</a></li>
 <li class="nav-item mb-0 mx-lg-2"><p><a class="py-1 px-0 px-lg-1 rounded link-light" href="/">En</a> 
-									<a class="link-light text-decoration-none py-1 px-0 px-lg-1 rounded" href="/ru.php">Ru</a></p></li>		
+									<a class="link-light text-decoration-none py-1 px-0 px-lg-1 rounded" href="/ru/">Ru</a></p></li>		
                     </ul>
                 </div>
             </div>
@@ -135,7 +135,7 @@ $pattern = $language = $arg = "";
 					                 		<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto"></label>
 			
-			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
+			 <input name="q"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
 echo $words[array_rand($words)]; ?> or <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 
@@ -150,65 +150,49 @@ input.addEventListener("keypress", function(event) {
     document.getElementById("searchbtn").click();
   }
 });
+
 </script>
 
-
-
-					
-                            <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pāḷi
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pāḷi
   </div>
-                          <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Rus
+<div class="form-check form-check-inline">
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Rus
   </div>
     <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
   </div>
-                              <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div>
   <span class="error"><?php echo $languageErr;?></span>
-  
-  
-				</form>
+</form>
 <?php
 
-$arg = $language . ' ' . $pattern;
+$arg = $lang . ' ' . $q;
 ?>
  </div>
-	
-            </div>	
+      </div>	
             <div id="spinner" class="justify-content-center mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
-
 		<?php
 			echo $lang;
 			$old_path = getcwd();
-			$string = str_replace ("`", "", $pattern);
+			$string = str_replace ("`", "", $q);
 			
 			if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
   exit();
 }
-			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $language $string"); 
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $lang $string"); 
 			echo "<p>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>	
-<!--
-				              	<p class="text-center">
-<a href="./history.php" class="btn btn-primary" role="button btn-lg">Search History</a>
-	</p>
-	
--->
         </header>
 	
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container text-center">
-				
 
-	
-
-      	  		  
    	<div class="d-md-inline-block">	
 
 <a class="text-decoration-none mx-1" href="./sc/">

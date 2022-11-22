@@ -2,12 +2,12 @@
 
 		// Defining variables
 $nameErr = $languageErr  = "";
-$pattern = $language = $arg = $olang ="";
+$q = $lang = $arg = $olang ="";
 		// Checking for a GET request
 		
 		
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
-		$pattern = test_input($_GET["pattern"]);
+		$q = test_input($_GET["q"]);
 /* 		$pitaka = test_input($_GET["pitaka"]);
  */		}
 
@@ -17,28 +17,28 @@ $pattern = $language = $arg = $olang ="";
 		return $data;
 		}
 		
-      if (empty($_GET["language"])) {
+      if (empty($_GET["lang"])) {
     $languageErr = "";
   } else {
-    $language = test_input($_GET["language"]);
+    $lang = test_input($_GET["lang"]);
   }
 
-if (!empty($language)) {
-  $language = "-$language";
+if (!empty($lang)) {
+  $lang = "-$lang";
 }
 if (!empty($olang)) {
   $olang = "-$olang";
 }
-$arg = $olang . ' ' . $language . ' ' . $pattern;
+$arg = $olang . ' ' . $lang . ' ' . $q;
 
 			$old_path = getcwd();
-			$string = str_replace ("`", "", $pattern);
+			$string = str_replace ("`", "", $q);
 			
 			if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
   exit();
 }
-			$output = shell_exec("echo $language; nice -19 ./scripts/finddhamma.sh $olang $language $string"); 
-			echo "<p>$language $output</p>";
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $olang $lang $string"); 
+			echo "<p>$output</p>";
 	/*		echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"*/
 		?>

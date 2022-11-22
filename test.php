@@ -43,7 +43,7 @@
     	<?php
 		// Defining variables
 $nameErr = $languageErr  = "";
-$pattern = $language = $arg = "";
+$q = $lang = $arg = "";
 		// Checking for a POST request
 		
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -56,14 +56,14 @@ $pattern = $language = $arg = "";
       $nameErr = "Only letters and white space allowed";
     }
   }
-	if (empty($_GET["language"])) {
+	if (empty($_GET["lang"])) {
     $languageErr = "language is required";
   } else {
-    $language = test_input($_GET["language"]);
+    $lang = test_input($_GET["lang"]);
   }
 }	
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
-		$pattern = test_input($_GET["pattern"]);
+		$q = test_input($_GET["q"]);
 /* 		$pitaka = test_input($_GET["pitaka"]);
  */		}
 		// Removing the redundant HTML characters if any exist.
@@ -74,10 +74,10 @@ $pattern = $language = $arg = "";
 		return $data;
 		}
 		
-      if (empty($_GET["language"])) {
+      if (empty($_GET["lang"])) {
     $languageErr = "";
   } else {
-    $language = test_input($_GET["language"]);
+    $lang = test_input($_GET["lang"]);
   }
 		?>
  
@@ -131,7 +131,7 @@ $pattern = $language = $arg = "";
       		<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto"></label>
 
-			 <input name="pattern"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
+			 <input name="q"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
 echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 			 
@@ -146,21 +146,26 @@ input.addEventListener("keypress", function(event) {
     document.getElementById("searchbtn").click();
   }
 });
+
+if(performance.navigation.type == 2){
+  var newURL = location.href.split("?")[0];
+window.history.pushState('object', document.title, newURL);
+
+}
 </script>
 
-	  
                    <!--      <br>
  <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Пали
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Пали
   </div>
         <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
   </div>
     <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="language" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
   </div>
      <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="language" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div> 
    
   <span class="error"><?php echo $languageErr;?></span>
@@ -197,17 +202,17 @@ if (alertTrigger) {
 }
 </script>
 <?php
-$arg = $language . ' ' . $pattern;
+$arg = $lang . ' ' . $q;
  			echo $lang;
 			$old_path = getcwd();
-			$string = str_replace ("`", "", $pattern);
+			$string = str_replace ("`", "", $q);
 			
 			if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
   exit();
 }
 	$output = shell_exec("nice -19 ./scripts/findinall.sh -ogr $string"); 
-			echo "<p>$output</p>";
+			echo "<div id='responsediv'>$output</div>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>
 </div>
