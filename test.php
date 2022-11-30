@@ -143,7 +143,7 @@ echo $suttas[array_rand($suttas)]; ?>" autofocus>
 <div class="collapse mt-2" id="collapseExample">
   <div class="float-start">
     
-    <div class="form-check form-check-inline">
+    <div class="form-check mb-3 form-check-inline">
   <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">+KN</div>
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+KN Late</div>

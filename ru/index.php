@@ -173,7 +173,7 @@ input.addEventListener("keypress", function(event) {
 <div class="collapse mt-2" id="collapseExample">
   <div class="float-start">
     
-    <div class="form-check form-check-inline">
+    <div class="form-check mb-3 form-check-inline">
   <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">+КН</div>
   <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">Виная</div>
@@ -189,7 +189,7 @@ $arg = $lang. ' ' . $q;
  </div>
 <div>	
 
-<div id="spinner" class="justify-content-center mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
+<div id="spinner" class="justify-content-center mt-2 mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
 
 	<?php
 	$old_path = getcwd();
