@@ -166,7 +166,21 @@ input.addEventListener("keypress", function(event) {
   <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div>
-  <span class="error"><?php echo $languageErr;?></span>
+  
+    <!-- extra options -->
+  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-sort-desc" aria-hidden="true"></i>
+  </a>
+<div class="collapse mt-2" id="collapseExample">
+  <div class="float-start">
+    
+    <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">+КН</div>
+  <div class="form-check form-check-inline">
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">Виная</div>
+    <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+Поздние</div>
+  </div>
+
 				</form>
 				
 				<?php
@@ -178,8 +192,7 @@ $arg = $lang. ' ' . $q;
 <div id="spinner" class="justify-content-center mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
 
 	<?php
-
-			$old_path = getcwd();
+	$old_path = getcwd();
 			$string = str_replace ("`", "", $q);
 			
 			if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
@@ -189,7 +202,7 @@ $arg = $lang. ' ' . $q;
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $lang $string"); 
 			echo "<p>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
-		?>
+		?>	
 </div>		
 		
 

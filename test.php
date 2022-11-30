@@ -170,7 +170,19 @@ window.history.pushState('object', document.title, newURL);
    
   <span class="error"><?php echo $languageErr;?></span>
   <br> -->
-  
+    <!-- extra options -->
+  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-sort-desc" aria-hidden="true"></i>
+  </a>
+<div class="collapse mt-2" id="collapseExample">
+  <div class="float-start">
+    
+    <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">+KN</div>
+    <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+KN Late</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">Vinaya</div>
+</div>
 
  </div>
  <div>
