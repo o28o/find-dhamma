@@ -876,17 +876,22 @@ echo "<!-- begin $pattern -->
 <tr><td><a class=\"outlink\" href=\"./result/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./result/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
 " >> $history
 
-if [[ "$language" != "Pali" ]]; then
 echo "<script>window.location.href='./result/${table}';</script>"
+
+exit 0
+
+if [[ "$language" != "Pali" ]]; then
 #echo "<script>location.assign('_self');</script>"
 #echo "<script>window.open('./result/${table}', '_self');</script>"
+
 elif  [[ "$language" == "Pali" ]]
 then 
 wordsresponse
 quoteresponse
 fi
 
-exit 0
+
+
 
 echo ""\$forredirect = \"./result/${table}\";"
 

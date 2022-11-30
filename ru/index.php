@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
 
 <title>find.Dhamma.gift - Поисковый сайт Освобождения. Пали Сутты и Виная</title>
-
+<meta http-equiv="Cache-control" content="public">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />

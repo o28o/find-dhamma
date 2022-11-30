@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
 
 <title>find.Dhamma.gift - Suttas and Vinaya search that is better than Google</title>
- 
+ <meta http-equiv="Cache-control" content="public">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
