@@ -168,7 +168,7 @@ input.addEventListener("keypress", function(event) {
   </div>
   
     <!-- extra options -->
-  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-sort-desc" aria-hidden="true"></i>
+  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-gear"></i>
   </a>
 <div class="collapse mt-2" id="collapseExample">
   <div class="float-start">
@@ -189,7 +189,7 @@ $arg = $lang. ' ' . $q;
  </div>
 <div>	
 
-<div id="spinner" class="justify-content-center mt-2 mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
+<div id="spinner" class="justify-content-center mt-3 mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
 
 	<?php
 	$old_path = getcwd();

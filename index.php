@@ -132,7 +132,7 @@ $q = $lang = $arg = $extra = "";
 			<form method="GET" action=
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
-					                 		<div class="mb-3 form-group input-group ui-widget">
+		<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto"></label>
 			
 			 <input name="q"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
@@ -166,22 +166,21 @@ input.addEventListener("keypress", function(event) {
   <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div>
   <!-- extra options -->
-  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-sort-desc" aria-hidden="true"></i>
-  </a>
+  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-gear"></i></a>
 <div class="collapse mt-2" id="collapseExample">
   <div class="float-start">
-    
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">+KN</div>
   <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">Vinaya</div>
   
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+KN Late</div>
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+Later Texts</div>
 
 </div>
 
 </div>
+  <!-- extra options end -->
 </form>
 
 <script>
@@ -619,9 +618,9 @@ $arg = $lang . ' ' . $q;
 								 <br><br>
 								  
 									<strong>Tip #3</strong><br>
-								   If you want to find words beginning or ending from some pattern use \\\\b before and\or in the end of the pattern. e.g. <strong>\\\\bkummo\\\\b</strong> will search for only kummo and will skip kummova and any other<br><br>
+								   If you want to find words beginning or ending from some pattern use \\b before and/or in the end of the pattern. e.g. <strong>\\bkummo\\b</strong> will search for only kummo and will skip kummova and any other<br><br>
 									<strong>Tip #4</strong><br>
-								   You may use regexes that are applicable in GNU grep -E statements. With proper escaping (\\\\) they should work.<br><br>
+								   You may use regexes that are applicable in GNU grep -E statements. With proper escaping (\\) they should work.<br><br>
 								</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
