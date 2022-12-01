@@ -171,10 +171,10 @@ input.addEventListener("keypress", function(event) {
     <!-- extra options -->
   <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-gear"></i>
   </a>
-<div class="collapse mt-2" id="collapseExample">
+<div class="collapse mt-2 " id="collapseExample">
   <div class="float-start">
     
-    <div class="form-check mb-3 form-check-inline">
+    <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">+КН</div>
   <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">Виная</div>
@@ -201,7 +201,7 @@ $arg = $lang. ' ' . $q;
   exit();
 }
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $lang $string"); 
-			echo "<p>$output</p>";
+			echo "<p class='mt-3'>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>	
 </div>		
