@@ -9,7 +9,9 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
         <!-- Favicon-->
-		
+		<!-- Font Awesome icons (free version)-->
+<script src="/assets/js/fontawesome.6.1.all.js" crossorigin="anonymous"></script>
+
 <meta property="og:locale" content="ru_RU" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="find.Dhamma.gift - Поисковая Система Освобождения" />
@@ -25,8 +27,7 @@
 <script src="/assets/js/jquery-3.6.0.js"></script>
 <script src="/assets/js/jquery-ui.js"></script>
   
-<!-- Font Awesome icons (free version)-->
-<script src="/assets/js/fontawesome.6.1.all.js" crossorigin="anonymous"></script>
+
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
@@ -289,7 +290,12 @@ $arg = $lang. ' ' . $q;
 
                         </p>
                                                 </div> 
-                                                
+     <div class="alert alert-warning float-start text-left mb-3" role="alert">
+ <i class="fa-solid fa-triangle-exclamation "></i> <b>Предупреждение!</b><br><br> Переводы выполнены не Буддой! Чаще всего содержат фундаментальные ошибки главных положений его Учения. Переводы нужно читать критически. <a target="_blank" href="https://docs.google.com/spreadsheets/d/1S1RLFobEvaJRn0AHeUFdI7CuISCUFE0b4xrzYgZpkI0" class="alert-link"> Примеры грубых ошибок</a><br><br>
+  Самое важное из слов Будды и его учеников лучше изучить <strong> самостоятельно по Суттам</strong> на Пали. Минимум это несколько абзацев из <a target="_blank" href="https://docs.google.com/document/d/1BtzzQajyDcehIh6kRp7QrCIWD1DGUDVEFYilJ6BurPI" class="alert-link">Sn56.11</a>
+   В частности, что такое Серединная Практика и Четыре Благородные Истины.
+</div>
+
                       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2> 
 <div class="mb-5 text-start">
               <ol class="col-lg-8 col-md-10 ms-auto">
@@ -307,7 +313,8 @@ $arg = $lang. ' ' . $q;
                <li>Все сутты с <a href=./assets/demo/seyyathāpi_adhivacan_ūpama_opama_suttanta_pali.html>метафорами, примерами и сравнениями</a> на Пали со ссылками на Русские переводы. Запрос: "seyyathāpi|adhivacan|ūpama|opama" </li>   
               </ol>    
 </div>
-         
+
+
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Как Искать?</h2>
                 <!-- Icon Divider-->
@@ -476,13 +483,7 @@ $arg = $lang. ' ' . $q;
   </a>
   
 </div>  
-
-
-
-                  
                         <p class="lead mb-0"> 
-      
-	  
 
 
                         </p>
@@ -534,8 +535,18 @@ $arg = $lang. ' ' . $q;
       <small class="text-muted">Русский</small>
     </div>
     <p class="mb-1">Самая полная коллекция Русских переводов Суттанты.</p>
-    <small class="text-muted">Внимание! Переводы сделаны с английских переводов Сутт.</small>
+    <small class="text-muted">Внимание! Переводы выполнены с английских переводов Сутт.</small>
   </a>
+  
+    <a href="https://dhamma.ru/lib/authors/thanissaro/prat.htm" target="_blank"   class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Виная на Dhamma.ru </h5>
+      <small class="text-muted">Русский</small>
+    </div>
+    <p class="mb-1">Перевод Винаи для монахов</p>
+    <small class="text-muted">Внимание! Перевод выполнен с английского языка</small>
+  </a>
+  
   
  <a href="https://play.google.com/store/apps/details?id=hesoft.T2S" target="_blank"   class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">

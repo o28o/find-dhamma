@@ -26,6 +26,8 @@
 
         <title>404 Error</title>
     <link href="/assets/css/styles.css" rel="stylesheet" />
+    <script src="/assets/js/fontawesome.6.1.all.js" crossorigin="anonymous"></script>
+    
     </head>
 
 
@@ -39,6 +41,62 @@
                 etassa dukkhassa pariññāyā”ti. sn38.4
                   </p>
                 <a href="/" id="back" class="btn btn-primary">Go Home</a>
+                
+               <section class="page-section portfolio" id="help">
+            <div class="container text-center">
+
+   	<div class="d-md-inline-block">	
+
+<a class="text-decoration-none mx-1" href="./sc/">
+<figure class="figure text-decoration-none">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book-bookmark"></i>
+  <figcaption class="figure-caption text-center">Pāḷi-Eng</figcaption>
+</figure>
+</a>
+<a class="text-decoration-none mx-1" href="https://suttacentral.net">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
+<figcaption class="figure-caption text-center">SuttaCentral</figcaption>   
+</figure>	  
+</a>
+<a class="text-decoration-none mx-1" href="https://www.digitalpalireader.online/_dprhtml/index.html">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
+<figcaption class="figure-caption text-center">DPR.online</figcaption>   
+</figure>	  
+</a>
+<a class="text-decoration-none mx-1" href="/history.php">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-clock-rotate-left"></i>
+<figcaption class="figure-caption text-center">History</figcaption>   
+</figure>	  
+</a>
+
+<a class="text-decoration-none mx-1" href="#links">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-link"></i>
+<figcaption class="figure-caption text-center">Useful Links</figcaption>   
+</figure>	    
+</a> 
+
+<a class="text-decoration-none mx-1" target="_blank" href="https://voice.suttacentral.net">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-headphones"></i>
+<figcaption class="figure-caption text-center">Voice SC</figcaption>   
+</figure>	    
+</a> 
+
+<a class="text-decoration-none mx-1" href="https://drive.google.com/drive/folders/1nrNtb_4s27nJGq61tpigf_b2sO_KOnVG">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-graduation-cap"></i>
+<figcaption class="figure-caption text-center">Materials</figcaption>   
+</figure>	  
+</a>
+
+</div>          
+                
+                
+                
             </div>
         </div>
     </body>

@@ -10,7 +10,7 @@
 <meta name="author" content="" />
 <!-- Favicon-->
 
-<meta property="og:locale" content="en_US" />
+<meta property="og:locale" content="ru_RU" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="find.Dhamma.gift - Liberation Search Engine" />
 <meta property="og:description" content="Search in Pali Suttas and Vinaya in Pali, Russian, English and Thai" />
