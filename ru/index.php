@@ -255,17 +255,17 @@ $arg = $lang. ' ' . $q;
 </figure>	    
 </a> 
 
-<a class="text-decoration-none mx-1" target="_blank" href="https://voice.suttacentral.net">
+<a class="text-decoration-none mx-1" target="_blank" href="https://drive.google.com/file/d/1HVRK6yTMT59uHCCvTdQukRy7fmHNntOr/view?usp=sharing">
 <figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-headphones"></i>
-<figcaption class="figure-caption text-center">Слушать</figcaption>   
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-table-list"></i>
+<figcaption class="figure-caption text-center">Падежи</figcaption>   
 </figure>	    
 </a> 
 
-<a class="text-decoration-none mx-1" href="https://drive.google.com/drive/folders/1UudXBibx8srzOUI4bXAXi5EwzWMFpMtT">
+<a class="text-decoration-none mx-1" href="https://drive.google.com/file/d/1HzPCYsVBEkWErAk6TqSWRYKseM1hqMCb/view?usp=sharing">
 <figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-graduation-cap"></i>
-<figcaption class="figure-caption text-center">Материалы</figcaption>   
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-table-list"></i>
+<figcaption class="figure-caption text-center">Спряжения</figcaption>   
 </figure>	  
 </a>
 
