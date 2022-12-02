@@ -282,8 +282,7 @@ fileprefix=${fileprefix}-def
 fortitle="${fortitle} Definition"
 
 function grepbasefile {
-definition="$pattern"
-nice -19 egrep -Eir "Kata.*${definition}.{0,4}\\?|${definition}.*vucati|${definition}.*adhivacan|${definition}.{0,4}, ${definition}.*vucca" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
+nice -19 egrep -Eir "Kata.*${pattern}.{0,4}\\?|${pattern}.*vucati|${pattern}.*adhivacan|${pattern}.{0,4}, ${pattern}.*vucca" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
 
 elif [[ "$@" == *"-all"* ]]; then
@@ -312,7 +311,7 @@ elif [[ "$@" == *"-ru"* ]]; then
     type=html   
     metaphorkeys="как если бы|подобно|представь|обозначение|пример"
     nonmetaphorkeys="подобного"
-    definitionkeys="что такое.*${pattern}.{0,4}\\?|${pattern}.*vucati|${pattern}.*обозначение|${pattern}.{0,4}, ${pattern}.*говорят"
+    definitionkeys="что такое.*${pattern}.{0,4}\\?|${pattern}.*говорят|${pattern}.*обозначение|${pattern}.{0,4}, ${pattern}.*говорят"
 elif [[ "$@" == *"-pli"* ]]; then
     fnlang=_pali
     pali_or_lang=sc-data/sc_bilara_data/root/pli/ms
@@ -322,7 +321,7 @@ elif [[ "$@" == *"-pli"* ]]; then
     type=json
     metaphorkeys="seyyathāpi|adhivacan|ūpama|opama|opamma"
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath|ekarūp|tathārūpa|āmarūpa|\brūpa|evarūpa|\banopam|\battūpa|\bnillopa|opamaññ"
-    definitionkeys="Kata.*${definition}.{0,4}\\?|${definition}.*vucati|${definition}.*adhivacan|${definition}.{0,4}, ${definition}.*vucca"
+    definitionkeys="Kata.*${pattern}.{0,4}\\?|${pattern}.*vucati|${pattern}.*adhivacan|${pattern}.{0,4}, ${pattern}.*vucca"
    #modify pattern as legacy uses different letters
 elif [[ "$@" == *"-en"* ]]; then
     fnlang=_en
@@ -332,6 +331,7 @@ elif [[ "$@" == *"-en"* ]]; then
     type=json
     metaphorkeys="It’s like a |suppose|is a term for|similar to |simile"
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath" 
+    definitionkeys="what is.*${pattern}.{0,4}\\?|speak of this.*${pattern}|${pattern}.*term|${pattern}.{0,4}, ${pattern}.*говорят"
 else
     fnlang=_pali
     pali_or_lang=sc-data/sc_bilara_data/root/pli/ms
