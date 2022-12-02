@@ -312,7 +312,7 @@ elif [[ "$@" == *"-ru"* ]]; then
     type=html   
     metaphorkeys="как если бы|подобно|представь|обозначение|пример"
     nonmetaphorkeys="подобного"
-    
+    definitionkeys="что такое.*${pattern}.{0,4}\\?|${pattern}.*vucati|${pattern}.*обозначение|${pattern}.{0,4}, ${pattern}.*говорят"
 elif [[ "$@" == *"-pli"* ]]; then
     fnlang=_pali
     pali_or_lang=sc-data/sc_bilara_data/root/pli/ms
@@ -322,6 +322,7 @@ elif [[ "$@" == *"-pli"* ]]; then
     type=json
     metaphorkeys="seyyathāpi|adhivacan|ūpama|opama|opamma"
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath|ekarūp|tathārūpa|āmarūpa|\brūpa|evarūpa|\banopam|\battūpa|\bnillopa|opamaññ"
+    definitionkeys="Kata.*${definition}.{0,4}\\?|${definition}.*vucati|${definition}.*adhivacan|${definition}.{0,4}, ${definition}.*vucca"
    #modify pattern as legacy uses different letters
 elif [[ "$@" == *"-en"* ]]; then
     fnlang=_en
