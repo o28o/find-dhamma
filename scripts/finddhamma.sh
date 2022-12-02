@@ -418,6 +418,9 @@ basefile=${fn}_fn.$extention
 table=${modifiedfn}
 tempfile=${modifiedfn}.tmp
 tempfilewords=${modifiedfn}_words
+tempdeffile=${modifiedfn}.def.tmp
+deffile=${modifiedfn}_definitions
+
 
 if [[ -s ${table} ]] ; then 
 function md5checkwrite {
@@ -451,6 +454,13 @@ fi
 
 fi
 
+function gendeffile {
+  definition="$pattern"
+  egrep -Eir -A1 "(Kata.*${definition}.{0,4}\\?|${definition}.*vucati|${definition}.*adhivacan|${definition}.{0,4}, ${definition}.*vucca.ti)" $suttapath/ | sort -V > $tempdeffile
+  
+  cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' > $deffile 
+  
+}
 
 function genwordsfile {
 
