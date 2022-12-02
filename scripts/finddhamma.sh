@@ -222,7 +222,7 @@ linesafter=`echo "$@" | awk -F'-la ' '{print $2 }' | awk '{print $1}'`
 fi
 #echo la=$linesafter
 pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs `
-if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] || [[ "$pattern" == "-ogr" ]] || [[ "$pattern" == "-oge" ]] || [[ "$pattern" == "-vin" ]] || [[ "$pattern" == "-all" ]] || [[ "$pattern" == "" ]] || [[ "$pattern" == "-kn" ]] || [[ "$pattern" == "-pli" ]] 
+if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] || [[ "$pattern" == "-ogr" ]] || [[ "$pattern" == "-oge" ]] || [[ "$pattern" == "-vin" ]] || [[ "$pattern" == "-all" ]] || [[ "$pattern" == "" ]] || [[ "$pattern" == "-kn" ]] || [[ "$pattern" == "-pli" ]] || [[ "$pattern" == "-def" ]] 
 then   
 #emptypattern
    exit 3
@@ -276,6 +276,16 @@ nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang 
 fileprefix=${fileprefix}-kn
 fortitle="${fortitle} +KN"
 #| nice -19 egrep -v "snp|thag|thig|dhp|iti|ud"
+elif [[ "$@" == *"-def"* ]]
+then
+fileprefix=${fileprefix}-def
+fortitle="${fortitle} Definition"
+
+function grepbasefile {
+definition="$pattern"
+nice -19 egrep -Eir "Kata.*${definition}.{0,4}\\?|${definition}.*vucati|${definition}.*adhivacan|${definition}.{0,4}, ${definition}.*vucca" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
+}
+
 elif [[ "$@" == *"-all"* ]]; then
 function grepbasefile {
 nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site}
@@ -331,7 +341,6 @@ else
     metaphorkeys="seyyathāpi|adhivacan|ūpama|opama|opamma"
     nonmetaphorkeys="adhivacanasamphass|adhivacanapath|ekarūp|tathārūpa|āmarūpa|\brūpa|evarūpa|\banopam|\battūpa|\bnillopa|opamaññ"
 fi
-
 
 if [[ "$@" == *"-exc"* ]]
 then
@@ -421,7 +430,6 @@ tempfilewords=${modifiedfn}_words
 tempdeffile=${modifiedfn}.def.tmp
 deffile=${modifiedfn}_definitions
 
-ResultTableHeader=ResultTableHeader.html
 
 if [[ -s ${table} ]] ; then 
 function md5checkwrite {
@@ -455,15 +463,7 @@ fi
 
 fi
 
-function gendeffile {
-  definition="$pattern"
-  egrep -Eir -m1 "(Kata.*${definition}.{0,4}\\?|${definition}.*vucati|${definition}.*adhivacan|${definition}.{0,4}, ${definition}.*vucca.ti)" $basefile 
-  
-  
-}
-
 function genwordsfile {
-
 cat $tempfilewords | pvlimit | sedexpr | awk '{print tolower($0)}' | tr -s ' '  '\n' | sort | uniq -c | awk '{print $2, $1}' > $tempfile
 
 uniqwordtotal=`cat $tempfile | pvlimit | sort | uniq | wc -l `
@@ -513,7 +513,7 @@ function linklist {
 #echo -e "Content-Type: text/html\n\n"
 #echo $@
 
-cat $templatefolder/Header.html $templatefolder/$ResultTableHeader | sed 's/$title/TitletoReplace/g' | tohtml 
+cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
 
 textlist=`nice -19  cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq`
 

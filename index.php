@@ -174,8 +174,11 @@ input.addEventListener("keypress", function(event) {
   <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">Vinaya</div>
   
+     <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def ">Def</div>
+  
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+Later Texts</div>
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+Later</div>
 
 </div>
 

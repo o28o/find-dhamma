@@ -161,9 +161,10 @@ input.addEventListener("keypress", function(event) {
   <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
   </div>
+  
     <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
-  </div>
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def ">Опр</div>
+
   <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
   </div>
@@ -173,13 +174,16 @@ input.addEventListener("keypress", function(event) {
   </a>
 <div class="collapse mt-2 " id="collapseExample">
   <div class="float-start">
-    
+
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">+КН</div>
   <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">Виная</div>
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">Вин</div>
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+Поздние</div>
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+Позд</div>
+      <div class="form-check form-check-inline">
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
+  </div>
   </div>
 
 				</form>
