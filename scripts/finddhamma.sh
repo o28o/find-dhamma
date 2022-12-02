@@ -421,6 +421,7 @@ tempfilewords=${modifiedfn}_words
 tempdeffile=${modifiedfn}.def.tmp
 deffile=${modifiedfn}_definitions
 
+ResultTableHeader=ResultTableHeader.html
 
 if [[ -s ${table} ]] ; then 
 function md5checkwrite {
@@ -456,9 +457,8 @@ fi
 
 function gendeffile {
   definition="$pattern"
-  egrep -Eir -A1 "(Kata.*${definition}.{0,4}\\?|${definition}.*vucati|${definition}.*adhivacan|${definition}.{0,4}, ${definition}.*vucca.ti)" $suttapath/ | sort -V > $tempdeffile
+  egrep -Eir -m1 "(Kata.*${definition}.{0,4}\\?|${definition}.*vucati|${definition}.*adhivacan|${definition}.{0,4}, ${definition}.*vucca.ti)" $basefile 
   
-  cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' > $deffile 
   
 }
 
@@ -513,7 +513,7 @@ function linklist {
 #echo -e "Content-Type: text/html\n\n"
 #echo $@
 
-cat $templatefolder/Header.html $templatefolder/ResultTableHeader.html | sed 's/$title/TitletoReplace/g' | tohtml 
+cat $templatefolder/Header.html $templatefolder/$ResultTableHeader | sed 's/$title/TitletoReplace/g' | tohtml 
 
 textlist=`nice -19  cat $basefile | pvlimit | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' |  awk -F'_' '{print $1}' | sort -V | uniq`
 
