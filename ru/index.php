@@ -335,7 +335,7 @@ if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,
 </div>
 
                       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2> 
-<div class="mb-5 text-start">
+<div class="container mb-5 text-start">
               <ol class="col-lg-8 col-md-10 ms-auto">
                 <!-- <li>Вся <a href="./history.php">история поиска</a></li> -->
              <li>Определение понятия <a href="/assets/demo/kata.dukkhaṁ-question_suttanta_pali.html">dukkha</a> на Пали со ссылками на Русские переводы. Запрос: <a href="/assets/demo/kata.dukkhaṁ-question_suttanta_pali.html">Kata.*dukkhaṁ\\?</a>

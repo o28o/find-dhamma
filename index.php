@@ -323,7 +323,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 
          
                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Examples</h2>  
-              <div class="mb-5">
+              <div class="container mb-5">
               <ol class="col-lg-8 col-md-10 ms-auto text-start">
 			  
                    <!-- <li>All <a href="./history.php">previous searches</a></li> -->
