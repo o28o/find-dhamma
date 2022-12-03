@@ -152,33 +152,52 @@ input.addEventListener("keypress", function(event) {
 });
 
 </script>
+<script>
+$(document).ready(function(){
+    $('[data-bs-toggle="tooltip"]').tooltip();   
+});
+</script>
 
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">Pāḷi
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">
+   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Suttas of Anguttara Nikaya (an), Samyutta Nikaya (sn), Majjhimma Nikaya (mn), Digha Nikaya (dn)">Pāḷi</a>
+  
   </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Rus
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">
+   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in Russain">Rus</a>
+  
   </div>
     <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in Thai">ไทย</a>
+    
   </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in Eng">Eng</a>
   </div>
   <!-- extra options -->
   <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-gear"></i></a>
 <div class="collapse mt-2" id="collapseExample">
   <div class="float-start">
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">+KN</div>
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">
+   <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ search in Pali Khuddaka Nikaya: dhp, iti, ud, snp, thag, thig">+KN</a>
+  </div>
   <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">Vinaya</div>
+  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Pali Vinaya">Vinaya</a></div>
   
      <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def ">Def</div>
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def ">
+   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search for definitions in 4 main Nikayas in Pali. What is it, how many and what types, metaphors. Works only if definition was given in standard phrases. For all-round view studing all related Suttas is recommended.">Def</a>
+  </div>
   
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+Later</div>
+  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">
+   <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ search in Pali in all books of kn including later texts">+Later</a>
+  </div>
 
 </div>
 
