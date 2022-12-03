@@ -280,7 +280,7 @@ elif [[ "$@" == *"-def"* ]]
 then
 fileprefix=${fileprefix}-def
 fortitle="${fortitle} Definition"
-echo defmode
+
 function grepbasefile {
   defpattern=`echo $pattern | sed 's/[aoā]$//g'`
 nice -19 egrep -A1 -Eir "dn3[34].*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,9}${defpattern}|Kata.*${defpattern}.{0,4}\\?|${defpattern}.*adhivacan|${defpattern}.*vucati|${defpattern}.{0,4}, ${defpattern}.*vucca" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
