@@ -328,8 +328,8 @@ if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,
 
                         </p>
                                                 </div> 
-     <div class="alert alert-warning float-start text-left mb-3" role="alert">
- <i class="fa-solid fa-triangle-exclamation "></i> <b>Предупреждение!</b><br><br> Переводы выполнены не Буддой! Чаще всего содержат фундаментальные ошибки главных положений его Учения. Переводы нужно читать критически. <a target="_blank" href="https://docs.google.com/spreadsheets/d/1S1RLFobEvaJRn0AHeUFdI7CuISCUFE0b4xrzYgZpkI0" class="alert-link"> Примеры грубых ошибок</a><br><br>
+     <div class="container alert alert-warning float-start text-left mb-3" role="alert">
+ <i class="fa-solid fa-triangle-exclamation "></i> <b>Предупреждение!</b><br><br> Переводы выполнены не Буддой! Чаще всего содержат фундаментальные ошибки главных положений его Учения. Переводы нужно читать критически. <a target="_blank" href="https://docs.google.com/spreadsheets/d/1S1RLFobEvaJRn0AHeUFdI7CuISCUFE0b4xrzYgZpkI0" class="alert-link"> Примеры ошибок</a><br><br>
   Самое важное из слов Будды и его учеников лучше изучить <strong> самостоятельно по Суттам</strong> на Пали. Минимум это несколько абзацев из <a target="_blank" href="https://docs.google.com/document/d/1BtzzQajyDcehIh6kRp7QrCIWD1DGUDVEFYilJ6BurPI" class="alert-link">Sn56.11</a>
    В частности, что такое Серединная Практика и Четыре Благородные Истины.
 </div>

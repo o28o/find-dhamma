@@ -317,7 +317,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 
                         </p></div> 
          
-              <div class="alert alert-warning float-start text-left mb-3" role="alert">
+              <div class="container alert alert-warning float-start text-left mb-3" role="alert">
  <i class="fa-solid fa-triangle-exclamation "></i> <b>Warning about translations!</b><br><br> Translations were made not by Buddha! Be scrutinizing and critical reading them. The most important fundamentals of Buddhas Teaching better to be learned<strong> on one's own from Suttas</strong> in Pali. The minimum is: few paragraphs from <a target="_blank" href="/sc/?q=sn56.11&lang=pli" class="alert-link">Sn56.11</a> where Middle Practice and Four Noble Truths are explained.
 </div>
 
