@@ -47,7 +47,7 @@
     	<?php
 		// Defining variables
 $nameErr = $languageErr  = "";
-$q = $lang = $arg = $string = $sutta = "";
+$q = $p = $arg = $string = $sutta = "";
 		// Checking for a GET request
 		
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -60,10 +60,10 @@ $q = $lang = $arg = $string = $sutta = "";
       $nameErr = "Only letters and white space allowed";
     }
   }
-	if (empty($_GET["lang"])) {
+	if (empty($_GET["p"])) {
     $languageErr = "language is required";
   } else {
-    $lang = test_input($_GET["lang"]);
+    $p = test_input($_GET["p"]);
   }
 }	
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -78,10 +78,10 @@ $q = $lang = $arg = $string = $sutta = "";
 		return $data;
 		}
 		
-      if (empty($_GET["lang"])) {
+      if (empty($_GET["p"])) {
     $languageErr = "";
   } else {
-    $lang = test_input($_GET["lang"]);
+    $p = test_input($_GET["p"]);
   }
 		?>
  
@@ -156,21 +156,21 @@ input.addEventListener("keypress", function(event) {
 </script>
 
   <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="-pli") echo "checked";?> value="-pli">
   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск по Суттам Ангутара Никаи (an), Саньютта Никаи (sn), Маджжхима Никаи (mn), Дигха Никаи (dn) + Удана (ud) из Кхуддака Никаи (kn)">Pāḷi</a>
   </div>
   <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-ru ") echo "checked";?> value="-ru">
   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск по русским переводам АН, СН, МН, ДН с SuttaCentral.net">Рус</a>
   </div>
   
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def">
-  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск определений понятия на Пали в 4 Никаях. Что это, какие виды бывают, какими метафорами описывается. Работает только для стандартных фраз! Для исчерпывающей информации изучите максимальное количество Сутт с этим понятием.">Опр</a>
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def">
+  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск определений понятия на Пали в 4 Никаях. Что это, какие виды бывают, какими метафорами описывается. Работает только для стандартных фраз!">Опр</a>
   </div>
 
   <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="English") echo "checked";?> value="-en">
   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск по англ. переводам АН, СН, МН, ДН с SuttaCentral.net">Eng</a>
   </div>
   
@@ -187,22 +187,22 @@ $(document).ready(function(){
 });
 </script>
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn " >
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn " >
   <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ поиск на Пали в 6 книгах Кхуддака Никаи: Удана, Дхаммапада, Итивутака, Суттанипата, Тхерагатха, Тхеригатха">+КН</a>
   </div>
   
   <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">
   
   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск в Винае на Пали">Вин</a>
   </div>
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">
   <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ поиск на Пали во всех книгах Кхуддака Никаи, включая поздние">+Позд</a>
   
   </div>
       <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-th ") echo "checked";?> value="-th">
   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск в 4 основных Никаях на Тайском">ไทย</a>
   </div>
   </div>
@@ -210,7 +210,7 @@ $(document).ready(function(){
 				</form>
 				
 				<?php
-$arg = $lang. ' ' . $q;
+$arg = $p. ' ' . $q;
 ?>
  </div>
 <div>	
@@ -222,9 +222,9 @@ $arg = $lang. ' ' . $q;
 			$string = str_replace ("`", "", $q);
 	
 /* ru with arg */ 
-if( $lang == "-ru" ) 
+if( $p == "-ru" ) 
 {
-    if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
+    if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
     {
   $string = str_replace(".","_","$string"). '-';
   $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $string" );
@@ -234,7 +234,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 }
 }
 
-if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
+if(preg_match("/^(mn|dn)[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
     echo "<script>window.location.href='/sc/?q=$string';</script>";
   exit();
 }
@@ -253,7 +253,7 @@ if(preg_match("/^[\x{043C}\x{041C}][\x{043D}][0-9].*$/i",$string) || preg_match(
 echo '<script>window.open("' . $link . '", "_self");</script>';
   exit();
 }
-			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $lang $string"); 
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $p $string"); 
 			echo "<p class='mt-3'>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>	
@@ -345,8 +345,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                                                 </div> 
      <div class="container alert alert-warning float-start text-left mb-3" role="alert">
  <i class="fa-solid fa-triangle-exclamation "></i> <b>Предупреждение!</b><br><br> Переводы выполнены не Буддой! Чаще всего содержат фундаментальные ошибки главных положений его Учения. Переводы нужно читать критически. <a target="_blank" href="https://docs.google.com/spreadsheets/d/1e-uFcjBzmCf08t7BUR-Ffnz3ZlSzhLNUnIWbMbvg3go" class="alert-link"> Примеры ошибок</a><br><br>
-  Самое важное из слов Будды и его учеников лучше изучить <strong> самостоятельно по Суттам</strong> на Пали. Минимум это несколько абзацев из <a target="_blank" href="https://docs.google.com/document/d/1BtzzQajyDcehIh6kRp7QrCIWD1DGUDVEFYilJ6BurPI" class="alert-link">Sn56.11</a>
-   В частности, что такое Серединная Практика и Четыре Благородные Истины.
+  Самое важное из слов Будды и его учеников лучше изучить <strong> самостоятельно по Суттам</strong> на Пали. Минимум это несколько абзацев из <a target="_blank" href="https://docs.google.com/document/d/1BtzzQajyDcehIh6kRp7QrCIWD1DGUDVEFYilJ6BurPI" class="alert-link">Sn56.11</a>. В частности, что такое Серединная Практика и Четыре Благородные Истины.
 </div>
 
                       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">Примеры</h2> 

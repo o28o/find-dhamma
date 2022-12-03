@@ -48,7 +48,7 @@
 
 		// Defining variables
 $nameErr = $languageErr  = "";
-$q = $lang = $arg = $extra = "";
+$q = $p = $arg = $extra = "";
 		// Checking for a GET request
 		
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -61,10 +61,10 @@ $q = $lang = $arg = $extra = "";
       $nameErr = "Only letters and white space allowed";
     }
   }
-	if (empty($_GET["lang"])) {
+	if (empty($_GET["p"])) {
     $languageErr = "language is required";
   } else {
-    $lang = test_input($_GET["lang"]);
+    $p = test_input($_GET["p"]);
   }
 }	
 		
@@ -79,10 +79,10 @@ $q = $lang = $arg = $extra = "";
 		return $data;
 		}
 		
-      if (empty($_GET["lang"])) {
+      if (empty($_GET["p"])) {
     $languageErr = "";
   } else {
-    $lang = test_input($_GET["lang"]);
+    $p = test_input($_GET["p"]);
   }
 		?>
  
@@ -159,22 +159,22 @@ $(document).ready(function(){
 </script>
 
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="Pali") echo "checked";?> value="">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="Pali") echo "checked";?> value="">
    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Suttas of Anguttara Nikaya (an), Samyutta Nikaya (sn), Majjhimma Nikaya (mn), Digha Nikaya (dn)">Pāḷi</a>
   
   </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-ru ") echo "checked";?> value="-ru">
    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in Russain">Rus</a>
   
   </div>
     <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-th ") echo "checked";?> value="-th">
     <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in Thai">ไทย</a>
     
   </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="English") echo "checked";?> value="-en">
     <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in Eng">Eng</a>
   </div>
   <!-- extra options -->
@@ -182,20 +182,20 @@ $(document).ready(function(){
 <div class="collapse mt-2" id="collapseExample">
   <div class="float-start">
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">
    <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ search in Pali Khuddaka Nikaya: dhp, iti, ud, snp, thag, thig">+KN</a>
   </div>
   <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">
     <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Pali Vinaya">Vinaya</a></div>
   
      <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def ">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def ">
    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search for definitions in 4 main Nikayas in Pali. What is it, how many and what types, metaphors. Works only if definition was given in standard phrases. For all-round view studing all related Suttas is recommended.">Def</a>
   </div>
   
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">
    <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ search in Pali in all books of kn including later texts">+Later</a>
   </div>
 
@@ -220,7 +220,7 @@ abbreviations.forEach(book => {
 
 <?php
 
-$arg = $lang . ' ' . $q;
+$arg = $p . ' ' . $q;
 ?>
  </div>
       </div>	
@@ -228,7 +228,7 @@ $arg = $lang . ' ' . $q;
 		<?php
 		$string = str_replace ("`", "", $q);
 			
-			if( $lang == "-ru" ) 
+			if( $p == "-ru" ) 
 {
     if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
     {
@@ -244,7 +244,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
   exit();
 }
-			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $extra $lang $string"); 
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $extra $p $string"); 
 			echo "<p>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>	
