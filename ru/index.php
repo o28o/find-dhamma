@@ -221,6 +221,7 @@ $arg = $lang. ' ' . $q;
 	$old_path = getcwd();
 			$string = str_replace ("`", "", $q);
 	
+/* ru with arg */ 
 if( $lang == "-ru" ) 
 {
     if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
@@ -237,7 +238,21 @@ if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,
     echo "<script>window.location.href='/sc/?q=$string';</script>";
   exit();
 }
-
+/* ru with layout */ 
+if(preg_match("/^[\p{Cyrillic}]{1,2}[0-9].*$/i",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
+    {
+  $string = str_replace("н","n","$string");
+  $string = str_replace("м","m","$string");
+  $string = str_replace("д","d","$string");
+  $string = str_replace("с","s","$string");
+  $string = str_replace("а","a","$string");
+  $string = str_replace("у","u","$string");
+  $string = str_replace(".","_","$string"). '-';
+  $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $string" );
+ $link = str_replace(PHP_EOL, '', $link);
+echo '<script>window.open("' . $link . '", "_self");</script>';
+  exit();
+}
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $lang $string"); 
 			echo "<p class='mt-3'>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
