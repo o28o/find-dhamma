@@ -239,7 +239,7 @@ if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,
   exit();
 }
 /* ru with layout */ 
-if(preg_match("/^[\p{Cyrillic}]{1,2}[0-9].*$/i",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
+if(preg_match("/^[\x{043C}\x{041C}][\x{043D}][0-9].*$/i",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
     {
   $string = str_replace("н","n","$string");
   $string = str_replace("м","m","$string");
