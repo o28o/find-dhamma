@@ -205,6 +205,7 @@ if [[ "$@" == *"-h"* ]]; then
     <br>
     $> ./scriptname.sh moggall<br>
     <br>
+    -def - find definitions in Pali <br>
     -vin - to search in vinaya texts only <br>
     -abhi - to search in abhidhamma texts only <br>
     -en - to search in english <br>
@@ -740,9 +741,6 @@ if ls $roottext | egrep -q "sn[0-9]{0,2}.[0-9]*_"
 then
 roottitle=`nice -19 grep "${suttanumber}," $sntoccsv | awk -F',' '{print $8" "$4}' | sort -V | uniq`
 fi
-
-linkthai=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
-
   
  if [[ $filenameblock == *"dn"* ]]
 then 
@@ -755,6 +753,9 @@ linklang=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "Д
 #linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 linkpli=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=pli"}' `
 linken=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=eng"}' `
+
+linkthai=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
+
 count=`nice -19 egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
 
@@ -779,11 +780,14 @@ nice -19 egrep -A${linesafter} -ih "${pattern}" $file | grep -v "^--$" | clearse
 echo "$line"
 echo '<br class="styled">'
 done | tohtml
+
+
 echo "</td>
 <!-- <td><a target=\"_blank\" href=\"https://voice.suttacentral.net/scv/index.html?#/sutta?search=${filenameblock}\">mp3</a></td> -->
 </tr>" | tohtml
 
 done
+
 matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
 }
 
@@ -889,7 +893,7 @@ fi
 echo "<!-- begin $pattern --> 
 <tr><td><a class=\"outlink\" href=\"./result/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./result/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
 " >> $history
-
+#echo thlnk=$linkthai fnb=$filenameblock
 echo "<script>window.location.href='./result/${table}';</script>"
 
 exit 0

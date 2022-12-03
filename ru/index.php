@@ -14,8 +14,8 @@
 
 <meta property="og:locale" content="ru_RU" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="find.Dhamma.gift - Поисковая Система Освобождения" />
-<meta property="og:description" content="Находите информацию в Суттах и Винае на Пали, Русском, Английском и Тайском" />
+<meta property="og:title" content="find.Dhamma.gift" />
+<meta property="og:description" content="Поисковая Система Освобождения. Находите определения и информацию в Суттах и Винае на Пали, Русском, Английском и Тайском" />
 <meta property="og:url" content="https://find.dhamma.gift/" />
 <meta property="og:site_name" content="find.Dhamma.gift" />
 <meta property="og:image" itemprop="image" content="https://find.dhamma.gift/assets/social_sharing_gift_rus.jpg" />
@@ -47,7 +47,7 @@
     	<?php
 		// Defining variables
 $nameErr = $languageErr  = "";
-$q = $lang = $arg = "";
+$q = $lang = $arg = $string = $sutta = "";
 		// Checking for a GET request
 		
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -220,11 +220,24 @@ $arg = $lang. ' ' . $q;
 	<?php
 	$old_path = getcwd();
 			$string = str_replace ("`", "", $q);
-			
-			if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
-    echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
+	
+if( $lang == "-ru" ) 
+{
+    if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
+    {
+  $string = str_replace(".","_","$string"). '-';
+  $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $string" );
+ $link = str_replace(PHP_EOL, '', $link);
+echo '<script>window.open("' . $link . '", "_self");</script>';
   exit();
 }
+}
+
+if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
+    echo "<script>window.location.href='/sc/?q=$string';</script>";
+  exit();
+}
+
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $lang $string"); 
 			echo "<p class='mt-3'>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"

@@ -12,8 +12,8 @@
 
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="find.Dhamma.gift - Liberation Search Engine" />
-<meta property="og:description" content="Search in Pali Suttas and Vinaya in Pali, Russian, English and Thai" />
+<meta property="og:title" content="find.Dhamma.gift" />
+<meta property="og:description" content="Liberation Search Engine. Search in Pali Suttas and Vinaya in Pali, Russian, English and Thai" />
 
 <meta property="og:url" content="https://find.dhamma.gift/" />
 <meta property="og:site_name" content="find.Dhamma.gift" />
@@ -228,6 +228,18 @@ $arg = $lang . ' ' . $q;
 		<?php
 		$string = str_replace ("`", "", $q);
 			
+			if( $lang == "-ru" ) 
+{
+    if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
+    {
+  $string = str_replace(".","_","$string"). '-';
+  $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $string" );
+ $link = str_replace(PHP_EOL, '', $link);
+echo '<script>window.open("' . $link . '", "_self");</script>';
+  exit();
+}
+}
+
 			if(preg_match("/^(mn|dn)[0-9].*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
   exit();
