@@ -284,7 +284,7 @@ fortitle="Definition ${fortitle}"
 
 function grepbasefile {
   defpattern=`echo $pattern | sed 's/[aoā]$//g'`
-nice -19 egrep -A1 -Eir "dn3[34].*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,9}${defpattern}|Kata.*${defpattern}.{0,4}\\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5}${defpattern}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacanī" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
+nice -19 egrep -A1 -Eir "dn3[34].*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,9}${defpattern}|Kata.*${defpattern}.{0,4}\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5}${defpattern}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacan|\bIdaṁ .*${defpattern}" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
 #\bKatha.*${defpattern}|
 elif [[ "$@" == *"-all"* ]]; then
