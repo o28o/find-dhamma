@@ -209,12 +209,12 @@ if [[ "$@" == *"-h"* ]]; then
     -vin - to search in vinaya texts only <br>
     -abhi - to search in abhidhamma texts only <br>
     -en - to search in english <br>
-    -ru - to search in russian <br>
+    -ru - to search in sian <br>
     -th - to search in thai <br>
     -pli - to search in pali (default option) <br>
     -nbg - no background <br>
 	-kn - include Khuddaka Nikaya selected books <br>
-	-oru - output messages in Russian<br>"
+	-oru - output messages in sian<br>"
     exit 0
 fi
 
@@ -279,12 +279,12 @@ fortitle="${fortitle} +KN"
 #| nice -19 egrep -v "snp|thag|thig|dhp|iti|ud"
 elif [[ "$@" == *"-def"* ]]
 then
-fileprefix=${fileprefix}-def
+fileprefix=${fileprefix}-definition
 fortitle="Definition ${fortitle}"
 
 function grepbasefile {
   defpattern=`echo $pattern | sed 's/[aoā]$//g'`
-nice -19 egrep -A1 -Eir "dn3[34].*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,9}${defpattern}|Kata.*${defpattern}.{0,4}\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5}${defpattern}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacan|\bIdaṁ .*${defpattern}" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
+nice -19 egrep -A1 -Eir "dn3[34].*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,9}${defpattern}|\bKata.{0,20} ${defpattern}.{0,4}\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5} ${defpattern}{0,7}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacan|\bIdaṁ .*${defpattern}{0,6}\b" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
 #\bKatha.*${defpattern}|
 elif [[ "$@" == *"-all"* ]]; then
@@ -307,7 +307,7 @@ if [[ "$@" == *"-th"* ]]; then
 elif [[ "$@" == *"-ru"* ]]; then
     fnlang=_ru
     pali_or_lang=sc-data/html_text/ru/pli 
-    language=Russian
+    language=sian
 	printlang=Русский
     directlink=
     type=html   
@@ -524,18 +524,22 @@ for filenameblock in `nice -19 cat $basefile | pvlimit | awk -F':' '{print $1}' 
 
     roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     translation=`nice -19 find $lookup/translation/en/ -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*" |head -n1`
-    rustr=`nice -19 find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+    
     variant=`nice -19 find $lookup/variant -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
     
-    rusnp=`echo $filenameblock | sed 's@\.@_@g'`
-    rustr=`nice -19 find $searchdir -name "*${rusnp}-*"`
+    np=`echo $filenameblock | sed 's@\.@_@g'`
+    tr=`nice -19 find $searchdir -name "*${np}-*"`
 
-     rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
+     thrulink=`echo $tr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
+if [[ "$thrulink" == "" ]]; then
+#tr=`nice -19 find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
+thrulink="https://suttacentral.net/$filenameblock"
+fi 
 
 if [[ $filenameblock == *"dn"* ]]
 then 
 dnnumber=`echo $filenameblock | sed 's/dn//g'`
-rusthrulink=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "ДН $dnnumber" | sed 's#href="#href="https://tipitaka.theravada.su#' |awk -F'"' '{print $2}'`
+thrulink=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "ДН $dnnumber" | sed 's#href="#href="https://tipitaka.theravada.su#' |awk -F'"' '{print $2}'`
   fi 
 
 if [[ "$language" == "Pali" ]]; then
@@ -585,11 +589,11 @@ translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{pri
  
 
 
-if [[ "$fortitle" == "Suttanta" ]]
-then
+#if [[ "$fortitle" == "Suttanta" ]]
+#then
 linkthai=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
-linkrus=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0""}' `
-fi
+link=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0""}' `
+#fi
 
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}'`
 linkgeneral=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=pli-eng"}' `
@@ -601,9 +605,9 @@ linkpli=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"
 #linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 count=`nice -19 egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
-#russian text 
+#sian text 
 #link ru 
-#translatorsname=`echo $rustr | awk -F'/ru/' '{print $2}' | awk -F'/' '{if ($4 ~ /html/ || $4 ~ /[0-9]/ || $NF > 3 ) print "sv"; else print $4}'`
+#translatorsname=`echo $tr | awk -F'/ru/' '{print $2}' | awk -F'/' '{if ($4 ~ /html/ || $4 ~ /[0-9]/ || $NF > 3 ) print "sv"; else print $4}'`
 #echo -e "`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/ru/'$translatorsname'"}' ` " | tee -a ${quotes} ${links_and_words}  ${metaphors} #>/dev/null
 #/home/a0092061/scripts/suttacentral.net/sc-data-master/html_text/ru/pli/sutta
 #${textspi} ${textsru} ${textsen}
@@ -630,8 +634,8 @@ echo "<tr>
 <td>$count</td>   
 <td>$metaphorcount</td>
 <td><a target=\"_blank\" href="$linkpli">Pāḷi</a> 
-`[[ $rusthrulink != "" ]] && echo "<a target=\"_blank\" href="$rusthrulink">Rus</a>"` 
-`[[ $rusthrulink == "" ]] && [[ $linkrus != "" ]] && echo "<a target=\"_blank\" href="$linkrus">Rus</a>"` 
+`[[ $thrulink != "" ]] && echo "<a target=\"_blank\" href="$thrulink">Rus</a>"` 
+`[[ $thrulink == "" ]] && [[ $link != "" ]] && echo "<a target=\"_blank\" href="$link">Rus</a>"` 
 `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">Eng</a> 
 </td>" | tohtml 
 
@@ -662,7 +666,7 @@ matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
 
 #Sibbin 999 matches in 444 texts of Pali Suttas
 }
-#e g for russian language
+#e g for sian language
 elif [[ "$type" == html ]]; then
 
 filelist=`echo "
@@ -681,9 +685,9 @@ function linklist {
 #echo -e "Content-Type: text/html\n\n"
 #echo $@
 
-#russian text 
+#sian text 
 #link ru 
-#translatorsname=`echo $rustr | awk -F'/ru/' '{print $2}' | awk -F'/' '{if ($4 ~ /html/ || $4 ~ /[0-9]/ || $NF > 3 ) print "sv"; else print $4}'`
+#translatorsname=`echo $tr | awk -F'/ru/' '{print $2}' | awk -F'/' '{if ($4 ~ /html/ || $4 ~ /[0-9]/ || $NF > 3 ) print "sv"; else print $4}'`
 #echo -e "`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/ru/'$translatorsname'"}' ` " | tee -a ${quotes} ${links_and_words}  ${metaphors} #>/dev/null
 #/home/a0092061/scripts/suttacentral.net/sc-data-master/html_text/ru/pli/sutta
 #${textspi} ${textsru} ${textsen}
@@ -703,11 +707,11 @@ do
     filenameblock=`echo $i |  sed 's/.html//g' | sort -V | uniq `
 file=`grep -m1 $filenameblock $basefile`
    # count=`nice -19 egrep -oi$grepgenparam "$pattern" $file | wc -l` 
-rustr=$file
+tr=$file
 
     #roottext=`find $lookup/root -name "*${filenameblock}_*"`
    # translation=`find $lookup/translation/en/ -name "*${filenameblock}_*"`
-    #rustr=`find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*"`
+    #tr=`find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*"`
    # variant=`find $lookup/variant -name "*${filenameblock}_*"`
     
     suttanumber="$filenameblock"
@@ -721,18 +725,18 @@ roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/b
         file=$roottext
         
 
-    elif [[ "$language" == "Russian" ]]; then
-        file=$rustr
+    elif [[ "$language" == "sian" ]]; then
+        file=$tr
         remtitle=`echo $filenameblock | sed 's/[A-Za-z]//g'`
 suttatitle=`grep 'h1' $file | clearsed | xargs | sed 's@'$remtitle'@@g'`
 		
 	
-	   rusnp=`echo $filenameblock | sed 's@\.@_@g'`
-    rustr=`find $searchdir -name "*${rusnp}-*"`
+	   np=`echo $filenameblock | sed 's@\.@_@g'`
+    tr=`find $searchdir -name "*${np}-*"`
 
-     rusthrulink=`echo $rustr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
+     thrulink=`echo $tr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
 
-linklang=$rusthrulink	
+linklang=$thrulink	
 fi
 
 roottitle=`nice -19 grep ':0\.' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
@@ -773,7 +777,7 @@ echo "<tr>
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>
-<td><a target=\"_blank\" href="$linkpli">Pāḷi</a>&nbsp;<a target=\"_blank\" href="$linklang">Рус</a>`[[ $rusthrulink != "" ]] && [[ "$rusthrulink" != "$linklang" ]] && echo "&nbsp;<a target=\"_blank\" href="$rusthrulink">Вар. 2</a>"` `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"`&nbsp;<a target=\"_blank\" href="$linken">"Eng"</a>
+<td><a target=\"_blank\" href="$linkpli">Pāḷi</a>&nbsp;<a target=\"_blank\" href="$linklang">Рус</a>`[[ $thrulink != "" ]] && [[ "$thrulink" != "$linklang" ]] && echo "&nbsp;<a target=\"_blank\" href="$thrulink">Вар. 2</a>"` `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"`&nbsp;<a target=\"_blank\" href="$linken">"Eng"</a>
 </td>
 <td>" | tohtml
 nice -19 egrep -A${linesafter} -ih "${pattern}" $file | grep -v "^--$" | clearsed | highlightpattern  | while IFS= read -r line ; do
@@ -894,7 +898,7 @@ echo "<!-- begin $pattern -->
 <tr><td><a class=\"outlink\" href=\"./result/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./result/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
 " >> $history
 #echo thlnk=$linkthai fnb=$filenameblock
-echo "<script>window.location.href='./result/${table}';</script>"
+echo "<script>window.location.href=\"./result/${table}\";</script>"
 
 exit 0
 
