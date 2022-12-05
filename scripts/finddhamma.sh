@@ -531,10 +531,10 @@ for filenameblock in `nice -19 cat $basefile | pvlimit | awk -F':' '{print $1}' 
     tr=`nice -19 find $searchdir -name "*${np}-*"`
 
      thrulink=`echo $tr | sed 's@.*theravada.ru@https://www.theravada.ru@g'`
-if [[ "$thrulink" == "" ]]; then
+#if [[ "$thrulink" == "" ]]; then
 #tr=`nice -19 find $suttapath/sc-data/html_text/ru/pli -name "*${filenameblock}*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
-thrulink="https://suttacentral.net/$filenameblock"
-fi 
+#thrulink="https://suttacentral.net/$filenameblock"
+#fi 
 
 if [[ $filenameblock == *"dn"* ]]
 then 
@@ -589,11 +589,11 @@ translatorsname=`echo $translation | awk -F'/en/' '{print $2}' | awk -F'/' '{pri
  
 
 
-#if [[ "$fortitle" == "Suttanta" ]]
-#then
+if [[ "$fortitle" == *"Suttanta"* ]]
+then
 linkthai=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/th/siam_rath"}' `
 link=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0""}' `
-#fi
+fi
 
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}'`
 linkgeneral=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=pli-eng"}' `
