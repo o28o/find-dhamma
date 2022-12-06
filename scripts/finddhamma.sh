@@ -862,7 +862,7 @@ tempfilewords=${tempfilewords}_${textsqnty}-${matchqnty}-${uniqwordtotal}.html
 echo "</tbody>
 </table>
 <a href='/' id='back'>Main page</a>&nbsp;
-<a href='/history.php'>Main page</a>&nbsp;
+<a href='/history.php'>History</a>&nbsp;
 <a href=\"/result/${tempfilewords}\">Words</a>
 " | tohtml
 cat $templatefolder/Footer.html | tohtml
@@ -875,7 +875,7 @@ table=${table}_${textsqnty}-${matchqnty}.html
 echo "</tbody>
 </table>
 <a href='/' id='back'>Main page</a>&nbsp;
-<a href='/history.php'>Main page</a>&nbsp;
+<a href='/history.php'>History</a>&nbsp;
 <a href=\"/result/${table}\">Quotes</a>
 " >> $tempfilewords
 cat $templatefolder/WordsFooter.html >> $tempfilewords
