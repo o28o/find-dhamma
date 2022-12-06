@@ -222,6 +222,18 @@ $arg = $p. ' ' . $q;
 			$string = str_replace ("`", "", $q);
 	
 /* ru with arg */ 
+
+
+  if (preg_match("/^dn[0-9]{1,2}s$/i",$string)) {
+    
+$forthsu = preg_replace("/dn/i","","$string");
+$forthsu = preg_replace("/s/i","","$forthsu");
+$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"#href=\"https://tipitaka.theravada.su#' |awk -F'\"' '{print \$2}'"); 
+$link = str_replace(PHP_EOL, '', $link);
+
+echo '<script>window.open("' . $link . '", "_self");</script>';
+  exit();
+}
 if( $p == "-ru" ) 
 {
     if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
@@ -232,14 +244,17 @@ if( $p == "-ru" )
   $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . $filename;
  $link = str_replace(PHP_EOL, '', $link);
   } 
-  elseif (preg_match("/^dn[0-9]{1,2}$/i",$string) || preg_match("/^dn[0-9]{1,2}s$/i",$string)) {
-    $forthsu = preg_replace("/dn/i","","$string");
+  elseif (preg_match("/^dn[0-9]{1,2}$/i",$string)) {
+
+$forthsu = preg_replace("/dn/i","","$string");
 $link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"#href=\"https://tipitaka.theravada.su#' |awk -F'\"' '{print \$2}'"); 
 $link = str_replace(PHP_EOL, '', $link);
+
 }
 echo '<script>window.open("' . $link . '", "_self");</script>';
   exit();
 }
+
 }
 
 if( $p == "-th" ) 
