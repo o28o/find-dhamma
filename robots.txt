@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Allow: /ru/
+Allow: /result/
+Disallow: /scripts/
+Disallow: /bgh.php
+
+User-agent: Googlebot
+Allow: /
+Allow: /ru/
+Allow: /result/
+Disallow: /scripts/
+Disallow: /bgh.php
+
+User-agent: Yandex
+Allow: /
+Allow: /ru/
+Allow: /result/
+Disallow: /scripts/
+Disallow: /bgh.php
+Host: find.dhamma.gift

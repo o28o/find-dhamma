@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
 
-<title>find.Dhamma.gift - Suttas and Vinaya search that is better than Google</title>
+<title>find.Dhamma.gift</title>
  <meta http-equiv="Cache-control" content="public">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="find.Dhamma.gift" />
-<meta property="og:description" content="Liberation Search Engine. Search in Pali Suttas and Vinaya in Pali, Russian, English and Thai" />
+<meta property="og:description" content="Liberation Search Engine. Search in Suttas and Vinaya in Pali, Russian, English and Thai" />
 
 <meta property="og:url" content="https://find.dhamma.gift/" />
 <meta property="og:site_name" content="find.Dhamma.gift" />
@@ -358,7 +358,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                         </p></div> 
          
               <div class="container alert alert-warning float-start text-left mb-3" role="alert">
- <i class="fa-solid fa-triangle-exclamation "></i> <b>Warning about translations!</b><br><br> Translations were made not by Buddha! Be scrutinizing and critical reading them. The most important fundamentals of Buddhas Teaching is better to be learned<strong> on one's own from Suttas</strong> in Pali. The minimum is: Middle Practice and Four Noble Truths. E.g. few paragraphs from <a target="_blank" href="/sc/?q=sn56.11&lang=pli" class="alert-link">Sn56.11</a>.
+ <i class="fa-solid fa-triangle-exclamation "></i> <b>Warning about translations!</b><br><br> Translations did not come from Buddha! Be scrutinizing and critical reading them. The most important fundamentals of Buddhas Teaching are better to be learned<strong> on one's own from Suttas</strong> in Pali. The minimum is: Middle Practice and Four Noble Truths. E.g. few paragraphs from <a target="_blank" href="/sc/?q=sn56.11&lang=pli" class="alert-link">Sn56.11</a>.
 </div>
 
          
