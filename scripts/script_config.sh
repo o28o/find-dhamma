@@ -8,7 +8,7 @@ linesafter=0
 minlength=4
 truncatelength=30
 filesizenooverwrite=800000
-maxmatchesbg=1400
+maxmatchesbg=2200
 history="/home/a0092061/domains/find.dhamma.gift/public_html/result/.history"
 sntoccsv="/home/a0092061/domains/find.dhamma.gift/public_html/assets/sn_toc.csv"
 

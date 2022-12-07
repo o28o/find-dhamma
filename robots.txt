@@ -1,3 +1,4 @@
+Sitemap: https://find.dhamma.gift/sitemap.xml
 User-agent: *
 Allow: /
 Allow: /ru/

@@ -378,7 +378,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                 <li>All suttas where <a href="https://find.dhamma.gift/assets/demo/sariputt_suttanta_ru_176-1082.html">Sariputta</a> was mentioned in Russian</li>
     
              <li>All suttas about or containing the word <a href="https://find.dhamma.gift/assets/demo/ocean_suttanta_en_91-274.html">ocean</a> in English</li>
-                 <li>All Suttas with <a href=./assets/demo/seyyathāpi_adhivacan_ūpama_opama_suttanta_pali.html>metaphors & similies</a> in Pali and English</li>   
+                 <li>All Suttas with <a href=./assets/demo/seyyathaapi-adhivacan-uupama-opama_suttanta_pali_627-2101.html>metaphors & similies</a> in Pali and English</li>   
               </ol>    
 </div>         
                 <!-- Portfolio Section Heading-->

@@ -395,7 +395,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                 <li>Все сутты, где упомянут <a href="https://find.dhamma.gift/assets/demo/sariputt_suttanta_ru_176-1082.html">Сарипутта</a> на Русском</li>
                <li>Все варианты словосочетания <a href="https://find.dhamma.gift/assets/demo/pat.iccasamupp_suttanta_pali_36-115.html">paṭiccasamuppado</a> на Пали со ссылками на Русские переводы</li>
                <li>Все сутты где, упоминается об <a href="https://find.dhamma.gift/assets/demo/okean_suttanta_ru_85-298.html">океане</a> на Русском</li>
-               <li>Все сутты с <a href=./assets/demo/seyyathāpi_adhivacan_ūpama_opama_suttanta_pali.html>метафорами, примерами и сравнениями</a> на Пали со ссылками на Русские переводы. Запрос: "seyyathāpi|adhivacan|ūpama|opama" </li>   
+               <li>Все сутты с <a href=./assets/demo/seyyathaapi-adhivacan-uupama-opama_suttanta_pali_627-2101.html>метафорами, примерами и сравнениями</a> на Пали со ссылками на Русские переводы. Запрос: "seyyathāpi|adhivacan|ūpama|opama" </li>   
               </ol>    
 </div>
 
