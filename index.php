@@ -369,15 +369,15 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                    <!-- <li>All <a href="./history.php">previous searches</a></li> -->
            <li>Definition of the <a href="/assets/demo/kata.dukkhaṁ-question_suttanta_pali.html">dukkha</a> in Pali with quotes in English. Query is: <a href="/assets/demo/kata.dukkhaṁ-question_suttanta_pali.html">Kata.*dukkhaṁ\\?</a></li>
 
- <li>Sutta where Buddha says that he doesn't make <a href="/assets/demo/dvayagāminī_suttanta_pali.html">ambiguous (dvayagāminī) statements</a> in Pali with English quote</li>
+ <li>Sutta where Buddha says that he doesn't make <a href="/assets/demo/dvayagaaminii_suttanta_pali_1-1.html">ambiguous (dvayagāminī) statements</a> in Pali with English quote</li>
 
-             <li>All variants of the word <a href="https://find.dhamma.gift/assets/demo/pa%E1%B9%ADiccasamupp_suttanta_pali_words.html">paṭiccasamuppado</a> in Pali with quotes in English</li>
+             <li>All variants of the word <a href="https://find.dhamma.gift/assets/demo/pat.iccasamupp_suttanta_pali_words_36-115-16.html">paṭiccasamuppado</a> in Pali with quotes in English</li>
             
                 <li>All suttas about <a href="https://find.dhamma.gift/assets/demo/eightfold_suttanta_en.html">Eightfold</a> Path in English</li>
                 <li>All suttas that took place or related to <a href="https://find.dhamma.gift/assets/demo/%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%B1%E0%B8%95%E0%B8%96%E0%B8%B5_suttanta_th.html">Savathi</a> in Thai</li>
-                <li>All suttas where <a href="https://find.dhamma.gift/assets/demo/%D1%81%D0%B0%D1%80%D0%B8%D0%BF%D1%83%D1%82%D1%82_suttanta_ru.html">Sariputta</a> was mentioned in Russian</li>
-      
-             <li>All suttas about or containing the word <a href="https://find.dhamma.gift/assets/demo/ocean_suttanta_en.html">ocean</a> in English</li>
+                <li>All suttas where <a href="https://find.dhamma.gift/assets/demo/sariputt_suttanta_ru_176-1082.html">Sariputta</a> was mentioned in Russian</li>
+    
+             <li>All suttas about or containing the word <a href="https://find.dhamma.gift/assets/demo/ocean_suttanta_en_91-274.html">ocean</a> in English</li>
                  <li>All Suttas with <a href=./assets/demo/seyyathāpi_adhivacan_ūpama_opama_suttanta_pali.html>metaphors & similies</a> in Pali and English</li>   
               </ol>    
 </div>         

@@ -405,7 +405,7 @@ sed "s/ш/sh/g" |
 sed "s/щ/sh/g" |
 sed "s/ъ//g" |
 sed "s/ы/y/g" |
-sed "s/ь/'/g" |
+sed "s/ь//g" |
 sed "s/э/e/g" |
 sed "s/ю/yu/g" |
 sed "s/я/ya/g" 

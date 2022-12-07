@@ -388,13 +388,13 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
              <li>Определение понятия <a href="/assets/demo/kata.dukkhaṁ-question_suttanta_pali.html">dukkha</a> на Пали со ссылками на Русские переводы. Запрос: <a href="/assets/demo/kata.dukkhaṁ-question_suttanta_pali.html">Kata.*dukkhaṁ\\?</a>
              </li>
              
-              <li>Сутта, в которой Будда говорит, что не делает <a href="/assets/demo/dvayagāminī_suttanta_pali.html">двусмысленных (dvayagāminī) утверждений</a> на Пали со ссылками на Русский перевод</li>
-               
-                <li>Все сутты со словом <a href="https://find.dhamma.gift/assets/demo/%D0%B2%D0%BE%D1%81%D1%8C%D0%BC%D0%B5%D1%80%D0%B8%D1%87%D0%BD_suttanta_ru.html">Восьмеричный</a> Благородный Путь на Русском</li>
-                <li>Все сутты со словом <a href="https://find.dhamma.gift/assets/demo/%D0%BD%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D1%8C_suttanta_ru.html">нравственность</a> на Русском</li>
-                <li>Все сутты, где упомянут <a href="https://find.dhamma.gift/assets/demo/%D1%81%D0%B0%D1%80%D0%B8%D0%BF%D1%83%D1%82%D1%82_suttanta_ru.html">Сарипутта</a> на Русском</li>
-               <li>Все варианты словосочетания <a href="https://find.dhamma.gift/assets/demo/pa%E1%B9%ADiccasamupp_suttanta_pali_words.html">paṭiccasamuppado</a> на Пали со ссылками на Русские переводы</li>
-               <li>Все сутты где, упоминается об <a href="https://find.dhamma.gift/assets/demo/%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD_suttanta_ru.html">океане</a> на Русском</li>
+              <li>Сутта, в которой Будда говорит, что не делает <a href="/assets/demo/dvayagaaminii_suttanta_pali_1-1.html">двусмысленных (dvayagāminī) утверждений</a> на Пали со ссылками на Русский перевод</li>
+           
+                <li>Все сутты со словом <a href="https://find.dhamma.gift/assets/demo/vos'merichn_suttanta_ru_140-274.html">Восьмеричный</a> Благородный Путь на Русском</li>
+                <li>Все сутты со словом <a href="https://find.dhamma.gift/assets/demo/nravstvennost'_suttanta_ru_94-264.html">нравственность</a> на Русском</li>
+                <li>Все сутты, где упомянут <a href="https://find.dhamma.gift/assets/demo/sariputt_suttanta_ru_176-1082.html">Сарипутта</a> на Русском</li>
+               <li>Все варианты словосочетания <a href="https://find.dhamma.gift/assets/demo/pat.iccasamupp_suttanta_pali_36-115.html">paṭiccasamuppado</a> на Пали со ссылками на Русские переводы</li>
+               <li>Все сутты где, упоминается об <a href="https://find.dhamma.gift/assets/demo/okean_suttanta_ru_85-298.html">океане</a> на Русском</li>
                <li>Все сутты с <a href=./assets/demo/seyyathāpi_adhivacan_ūpama_opama_suttanta_pali.html>метафорами, примерами и сравнениями</a> на Пали со ссылками на Русские переводы. Запрос: "seyyathāpi|adhivacan|ūpama|opama" </li>   
               </ol>    
 </div>
