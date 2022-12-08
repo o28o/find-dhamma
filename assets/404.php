@@ -37,9 +37,10 @@
                 <h1 class="display-1 fw-bold">404</h1>
                 <p class="fs-3"> <span class="text-danger">Aho!</span> Page not found. But</p>
                 <p class="lead">
-                “Atthi kho, āvuso, maggo atthi paṭipadā,</br>  
-                etassa dukkhassa pariññāyā”ti. sn38.4
-                  </p>
+                “Atthi kho, āvuso, maggo atthi paṭipadā,</br>
+
+                etassa dukkhassa pariññāyā”ti. <a target="_blank" class="text-decoration-none" href="/sc/?q=sn38.4">sn38.4</a>
+    </p>
                 <a href="/" id="back" class="btn btn-primary">Go Home</a>
                 
                <section class="page-section portfolio" id="help">

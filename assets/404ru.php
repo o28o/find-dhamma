@@ -37,7 +37,8 @@
                 <p class="fs-3"> <span class="text-danger">Aho!</span> Страница не найдена. Но</p>
                 <p class="lead">
                     “Atthi kho, āvuso, maggo atthi paṭipadā,</br> 
-                    etassa dukkhassa pariññāyā”ti. sn38.4
+                    etassa dukkhassa pariññāyā”ti. 
+                    <a class="text-decoration-none" target="_blank" href="https://docs.google.com/document/d/1TCPbYi7NK5KgjtqQ6lqhMqMYp6jjQamQ0TpvqGqVhm0">sn38.4</a>
                   </p>
                 <a href="/ru/" id="back" class="btn btn-primary">На главную</a>
                       <section class="page-section portfolio" id="help">
