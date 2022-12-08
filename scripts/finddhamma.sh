@@ -209,12 +209,12 @@ if [[ "$@" == *"-h"* ]]; then
     -vin - to search in vinaya texts only <br>
     -abhi - to search in abhidhamma texts only <br>
     -en - to search in english <br>
-    -ru - to search in sian <br>
+    -ru - to search in Russian <br>
     -th - to search in thai <br>
     -pli - to search in pali (default option) <br>
     -nbg - no background <br>
 	-kn - include Khuddaka Nikaya selected books <br>
-	-oru - output messages in sian<br>"
+	-oru - output messages in Russian<br>"
     exit 0
 fi
 
@@ -307,7 +307,7 @@ if [[ "$@" == *"-th"* ]]; then
 elif [[ "$@" == *"-ru"* ]]; then
     fnlang=_ru
     pali_or_lang=sc-data/html_text/ru/pli 
-    language=sian
+    language=Russian
 	printlang=Русский
     directlink=
     type=html   
@@ -605,7 +605,7 @@ linkpli=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"
 #linkpli=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/pli/ms"}' `
 count=`nice -19 egrep -oi$grepgenparam "$pattern" $file | wc -l ` 
 echo $count >> $tempfile
-#sian text 
+#Russian text 
 #link ru 
 #translatorsname=`echo $tr | awk -F'/ru/' '{print $2}' | awk -F'/' '{if ($4 ~ /html/ || $4 ~ /[0-9]/ || $NF > 3 ) print "sv"; else print $4}'`
 #echo -e "`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/ru/'$translatorsname'"}' ` " | tee -a ${quotes} ${links_and_words}  ${metaphors} #>/dev/null
@@ -666,7 +666,7 @@ matchqnty=`awk '{sum+=$1;} END{print sum;}' $tempfile`
 
 #Sibbin 999 matches in 444 texts of Pali Suttas
 }
-#e g for sian language
+#e g for Russian language
 elif [[ "$type" == html ]]; then
 
 filelist=`echo "
@@ -685,7 +685,7 @@ function linklist {
 #echo -e "Content-Type: text/html\n\n"
 #echo $@
 
-#sian text 
+#Russian text 
 #link ru 
 #translatorsname=`echo $tr | awk -F'/ru/' '{print $2}' | awk -F'/' '{if ($4 ~ /html/ || $4 ~ /[0-9]/ || $NF > 3 ) print "sv"; else print $4}'`
 #echo -e "`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/ru/'$translatorsname'"}' ` " | tee -a ${quotes} ${links_and_words}  ${metaphors} #>/dev/null
@@ -725,7 +725,7 @@ roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/b
         file=$roottext
         
 
-    elif [[ "$language" == "sian" ]]; then
+    elif [[ "$language" == "Russian" ]]; then
         file=$tr
         remtitle=`echo $filenameblock | sed 's/[A-Za-z]//g'`
 suttatitle=`grep 'h1' $file | clearsed | xargs | sed 's@'$remtitle'@@g'`
