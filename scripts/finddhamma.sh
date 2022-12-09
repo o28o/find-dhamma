@@ -284,9 +284,9 @@ fortitle="Definition ${fortitle}"
 
 function grepbasefile {
   defpattern=`echo $pattern | sed 's/[aoā]$//g'`
-nice -19 egrep -A1 -Eir "dn3[34].*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,9}${defpattern}|\bKata.{0,20} ${defpattern}.{0,4}\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5} ${defpattern}{0,7}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacan|\bIdaṁ .*${defpattern}{0,6}\b" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
+nice -19 egrep -A1 -Eir "dn3[34].*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,9}${defpattern}|\bKata.{0,20} ${defpattern}.{0,4}\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5} ${defpattern}{0,7}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacan" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
-#\bKatha.*${defpattern}|
+#\bKatha.*${defpattern}|\bIdaṁ .*${defpattern}{0,6}\b
 elif [[ "$@" == *"-all"* ]]; then
 function grepbasefile {
 nice -19 egrep -Ri${grepvar}${grepgenparam} "$pattern" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site}

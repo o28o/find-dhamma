@@ -308,10 +308,11 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 <figcaption class="figure-caption text-center">SuttaCentral</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-1" href="https://www.digitalpalireader.online/_dprhtml/index.html">
+<a class="text-decoration-none mx-1" href="/diff/">
 <figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
-<figcaption class="figure-caption text-center">DPR.online</figcaption>   
+  
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-code-compare"></i>
+<figcaption class="figure-caption text-center">Sutta Diff</figcaption>   
 </figure>	  
 </a>
 <a class="text-decoration-none mx-1" href="/history.php">
