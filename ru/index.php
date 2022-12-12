@@ -175,9 +175,9 @@ input.addEventListener("keypress", function(event) {
   </div>
   
     <!-- extra options -->
-  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-gear"></i>
+  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings"><i class="fa-solid fa-gear"></i>
   </a>
-<div class="collapse mt-2 " id="collapseExample">
+<div class="collapse mt-2 " id="collapseSetting">
   <div class="float-start">
 
 

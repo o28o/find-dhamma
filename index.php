@@ -181,8 +181,8 @@ $(document).ready(function(){
     <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in Eng">Eng</a>
   </div>
   <!-- extra options -->
-  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-gear"></i></a>
-<div class="collapse mt-2" id="collapseExample">
+  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings"><i class="fa-solid fa-gear"></i></a>
+<div class="collapse mt-2" id="collapseSettings">
   <div class="float-start">
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">
@@ -191,8 +191,6 @@ $(document).ready(function(){
   <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">
     <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Pali Vinaya">Vinaya</a></div>
-  
-
   
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">

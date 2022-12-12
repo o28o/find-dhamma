@@ -42,7 +42,7 @@
     	<?php
 		// Defining variables
 $nameErr = $languageErr  = "";
-$q = $lang = $arg = "";
+$q = $p = $arg = "";
 		// Checking for a POST request
 		
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -55,10 +55,10 @@ $q = $lang = $arg = "";
       $nameErr = "Only letters and white space allowed";
     }
   }
-	if (empty($_GET["lang"])) {
+	if (empty($_GET["p"])) {
     $languageErr = "language is required";
   } else {
-    $lang = test_input($_GET["lang"]);
+    $p = test_input($_GET["p"]);
   }
 }	
 		if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -73,10 +73,10 @@ $q = $lang = $arg = "";
 		return $data;
 		}
 		
-      if (empty($_GET["lang"])) {
+      if (empty($_GET["p"])) {
     $languageErr = "";
   } else {
-    $lang = test_input($_GET["lang"]);
+    $p = test_input($_GET["p"]);
   }
 		?>
  
@@ -134,20 +134,24 @@ $q = $lang = $arg = "";
 echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 			 
-			<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="  search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+			<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="  search" id="searchbtn" class="btn btn-primary mainbutton me-2"><i class="fas fa-search"></i></button></div>
+			     <a class="d-md-inline-block mt-2  text-white form-check-inline" data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings"><i class="fa-solid fa-gear"></i></a>      
 		</div>
+		       <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def ">
+   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search for definitions in 4 main Nikayas in Pali. What is it, how many and what types, metaphors. Works only if definition was given in standard phrases. For all-round view studing all related Suttas is recommended.">Def</a>
+  </div>
          <!-- extra options -->
-  <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-sort-desc" aria-hidden="true"></i>
-  </a>
-<div class="collapse mt-2" id="collapseExample">
+
+<div class="collapse mt-2" id="collapseSettings">
   <div class="float-start">
     
     <div class="form-check mb-3 form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">+KN</div>
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $p=="-kn ") echo "checked";?> value="-kn ">+KN</div>
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">+KN Late</div>
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $p=="-all ") echo "checked";?> value="-all ">+KN Late</div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($extra) && $language=="-vin") echo "checked";?> value="-vin ">Vinaya</div>
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">Vinaya</div>
 </div>
 
 <script>
@@ -168,16 +172,16 @@ window.history.pushState('object', document.title, newURL);
 
                    <!--      <br>
  <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="-pli") echo "checked";?> value="-pli">Пали
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="-pli") echo "checked";?> value="-pli">Пали
   </div>
         <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-ru ") echo "checked";?> value="-ru">Рус
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-ru ") echo "checked";?> value="-ru">Рус
   </div>
     <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="lang" <?php if (isset($language) && $language=="-th ") echo "checked";?> value="-th">ไทย
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-th ") echo "checked";?> value="-th">ไทย
   </div>
      <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="lang" <?php if (isset($language) && $language=="English") echo "checked";?> value="-en">Eng
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="English") echo "checked";?> value="-en">Eng
   </div> 
    
   <span class="error"><?php echo $languageErr;?></span>
@@ -213,8 +217,8 @@ if (alertTrigger) {
 }
 </script>
 <?php
-$arg = $lang . ' ' . $q;
- 			echo $lang;
+$arg = $p . ' ' . $q;
+ 			echo $p;
 			$old_path = getcwd();
 			$string = str_replace ("`", "", $q);
 			
