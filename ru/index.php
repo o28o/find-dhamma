@@ -138,7 +138,7 @@ $q = $p = $arg = $string = $sutta = "";
 		<label class="sr-only" for="paliauto"></label>
 			
 			 <input name="q"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
-echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
+echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22s","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 			 
 				<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
@@ -317,19 +317,34 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 </figure>
 </a>
 
-<a class="text-decoration-none mx-1" href="https://tipitaka.theravada.su/toc/translations/1098">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
-<figcaption class="figure-caption text-center">Русский ДН</figcaption>   
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book d-md-inline-block"></i>
+<figcaption class="figure-caption text-center">Английский</figcaption>   
 </figure>	  
 </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+        <li><a class="dropdown-item" href="/diff/?lang=pl">Сравнить Две Сутты</a></li>
+   <li><a class="dropdown-item" target="_blank" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
+       <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Англ-Пали словарь</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://Tipitaka.org">Tipitaka.org</a></li>
+  </ul>
+  
 
-<a class="text-decoration-none mx-1" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
+<a class="dropup text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuRussian" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure dropup">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book d-md-inline-block"></i>
 <figcaption class="figure-caption text-center">Русский</figcaption>   
 </figure>	  
 </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuRussian">
+    <li><a class="dropdown-item" target="_blank" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">Theravada.ru</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://tipitaka.theravada.su/toc/translations/1097">Theravada.su ДН</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://dhamma.ru/lib/authors/thanissaro/prat.htm">Dhamma.ru Патимоккха</a></li>
+  </ul>
+
 <a class="text-decoration-none mx-1" href="/history.php">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-clock-rotate-left"></i>
@@ -337,12 +352,19 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 </figure>	  
 </a>
 
-<a class="text-decoration-none mx-1" href="#grammar">
-<figure class="figure">
+
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-link"></i>
 <figcaption class="figure-caption text-center">Изучение</figcaption>   
-</figure>	    
-</a> 
+</figure>	  
+</a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+   <li><a class="dropdown-item" href="#research">Исследование</a></li>
+       <li><a class="dropdown-item" href="#read">Чтение</a></li>
+    <li><a class="dropdown-item" href="#study">Учебные Материалы</a></li>
+  </ul>
+  
 
 <a class="text-decoration-none mx-1" target="_blank" href="https://drive.google.com/file/d/1HVRK6yTMT59uHCCvTdQukRy7fmHNntOr/view?usp=sharing">
 <figure class="figure">
@@ -504,7 +526,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                     <div class="col-lg-4 mb-5 mb-lg-0">
           
 
-                        <h4 class="text-uppercase mb-4">Исследование</h4>
+                        <h4 id="research" class="text-uppercase mb-4">Исследование</h4>
                
                 <div class="list-group">
 
@@ -578,7 +600,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Чтение</h4>
+                        <h4 id="read" class="text-uppercase mb-4">Чтение</h4>
                        
  <div class="list-group">
   <a target="_blank" href="https://sc.dhamma.gift" class="list-group-item list-group-item-action active" aria-current="true">
@@ -628,7 +650,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
   
     <a href="https://dhamma.ru/lib/authors/thanissaro/prat.htm" target="_blank"   class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Виная на Dhamma.ru </h5>
+      <h5 class="mb-1">Виная на Dhamma.ru</h5>
       <small class="text-muted">Русский</small>
     </div>
     <p class="mb-1">Перевод Винаи для монахов</p>
@@ -658,7 +680,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                     </div>
 					
 					 <div class="col-lg-4 mb-5 mb-lg-0">
-					<h4 id="grammar" class="text-uppercase mb-4">Изучение</h4>
+					<h4 id="study" class="text-uppercase mb-4">Изучение</h4>
 	
 	<div class="list-group">
 

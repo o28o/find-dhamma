@@ -301,13 +301,23 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
   <figcaption class="figure-caption text-center">Pāḷi-Eng</figcaption>
 </figure>
 </a>
-<a class="text-decoration-none mx-1" href="https://suttacentral.net">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
-<figcaption class="figure-caption text-center">SuttaCentral</figcaption>   
+
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book d-md-inline-block"></i>
+<figcaption class="figure-caption text-center">External</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-1" href="/diff/">
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+   <li><a class="dropdown-item" target="_blank" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
+       <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Eng-Pali Dictionary</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://Tipitaka.org">Tipitaka.org</a></li>
+  </ul>
+
+
+<a class="text-decoration-none mx-1" href="/diff/?lang=pl">
 <figure class="figure">
   
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-code-compare"></i>
@@ -321,13 +331,19 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 </figure>	  
 </a>
 
-<a class="text-decoration-none mx-1" href="#links">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-link"></i>
-<figcaption class="figure-caption text-center">Useful Links</figcaption>   
-</figure>	    
-</a> 
 
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-link"></i>
+<figcaption class="figure-caption text-center">Useful Links</figcaption> 
+</figure>	  
+</a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+   <li><a class="dropdown-item" href="#research">Research</a></li>
+       <li><a class="dropdown-item" href="#read">Read</a></li>
+    <li><a class="dropdown-item" href="#study">Study</a></li>
+  </ul>
+  
 <a class="text-decoration-none mx-1" target="_blank" href="https://voice.suttacentral.net">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-headphones"></i>
@@ -335,12 +351,23 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 </figure>	    
 </a> 
 
-<a class="text-decoration-none mx-1" href="https://drive.google.com/drive/folders/1nrNtb_4s27nJGq61tpigf_b2sO_KOnVG">
+<a class="text-decoration-none mx-1" href="">
 <figure class="figure">
+
+</figure>	  
+</a>
+
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-graduation-cap"></i>
 <figcaption class="figure-caption text-center">Materials</figcaption>   
 </figure>	  
 </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+   <li><a class="dropdown-item" href="https://drive.google.com/file/d/1HVRK6yTMT59uHCCvTdQukRy7fmHNntOr/view?usp=sharing">Cases</a></li>
+       <li><a class="dropdown-item" href="https://drive.google.com/file/d/1HzPCYsVBEkWErAk6TqSWRYKseM1hqMCb/view?usp=sharing">Conjugations</a></li>
+    <li><a class="dropdown-item" href="https://drive.google.com/drive/folders/1nrNtb_4s27nJGq61tpigf_b2sO_KOnVG">Other Materials</a></li>
+</ul>
 
 </div> 
 
@@ -480,7 +507,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                     <div class="col-lg-4 mb-5 mb-lg-0">
           
 
-                        <h4 class="text-uppercase mb-4">Research</h4>
+                        <h4 id="research" class="text-uppercase mb-4">Research</h4>
                
                 <div class="list-group">
 
@@ -554,7 +581,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Read</h4>
+                        <h4 id="read" class="text-uppercase mb-4">Read</h4>
                        
  <div class="list-group">
 
@@ -601,7 +628,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                     </div>
 					
 					 <div class="col-lg-4 mb-5 mb-lg-0">
-					<h4 class="text-uppercase mb-4">Study</h4>
+					<h4 id="study" class="text-uppercase mb-4">Study</h4>
 	
 	<div class="list-group">
 
@@ -626,7 +653,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 
   <a target="_blank" href="https://drive.google.com/file/d/1HzPCYsVBEkWErAk6TqSWRYKseM1hqMCb/view?usp=sharing" class="list-group-item list-group-item-action" aria-current="true">
     <div class="d-flex w-100 justify-content-between text-left">
-      <h5 class="mb-1">Pali veb conjugation</h5>
+      <h5 class="mb-1">Pali verb conjugation</h5>
       <small>table</small>
     </div>
     <p class="mb-1 text-left">Conjugations sometimes mistranslated.</p>

@@ -245,18 +245,36 @@ $arg = $lang . ' ' . $q;
   <figcaption class="figure-caption text-center">Pli-Eng</figcaption>
 </figure>
 </a>
-<a class="text-decoration-none mx-1" href="https://tipitaka.theravada.su/toc/translations/1098">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
-<figcaption class="figure-caption text-center">Русский ДН</figcaption>   
+
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book d-md-inline-block"></i>
+<figcaption class="figure-caption text-center">Английский</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-1" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+    
+
+   <li><a class="dropdown-item" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
+       <li><a class="dropdown-item" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Англ-Пали словарь</a></li>
+    <li><a class="dropdown-item" href="https://suttacentral.net">Suttacentral.net</a></li>
+    <li><a class="dropdown-item" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
+    <li><a class="dropdown-item" href="https://Tipitaka.org">Tipitaka.org</a></li>
+  </ul>
+  
+
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuRussian" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book d-md-inline-block"></i>
 <figcaption class="figure-caption text-center">Русский</figcaption>   
 </figure>	  
 </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuRussian">
+    <li><a class="dropdown-item" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">Theravada.ru</a></li>
+    <li><a class="dropdown-item" href="https://tipitaka.theravada.su/toc/translations/1097">Theravada.su ДН</a></li>
+    <li><a class="dropdown-item" href="https://dhamma.ru/lib/authors/thanissaro/prat.htm">Dhamma.ru Патимоккха</a></li>
+  </ul>
+
 <a class="text-decoration-none mx-1" href="./history.php">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-clock-rotate-left"></i>
