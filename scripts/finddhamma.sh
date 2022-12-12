@@ -223,6 +223,7 @@ linesafter=`echo "$@" | awk -F'-la ' '{print $2 }' | awk '{print $1}'`
 fi
 #echo la=$linesafter
 pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs `
+patternForHighlight="`echo $pattern | sed -E 's/^[A-Za-z]{2,4}[0-9]{2,3}\.\*//g'| sed -E 's/^[A-Za-z]{2,4}[0-9]{2,3}.[0-9]{1,3}\.\*//g' | sed 's/.\*/|/g' |  sed 's@^@(@g' | sed 's/$/)/g'`"
 if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] || [[ "$pattern" == "-ogr" ]] || [[ "$pattern" == "-oge" ]] || [[ "$pattern" == "-vin" ]] || [[ "$pattern" == "-all" ]] || [[ "$pattern" == "" ]] || [[ "$pattern" == "-kn" ]] || [[ "$pattern" == "-pli" ]] || [[ "$pattern" == "-def" ]] 
 then   
 #emptypattern
@@ -281,6 +282,7 @@ elif [[ "$@" == *"-def"* ]]
 then
 fileprefix=${fileprefix}-definition
 fortitle="Definition ${fortitle}"
+#echo $pattern | sed 's/.\*/|/g' |  sed 's@^@(@g' | sed 's/$/)/g' | sed 's/[aoā]$//g'
 defpattern="`echo $pattern | sed 's/[aoā]$//g'`"
 pattern="$defpattern" 
 function grepbasefile {

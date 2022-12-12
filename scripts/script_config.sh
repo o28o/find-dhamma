@@ -33,7 +33,7 @@ sed 's/\.$//g' | sed 's/:$//g' | sed 's/[,!?;«—”“‘"]/ /g' | sed 's/)//g
 }
 
 function cleanwords {
-  cat $file | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' |egrep -io$grepgenparam "[^ ]*$pattern[^ ]*"
+  cat $file | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' |egrep -Eio$grepgenparam "[^ ]*$patternForHighlight[^ ]*"
   }
   
 #| sed 's/’ti//g'  
@@ -44,7 +44,7 @@ cleanwords | tee -a $tempfilewords > /dev/null
 }
 
 function highlightpattern {
-sed "s@$pattern@<b>&</b>@gI"
+sed -E "s@$patternForHighlight@<b>&</b>@gI"
 }
 
 sitename=https://find.dhamma.gift
