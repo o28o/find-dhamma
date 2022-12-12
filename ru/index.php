@@ -309,18 +309,21 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
       	  		  
    	<div class="d-md-inline-block">	
 
+
 <a class="text-decoration-none mx-1" href="./sc/">
 <figure class="figure text-decoration-none">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book-bookmark"></i>
   <figcaption class="figure-caption text-center">Pāḷi-Eng</figcaption>
 </figure>
 </a>
+
 <a class="text-decoration-none mx-1" href="https://tipitaka.theravada.su/toc/translations/1098">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
 <figcaption class="figure-caption text-center">Русский ДН</figcaption>   
 </figure>	  
 </a>
+
 <a class="text-decoration-none mx-1" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
