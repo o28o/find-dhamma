@@ -433,6 +433,7 @@ basefile=${fn}_fn.$extention
 #metaphors=${fn}_metaphors.$extention
 table=${modifiedfn}
 tempfile=${modifiedfn}.tmp
+tempfilewhistory=${modifiedfn}_hist.tmp
 tempfilewords=${modifiedfn}_words
 tempdeffile=${modifiedfn}.def.tmp
 deffile=${modifiedfn}_definitions
@@ -499,9 +500,10 @@ echo "<tr>
 <td>$uniqwordcount</td>   
 <td>$linkswwords</td>
 </tr>" >>$tempfilewords
+
+echo "$uniqword: $linkswwords `(( $linkscount >= 6 )) && echo \"($linkscount)\"`<br>" >> $tempfilewhistory
 done
 }
-
 
 if [[ "$type" == json ]]; then
 
@@ -829,7 +831,7 @@ fi
 rm $basefile > /dev/null 2>&1
 getbasefile $@ 
 #cleanup in case the same search was launched before
-rm ${table} table.html $tempfile  $tempfilewords > /dev/null 2>&1
+rm ${table} table.html $tempfile $tempfilewords $tempfilewhistory > /dev/null 2>&1
 
 #add links to each file
 linklist
@@ -855,7 +857,7 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 
 OKresponse
 
-rm $basefile $tempfile > /dev/null 2>&1
+
 #php -r 'header("Location: ./result/table.html");'
 
 
@@ -899,9 +901,23 @@ then
 pattern="$pattern exc. ${excludepattern,,}"
 fi 
 
-echo "<!-- begin $pattern --> 
-<tr><td><a class=\"outlink\" href=\"./result/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./result/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td></tr>
+echo -n "<!-- begin $pattern --> 
+<tr><td><a class=\"outlink\" href=\"./result/${table}\">${pattern}</a></td><th>$textsqnty</th><th>$matchqnty</th><th><a class=\"outlink\" href=\"./result/${tempfilewords}\">$uniqwordtotal</a></th><td>${fortitle^}</td><td>$language</td><td class=\"daterow\">`date +%d-%m-%Y`</td><td>`ls -lh ${table} | awk '{print  $5}'`</td><td>" >> $history
+
+if [[ "$type" == json ]]; then
+echo -n "<br>`cat $tempfilewhistory | grep href | highlightpattern | xargs`" >> $history
+elif  [[ "$language" == Thai ]] && [[ "$fortitle" == *"Suttanta"* ]]
+then
+echo -n "`cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' | sed 's/.html//g' | awk -F'_' '{print \"<a target=_blank href=https://suttacentral.net/"$1"/th/siam_rath>"$1"</a>\"}' | sort -u | sort -V | xargs`" >> $history
+else
+echo -n "`cat $basefile | awk -F':' '{print $1}' | awk -F'/' '{print $NF}' | sed 's/.html//g' | awk -F'_' '{print \"<a target=_blank href=https://suttacentral.net/"$1">"$1"</a>\"}' | sort -u | sort -V | xargs`" >> $history
+fi
+
+echo "</td></tr>
 " >> $history
+
+rm $basefile $tempfile $tempfilewhistory > /dev/null 2>&1
+
 #echo thlnk=$linkthai fnb=$filenameblock
 echo "<script>window.location.href=\"./result/${table}\";</script>"
 

@@ -32,10 +32,7 @@ $.ajax({
   	var allWords = data.split('\n');
 
     $( "#paliauto" ).autocomplete({
-      position: { my: "left bottom", at: "left top", collision: "flip" },
 	minLength: 3,
-	multiple: true,
- multipleSeparator: " ",
       source: function( request, response ) {
 		var re = $.ui.autocomplete.escapeRegex(request.term);
 		var matchbeginonly = new RegExp("^"+re, "i");

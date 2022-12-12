@@ -132,14 +132,14 @@ $q = $p = $arg = $extra = "";
 			<form method="GET" action=
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
-		<div class="mb-3 form-group input-group ui-widget">
-		<label class="sr-only" for="paliauto"></label>
+		<div class="mb-3 form-group input-group ui-widget dropup">
+		<label class="sr-only dropup" for="paliauto"></label>
 			
 			 <input name="q"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
 echo $words[array_rand($words)]; ?> or <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 
-		<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+		<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="search" id="searchbtn" class="btn btn-primary mainbutton "><i class="fas fa-search"></i></button></div>
 		</div>
 
 <script>

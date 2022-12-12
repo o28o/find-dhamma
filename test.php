@@ -23,8 +23,7 @@
 	<link rel="icon" type="image/png" href="./assets/favico-noglass.png" />
  
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-  
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> 
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
