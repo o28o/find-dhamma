@@ -281,12 +281,16 @@ then
 fileprefix=${fileprefix}-definition
 fortitle="Definition ${fortitle}"
 #echo $pattern | sed 's/.\*/|/g' |  sed 's@^@(@g' | sed 's/$/)/g' | sed 's/[aoā]$//g'
-defpattern="`echo $pattern | sed 's/[aoā]$//g'`"
+defpattern="`echo $pattern | sed -E 's/([aoā]|aṁ)$//g'`"
 pattern="$defpattern" 
 
 patternForHighlight="`echo $pattern | sed -E 's/^[A-Za-z]{2,4}[0-9]{2,3}\.\*//g'| sed -E 's/^[A-Za-z]{2,4}[0-9]{2,3}.[0-9]{1,3}\.\*//g' | sed 's/.\*/|/g' |  sed 's@^@(@g' | sed 's/$/)/g'`"
 function grepbasefile {
-nice -19 egrep -A1 -Eir "${defpattern}[^\s]*sutta|(dn3[34]|mn4[34]).*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,20}${defpattern}|\bKas.{0,60}${defpattern}.{0,9}\?|Katth.*${defpattern}.*daṭṭhabb|\bKata.{0,20}${defpattern}.{0,9}\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5} ${defpattern}{0,7}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacan" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
+nice -19 egrep -A1 -Eir "${defpattern}[^\s]{0,3}sutta|(dn3[34]|mn4[34]).*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,20}${defpattern}|\bKas.{0,60}${defpattern}.{0,9}\?|Katth.*${defpattern}.*daṭṭhabb|\bKata.{0,20}${defpattern}.{0,9}\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5} ${defpattern}{0,7}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacan" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
+}
+
+function grepbasefileExtended {
+nice -19 egrep -A1 -Eir "(an3.34|an3.111|an3.112|an6.39|an10.174|dn15|sn12.60|sn14.12).*${defpattern}|(mn135|mn136|mn137|mn138|mn139|mn140|mn141|mn142|sn12.2:|sn45.8|sn47.40|sn48.9:|sn48.10|sn48.36|sn48.37|sn48.38|sn51.20).*${defpattern}|${defpattern}[^\s]{0,3}sutta|(dn3[34]|mn4[34]).*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,20}${defpattern}|\bKas.{0,60}${defpattern}.{0,9}\?|Katth.*${defpattern}.*daṭṭhabb|\bKata.{0,20}${defpattern}.{0,9}\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5} ${defpattern}{0,7}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacan" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
 
 #\bKatha.*${defpattern}|\bIdaṁ .*${defpattern}{0,6}\b
@@ -821,6 +825,12 @@ fi
 
 grepbasefile | grep -v "^--$" | grepexclude | clearsed | sort -V > $basefile
 
+texts=`awk -F'json|html' '{print $1}' $basefile | sort | uniq | wc -l`
+if [[ "$@" == *"-def"* ]] && (( $texts <= 6 ))
+then 
+grepbasefileExtended | grep -v "^--$" | grepexclude | clearsed | sort -V > $basefile
+fi
+
 linescount=`wc -l $basefile | awk '{print $1}'`
 if [ ! -s $basefile ]
 then
@@ -851,6 +861,7 @@ genwordsfile
 textsqnty=`echo $textlist | wc -w`
 
 pattern="`echo $pattern | sed 's/\[ёе\]/е/g'`"
+pattern=$userpattern
 title="`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $textsqnty texts and $matchqnty matches in $fortitle $language"
 titlewords="`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
 
