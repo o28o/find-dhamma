@@ -177,7 +177,7 @@ input.addEventListener("keypress", function(event) {
     <!-- extra options -->
   <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings"><i class="fa-solid fa-gear"></i>
   </a>
-<div class="collapse mt-2 " id="collapseSetting">
+<div class="collapse mt-2 " id="collapseSettings">
   <div class="float-start">
 
 
@@ -329,7 +329,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
        <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Англ-Пали словарь</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
-    <li><a class="dropdown-item" target="_blank" href="https://Tipitaka.org">Tipitaka.org</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://tipitaka.org/thai/">Tipitaka.org</a></li>
   </ul>
   
 
