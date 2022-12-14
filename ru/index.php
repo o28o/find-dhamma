@@ -89,7 +89,7 @@ $q = $p = $arg = $string = $sutta = "";
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
             <a class="navbar-brand mobile-center" href="/ru/"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
                 <a class="navbar-brand mobile-none" href="/ru/">find.dhamma.gift</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Меню
                     <i class="fas fa-bars"></i>
                 </button>
@@ -326,15 +326,16 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 </figure>	  
 </a>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
-        <li><a class="dropdown-item" href="/diff/?lang=pl">Сравнить Две Сутты</a></li>
+        <li><a class="dropdown-item" href="/diff/?lang=pl"><i class="fa-solid fa-code-compare"></i> Сравнить Две Сутты</a></li>
    <li><a class="dropdown-item" target="_blank" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
        <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Англ-Пали словарь</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
-        <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net/pitaka/vinaya/pli-tv-vi">Виная на sc.net</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://voice.suttacentral.net">Suttacentral Voice</a></li>
+   <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net/pitaka/vinaya/pli-tv-vi">Sc.net Виная</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://tipitaka.org/thai/">Tipitaka.org</a></li>
         <li><a class="dropdown-item" target="_blank" href="https://en.dhammadana.org/sangha/dhutanga.htm">Благородный Аскетизм</a></li>
+
   </ul>
   
 
@@ -346,7 +347,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 </a>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuRussian">
     <li><a class="dropdown-item" target="_blank" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">Theravada.ru</a></li>
-    <li><a class="dropdown-item" target="_blank" href="https://tipitaka.theravada.su/toc/translations/1097">Theravada.su ДН</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://tipitaka.theravada.su/toc/translations/1097">Theravada.su</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://dhamma.ru/lib/authors/thanissaro/prat.htm">Dhamma.ru Патимоккха</a></li>
   </ul>
 
