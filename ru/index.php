@@ -137,11 +137,13 @@ $q = $p = $arg = $string = $sutta = "";
   	<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto"></label>
 			
-			 <input name="q"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
-echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22s","Sn12.2");
+			 <input name="q"  type="text" class="form-control rounded-pill searchbar" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
+echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 			 
-				<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="search" id="searchbtn" class="btn btn-primary mainbutton"><i class="fas fa-search"></i></button></div>
+				<div class="input-group-append">
+				  <button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="search" id="searchbtn" class="btn btn-primary mainbutton ms-1 me-1 rounded-pill"><i class="fas fa-search"></i></button>
+				</div>
 		</div>
 
 <script>
@@ -328,6 +330,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
    <li><a class="dropdown-item" target="_blank" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
        <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Англ-Пали словарь</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
+        <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net/pitaka/vinaya/pli-tv-vi">Виная на sc.net</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://voice.suttacentral.net">Suttacentral Voice</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://tipitaka.org/thai/">Tipitaka.org</a></li>
@@ -936,10 +939,10 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
         </div>
 
 
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+       <!-- Bootstrap core JS-->
+        <script type="text/javascript" src="/assets/js/bootstrap.bundle.5.13.min.js"></script>
+        <!-- Core theme JS
+        <script src="js/scripts.js"></script>-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 
     </body>

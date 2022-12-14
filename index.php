@@ -132,14 +132,14 @@ $q = $p = $arg = $extra = "";
 			<form method="GET" action=
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center">  
 
-		<div class="mb-3 form-group input-group ui-widget dropup">
-		<label class="sr-only dropup" for="paliauto"></label>
+		<div class="mb-3 form-group input-group ui-widget dropup rounded-pill">
+		<label class="sr-only dropup rounded-pill" for="paliauto"></label>
 			
-			 <input name="q"  type="text" class="form-control roundedborder" id="paliauto" placeholder="e.g. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
+			 <input name="q"  type="text" class="form-control rounded-pill" id="paliauto" placeholder="e.g. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
 echo $words[array_rand($words)]; ?> or <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 
-		<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="search" id="searchbtn" class="btn btn-primary mainbutton "><i class="fas fa-search"></i></button></div>
+		<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="search" id="searchbtn" class="btn btn-primary mainbutton ms-1 me-1 rounded-pill "><i class="fas fa-search"></i></button></div>
 		</div>
 
 <script>
@@ -310,7 +310,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
    <li><a class="dropdown-item" target="_blank" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
        <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Eng-Pali Dictionary</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
-
+    <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net/pitaka/vinaya/pli-tv-vi">Vinaya at sc.net</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://Tipitaka.org">Tipitaka.org</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://en.dhammadana.org/sangha/dhutanga.htm">Asceticism in Dhamma</a></li>
@@ -846,9 +846,9 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
             </div>
         </div>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script type="text/javascript" src="/assets/js/bootstrap.bundle.5.13.min.js"></script>
+        <!-- Core theme JS
+        <script src="js/scripts.js"></script>-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     </body>
 </html>

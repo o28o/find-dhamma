@@ -127,15 +127,15 @@ $q = $p = $arg = "";
 		<form method="GET" action=
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center"> 
 
- 		<div class="mb-3 form-group input-group ui-widget">
-		<label class="sr-only" for="paliauto"></label>
+ 		<div class="mb-3 form-group input-group ui-widget rounded-pill">
+		<label class="sr-only rounded-pill" for="paliauto"></label>
 
-			 <input name="q"  type="text" class="form-control roundedborder" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
+			 <input name="q" type="text" class="form-control rounded-pill" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
 echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
-echo $suttas[array_rand($suttas)]; ?>" autofocus>
+echo $suttas[array_rand($suttas)]; ?>" autocomplete="on" autofocus>
 			 
-			<div class="input-group-append"><button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="  search" id="searchbtn" class="btn btn-primary mainbutton me-2"><i class="fas fa-search"></i></button></div>
-			     <a class="d-md-inline-block mt-2  text-white form-check-inline" data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings"><i class="fa-solid fa-gear"></i></a>      
+			<button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="  search" id="searchbtn" class="btn btn-primary mainbutton ms-1 me-1 rounded-pill"><i class="fas fa-search"></i></button><div class="input-group-append"></div>
+			     <a class="d-md-inline-block mt-2 ms-4 text-white form-check-inline" data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings"><i class="fa-solid fa-gear"></i></a>      
 		</div>
 		       <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def ">
@@ -705,11 +705,10 @@ $arg = $p . ' ' . $q;
             </div>
         </div>
 
-
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+       <!-- Bootstrap core JS-->
+        <script type="text/javascript" src="/assets/js/bootstrap.bundle.5.13.min.js"></script>
+        <!-- Core theme JS
+        <script src="js/scripts.js"></script>-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 
     </body>
