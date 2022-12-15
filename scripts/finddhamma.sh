@@ -616,7 +616,7 @@ link=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0""}' `
 fi
 
 #linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}'`
-linkgeneral=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=pli-eng"}' `
+linkgeneral=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q="$0"&lang=pli"}' `
 #linkgeneral=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0}' `
 linken=`echo $filenameblock |  awk '{print "https://suttacentral.net/"$0"/en/'$translatorsname'?layout=linebyline"}' `
 #linken=`echo $filenameblock |  awk '{print "https://find.dhamma.gift/sc/?q='$translatorsname'}' `
