@@ -94,7 +94,7 @@ function buildSutta(slug) {
       const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/${translator}">On SC.net</a></p> <p class="sc-link"><a href="https://voice.suttacentral.net/scv/index.html?#/sutta?search=${slug}">On Voice.SC</a></p>`; 
       const translatorByline = `<div class="byline"><p>Translated by ${suttaplex.translation.author}</p></div>`;
       suttaArea.innerHTML = scLink + html + translatorByline;
-      document.title = `${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title}`;
+      document.title = `${slug} ${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title}`;
 
       toggleThePali();
 
