@@ -1,5 +1,6 @@
 const suttaArea = document.getElementById("sutta");
 const homeButton = document.getElementById("home-button");
+const fdgButton = document.getElementById("fdg-button");
 const themeButton = document.getElementById("theme-button");
 const bodyTag = document.querySelector("body");
 const previous = document.getElementById("previous");

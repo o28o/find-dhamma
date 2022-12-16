@@ -68,13 +68,7 @@ function buildSutta(slug) {
 
   let html = `<div class="button-area"><button id="language-button" class="hide-button">Toggle Pali</button></div>`;
 
-  const contentResponse = fetch(`https://suttacentral.net/api/bilarasuttas/${slug}/${translator}?lang=en`).then(
-    response => response.json()
-  );
-
-  const suttaplex = fetch(`https://suttacentral.net/api/suttas/${slug}/${translator}?lang=en&siteLanguage=en`).then(
-    response => response.json()
-  );
+// modify
 
 const rootResponse = fetch(
     `https://find.dhamma.gift/suttacentral/sc-data/sc_bilara_data/root/pli/ms/sutta/${parseSlug(
@@ -101,15 +95,21 @@ const rootResponse = fetch(
       slug
     )}_html.json`
   ).then(response => response.json());
+// mod und
 
+  const contentResponse = fetch(`https://suttacentral.net/api/bilarasuttas/${slug}/${translator}?lang=en`).then(
+    response => response.json()
+  );
 
-Promise.all([htmlResponse, translationResponse, rootResponse]).then(responses => {
-      const [rootResponse, translationResponse, htmlResponse, suttaplex] = responses;
-      const { html_text, translation_text, root_text } = contentResponse;
-  
-    
-    Object.keys(html_text).forEach(segment => {
-      
+  const suttaplex = fetch(`https://suttacentral.net/api/suttas/${slug}/${translator}?lang=en&siteLanguage=en`).then(
+    response => response.json()
+  );
+
+  Promise.all([contentResponse, suttaplex])
+    .then(responses => {
+      const [contentResponse, suttaplex] = responses;
+      const { html_text, translation_text, root_text, keys_order } = contentResponse;
+      keys_order.forEach(segment => {
         if (translation_text[segment] === undefined) {
           translation_text[segment] = "";
         }
@@ -123,7 +123,7 @@ Promise.all([htmlResponse, translationResponse, rootResponse]).then(responses =>
       const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/${translator}">On SC.net</a></p> <p class="sc-link"><a href="https://voice.suttacentral.net/scv/index.html?#/sutta?search=${slug}">On Voice.SC</a></p>`; 
       const translatorByline = `<div class="byline"><p>Translated by ${suttaplex.translation.author}</p></div>`;
       suttaArea.innerHTML = scLink + html + translatorByline;
-      document.title = `${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title}`;
+      document.title = `${slug} ${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title}`;
 
       toggleThePali();
 
@@ -229,61 +229,6 @@ if (document.location.search) {
 </div>
 `;
 }
-
-function parseSlug(slug) {
-  const slugParts = slug.match(/^([a-z]+)(\d*)\.*(\d*)/);
-  const book = slugParts[1];
-  const firstNum = slugParts[2];
-
-  if (book === "dn" || book === "mn") {
-    return `${book}/${slug}`;
-  } else if (book === "sn" || book === "an") {
-    return `${book}/${book}${firstNum}/${slug}`;
-  } else if (book === "kp") {
-    return `kn/kp/${slug}`;
-  } else if (book === "dhp") {
-    return `kn/dhp/${slug}`;
-  } else if (book === "ud") {
-    return `kn/ud/vagga${firstNum}/${slug}`;
-  } else if (book === "iti") {
-    return `kn/iti/vagga${findItiVagga(firstNum)}/${slug}`;
-  } else if (book === "snp") {
-    return `kn/snp/vagga${firstNum}/${slug}`;
-  } else if (book === "thag" || book === "thig") {
-    return `kn/${book}/${slug}`;
-  }
-}
-
-function findItiVagga(suttaNumber) {
-
-  if (suttaNumber >= 1 && suttaNumber <= 10) {
-
-    return "1";
-  } else if (suttaNumber >= 1 && suttaNumber <= 10) {
-    return "1";
-  } else if (suttaNumber >= 11 && suttaNumber <= 20) {
-    return "2";
-  } else if (suttaNumber >= 21 && suttaNumber <= 27) {
-    return "3";
-  } else if (suttaNumber >= 28 && suttaNumber <= 37) {
-    return "4";
-  } else if (suttaNumber >= 38 && suttaNumber <= 49) {
-    return "5";
-  } else if (suttaNumber >= 50 && suttaNumber <= 59) {
-    return "6";
-  } else if (suttaNumber >= 60 && suttaNumber <= 69) {
-    return "7";
-  } else if (suttaNumber >= 70 && suttaNumber <= 79) {
-    return "8";
-  } else if (suttaNumber >= 80 && suttaNumber <= 89) {
-    return "9";
-  } else if (suttaNumber >= 90 && suttaNumber <= 99) {
-    return "10";
-  } else if (suttaNumber >= 100 && suttaNumber <= 112) {
-    return "11";
-  }
-}
-
 
 function setLanguage(language) {
   if (language === "pli-eng") {
