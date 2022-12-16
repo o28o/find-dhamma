@@ -230,13 +230,13 @@ function toggleThePali() {
   const languageButton = document.getElementById("language-button");
 
   languageButton.addEventListener("click", () => {
-    if (language === "pli-eng") {
+    if (language === "pli") {
       showEnglish();
       language = "eng";
-    } else if (language === "eng") {
+    } else if (language === "pli-eng") {
       showPali();
       language = "pli";
-    } else if (language === "pli") {
+    } else if (language === "eng") {
       showPaliEnglish();
       language = "pli-eng";
     }
