@@ -233,6 +233,7 @@ dt {
 }
 
 .hide-pali p .pli-lang,
+.hide-pali h1 .pli-lang,
 .hide-pali h2 .pli-lang,
 .hide-pali h3 .pli-lang,
 .hide-pali h4 .pli-lang,
@@ -241,6 +242,7 @@ dt {
 }
 
 .hide-english p .eng-lang,
+.hide-english h1 .eng-lang,
 .hide-english h2 .eng-lang,
 .hide-english h3 .eng-lang,
 .hide-english h4 .eng-lang,
