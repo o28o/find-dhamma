@@ -25,7 +25,7 @@ sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
 }
 
 function tohtml {
-tee -a ${table} table.html > /dev/null
+tee -a ${table} > /dev/null
 } 
 
 function sedexpr {

@@ -135,7 +135,7 @@ $q = $p = $arg = $extra = "";
 		<div class="mb-3 form-group input-group ui-widget dropup rounded-pill">
 		<label class="sr-only dropup rounded-pill" for="paliauto"></label>
 			
-			 <input name="q"  type="text" class="form-control rounded-pill" id="paliauto" placeholder="e.g. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
+			 <input name="q"  type="search" class="form-control rounded-pill" id="paliauto" placeholder="e.g. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik");
 echo $words[array_rand($words)]; ?> or <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 

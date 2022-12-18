@@ -286,7 +286,7 @@ pattern="$defpattern"
 
 patternForHighlight="`echo $pattern | sed -E 's/^[A-Za-z]{2,4}[0-9]{2,3}\.\*//g'| sed -E 's/^[A-Za-z]{2,4}[0-9]{2,3}.[0-9]{1,3}\.\*//g' | sed 's/.\*/|/g' |  sed 's@^@(@g' | sed 's/$/)/g'`"
 function grepbasefile {
-nice -19 egrep -A1 -Eir "Seyyathāpi.*${defpattern}|${defpattern}[^\s]{0,3}sutta|(dn3[34]|mn4[34]).*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,20}${defpattern}|\bKas.{0,60}${defpattern}.{0,9}\?|Katth.*${defpattern}.*daṭṭhabb|\bKata.{0,20}${defpattern}.{0,9}\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5} ${defpattern}{0,7}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacan" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
+nice -19 egrep -A1 -Eir "an1\..*${defpattern}|An2.*Dv.*${defpattern}|An3.*(Tis|Tay|Tī).*${defpattern}|An4.*(Cattā|Cata).*${defpattern}|An5.*Pañc.*${defpattern}|An6.*cha.*${defpattern}|An7.*Satta.*${defpattern}|An8.*Aṭṭh.*${defpattern}|An9.*Nav.*${defpattern}|an1[10].*das.*${defpattern}|Seyyathāpi.*${defpattern}|${defpattern}[^\s]{0,3}sutta|(dn3[34]|mn4[34]).*(Dv|Tis|Tay|Tī|Cattā|Cata|Pañc|cha|Satta|Aṭṭh|Nav|das).{0,20}${defpattern}|\bKas.{0,60}${defpattern}.{0,9}\?|Katth.*${defpattern}.*daṭṭhabb|\bKata.{0,20}${defpattern}.{0,9}\?|Kiñ.*${defpattern}.{0,9} vadeth|${defpattern}.*adhivacan|vucca.{2,5} ${defpattern}{0,7}|${defpattern}.{0,15}, ${defpattern}.*vucca|${defpattern}.{0,9} vacan" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} 
 }
 
 function grepbasefileExtended {
@@ -430,7 +430,7 @@ fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/-/g' | sed 's/ /-/g' | sed 's/\\
 fn=${fn}${excfn}${fileprefix}${fnlang}
 modifiedfn=`echo $fn | diact2normal | cyr2lat`
 #echo fn=$fn modifiedfn=$modifiedfn
-extention=txt
+extention=tmp
 basefile=${fn}_fn.$extention
 
 #filelist
@@ -851,7 +851,7 @@ fi
 rm $basefile > /dev/null 2>&1
 getbasefile $@ 
 #cleanup in case the same search was launched before
-rm ${table} table.html $tempfile $tempfilewords $tempfilewhistory > /dev/null 2>&1
+rm ${table} $tempfile $tempfilewords $tempfilewhistory > /dev/null 2>&1
 
 #add links to each file
 linklist
@@ -865,7 +865,6 @@ pattern=$userpattern
 title="`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $textsqnty texts and $matchqnty matches in $fortitle $language"
 titlewords="`echo "$pattern" | sed 's/[[:lower:]]/\U&/'`${addtotitleifexclude} $uniqwordtotal related words in $textsqnty texts and $matchqnty matches in $fortitle $language"
 
-sed -i 's/TitletoReplace/'"$title"'/g' table.html 
 sed -i 's/TitletoReplace/'"$title"'/g' ${table}
 sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 
@@ -877,9 +876,6 @@ sed -i 's/TitletoReplace/'"$titlewords"'/g' ${tempfilewords}
 #echo "${fortitle^} $language"
 
 OKresponse
-
-
-#php -r 'header("Location: ./result/table.html");'
 
 
 #finalize words file 
@@ -941,7 +937,7 @@ fi
 echo "</td></tr>
 " >> $history
 
-#rm $basefile $tempfile $tempfilewhistory > /dev/null 2>&1
+rm $basefile $tempfile $tempfilewhistory > /dev/null 2>&1
 
 #echo thlnk=$linkthai fnb=$filenameblock
 echo "<script>window.location.href=\"./result/${table}\";</script>"
