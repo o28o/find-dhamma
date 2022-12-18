@@ -89,7 +89,7 @@ $q = $p = $arg = $string = $sutta = "";
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
             <a class="navbar-brand mobile-center" href="/ru/"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
                 <a class="navbar-brand mobile-none" href="/ru/">find.dhamma.gift</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Меню
                     <i class="fas fa-bars"></i>
                 </button>
