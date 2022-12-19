@@ -1,6 +1,6 @@
 #!/bin/bash -i
-set -x 
-trap read debug
+#set -x 
+#trap read debug
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 
 
@@ -200,20 +200,19 @@ pattern="$@"
 
 if [[ "$@" == *"-h"* ]]; then
     echo "
-    without arguments - starts with prompt in pali<br>
-    also search words can be used as arguments e.g.<br>
-    <br>
-    $> ./scriptname.sh moggall<br>
+    without arguments will search in pali<br>
     <br>
     -def - find definitions in Pali <br>
+  	-kn - include Khuddaka Nikaya selected books <br>
+  	-all - include all Khuddaka Nikaya books <br>
     -vin - to search in vinaya texts only <br>
     -abhi - to search in abhidhamma texts only <br>
     -en - to search in english <br>
     -ru - to search in Russian <br>
     -th - to search in thai <br>
     -pli - to search in pali (default option) <br>
+    -ply - output in pali only (without English translator) <br>    
     -nbg - no background <br>
-	-kn - include Khuddaka Nikaya selected books <br>
 	-oru - output messages in Russian<br>"
     exit 0
 fi
@@ -225,7 +224,7 @@ fi
 pattern=`echo "$pattern" |  awk '{print tolower($0)}' | clearargs `
 userpattern="$pattern"
 patternForHighlight="`echo $pattern | sed -E 's/^[A-Za-z]{2,4}[0-9]{2,3}\.\*//g'| sed -E 's/^[A-Za-z]{2,4}[0-9]{2,3}.[0-9]{1,3}\.\*//g' | sed 's/.\*/|/g' |  sed 's@^@(@g' | sed 's/$/)/g'`"
-if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] || [[ "$pattern" == "-ogr" ]] || [[ "$pattern" == "-oge" ]] || [[ "$pattern" == "-vin" ]] || [[ "$pattern" == "-all" ]] || [[ "$pattern" == "" ]] || [[ "$pattern" == "-kn" ]] || [[ "$pattern" == "-pli" ]] || [[ "$pattern" == "-def" ]] 
+if [[ "$pattern" == "" ]] ||  [[ "$pattern" == "-ru" ]] || [[ "$pattern" == "-en" ]] || [[ "$pattern" == "-th" ]]  || [[ "$pattern" == "-oru" ]]  || [[ "$pattern" == "-nbg" ]] || [[ "$pattern" == "-ogr" ]] || [[ "$pattern" == "-oge" ]] || [[ "$pattern" == "-vin" ]] || [[ "$pattern" == "-all" ]] || [[ "$pattern" == "" ]] || [[ "$pattern" == "-kn" ]] || [[ "$pattern" == "-pli" ]] || [[ "$pattern" == "-def" ]] || [[ "$pattern" == "-ply" ]] 
 then   
 #emptypattern
    exit 3
@@ -327,6 +326,17 @@ elif [[ "$@" == *"-ru"* ]]; then
     metaphorkeys="как если бы|подобно|представь|обозначение|пример"
     nonmetaphorkeys="подобного"
     definitionkeys="что такое.*${pattern}.{0,4}\\?|${pattern}.*говорят|${pattern}.*обозначение|${pattern}.{0,4}, ${pattern}.*говорят"
+elif [[ "$@" == *"-ply"* ]]; then
+    fnlang=_pali-only
+    pali_or_lang=sc-data/sc_bilara_data/root/pli/ms
+    directlink=/pli/ms
+    #directlink=/en/?layout=linebyline
+    language="Pali Only"
+    type=json
+    metaphorkeys="seyyathāpi|adhivacan|ūpama|opama|opamma"
+    nonmetaphorkeys="adhivacanasamphass|adhivacanapath|ekarūp|tathārūpa|āmarūpa|\brūpa|evarūpa|\banopam|\battūpa|\bnillopa|opamaññ"
+    definitionkeys="Kata.*${pattern}.{0,4}\\?|${pattern}.*vucati|${pattern}.*adhivacan|${pattern}.{0,4}, ${pattern}.*vucca"
+   #modify pattern as legacy uses different letters
 elif [[ "$@" == *"-pli"* ]]; then
     fnlang=_pali
     pali_or_lang=sc-data/sc_bilara_data/root/pli/ms
@@ -467,7 +477,7 @@ then
 	#echo Already 
 OKresponse
 
-	if [[ "$language" == "Pali" ]] 
+	if [[ "$language" == *"Pali"* ]] 
 	then 
 	wordsresponse
 	fi
@@ -562,7 +572,7 @@ dnnumber=`echo $filenameblock | sed 's/dn//g'`
 thrulink=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "ДН $dnnumber" | sed 's#href="#href="https://tipitaka.theravada.su#' |awk -F'"' '{print $2}'`
   fi 
 
-if [[ "$language" == "Pali" ]]; then
+if [[ "$language" == *"Pali"* ]]; then
         file=$roottext
 elif [[ "$language" == "English" ]]; then
         file=$translation
@@ -664,12 +674,16 @@ echo "<td>" | tohtml
 
 for i in $indexlist
 do
-#echo "<strong>$i</strong>"
+
 		for f in $roottext $translation #$variant
         do     
         #echo rt=$roottext
 		quote=`nice -19 egrep -A${linesafter} -iE "${i}(:|[^0-9]|$)" $f | grep -v "^--$" | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
-      if [[ "$quote" != "" ]]
+      if [[ "$quote" != "" ]] &&  [[ "$@" != *"-ply"* ]] 
+then
+[[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">"
+
+elif [[ "$quote" != "" ]] &&  [[ "$@" == *"-ply"* ]] 
 then 
 [[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">" || echo "<p class=\"text-muted font-weight-light\">$quote</p>"
 fi
@@ -741,7 +755,7 @@ linklang=$linkgeneral
 
 roottext=`nice -19 find $lookup/root -name "*${filenameblock}_*" -not -path "*/blurb/*" -not  -path "*/name*" -not -path "*/site/*"`
  
-        if [[ "$language" == "Pali" ]]; then
+        if [[ "$language" == *"Pali"* ]]; then
         file=$roottext
         
 
@@ -908,7 +922,7 @@ echo "</tbody>
 cat $templatefolder/WordsFooter.html >> $tempfilewords
 mv ./$oldname ./$table
 
-linenumbers=`cat -n $history | grep daterow | egrep "$pattern" | grep "${fortitle^}" | grep "$language" | awk '{print $1}' | tac`
+linenumbers=`cat -n $history | grep daterow | egrep "$pattern" | grep "${fortitle^}" | grep ">$language<" | awk '{print $1}' | tac`
 
 #grep "$textsqnty" | grep "$matchqnty"
 
@@ -944,11 +958,11 @@ echo "<script>window.location.href=\"./result/${table}\";</script>"
 
 exit 0
 
-if [[ "$language" != "Pali" ]]; then
+if [[ "$language" != *"Pali"* ]]; then
 #echo "<script>location.assign('_self');</script>"
 #echo "<script>window.open('./result/${table}', '_self');</script>"
 
-elif  [[ "$language" == "Pali" ]]
+elif  [[ "$language" == *"Pali"* ]]
 then 
 wordsresponse
 quoteresponse
@@ -972,7 +986,7 @@ newfilename=${newfilename}_t${textsqnty}-m${matchqnty}-w${uniqwordtotal}.html
 mv $file.html ${newfilename}
 
 #orig suttatitle block
-    if [[ "$language" == "Pali" ]]; then
+    if [[ "$language" == *"Pali" ]]; then
         file=$roottext
         suttatitle=`nice -19 grep ':0\.' $file | clearsed | awk '{print substr($0, index($0, $2))}' | xargs | egrep -oE "[^ ]*sutta[^ ]*"`
 
