@@ -230,7 +230,7 @@ $arg = $p. ' ' . $q;
     
 $forthsu = preg_replace("/dn/i","","$string");
 $forthsu = preg_replace("/s/i","","$forthsu");
-$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"#href=\"https://tipitaka.theravada.su#' |awk -F'\"' '{print \$2}'"); 
+$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu \" | sed 's#href=\"#href=\"https://tipitaka.theravada.su#' |awk -F'\"' '{print \$2}' | tail -n1"); 
 $link = str_replace(PHP_EOL, '', $link);
 
 echo '<script>window.open("' . $link . '", "_self");</script>';

@@ -679,11 +679,11 @@ do
         do     
         #echo rt=$roottext
 		quote=`nice -19 egrep -A${linesafter} -iE "${i}(:|[^0-9]|$)" $f | grep -v "^--$" | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
-      if [[ "$quote" != "" ]] &&  [[ "$@" != *"-ply"* ]] 
+      if [[ "$quote" != "" ]] &&  [[ "$@" == *"-ply"* ]] 
 then
 [[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">"
 
-elif [[ "$quote" != "" ]] &&  [[ "$@" == *"-ply"* ]] 
+elif [[ "$quote" != "" ]] &&  [[ "$@" != *"-ply"* ]] 
 then 
 [[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">" || echo "<p class=\"text-muted font-weight-light\">$quote</p>"
 fi
