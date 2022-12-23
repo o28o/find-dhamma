@@ -330,11 +330,14 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
    <li><a class="dropdown-item" target="_blank" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
        <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Англ-Пали словарь</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
-        <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net/pitaka/vinaya/pli-tv-vi">Виная на sc.net</a></li>
+
     <li><a class="dropdown-item" target="_blank" href="https://voice.suttacentral.net">Suttacentral Voice</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://tipitaka.org/thai/">Tipitaka.org</a></li>
         <li><a class="dropdown-item" target="_blank" href="https://en.dhammadana.org/sangha/dhutanga.htm">Благородный Аскетизм</a></li>
+       <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net/pitaka/vinaya/pli-tv-vi">SC.net Виная</a></li>
+      <li><a class="dropdown-item" target="_blank" href="https://www.accesstoinsight.org/tipitaka/vin/sv/index.html">Accesstoinsight.org Патимоккха</a></li>
+        
   </ul>
   
 
@@ -551,7 +554,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
     <p class="mb-1">Крупнейший и самый быстрый Пали-Англ словарь и грамматика Пали.</p>
     <small class="text-muted">Доступно для ПК, Mac, Android, IOS</small>
   </a>
-        <a target="_blank" href="https://devamitta.github.io/" class="list-group-item list-group-item-action">
+        <a target="_blank" href="https://devamitta.github.io/pali/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">DPD Русская Версия</h5>
       <small class="text-muted">приложение</small>
@@ -753,7 +756,8 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
         </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Dhamma.gift 2022</small></div>
+            <div class="container"><a target="_blank" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Лицензия Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><small>Copyright &copy; Dhamma.gift 2022</small></div>
+
         </div>
         <!-- Portfolio Modals-->
 
@@ -947,3 +951,4 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 
     </body>
 </html>
+

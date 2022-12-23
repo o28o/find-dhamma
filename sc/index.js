@@ -231,14 +231,14 @@ function toggleThePali() {
 
   languageButton.addEventListener("click", () => {
     if (language === "pli") {
-      showEnglish();
-      language = "eng";
-    } else if (language === "pli-eng") {
-      showPali();
-      language = "pli";
-    } else if (language === "eng") {
       showPaliEnglish();
       language = "pli-eng";
+    } else if (language === "pli-eng") {
+      showEnglish();
+      language = "eng";
+    } else if (language === "eng") {
+      showPali();
+      language = "pli";
     }
   });
 }

@@ -7,8 +7,10 @@ cd $output
 
 listfile=listhtml.tmp
 lsout=lsout.tmp
-title="Search History"
-
+#title='<a href=/history.php>Search History</a>'
+titleT='<title>Search History</title>'
+#titleH='<h3 class="pl-2 ml-2 text-decoration-none"><a href=/history.php>Search History</a></h3>'
+titleH='<h3 class="pl-2 ml-2 text-decoration-none">Search History</h3>'
 #`grep ':0\.' $file | clearsed |
 
 case=$@ 
@@ -33,7 +35,9 @@ function listsearchresults {
   ls -lpah --time-style="+%d-%m-%Y" *_${switch}* | egrep -v "$listfile|$lsout|_words.html|\.tmp|_fn.txt|table|.git|итого|total|/" | grep -v "^_" | awk '{print substr($0, index($0, $5))}'
 }
 
-cat $templatefolder/Header.html $templatefolder/ListTableHeader.html | sed 's/$title/'"$title"'/g' #| tee $listfile
+ #| tee $listfile
+cat $templatefolder/Header.html | sed 's@<title>$title</title>@'"$titleT"'@'
+cat $templatefolder/ListTableHeader.html | sed 's@<h3 class="pl-2 ml-2">$title</h3>@'"$titleH"'@g'
 
 tac $history
 echo "</tbody>
