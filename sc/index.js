@@ -8,7 +8,7 @@ const next = document.getElementById("next");
 const form = document.getElementById("form");
 const citation = document.getElementById("citation");
 citation.focus();
-let language = "pli-eng";
+let language = "pli";
 
 homeButton.addEventListener("click", () => {
   document.location.search = "";
@@ -100,7 +100,7 @@ function buildSutta(slug) {
       toggleThePali();
 
       next.innerHTML = suttaplex.root_text.next.name
-        ? `<a href="?q=${suttaplex.root_text.next.uid}">${suttaplex.root_text.next.name}<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="15" height="11">
+        ? `<a href="?q=${suttaplex.root_text.next.uid}&lang=${language}">${suttaplex.root_text.next.name}<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="15" height="11">
 
       <g transform="matrix(0.021484375 0 0 0.021484375 2 -0)">
         <g>
@@ -110,7 +110,7 @@ function buildSutta(slug) {
       </svg></a>`
         : "";
       previous.innerHTML = suttaplex.root_text.previous.name
-        ? `<a href="?q=${suttaplex.root_text.previous.uid}"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="15" height="11">
+        ? `<a href="?q=${suttaplex.root_text.previous.uid}&lang=${language}"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="15" height="11">
 
       <g transform="matrix(0.021484375 0 0 0.021484375 2 -0)">
         <g>

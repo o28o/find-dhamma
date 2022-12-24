@@ -9,8 +9,8 @@ listfile=listhtml.tmp
 lsout=lsout.tmp
 #title='<a href=/history.php>Search History</a>'
 titleT='<title>Search History</title>'
-#titleH='<h3 class="pl-2 ml-2 text-decoration-none"><a href=/history.php>Search History</a></h3>'
-titleH='<h3 class="pl-2 ml-2 text-decoration-none">Search History</h3>'
+#titleH='<h3 class="pl-2 ml-2" style="text-decoration: none"><a href=/history.php>Search History</a></h3>'
+titleH='<h3 class="pl-2 ml-2" style="text-decoration: none">Search History</h3>'
 #`grep ':0\.' $file | clearsed |
 
 case=$@ 

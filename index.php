@@ -278,7 +278,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 }
 
 			if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
-    echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string';</script>";
+    echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string&lang=pli';</script>";
   exit();
 }
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $extra $p $string"); 
