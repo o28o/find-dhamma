@@ -138,7 +138,7 @@ $q = $p = $arg = $string = $sutta = "";
 		<label class="sr-only" for="paliauto"></label>
 			
 			 <input style="z-index:9" name="q" type="search" class="form-control rounded-pill searchbar" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
-echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
+echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22s","Sn12.2", "An4.163");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 			 
 				<div class="input-group-append">
