@@ -308,11 +308,11 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 </a>
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
-    <li><a class="dropdown-item" target="_blank" href="https://cse.google.com/cse?cx=c184c71e0fe5d4c93">Custom Google Search</a></li>
+
    <li><a class="dropdown-item" target="_blank" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
        <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Eng-Pali Dictionary</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
-
+    <li><a class="dropdown-item" target="_blank" href="https://voice.suttacentral.net">SC.net Voice</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://Tipitaka.org">Tipitaka.org</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://en.dhammadana.org/sangha/dhutanga.htm">Asceticism in Dhamma</a></li>
@@ -343,17 +343,20 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 </figure>	  
 </a>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+    <li><a class="dropdown-item" href="https://play.google.com/store/apps/details?id=cn.mdict">mDict Android</a></li>
+    <li><a class="dropdown-item" href="https://apps.apple.com/app/mdict/id389083586">mDict IOS</a></li>    
    <li><a class="dropdown-item" href="#research">Research</a></li>
        <li><a class="dropdown-item" href="#read">Read</a></li>
     <li><a class="dropdown-item" href="#study">Study</a></li>
   </ul>
   
-<a class="text-decoration-none mx-1" target="_blank" href="https://voice.suttacentral.net">
+  
+  <a class="text-decoration-none mx-1" target="_blank" href="https://cse.google.com/cse?cx=c184c71e0fe5d4c93">
 <figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-headphones"></i>
-<figcaption class="figure-caption text-center">Voice SC</figcaption>   
-</figure>	    
-</a> 
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-brands fa-google"></i>
+<figcaption class="figure-caption text-center">CSE</figcaption>   
+</figure>	  
+</a>
 
 <a class="text-decoration-none mx-1" href="">
 <figure class="figure">
