@@ -898,7 +898,7 @@ tempfilewords=${tempfilewords}_${textsqnty}-${matchqnty}-${uniqwordtotal}.html
 #sed -i "s/$oldname/$tempfilewords/g" $table
 echo "</tbody>
 </table>
-<a href='/' id='back'>Main page</a>&nbsp;
+<a href='/' id='back'>Main</a>&nbsp;
 <a href='/sc'>Read</a>&nbsp;
 <a href='/diff'>SuttaDiff</a>&nbsp;
 <a href='/history.php'>History</a>&nbsp;
@@ -913,7 +913,7 @@ table=${table}_${textsqnty}-${matchqnty}.html
 #sed -i "s/$oldname/$table/g" $tempfilewords
 echo "</tbody>
 </table>
-<a href='/' id='back'>Main page</a>&nbsp;
+<a href='/' id='back'>Main</a>&nbsp;
 <a href='/sc'>Read</a>&nbsp;
 <a href='/diff'>SuttaDiff</a>&nbsp;
 <a href='/history.php'>History</a>&nbsp;
