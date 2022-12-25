@@ -163,7 +163,7 @@ $(document).ready(function(){
    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Suttas of Anguttara Nikaya (an), Samyutta Nikaya (sn), Majjhimma Nikaya (mn), Digha Nikaya (dn)">Pāḷi</a>
   
   </div>
-<div class="form-check form-check-inline">
+<div style="z-index:999" class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-ru ") echo "checked";?> value="-ru">
    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in Russain">Rus</a>
   
@@ -533,7 +533,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
       Search with Google within recommended resources
               <script async src="https://cse.google.com/cse.js?cx=c184c71e0fe5d4c93">
 </script>
-<div style="z-index:999"class="gcse-search"></div>
+<div style="z-index:99999" class="gcse-search"></div>
     </p>
     <small class="text-muted">Especially convenient for Wisdomlib</small>
   </a>
