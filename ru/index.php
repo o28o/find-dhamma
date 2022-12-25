@@ -3,10 +3,10 @@
     <head>
       <meta charset="UTF-8">
 
-<title>find.Dhamma.gift - Поисковый сайт Освобождения. Пали Сутты и Виная</title>
+<title>find.Dhamma.gift</title>
 <meta http-equiv="Cache-control" content="public">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
+<meta name="description" content="Поисковый Сайт Освобождения. Поиск в Пали Суттах и Винае" />
 <meta name="author" content="" />
         <!-- Favicon-->
 		<!-- Font Awesome icons (free version)-->
@@ -207,8 +207,7 @@ $(document).ready(function(){
   <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-th ") echo "checked";?> value="-th">
   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск в 4 основных Никаях на Тайском">ไทย</a>
   </div>
-  </div>
-
+  
 				</form>
 				
 				<?php
@@ -348,6 +347,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 </figure>	  
 </a>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuRussian">
+      <li><a class="dropdown-item" target="_blank" href="https://cse.google.com/cse?cx=c184c71e0fe5d4c93">Google поиск от fdg</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">Theravada.ru</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://tipitaka.theravada.su/toc/translations/1097">Theravada.su</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://dhamma.ru/lib/authors/thanissaro/prat.htm">Dhamma.ru Патимоккха</a></li>
@@ -538,7 +538,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                
                 <div class="list-group">
 
-  <a href="#page-top" class="list-group-item list-group-item-action active">
+  <a href="#page-top" style="z-index:1" class="list-group-item list-group-item-action active">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">find.dhamma.gift</h5>
       <small class="text-muted">онлайн</small>
@@ -546,6 +546,21 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
     <p class="mb-1">Всепроникающий поиск по Суттам и Винае.</p>
     <small class="text-muted"></small>
   </a>
+  
+    <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Google от dhamma.gift</h5>
+      <small class="text-muted">онлайн</small>
+    </div>
+    <p class="mb-1">
+      Google поиск по рекомендованным ресурсам
+        <script async src="https://cse.google.com/cse.js?cx=c184c71e0fe5d4c93">
+</script>
+<div style="z-index:999"class="gcse-search"></div>
+    </p>
+    <small class="text-muted">Особенно удобен для поисков на Wisdomlib</small>
+  </a>
+
         <a target="_blank" href="https://digitalpalidictionary.github.io/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Digital Pali Dictionary</h5>

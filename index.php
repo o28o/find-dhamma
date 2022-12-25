@@ -6,7 +6,7 @@
 <title>find.Dhamma.gift</title>
  <meta http-equiv="Cache-control" content="public">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
+<meta name="description" content="Liberation Search Engine. Search in Pali Suttanta and Vinaya" />
 <meta name="author" content="" />
 <!-- Favicon-->
 
@@ -306,7 +306,9 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 <figcaption class="figure-caption text-center">External</figcaption>   
 </figure>	  
 </a>
+
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+    <li><a class="dropdown-item" target="_blank" href="https://cse.google.com/cse?cx=c184c71e0fe5d4c93">Custom Google Search</a></li>
    <li><a class="dropdown-item" target="_blank" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
        <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Eng-Pali Dictionary</a></li>
     <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
@@ -521,6 +523,21 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
     <p class="mb-1">All encompassing search within all Suttas and Vinaya.</p>
     <small class="text-muted"></small>
   </a>
+  
+    <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Google from dhamma.gift</h5>
+      <small class="text-muted">онлайн</small>
+    </div>
+    <p class="mb-1">
+      Search with Google within recommended resources
+              <script async src="https://cse.google.com/cse.js?cx=c184c71e0fe5d4c93">
+</script>
+<div style="z-index:999"class="gcse-search"></div>
+    </p>
+    <small class="text-muted">Especially convenient for Wisdomlib</small>
+  </a>
+  
         <a target="_blank" href="https://digitalpalidictionary.github.io/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Digital Pali Dictionary</h5>

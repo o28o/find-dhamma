@@ -12,7 +12,7 @@ titleT='<title>Search History</title>'
 #titleH='<h3 class="pl-2 ml-2" style="text-decoration: none"><a href=/history.php>Search History</a></h3>'
 titleH='<h3 class="pl-2 ml-2" style="text-decoration: none">Search History</h3>'
 #`grep ':0\.' $file | clearsed |
-
+title='Search History'
 case=$@ 
 if [[ "$case" == "pali" ]]
 then
@@ -36,8 +36,8 @@ function listsearchresults {
 }
 
  #| tee $listfile
-cat $templatefolder/Header.html | sed 's@<title>$title</title>@'"$titleT"'@'
-cat $templatefolder/ListTableHeader.html | sed 's@<h3 class="pl-2 ml-2">$title</h3>@'"$titleH"'@g'
+cat $templatefolder/Header.html | sed 's@<title>$title</title>@'"$titleT"'@' | sed 's@$title@'"$title"'@g' 
+cat $templatefolder/ListTableHeader.html | sed 's@<h3 class="pl-2 ml-2">$title</h3>@'"$titleH"'@g' | sed 's@$title@'"$title"'@g' 
 
 tac $history
 echo "</tbody>
