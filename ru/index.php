@@ -214,8 +214,7 @@ $(document).ready(function(){
 $arg = $p. ' ' . $q;
 ?>
  </div>
-<div>	
-
+ </div>
 <div id="spinner" class="justify-content-center mt-3 mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
 
 	<?php
@@ -291,7 +290,6 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 			echo "<p class='mt-3'>$output</p>";
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>	
-</div>		
 		
 
 <!-- <a href="./history.php" class="btn btn-primary" role="button">История Поиска</a> -->
@@ -300,7 +298,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                 <!-- Masthead Subheading
                 <p class="masthead-subheading font-weight-light mb-0"><a href='list.php' style="color:blue;">All Searches</a></p>
                 -->
-            </div>
+          
         </header>
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
