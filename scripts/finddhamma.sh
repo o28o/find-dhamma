@@ -7,12 +7,13 @@ cd $output
 if [[ "$@" == *"-oru"* ]]; then
 excluderesponse="исключая"
 function bgswitch {
+  removefilenames
 	echo "Найдено $linescount строк с $pattern<br> 
-	к сожалению ресурсы сервера ограничены.<br>
-	Этот запрос не может быть обработан.<br>
-	Вы можете скачать необработанные данные <a href="/result/${basefile}">здесь</a><br>
-	Пожалуйста, измените критерий поиска<br>
-	к примеру более длинное или<br>
+	Ресурсы сервера ограничены <br>
+	запрос не может быть обработан.<br>
+	Необработанные данные <a class=\"outlink\" href="/result/${basefile}">здесь</a><br>
+	Измените критерий поиска<br>
+	на более длинное или<br>
 	более специфическое слово."
 	exit 3
 }
@@ -55,12 +56,13 @@ echo "Слишком коротко. Мин $minlength символа"
 elif [[ "$@" == *"-ogr"* ]]; then
 excluderesponse="исключая"
 function bgswitch {
+  removefilenames
 	echo "Найдено $linescount строк с $pattern<br> 
-	к сожалению ресурсы сервера ограничены 
-	и этот запрос не может быть обработан.<br>
-	Вы можете скачать необработанные данные <a href="/result/${basefile}">здесь</a><br>
-	Пожалуйста, измените критерий поиска<br>
-	к примеру более длинное или<br>
+	Ресурсы сервера ограничены <br>
+	запрос не может быть обработан.<br>
+	Необработанные данные <a class=\"outlink\" href="/result/${basefile}">здесь</a><br>
+	Измените критерий поиска<br>
+	на более длинное или<br>
 	более специфическое слово."
 	exit 3
 }
@@ -98,9 +100,10 @@ echo "Слишком коротко. Мин $minlength символа"
 elif [[ "$@" == *"-oge"* ]]; then
 excluderesponse="excluding"
 function bgswitch {
+  removefilenames
 	echo "Found $linescount lines with $pattern<br> 
-	Unfortunately server resources are limited <br>
-	You can download raw data <a href="/result/${basefile}">here</a><br>
+	Server resources are limited <br>
+	You can download raw data <a class=\"outlink\" href="/result/${basefile}">here</a><br>
 	Please, change the search criteria<br>
 	Use longer or more specific word.<br>"
 	exit 3
@@ -145,9 +148,10 @@ echo Too short. Min is $minlength
 else #eng
 excluderesponse="excluding"
 function bgswitch {
+  removefilenames
 	echo "Found $linescount lines with $pattern<br> 
-	Unfortunately server resources are limited <br>
-	Вы можете скачать необработанные данные <a href="/result/${basefile}">здесь</a><br>
+	Server resources are limited <br>
+	You can download raw data <a class=\"outlink\" href="/result/${basefile}">here</a><br>
 	Please, change the search criteria<br>
 	Use longer or more specific word.<br>"
 	exit 3
@@ -394,12 +398,12 @@ function diact2normal {
 sed "s/ā/aa/g" |
 sed "s/ī/ii/g" |
 sed "s/ū/uu/g" |
-sed "s/ḍ/d./g" |
-sed "s/ṁ/m./g" |
-sed "s/ṅ/n./g" |
-sed "s/ṇ/n./g" |
-sed "s/ṭ/t./g" |
-sed "s/ñ/n~/g"
+sed "s/ḍ/.d/g" |
+sed "s/ṁ/.m/g" |
+sed "s/ṅ/.n/g" |
+sed "s/ṇ/.n/g" |
+sed "s/ṭ/.t/g" |
+sed "s/ñ/~n/g"
 }
 
 function cyr2lat {

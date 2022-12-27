@@ -8,7 +8,7 @@ linesafter=0
 minlength=4
 truncatelength=30
 filesizenooverwrite=800000
-maxmatchesbg=2200
+maxmatchesbg=1900
 history="/home/a0092061/domains/find.dhamma.gift/public_html/result/.history"
 sntoccsv="/home/a0092061/domains/find.dhamma.gift/public_html/assets/sn_toc.csv"
 
@@ -19,7 +19,11 @@ function clearargs {
 sed -e 's/-pli //g' -e 's/-pi //g' -e 's/-ru //g' -e 's/-en //g' -e 's/-abhi //g' -e 's/-vin //g' -e 's/-th //g' -e 's/^ //g' -e 's/-kn //g' -e 's/-all //g' | sed 's/-oru //g' | sed 's/-ogr //g' | sed 's/-oge //g'| sed 's/-nbg //g' | sed 's/ -exc.*//g' | sed 's/-la [0-9]* //g' | sed 's/-def //g' | sed 's/-ply //g'
 }
 
-
+function removefilenames {
+sed -Ei 's%^.*(.json|.html):%%g' $basefile 
+}
+  
+}
 function removeindex {
 sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
 }
