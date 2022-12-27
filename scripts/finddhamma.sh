@@ -12,9 +12,7 @@ function bgswitch {
 	Ресурсы сервера ограничены <br>
 	запрос не может быть обработан.<br>
 	Необработанные данные <a class=\"outlink\" href="/result/${basefile}">здесь</a><br>
-	Измените критерий поиска<br>
-	на более длинное или<br>
-	более специфическое слово."
+	Попробуйте более специфическое слово."
 	exit 3
 }
 
@@ -61,9 +59,7 @@ function bgswitch {
 	Ресурсы сервера ограничены <br>
 	запрос не может быть обработан.<br>
 	Необработанные данные <a class=\"outlink\" href="/result/${basefile}">здесь</a><br>
-	Измените критерий поиска<br>
-	на более длинное или<br>
-	более специфическое слово."
+	Попробуйте более специфическое слово."
 	exit 3
 }
 # Отправлено в фоновый режим.<br>
@@ -104,8 +100,7 @@ function bgswitch {
 	echo "Found $linescount lines with $pattern<br> 
 	Server resources are limited <br>
 	You can download raw data <a class=\"outlink\" href="/result/${basefile}">here</a><br>
-	Please, change the search criteria<br>
-	Use longer or more specific word.<br>"
+	Use longer or more specific word. "
 	exit 3
 }
 #function bgswitch {
@@ -152,8 +147,7 @@ function bgswitch {
 	echo "Found $linescount lines with $pattern<br> 
 	Server resources are limited <br>
 	You can download raw data <a class=\"outlink\" href="/result/${basefile}">here</a><br>
-	Please, change the search criteria<br>
-	Use longer or more specific word.<br>"
+	Use longer or more specific word."
 	exit 3
 }
 
