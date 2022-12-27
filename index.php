@@ -348,8 +348,7 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
     <li><a class="dropdown-item" href="#study">Study</a></li>
   </ul>
   
-  
-  <a class="text-decoration-none mx-1" target="_blank" href="https://cse.google.com/cse?cx=c184c71e0fe5d4c93">
+<a class="text-decoration-none mx-1" target="_blank" href="https://cse.google.com/cse?cx=c184c71e0fe5d4c93">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-brands fa-google"></i>
 <figcaption class="figure-caption text-center">CSE</figcaption>   
@@ -869,5 +868,20 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
         <!-- Core theme JS
         <script src="js/scripts.js"></script>-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+         <script>
+const tasks = ["The 1st is Sn56.11", "Read sn22.87", "Ponder on mn28", "Dukkha in Suttas is?", "How many Jhanas in Suttas?",  "Real meaning of Pañña is?", "Dukkha is defined in dn22", "Saṅkhārā in mn44", "Why Tathagata is like ocean?", "Why Dhamma is like Ocean?", "Why Tathagata is like elephant?", "What is the ocean?", "What is the all?"];
+
+const random = Math.floor(Math.random() * tasks.length);
+console.log(random, tasks[random]);
+let defaultTitle = document.title
+window.onblur = () => {
+   //change title, blink title, whatever
+   document.title = tasks[random]
+}
+window.onfocus = () => {
+   //back to default title
+   document.title = defaultTitle
+}
+</script>  
     </body>
 </html>

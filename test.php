@@ -39,6 +39,8 @@
 
     </head>
       <body id="page-top"> 
+      
+      
     	<?php
 		// Defining variables
 $nameErr = $languageErr  = "";
@@ -710,6 +712,17 @@ $arg = $p . ' ' . $q;
         <!-- Core theme JS
         <script src="js/scripts.js"></script>-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+ <script>
+let defaultTitle = document.title
+window.onblur = () => {
+   //change title, blink title, whatever
+   document.title = "New title"
+}
+window.onfocus = () => {
+   //back to default title
+   document.title = defaultTitle
+}
+</script>  
 
     </body>
 </html>

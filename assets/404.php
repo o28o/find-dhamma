@@ -54,16 +54,33 @@
   <figcaption class="figure-caption text-center">Pāḷi-Eng</figcaption>
 </figure>
 </a>
-<a class="text-decoration-none mx-1" href="https://suttacentral.net">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
-<figcaption class="figure-caption text-center">SuttaCentral</figcaption>   
+
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book d-md-inline-block"></i>
+<figcaption class="figure-caption text-center">External</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-1" href="https://www.digitalpalireader.online/_dprhtml/index.html">
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+
+   <li><a class="dropdown-item" target="_blank" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
+       <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Eng-Pali Dictionary</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://voice.suttacentral.net">SC.net Voice</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://Tipitaka.org">Tipitaka.org</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://en.dhammadana.org/sangha/dhutanga.htm">Asceticism in Dhamma</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net/pitaka/vinaya/pli-tv-vi">Sc.net Vinaya</a></li>    
+     <li><a class="dropdown-item" target="_blank" href="https://www.accesstoinsight.org/tipitaka/vin/sv/index.html">Accesstoinsight.org patimokkha</a></li>
+  </ul>
+
+
+<a class="text-decoration-none mx-1" href="/diff/?lang=pl">
 <figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
-<figcaption class="figure-caption text-center">DPR.online</figcaption>   
+  
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-code-compare"></i>
+<figcaption class="figure-caption text-center">Sutta Diff</figcaption>   
 </figure>	  
 </a>
 <a class="text-decoration-none mx-1" href="/history.php">
@@ -73,26 +90,46 @@
 </figure>	  
 </a>
 
-<a class="text-decoration-none mx-1" href="#links">
-<figure class="figure">
+
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-link"></i>
-<figcaption class="figure-caption text-center">Useful Links</figcaption>   
-</figure>	    
-</a> 
-
-<a class="text-decoration-none mx-1" target="_blank" href="https://voice.suttacentral.net">
+<figcaption class="figure-caption text-center">Useful Links</figcaption> 
+</figure>	  
+</a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+    <li><a class="dropdown-item" href="https://play.google.com/store/apps/details?id=cn.mdict">mDict Android</a></li>
+    <li><a class="dropdown-item" href="https://apps.apple.com/app/mdict/id389083586">mDict IOS</a></li>   
+ <li><a class="dropdown-item" href="https://github.com/digitalpalidictionary/digitalpalidictionary/releases">Pali for mDict</a></li>  
+   <li><a class="dropdown-item" href="/#research">Research</a></li>
+       <li><a class="dropdown-item" href="/#read">Read</a></li>
+    <li><a class="dropdown-item" href="/#study">Study</a></li>
+  </ul>
+  
+<a class="text-decoration-none mx-1" target="_blank" href="https://cse.google.com/cse?cx=c184c71e0fe5d4c93">
 <figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-headphones"></i>
-<figcaption class="figure-caption text-center">Voice SC</figcaption>   
-</figure>	    
-</a> 
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-brands fa-google"></i>
+<figcaption class="figure-caption text-center">CSE</figcaption>   
+</figure>	  
+</a>
 
-<a class="text-decoration-none mx-1" href="https://drive.google.com/drive/folders/1nrNtb_4s27nJGq61tpigf_b2sO_KOnVG">
+<a class="text-decoration-none mx-1" href="">
 <figure class="figure">
+
+</figure>	  
+</a>
+
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-graduation-cap"></i>
 <figcaption class="figure-caption text-center">Materials</figcaption>   
 </figure>	  
 </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+   <li><a class="dropdown-item" href="https://drive.google.com/file/d/1HVRK6yTMT59uHCCvTdQukRy7fmHNntOr/view?usp=sharing">Cases</a></li>
+       <li><a class="dropdown-item" href="https://drive.google.com/file/d/1HzPCYsVBEkWErAk6TqSWRYKseM1hqMCb/view?usp=sharing">Conjugations</a></li>
+    <li><a class="dropdown-item" href="https://drive.google.com/drive/folders/1nrNtb_4s27nJGq61tpigf_b2sO_KOnVG">Other Materials</a></li>
+</ul>
 
 </div>          
                 

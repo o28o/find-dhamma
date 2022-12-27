@@ -48,24 +48,49 @@
       	  		  
    	<div class="d-md-inline-block">	
 
+
+
 <a class="text-decoration-none mx-1" href="./sc/">
 <figure class="figure text-decoration-none">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book-bookmark"></i>
   <figcaption class="figure-caption text-center">Pāḷi-Eng</figcaption>
 </figure>
 </a>
-<a class="text-decoration-none mx-1" href="https://tipitaka.theravada.su/toc/translations/1098">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
-<figcaption class="figure-caption text-center">Русский ДН</figcaption>   
+
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book d-md-inline-block"></i>
+<figcaption class="figure-caption text-center">Английский</figcaption>   
 </figure>	  
 </a>
-<a class="text-decoration-none mx-1" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book"></i>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+        <li><a class="dropdown-item" href="/diff/?lang=pl">Сравнить Две Сутты</a></li>
+   <li><a class="dropdown-item" target="_blank" href="https://Wisdomlib.org">Wisdomlib.org</a></li>
+       <li><a class="dropdown-item" target="_blank" href="http://dictionary.tamilcube.com/pali-dictionary.aspx">Англ-Пали словарь</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net">Suttacentral.net</a></li>
+
+    <li><a class="dropdown-item" target="_blank" href="https://voice.suttacentral.net">Suttacentral Voice</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://www.digitalpalireader.online/_dprhtml/index.html">Digital Pali Reader</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://tipitaka.org/thai/">Tipitaka.org</a></li>
+        <li><a class="dropdown-item" target="_blank" href="https://en.dhammadana.org/sangha/dhutanga.htm">Благородный Аскетизм</a></li>
+       <li><a class="dropdown-item" target="_blank" href="https://suttacentral.net/pitaka/vinaya/pli-tv-vi">SC.net Виная</a></li>
+      <li><a class="dropdown-item" target="_blank" href="https://www.accesstoinsight.org/tipitaka/vin/sv/index.html">Accesstoinsight.org Патимоккха</a></li>
+        
+  </ul>
+  
+
+<a class="dropup text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuRussian" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure dropup">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-book d-md-inline-block"></i>
 <figcaption class="figure-caption text-center">Русский</figcaption>   
 </figure>	  
 </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuRussian">
+    <li><a class="dropdown-item" target="_blank" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">Theravada.ru</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://tipitaka.theravada.su/toc/translations/1097">Theravada.su</a></li>
+    <li><a class="dropdown-item" target="_blank" href="https://dhamma.ru/lib/authors/thanissaro/prat.htm">Dhamma.ru Патимоккха</a></li>
+  </ul>
+
 <a class="text-decoration-none mx-1" href="/history.php">
 <figure class="figure">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-clock-rotate-left"></i>
@@ -73,26 +98,43 @@
 </figure>	  
 </a>
 
-<a class="text-decoration-none mx-1" href="#grammar">
-<figure class="figure">
+
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-link"></i>
-<figcaption class="figure-caption text-center">Изучение</figcaption>   
-</figure>	    
-</a> 
-
-<a class="text-decoration-none mx-1" target="_blank" href="https://voice.suttacentral.net">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-headphones"></i>
-<figcaption class="figure-caption text-center">Слушать</figcaption>   
-</figure>	    
-</a> 
-
-<a class="text-decoration-none mx-1" href="https://drive.google.com/drive/folders/1UudXBibx8srzOUI4bXAXi5EwzWMFpMtT">
-<figure class="figure">
-  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-graduation-cap"></i>
-<figcaption class="figure-caption text-center">Материалы</figcaption>   
+<figcaption class="figure-caption text-center">Полезное</figcaption>   
 </figure>	  
 </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+   <li><a class="dropdown-item" href="https://play.google.com/store/apps/details?id=cn.mdict">mDict Android</a></li>
+      
+  <li><a class="dropdown-item" href="https://apps.apple.com/app/mdict/id389083586">mDict IOS</a></li>      
+  <li><a class="dropdown-item" href="https://github.com/digitalpalidictionary/digitalpalidictionary/releases">Пали словарь для mDict</a></li>        
+   <li><a class="dropdown-item" href="/ru/#research">Исследование</a></li>
+       <li><a class="dropdown-item" href="/ru/#read">Чтение</a></li>
+    <li><a class="dropdown-item" href="/ru/#study">Учебные Материалы</a></li>
+  </ul>
+
+<a class="text-decoration-none mx-1" target="_blank" href="https://cse.google.com/cse?cx=c184c71e0fe5d4c93">
+<figure class="figure">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-brands fa-google"></i>
+<figcaption class="figure-caption text-center">CSE</figcaption>   
+</figure>	  
+</a>
+  
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
+  <i style="font-size: 2em; color: #1EBC9C;" class="fa-solid fa-table-list"></i>
+<figcaption class="figure-caption text-center">Грамматика</figcaption>   
+</figure>	  
+</a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+      <li><a class="dropdown-item" href="https://drive.google.com/file/d/1HVRK6yTMT59uHCCvTdQukRy7fmHNntOr/view?usp=sharing">Падежи</a></li>
+      
+      <li><a class="dropdown-item" href="https://drive.google.com/file/d/1HzPCYsVBEkWErAk6TqSWRYKseM1hqMCb/view?usp=sharing">Спряжения</a></li>
+
+   <li><a class="dropdown-item" href="https://drive.google.com/file/d/1H_mhKNgrBYevOOnax-FUBgxkfSuwHItu/view?usp=sharing">Курс по Пали</a></li>
+  </ul>
 
 </div> 
 

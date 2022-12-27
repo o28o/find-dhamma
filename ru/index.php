@@ -973,6 +973,20 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
         <!-- Core theme JS
         <script src="js/scripts.js"></script>-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+         <script>
+const tasks = ["1ая - это Sn56.11", "Прочти sn22.87", "Подумай над mn28", "Dukkha в Суттах - это?", "Сколько джхан в Суттах?", "Pañña на самом деле - это ...?", "Определение dukkha есть в dn22", "Saṅkhārā в mn44", "Почему Татхагата, как слон?", "Почему Дхамма, как Океан?", "Почему Татхагата, как Океан?", "Что такое океан?", "Что такое 'всё'?"];
 
+const random = Math.floor(Math.random() * tasks.length);
+console.log(random, tasks[random]);
+let defaultTitle = document.title
+window.onblur = () => {
+   //change title, blink title, whatever
+   document.title = tasks[random]
+}
+window.onfocus = () => {
+   //back to default title
+   document.title = defaultTitle
+}
+</script>  
     </body>
 </html>
