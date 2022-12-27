@@ -10,6 +10,7 @@ function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	к сожалению ресурсы сервера ограничены.<br>
 	Этот запрос не может быть обработан.<br>
+	Вы можете скачать необработанные данные <a href="/result/${basefile}">здесь</a><br>
 	Пожалуйста, измените критерий поиска<br>
 	к примеру более длинное или<br>
 	более специфическое слово."
@@ -57,6 +58,7 @@ function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	к сожалению ресурсы сервера ограничены 
 	и этот запрос не может быть обработан.<br>
+	Вы можете скачать необработанные данные <a href="/result/${basefile}">здесь</a><br>
 	Пожалуйста, измените критерий поиска<br>
 	к примеру более длинное или<br>
 	более специфическое слово."
@@ -98,6 +100,7 @@ excluderesponse="excluding"
 function bgswitch {
 	echo "Found $linescount lines with $pattern<br> 
 	Unfortunately server resources are limited <br>
+	You can download raw data <a href="/result/${basefile}">here</a><br>
 	Please, change the search criteria<br>
 	Use longer or more specific word.<br>"
 	exit 3
@@ -144,6 +147,7 @@ excluderesponse="excluding"
 function bgswitch {
 	echo "Found $linescount lines with $pattern<br> 
 	Unfortunately server resources are limited <br>
+	Вы можете скачать необработанные данные <a href="/result/${basefile}">здесь</a><br>
 	Please, change the search criteria<br>
 	Use longer or more specific word.<br>"
 	exit 3
