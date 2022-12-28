@@ -234,20 +234,22 @@ $arg = $p. ' ' . $q;
 
 	<?php
 	$old_path = getcwd();
-			$string = str_replace ("`", "", $q);
-	
+		$string = str_replace ("`", "", $q);
+			
 /* ru with arg */ 
-
+/* for th.su dn */
   if (preg_match("/^dn[0-9]{1,2}s$/i",$string)) {
-    
+
 $forthsu = preg_replace("/dn/i","","$string");
 $forthsu = preg_replace("/s/i","","$forthsu");
-$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu \" | sed 's#href=\"#href=\"https://tipitaka.theravada.su#' |awk -F'\"' '{print \$2}' | tail -n1"); 
+
+$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"/toc/translations/#href=\"https://tipitaka.theravada.su/node/table/#' |awk -F'\"' '{print \$2}' | tail -n1");
 $link = str_replace(PHP_EOL, '', $link);
 
 echo '<script>window.open("' . $link . '", "_self");</script>';
   exit();
 }
+
 if( $p == "-ru" ) 
 {
     if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
@@ -261,7 +263,8 @@ if( $p == "-ru" )
   elseif (preg_match("/^dn[0-9]{1,2}$/i",$string)) {
 
 $forthsu = preg_replace("/dn/i","","$string");
-$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"#href=\"https://tipitaka.theravada.su#' |awk -F'\"' '{print \$2}'"); 
+$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"/toc/translations/#href=\"https://tipitaka.theravada.su/node/table/#' |awk -F'\"' '{print \$2}' | tail -n1");
+
 $link = str_replace(PHP_EOL, '', $link);
 
 }
@@ -271,20 +274,6 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 
 }
 
-if( $p == "-th" ) 
-{
-    if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
-    {
-  $link = "https://suttacentral.net/$string/th/siam_rath";
-echo '<script>window.open("' . $link . '", "_self");</script>';
-  exit();
-}
-}
-
-if(preg_match("/^(mn|dn)[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
-    echo "<script>window.location.href='/sc/?q=$string&lang=pli';</script>";
-  exit();
-}
 /* ru with layout */ 
 
 function ru2lat($str)    {
@@ -309,12 +298,38 @@ function ru2lat($str)    {
 }
 if (preg_match('/^[А-Яа-яЁё][А-Яа-яЁё][1-9]{1,3}/ui', $string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]*$/ui",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/ui",$string)) 
     {
-  $citation = ru2lat( $string );	
-  
-  $string = str_replace(".","_","$citation"). '-';
-  $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $string" );
+     $trnstring = ru2lat( $string );	
+  $forthru = str_replace(".","_","$trnstring"). '-';
+  $filename = shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $forthru" ); 
+ 
+  if( $filename != "" ) {
+  $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . $filename;
  $link = str_replace(PHP_EOL, '', $link);
+  } 
+  
+  elseif (preg_match("/^dn[0-9]{1,2}$/i",$trnstring)) {
+$forthsu = preg_replace("/dn/i","","$trnstring");
+$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"/toc/translations/#href=\"https://tipitaka.theravada.su/node/table/#' |awk -F'\"' '{print \$2}' | tail -n1");
+
+$link = str_replace(PHP_EOL, '', $link);
+
+}
 echo '<script>window.open("' . $link . '", "_self");</script>';
+  exit();
+}
+
+if( $p == "-th" ) 
+{
+    if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
+    {
+  $link = "https://suttacentral.net/$string/th/siam_rath";
+echo '<script>window.open("' . $link . '", "_self");</script>';
+  exit();
+}
+}
+
+			if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
+    echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string&lang=pli';</script>";
   exit();
 }
 

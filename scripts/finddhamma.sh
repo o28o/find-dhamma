@@ -571,7 +571,7 @@ for filenameblock in `nice -19 cat $basefile | pvlimit | awk -F':' '{print $1}' 
 if [[ $filenameblock == *"dn"* ]]
 then 
 dnnumber=`echo $filenameblock | sed 's/dn//g'`
-thrulink=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "ДН $dnnumber" | sed 's#href="#href="https://tipitaka.theravada.su#' |awk -F'"' '{print $2}'`
+thrulink=`curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep "ДН $dnnumber" | sed 's#href=\"/toc/translations/#href=\"https://tipitaka.theravada.su/node/table/#' |awk -F'"' '{print $2}'`
   fi 
 
 if [[ "$language" == *"Pali"* ]]; then
