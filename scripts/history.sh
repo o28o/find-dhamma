@@ -1,6 +1,6 @@
 #!/bin/bash -i
-#set -x 
-#trap read debug
+set -x 
+trap read debug
 
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 

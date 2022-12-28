@@ -11,8 +11,8 @@ function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	Ресурсы сервера ограничены <br>
 	запрос не может быть обработан.<br>
-	Необработанные данные <a class=\"outlink\" href="/result/${basefile}">здесь</a><br>
-	Попробуйте более специфическое слово."
+	Данные <a class=\"outlink\" href="/result/${basefile}">здесь</a><br>
+	Выберите более специфическое слово."
 	exit 3
 }
 
@@ -58,8 +58,8 @@ function bgswitch {
 	echo "Найдено $linescount строк с $pattern<br> 
 	Ресурсы сервера ограничены <br>
 	запрос не может быть обработан.<br>
-	Необработанные данные <a class=\"outlink\" href="/result/${basefile}">здесь</a><br>
-	Попробуйте более специфическое слово."
+	Данные <a class=\"outlink\" href="/result/${basefile}">здесь</a><br>
+	Выберите более специфическое слово."
 	exit 3
 }
 # Отправлено в фоновый режим.<br>
@@ -100,7 +100,7 @@ function bgswitch {
 	echo "Found $linescount lines with $pattern<br> 
 	Server resources are limited <br>
 	You can download raw data <a class=\"outlink\" href="/result/${basefile}">here</a><br>
-	Use longer or more specific word. "
+	to choose more specific word. "
 	exit 3
 }
 #function bgswitch {
@@ -147,7 +147,7 @@ function bgswitch {
 	echo "Found $linescount lines with $pattern<br> 
 	Server resources are limited <br>
 	You can download raw data <a class=\"outlink\" href="/result/${basefile}">here</a><br>
-	Use longer or more specific word."
+	to choose more specific word. "
 	exit 3
 }
 
@@ -215,7 +215,7 @@ if [[ "$@" == *"-h"* ]]; then
     -pli - to search in pali (default option) <br>
     -ply - output in pali only (without English translator) <br>    
     -nbg - no background <br>
-	-oru - output messages in Russian<br>"
+  	-oru - output messages in Russian<br>"
     exit 0
 fi
 
@@ -854,6 +854,10 @@ then
 pattern="`echo $pattern | sed 's/\[ёе\]/е/g'`"
 	Erresponse
      rm $basefile
+#     if [[ $language != "English" ]]
+ #    then
+#/home/a0092061/domains/find.dhamma.gift/public_html/scripts/finddhamma.sh -en "$@"
+#fi
      exit 1
 elif [ $linescount -ge $maxmatchesbg ] && [[ "$@" != *"-nbg"* ]];  then  
 bgswitch

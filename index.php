@@ -118,7 +118,14 @@ $q = $p = $arg = $extra = "";
                 <!-- Masthead Avatar Image-->
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading mb-0">Search for Truth</h1>
+                
+    <h1 class="masthead-heading">
+        <a data-bs-toggle="tooltip" data-bs-placement="top" title="In Pāḷi, English, Russian & ไทย">  
+        
+Search for Truth
+ </a>
+  </h1>
+  
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -163,40 +170,48 @@ $(document).ready(function(){
    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Suttas of Anguttara Nikaya (an), Samyutta Nikaya (sn), Majjhimma Nikaya (mn), Digha Nikaya (dn)">Pāḷi</a>
   
   </div>
-  <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="English") echo "checked";?> value="-en">
-    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in English">Eng</a>
-  </div>
+
   
    <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def ">
    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search for definitions in 4 main Nikayas in Pali. What is it, how many and what types, metaphors. Works only if definition was given in standard phrases. For all-round view studing all related Suttas is recommended.">Def</a>
   </div>
   
- <div style="z-index:999" class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-ru ") echo "checked";?> value="-ru">
-   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in Russain">Rus</a>
+      <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">
+   <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ search in Pali Khuddaka Nikaya: dhp, iti, ud, snp, thag, thig">+KN</a>
   </div>
+  
+  <div class="form-check form-check-inline">
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Pali Vinaya">Vinaya</a></div>
+    
   <!-- extra options -->
   <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings"><i class="fa-solid fa-gear"></i></a>
 <div class="collapse mt-2" id="collapseSettings">
   <div class="float-start">
-    <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn ">
-   <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ search in Pali Khuddaka Nikaya: dhp, iti, ud, snp, thag, thig">+KN</a>
-  </div>
-  <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">
-    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Pali Vinaya">Vinaya</a></div>
+
+
   
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">
    <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ search in Pali in all books of kn including later texts">+Later</a>
   </div>
 
+  <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="English") echo "checked";?> value="-en">
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in English">Eng</a>
+  </div>
+
    <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-th ") echo "checked";?> value="-th">
-    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in an, sn, mn, dn in Thai">ไทย</a>
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="(optional) Search in an, sn, mn, dn in Thai">ไทย</a>
+   </div>   
+     <div class="form-check form-check-inline">
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-ru ") echo "checked";?> value="-ru">
+   <a data-bs-toggle="tooltip" data-bs-placement="top" title="(optional) Search in an, sn, mn, dn in Russain">Rus</a>
+    
+    
     
   </div>
 </div>
@@ -263,6 +278,40 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
 
 }
 
+/* ru with layout */ 
+
+function ru2lat($str)    {
+    $tr = array(
+    "А"=>"a", "Б"=>"b", "В"=>"v", "Г"=>"g", "Д"=>"d",
+    "Е"=>"e", "Ё"=>"yo", "Ж"=>"zh", "З"=>"z", "И"=>"i", 
+    "Й"=>"j", "К"=>"k", "Л"=>"l", "М"=>"m", "Н"=>"n", 
+    "О"=>"o", "П"=>"p", "Р"=>"r", "С"=>"s", "Т"=>"t", 
+    "У"=>"u", "Ф"=>"f", "Х"=>"kh", "Ц"=>"ts", "Ч"=>"ch", 
+    "Ш"=>"sh", "Щ"=>"sch", "Ъ"=>"", "Ы"=>"y", "Ь"=>"", 
+    "Э"=>"e", "Ю"=>"yu", "Я"=>"ya", "а"=>"a", "б"=>"b", 
+    "в"=>"v", "г"=>"g", "д"=>"d", "е"=>"e", "ё"=>"yo", 
+    "ж"=>"zh", "з"=>"z", "и"=>"i", "й"=>"j", "к"=>"k", 
+    "л"=>"l", "м"=>"m", "н"=>"n", "о"=>"o", "п"=>"p", 
+    "р"=>"r", "с"=>"s", "т"=>"t", "у"=>"u", "ф"=>"f", 
+    "х"=>"kh", "ц"=>"ts", "ч"=>"ch", "ш"=>"sh", "щ"=>"sch", 
+    "ъ"=>"", "ы"=>"y", "ь"=>"", "э"=>"e", "ю"=>"yu", 
+    "я"=>"ya", " "=>"-", "."=>".", ","=>"", "/"=>"-",  
+    ":"=>"", ";"=>"","—"=>"", "–"=>"-"
+    );
+    return strtr($str,$tr);
+}
+if (preg_match('/^[А-Яа-яЁё][А-Яа-яЁё][1-9]{1,3}/ui', $string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]*$/ui",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/ui",$string)) 
+    {
+  $citation = ru2lat( $string );	
+  
+  $string = str_replace(".","_","$citation"). '-';
+  $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $string" );
+ $link = str_replace(PHP_EOL, '', $link);
+echo '<script>window.open("' . $link . '", "_self");</script>';
+  exit();
+}
+
+
 
 if( $p == "-th" ) 
 {
@@ -278,8 +327,32 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
     echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string&lang=pli';</script>";
   exit();
 }
+
+/* single search no radiobuttons */
+if (preg_match('/[А-Яа-яЁё]/u', $string) && ( $p != "-ru" )) {
+$p = "-ru";
+}
+
+if (preg_match('/\p{Thai}/u', $string) && ( $p != "-th" )) {
+$p = "-th";
+}
+
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh $extra $p $string"); 
 			echo "<p>$output</p>";
+		
+			if (( $p == "" ) && ( preg_match('/ not in /', $output)  )) {
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -en $extra $p $string"); 
+			echo "<p>$output</p>";
+			}
+			
+		$check = ru2lat( $output );	
+			
+			if (( $p == "" ) && ( preg_match('/-net-v-/', $check)  )){
+			  
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -en $extra $p $string");
+			echo "<p>$output</p>";
+			}	
+			
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>	
         </header>

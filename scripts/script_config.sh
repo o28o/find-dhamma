@@ -21,9 +21,21 @@ sed -e 's/-pli //g' -e 's/-pi //g' -e 's/-ru //g' -e 's/-en //g' -e 's/-abhi //g
 
 function removefilenames {
 sed -Ei 's%^.*(.json|.html):%%g' $basefile 
+sed -i 's/$/<br>/' $basefile
+(echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>' && cat $basefile ) > tmp && mv tmp $basefile
+
+echo "</body>
+</html>" >> $basefile
+newbasefilename=`echo $basefile | sed 's@_fn.tmp@.html@'`
+mv $basefile $newbasefilename
+basefile=$newbasefilename
 }
   
-}
 function removeindex {
 sed -e 's/:.*": "/": "/' #      sed 's/ /:/1' | awk -F':'  '{print $1, $3}'
 }

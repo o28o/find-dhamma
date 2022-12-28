@@ -118,7 +118,15 @@ $q = $p = $arg = $string = $sutta = "";
                 <!-- Masthead Avatar Image-->
             <!--    <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />-->
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading">Найдите Истину</h1>
+<h1 class="masthead-heading">
+        <a data-bs-toggle="tooltip" data-bs-placement="top" title="На Pāḷi, Русском, ไทย и Английском">  
+        
+  Найдите Истину
+ </a>
+  </h1>
+            
+               
+
                 <!-- <h5 class="mr=5">Pāḷi, Русский, ไทย и English</h5> -->
 				
                 <!-- Icon Divider-->
@@ -138,7 +146,7 @@ $q = $p = $arg = $string = $sutta = "";
 		<label class="sr-only" for="paliauto"></label>
 			
 			 <input style="z-index:9" name="q" type="search" class="form-control rounded-pill searchbar" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
-echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22s","Sn12.2", "An4.163");
+echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22s","Сн12.2", "an4.163");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 			 
 				<div class="input-group-append">
@@ -161,10 +169,13 @@ input.addEventListener("keypress", function(event) {
   <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="-pli") echo "checked";?> value="-pli">
   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск по Суттам Ангутара Никаи (an), Саньютта Никаи (sn), Маджжхима Никаи (mn), Дигха Никаи (dn) + Удана (ud) из Кхуддака Никаи (kn)">Pāḷi</a>
   </div>
-  <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-ru ") echo "checked";?> value="-ru">
-  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск по русским переводам АН, СН, МН, ДН с SuttaCentral.net">Рус</a>
+
+  
+      <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn " >
+  <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ поиск на Пали в 6 книгах Кхуддака Никаи: Удана, Дхаммапада, Итивутака, Суттанипата, Тхерагатха, Тхеригатха">+КН</a>
   </div>
+  
   
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def">
@@ -172,8 +183,9 @@ input.addEventListener("keypress", function(event) {
   </div>
 
   <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="English") echo "checked";?> value="-en">
-  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск по англ. переводам АН, СН, МН, ДН с SuttaCentral.net">Eng</a>
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">
+  
+  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск в Винае на Пали">Вин</a>
   </div>
   
     <!-- extra options -->
@@ -188,16 +200,9 @@ $(document).ready(function(){
     $('[data-bs-toggle="tooltip"]').tooltip();   
 });
 </script>
-    <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-kn " >
-  <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ поиск на Пали в 6 книгах Кхуддака Никаи: Удана, Дхаммапада, Итивутака, Суттанипата, Тхерагатха, Тхеригатха">+КН</a>
-  </div>
+
   
-  <div class="form-check form-check-inline">
-  <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">
-  
-  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск в Винае на Пали">Вин</a>
-  </div>
+
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-kn ") echo "checked";?> value="-all ">
   <a data-bs-toggle="tooltip" data-bs-placement="top" title="+ поиск на Пали во всех книгах Кхуддака Никаи, включая поздние">+Позд</a>
@@ -205,7 +210,17 @@ $(document).ready(function(){
   </div>
       <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-th ") echo "checked";?> value="-th">
-  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск в 4 основных Никаях на Тайском">ไทย</a>
+  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Опционально. Поиск в 4 основных Никаях на Тайском">ไทย</a>
+  </div>
+  
+    <div class="form-check form-check-inline">
+  <input class="form-check-input"  type="radio" name="p" <?php if (isset($p) && $p=="-ru ") echo "checked";?> value="-ru">
+  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Опционально. Поиск по русским переводам АН, СН, МН, ДН с SuttaCentral.net">Рус</a>
+  </div>
+  
+    <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="English") echo "checked";?> value="-en">
+  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск по англ. переводам АН, СН, МН, ДН с SuttaCentral.net">Eng</a>
   </div>
   
 				</form>
@@ -222,7 +237,6 @@ $arg = $p. ' ' . $q;
 			$string = str_replace ("`", "", $q);
 	
 /* ru with arg */ 
-
 
   if (preg_match("/^dn[0-9]{1,2}s$/i",$string)) {
     
@@ -272,22 +286,64 @@ if(preg_match("/^(mn|dn)[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2
   exit();
 }
 /* ru with layout */ 
-if(preg_match("/^[\x{043C}\x{041C}][\x{043D}][0-9].*$/i",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
+
+function ru2lat($str)    {
+    $tr = array(
+    "А"=>"a", "Б"=>"b", "В"=>"v", "Г"=>"g", "Д"=>"d",
+    "Е"=>"e", "Ё"=>"yo", "Ж"=>"zh", "З"=>"z", "И"=>"i", 
+    "Й"=>"j", "К"=>"k", "Л"=>"l", "М"=>"m", "Н"=>"n", 
+    "О"=>"o", "П"=>"p", "Р"=>"r", "С"=>"s", "Т"=>"t", 
+    "У"=>"u", "Ф"=>"f", "Х"=>"kh", "Ц"=>"ts", "Ч"=>"ch", 
+    "Ш"=>"sh", "Щ"=>"sch", "Ъ"=>"", "Ы"=>"y", "Ь"=>"", 
+    "Э"=>"e", "Ю"=>"yu", "Я"=>"ya", "а"=>"a", "б"=>"b", 
+    "в"=>"v", "г"=>"g", "д"=>"d", "е"=>"e", "ё"=>"yo", 
+    "ж"=>"zh", "з"=>"z", "и"=>"i", "й"=>"j", "к"=>"k", 
+    "л"=>"l", "м"=>"m", "н"=>"n", "о"=>"o", "п"=>"p", 
+    "р"=>"r", "с"=>"s", "т"=>"t", "у"=>"u", "ф"=>"f", 
+    "х"=>"kh", "ц"=>"ts", "ч"=>"ch", "ш"=>"sh", "щ"=>"sch", 
+    "ъ"=>"", "ы"=>"y", "ь"=>"", "э"=>"e", "ю"=>"yu", 
+    "я"=>"ya", " "=>"-", "."=>".", ","=>"", "/"=>"-",  
+    ":"=>"", ";"=>"","—"=>"", "–"=>"-"
+    );
+    return strtr($str,$tr);
+}
+if (preg_match('/^[А-Яа-яЁё][А-Яа-яЁё][1-9]{1,3}/ui', $string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]*$/ui",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/ui",$string)) 
     {
-  $string = str_replace("н","n","$string");
-  $string = str_replace("м","m","$string");
-  $string = str_replace("д","d","$string");
-  $string = str_replace("с","s","$string");
-  $string = str_replace("а","a","$string");
-  $string = str_replace("у","u","$string");
-  $string = str_replace(".","_","$string"). '-';
+  $citation = ru2lat( $string );	
+  
+  $string = str_replace(".","_","$citation"). '-';
   $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $string" );
  $link = str_replace(PHP_EOL, '', $link);
 echo '<script>window.open("' . $link . '", "_self");</script>';
   exit();
 }
+
+/* single search no radiobuttons */
+if (preg_match('/[А-Яа-яЁё]/u', $string) && ( $p != "-ru" )) {
+$p = "-ru";
+}
+
+if (preg_match('/\p{Thai}/u', $string) && ( $p != "-th" )) {
+$p = "-th";
+}
+
 			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru $p $string"); 
 			echo "<p class='mt-3'>$output</p>";
+		
+			if (( $p == "" ) && ( preg_match('/ not in /', $output)  )) {
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru -en $extra $p $string"); 
+			echo "<p>$output</p>";
+			}
+			
+			
+		$check = ru2lat( $output );	
+			
+			if (( $p == "" ) && ( preg_match('/-net-v-/', $check)  )){
+			  
+			$output = shell_exec("nice -19 ./scripts/finddhamma.sh -oru -en $extra $p $string");
+			echo "<p>$output</p>";
+			}	
+			
 			echo "<script>document.getElementById( 'spinner' ).style.display = 'none';</script>"
 		?>	
 		
