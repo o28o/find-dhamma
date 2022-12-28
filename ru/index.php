@@ -145,7 +145,7 @@ $q = $p = $arg = $string = $sutta = "";
   	<div class="mb-3 form-group input-group ui-widget">
 		<label class="sr-only" for="paliauto"></label>
 			
-			 <input style="z-index:9" name="q" type="search" class="form-control rounded-pill searchbar" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
+			 <input style="z-index:9" name="q" type="search" class="form-control rounded-pill searchbar" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī", "Слон", "дрессировщик");
 echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22s","Сн12.2", "an4.163");
 echo $suttas[array_rand($suttas)]; ?>" autofocus>
 			 

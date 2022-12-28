@@ -31,7 +31,7 @@ sed -i 's/$/<br>/' $basefile
 
 echo "</body>
 </html>" >> $basefile
-newbasefilename=`echo $basefile | sed 's@_fn.tmp@.html@'`
+newbasefilename=`echo $basefile | sed 's@_fn.tmp@_raw.html@'`
 mv $basefile $newbasefilename
 basefile=$newbasefilename
 }
