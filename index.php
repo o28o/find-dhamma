@@ -1,3 +1,147 @@
+<?php
+		// Defining variables
+$nameErr = $languageErr  = "";
+$q = $p = $arg = $string = $sutta = "";
+		// Checking for a GET request
+		
+		if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  if (empty($_GET["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_GET["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed";
+    }
+  }
+	if (empty($_GET["p"])) {
+    $languageErr = "language is required";
+  } else {
+    $p = test_input($_GET["p"]);
+  }
+}	
+		if ($_SERVER["REQUEST_METHOD"] == "GET") {
+		$q = test_input($_GET["q"]);
+/* 		$pitaka = test_input($_GET["pitaka"]);
+ */		}
+		// Removing the redundant HTML characters if any exist.
+		function test_input($data) {
+		$data = trim($data);
+	/*	$data = stripslashes($data);
+		$data = htmlspecialchars($data); */
+		return $data;
+		}
+		
+      if (empty($_GET["p"])) {
+    $languageErr = "";
+  } else {
+    $p = test_input($_GET["p"]);
+  }
+	
+$arg = $p. ' ' . $q;
+	$old_path = getcwd();
+	
+		$string = str_replace ("`", "", $q);
+			
+/* ru with arg */ 
+/* for th.su dn */
+  if (preg_match("/^dn[0-9]{1,2}s$/i",$string)) {
+
+$forthsu = preg_replace("/dn/i","","$string");
+$forthsu = preg_replace("/s/i","","$forthsu");
+
+$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"/toc/translations/#href=\"https://tipitaka.theravada.su/node/table/#' |awk -F'\"' '{print \$2}' | tail -n1");
+$link = str_replace(PHP_EOL, '', $link);
+
+echo '<script>window.open("' . $link . '", "_self");</script>';
+  exit();
+}
+
+if( $p == "-ru" ) 
+{
+    if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
+    {
+  $forthru = str_replace(".","_","$string"). '-';
+  $filename = shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $forthru" ); 
+  if( $filename != "" ) {
+  $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . $filename;
+ $link = str_replace(PHP_EOL, '', $link);
+  } 
+  elseif (preg_match("/^dn[0-9]{1,2}$/i",$string)) {
+
+$forthsu = preg_replace("/dn/i","","$string");
+$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"/toc/translations/#href=\"https://tipitaka.theravada.su/node/table/#' |awk -F'\"' '{print \$2}' | tail -n1");
+
+$link = str_replace(PHP_EOL, '', $link);
+
+}
+echo '<script>window.open("' . $link . '", "_self");</script>';
+  exit();
+}
+
+}
+
+/* ru with layout */ 
+
+function ru2lat($str)    {
+    $tr = array(
+    "А"=>"a", "Б"=>"b", "В"=>"v", "Г"=>"g", "Д"=>"d",
+    "Е"=>"e", "Ё"=>"yo", "Ж"=>"zh", "З"=>"z", "И"=>"i", 
+    "Й"=>"j", "К"=>"k", "Л"=>"l", "М"=>"m", "Н"=>"n", 
+    "О"=>"o", "П"=>"p", "Р"=>"r", "С"=>"s", "Т"=>"t", 
+    "У"=>"u", "Ф"=>"f", "Х"=>"kh", "Ц"=>"ts", "Ч"=>"ch", 
+    "Ш"=>"sh", "Щ"=>"sch", "Ъ"=>"", "Ы"=>"y", "Ь"=>"", 
+    "Э"=>"e", "Ю"=>"yu", "Я"=>"ya", "а"=>"a", "б"=>"b", 
+    "в"=>"v", "г"=>"g", "д"=>"d", "е"=>"e", "ё"=>"yo", 
+    "ж"=>"zh", "з"=>"z", "и"=>"i", "й"=>"j", "к"=>"k", 
+    "л"=>"l", "м"=>"m", "н"=>"n", "о"=>"o", "п"=>"p", 
+    "р"=>"r", "с"=>"s", "т"=>"t", "у"=>"u", "ф"=>"f", 
+    "х"=>"kh", "ц"=>"ts", "ч"=>"ch", "ш"=>"sh", "щ"=>"sch", 
+    "ъ"=>"", "ы"=>"y", "ь"=>"", "э"=>"e", "ю"=>"yu", 
+    "я"=>"ya", " "=>"-", "."=>".", ","=>"", "/"=>"-",  
+    ":"=>"", ";"=>"","—"=>"", "–"=>"-"
+    );
+    return strtr($str,$tr);
+}
+if (preg_match('/^[А-Яа-яЁё][А-Яа-яЁё][1-9]{1,3}/ui', $string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]*$/ui",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/ui",$string)) 
+    {
+     $trnstring = ru2lat( $string );	
+  $forthru = str_replace(".","_","$trnstring"). '-';
+  $filename = shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $forthru" ); 
+ 
+  if( $filename != "" ) {
+  $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . $filename;
+ $link = str_replace(PHP_EOL, '', $link);
+  } 
+  
+  elseif (preg_match("/^dn[0-9]{1,2}$/i",$trnstring)) {
+$forthsu = preg_replace("/dn/i","","$trnstring");
+$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"/toc/translations/#href=\"https://tipitaka.theravada.su/node/table/#' |awk -F'\"' '{print \$2}' | tail -n1");
+
+$link = str_replace(PHP_EOL, '', $link);
+
+}
+echo '<script>window.open("' . $link . '", "_self");</script>';
+  exit();
+}
+
+if( $p == "-th" ) 
+{
+    if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
+    {
+  $link = "https://suttacentral.net/$string/th/siam_rath";
+echo '<script>window.open("' . $link . '", "_self");</script>';
+  exit();
+}
+}
+
+			if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
+    echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string&lang=pli';</script>";
+  exit();
+}
+  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -44,48 +188,6 @@
 
 </head>
     <body id="page-top"> 
-    	<?php
-
-		// Defining variables
-$nameErr = $languageErr  = "";
-$q = $p = $arg = $extra = "";
-		// Checking for a GET request
-		
-		if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  if (empty($_GET["name"])) {
-    $nameErr = "Name is required";
-  } else {
-    $name = test_input($_GET["name"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed";
-    }
-  }
-	if (empty($_GET["p"])) {
-    $languageErr = "language is required";
-  } else {
-    $p = test_input($_GET["p"]);
-  }
-}	
-		
-		if ($_SERVER["REQUEST_METHOD"] == "GET") {
-		$q = test_input($_GET["q"]);
-/* 		$pitaka = test_input($_GET["pitaka"]);
- */		}
-
-		// Removing the redundant HTML characters if any exist.
-		function test_input($data) {
-		$data = trim($data);
-		return $data;
-		}
-		
-      if (empty($_GET["p"])) {
-    $languageErr = "";
-  } else {
-    $p = test_input($_GET["p"]);
-  }
-		?>
- 
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
             <a class="navbar-brand mobile-center" href="/"> <div class="container"><img src="./assets/dhammafindlogo.png"  style="width:100px;"></a>
@@ -241,104 +343,6 @@ $arg = $p . ' ' . $q;
       </div>	
             <div id="spinner" class="justify-content-center mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
 		<?php
-		$string = str_replace ("`", "", $q);
-			
-/* ru with arg */ 
-/* for th.su dn */
-  if (preg_match("/^dn[0-9]{1,2}s$/i",$string)) {
-
-$forthsu = preg_replace("/dn/i","","$string");
-$forthsu = preg_replace("/s/i","","$forthsu");
-
-$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"/toc/translations/#href=\"https://tipitaka.theravada.su/node/table/#' |awk -F'\"' '{print \$2}' | tail -n1");
-$link = str_replace(PHP_EOL, '', $link);
-
-echo '<script>window.open("' . $link . '", "_self");</script>';
-  exit();
-}
-
-if( $p == "-ru" ) 
-{
-    if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
-    {
-  $forthru = str_replace(".","_","$string"). '-';
-  $filename = shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $forthru" ); 
-  if( $filename != "" ) {
-  $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . $filename;
- $link = str_replace(PHP_EOL, '', $link);
-  } 
-  elseif (preg_match("/^dn[0-9]{1,2}$/i",$string)) {
-
-$forthsu = preg_replace("/dn/i","","$string");
-$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"/toc/translations/#href=\"https://tipitaka.theravada.su/node/table/#' |awk -F'\"' '{print \$2}' | tail -n1");
-
-$link = str_replace(PHP_EOL, '', $link);
-
-}
-echo '<script>window.open("' . $link . '", "_self");</script>';
-  exit();
-}
-
-}
-
-/* ru with layout */ 
-
-function ru2lat($str)    {
-    $tr = array(
-    "А"=>"a", "Б"=>"b", "В"=>"v", "Г"=>"g", "Д"=>"d",
-    "Е"=>"e", "Ё"=>"yo", "Ж"=>"zh", "З"=>"z", "И"=>"i", 
-    "Й"=>"j", "К"=>"k", "Л"=>"l", "М"=>"m", "Н"=>"n", 
-    "О"=>"o", "П"=>"p", "Р"=>"r", "С"=>"s", "Т"=>"t", 
-    "У"=>"u", "Ф"=>"f", "Х"=>"kh", "Ц"=>"ts", "Ч"=>"ch", 
-    "Ш"=>"sh", "Щ"=>"sch", "Ъ"=>"", "Ы"=>"y", "Ь"=>"", 
-    "Э"=>"e", "Ю"=>"yu", "Я"=>"ya", "а"=>"a", "б"=>"b", 
-    "в"=>"v", "г"=>"g", "д"=>"d", "е"=>"e", "ё"=>"yo", 
-    "ж"=>"zh", "з"=>"z", "и"=>"i", "й"=>"j", "к"=>"k", 
-    "л"=>"l", "м"=>"m", "н"=>"n", "о"=>"o", "п"=>"p", 
-    "р"=>"r", "с"=>"s", "т"=>"t", "у"=>"u", "ф"=>"f", 
-    "х"=>"kh", "ц"=>"ts", "ч"=>"ch", "ш"=>"sh", "щ"=>"sch", 
-    "ъ"=>"", "ы"=>"y", "ь"=>"", "э"=>"e", "ю"=>"yu", 
-    "я"=>"ya", " "=>"-", "."=>".", ","=>"", "/"=>"-",  
-    ":"=>"", ";"=>"","—"=>"", "–"=>"-"
-    );
-    return strtr($str,$tr);
-}
-if (preg_match('/^[А-Яа-яЁё][А-Яа-яЁё][1-9]{1,3}/ui', $string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]*$/ui",$string) || preg_match("/^(сн|ан|уд)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/ui",$string)) 
-    {
-     $trnstring = ru2lat( $string );	
-  $forthru = str_replace(".","_","$trnstring"). '-';
-  $filename = shell_exec("ls -R /home/a0092061/data/theravada.ru/Teaching/Canon | grep -i -m1 $forthru" ); 
- 
-  if( $filename != "" ) {
-  $link = 'https://theravada.ru/Teaching/Canon/Suttanta/Texts/' . $filename;
- $link = str_replace(PHP_EOL, '', $link);
-  } 
-  
-  elseif (preg_match("/^dn[0-9]{1,2}$/i",$trnstring)) {
-$forthsu = preg_replace("/dn/i","","$trnstring");
-$link = shell_exec("curl -s https://tipitaka.theravada.su/toc/translations/1098 | grep \"ДН $forthsu\" | sed 's#href=\"/toc/translations/#href=\"https://tipitaka.theravada.su/node/table/#' |awk -F'\"' '{print \$2}' | tail -n1");
-
-$link = str_replace(PHP_EOL, '', $link);
-
-}
-echo '<script>window.open("' . $link . '", "_self");</script>';
-  exit();
-}
-
-if( $p == "-th" ) 
-{
-    if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)) 
-    {
-  $link = "https://suttacentral.net/$string/th/siam_rath";
-echo '<script>window.open("' . $link . '", "_self");</script>';
-  exit();
-}
-}
-
-			if(preg_match("/^(mn|dn)[0-9]{1,3}$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]*$/i",$string) || preg_match("/^(sn|an|ud)[0-9]{0,2}.[0-9]{0,3}-[0-9].*$/i",$string)){
-    echo "<script>window.location.href='https://find.dhamma.gift/sc/?q=$string&lang=pli';</script>";
-  exit();
-}
 
 /* single search no radiobuttons */
 if (preg_match('/[А-Яа-яЁё]/u', $string) && ( $p != "-ru" )) {
