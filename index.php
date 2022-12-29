@@ -286,7 +286,7 @@ $(document).ready(function(){
   
   <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">
-    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Pali Vinaya">Vinaya</a></div>
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Pali Vinaya">Vin</a></div>
     
   <!-- extra options -->
   <a class="text-white form-check-inline" data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings"><i class="fa-solid fa-gear"></i></a>
@@ -437,18 +437,20 @@ $p = "-th";
     <li><a class="dropdown-item" href="#study">Study</a></li>
   </ul>
   
-<a class="text-decoration-none mx-1" target="_blank" href="https://cse.google.com/cse?cx=c184c71e0fe5d4c93">
-<figure class="figure">
+       
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-brands fa-google"></i>
 <figcaption class="figure-caption text-center">CSE</figcaption>   
 </figure>	  
 </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuEng">
+   <li>
+      <script async src="https://cse.google.com/cse.js?cx=c184c71e0fe5d4c93"></script>
+<div class="gcse-searchbox-only" data-newWindow="true" data-resultsUrl="/cse.php"></div>   
+     </li>
+</ul>
 
-<a class="text-decoration-none mx-1" href="">
-<figure class="figure">
-
-</figure>	  
-</a>
 
 <a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
 <figure class="figure d-md-inline-block">
@@ -470,10 +472,13 @@ $p = "-th";
                    <iframe src="https://www.youtube.com/embed/Q_SLMrg6L1k?modestbranding=1&hl=en-US" title="How to search in Pali Suttas and Vinaya with find.dhamma.gift" frameborder="0" allowfullscreen></iframe>
 							                    		</div>
 			
-        <div class="font-italic">  <p class="lead mb-5 font-italic text-center ">  All-round view on meanings, definitions, <br>
-            metaphors, persons, locations and everything else<br>
-            from Pali Suttas and Vinaya<br> 
-             in convenient tables for future reading. 
+        <div class="font-italic"> 
+        <p class="lead mb-5 font-italic text-center ">
+          All-round view on Four Noble Truths<br>
+        in Pali Suttas and Vinaya.<br>
+        Understand the real meaning <br>
+        of Four Noble Truths<br>
+        and end up with pain.
 
                         </p></div> 
          
@@ -613,16 +618,14 @@ $p = "-th";
     <small class="text-muted"></small>
   </a>
   
-    <a href="#" class="list-group-item list-group-item-action">
+
+    <a href="/cse.php" target="_blank" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Google from dhamma.gift</h5>
       <small class="text-muted">онлайн</small>
     </div>
     <p class="mb-1">
       Search with Google within recommended resources
-              <script async src="https://cse.google.com/cse.js?cx=c184c71e0fe5d4c93">
-</script>
-<div style="z-index:99999" class="gcse-search"></div>
     </p>
     <small class="text-muted">Especially convenient for Wisdomlib</small>
   </a>

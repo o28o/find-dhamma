@@ -239,6 +239,7 @@ $arg = $p . ' ' . $q;
             </div>
         </header>
         <!-- Portfolio Section-->
+   
         <section class="page-section portfolio" id="help">
             <div class="container">
       	  		<p class="text-center">
@@ -279,6 +280,13 @@ $arg = $p . ' ' . $q;
     <li><a class="dropdown-item" href="https://theravada.ru/Teaching/Canon/Suttanta/all-suttas-list.htm">Theravada.ru</a></li>
     <li><a class="dropdown-item" href="https://tipitaka.theravada.su/toc/translations/1097">Theravada.su ДН</a></li>
     <li><a class="dropdown-item" href="https://dhamma.ru/lib/authors/thanissaro/prat.htm">Dhamma.ru Патимоккха</a></li>
+       <li>
+      <script async src="https://cse.google.com/cse.js?cx=c184c71e0fe5d4c93"></script>
+<div class="gcse-searchbox-only" data-newWindow="true" data-resultsUrl="/cse.php"></div>   
+       
+       
+       </li>
+    
   </ul>
 
 <a class="text-decoration-none mx-1" href="./history.php">
@@ -311,11 +319,7 @@ $arg = $p . ' ' . $q;
 
 </div> 
  	</p>
-      <!-- 
-      	<a href="./history.php" class="btn btn-primary" role="button btn-lg">История Поиска</a>
-      <div class="divider-custom-icon text-center">
-              <i class="fa-solid fa-book fa-4x" title="Exchange"></i> <i class="fa-solid fa-list fa-4x"></i>
-              </div> -->
+
         <div class="font-italic">  
   
 

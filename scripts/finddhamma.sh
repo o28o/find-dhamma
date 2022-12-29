@@ -572,7 +572,7 @@ metaphorcount=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -iE "$me
 
 echo "<tr>
 <td><a class=\"freebutton\" target=\"_blank\" href="$linkgeneral">$filenameblock</a></td>
-<td><strong>`echo $roottitle | highlightpattern` </strong>`echo ${trntitle}  | highlightpattern ` </td>
+<td><strong class=\"inputscript-IASTPali\">`echo $roottitle | highlightpattern` </strong>`echo ${trntitle}  | highlightpattern ` </td>
 <td><div class=\"wordwrap\">${word}<div></td>
 <td>$count</td>   
 <td>$metaphorcount</td>
@@ -594,11 +594,11 @@ do
 		quote=`nice -19 egrep -A${linesafter} -iE "${i}(:|[^0-9]|$)" $f | grep -v "^--$" | removeindex | clearsed | awk '{print substr($0, index($0, $2))}'  | highlightpattern `
       if [[ "$quote" != "" ]] &&  [[ "$@" == *"-ply"* ]] 
 then
-[[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">"
+[[ "$f" == *"root"* ]] && echo "<div class=\"inputscript-IASTPali\">$quote</div><br class=\"btwntrn\">"
 
 elif [[ "$quote" != "" ]] &&  [[ "$@" != *"-ply"* ]] 
 then 
-[[ "$f" == *"root"* ]] && echo "$quote<br class=\"btwntrn\">" || echo "<p class=\"text-muted font-weight-light\">$quote</p>"
+[[ "$f" == *"root"* ]] && echo "<div class=\"inputscript-IASTPali\">$quote</div><br class=\"btwntrn\">" || echo "<p class=\"text-muted font-weight-light\">$quote</p>"
 fi
 done
 
@@ -720,7 +720,7 @@ metaphorcount=`cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys
 #quote=`nice -19 egrep -ih "${pattern}" $file | clearsed | highlightpattern `
 echo "<tr>
 <td><a target=\"_blank\" href="$linkgeneral">$suttanumber</a></td>
-<td><strong>`echo $roottitle | highlightpattern`</strong>`echo "${suttatitle}" | highlightpattern ` </td>
+<td><strong class=\"inputscript-IASTPali\">`echo $roottitle | highlightpattern`</strong>`echo "${suttatitle}" | highlightpattern ` </td>
 <td>$word</td>
 <td>$count</td>   
 <td>$metaphorcount</td>

@@ -372,6 +372,7 @@ $p = "-th";
                 -->
           
         </header>
+        
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="help">
             <div class="container text-center">
@@ -446,12 +447,21 @@ $p = "-th";
     <li><a class="dropdown-item" href="#study">Учебные Материалы</a></li>
   </ul>
 
-<a class="text-decoration-none mx-1" target="_blank" href="https://cse.google.com/cse?cx=c184c71e0fe5d4c93">
-<figure class="figure">
+<a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+<figure class="figure d-md-inline-block">
   <i style="font-size: 2em; color: #1EBC9C;" class="fa-brands fa-google"></i>
 <figcaption class="figure-caption text-center">CSE</figcaption>   
 </figure>	  
 </a>
+  <ul class="dropdown-menu text-center" style="width:90% " aria-labelledby="dropdownMenuEng">
+   <li  >
+      <script async src="https://cse.google.com/cse.js?cx=c184c71e0fe5d4c93"></script>
+<div class="gcse-searchbox-only" data-newWindow="true" data-resultsUrl="/cse.php"></div>   
+     </li>
+</ul>
+  
+  
+  
   
 <a class="dropdown text-decoration-none mx-1 d-md-inline-block" id="dropdownMenuEng" data-bs-toggle="dropdown" aria-expanded="false" href="#">
 <figure class="figure d-md-inline-block">
@@ -484,10 +494,11 @@ $p = "-th";
 							                    		</div>
 
         <p class="lead mb-5">
-		Всесторонний взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
-        из Палийских Сутт и Винаи в удобных таблицах<br> для дальнейшего изучения.
-
-                        </p>
+		Всесторонний взгляд на Четыре Благородные Истины<br>
+		в Палийских Суттах и Винае.<br> 
+    Поймите настоящие Четыре Благородные Истины<br> 
+   и положите конец боли. <br> 
+   </p>
                                                 </div> 
      <div class="container alert alert-warning float-start text-left mb-3" role="alert">
  <i class="fa-solid fa-triangle-exclamation "></i> <b>Предупреждение!</b><br><br> Переводы выполнены не Буддой! Чаще всего содержат фундаментальные ошибки главных положений его Учения. Переводы нужно читать критически. <a target="_blank" href="https://docs.google.com/spreadsheets/d/1e-uFcjBzmCf08t7BUR-Ffnz3ZlSzhLNUnIWbMbvg3go" class="alert-link"> Примеры ошибок</a><br><br>
@@ -627,16 +638,13 @@ $p = "-th";
     <small class="text-muted"></small>
   </a>
   
-    <a href="#" class="list-group-item list-group-item-action">
+    <a href="/cse.php" target="_blank" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Google от dhamma.gift</h5>
       <small class="text-muted">онлайн</small>
     </div>
     <p class="mb-1">
       Google поиск по рекомендованным ресурсам
-        <script async src="https://cse.google.com/cse.js?cx=c184c71e0fe5d4c93">
-</script>
-<div style="z-index:99999" class="gcse-search"></div>
     </p>
     <small class="text-muted">Особенно удобен для поисков на Wisdomlib</small>
   </a>
@@ -658,6 +666,24 @@ $p = "-th";
     <small class="text-muted">Альтернатива DPD, для тех кто не владеет английским</small>
   </a>
   
+         <a target="_blank" href="https://aksharamukha.appspot.com/converter" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Конвертер Aksharamukha</h5>
+      <small class="text-muted">онлайн</small>
+    </div>
+    <p class="mb-1">Транслитерируйте текст. Pali IAST, Thai, Киррилица, Деванагари</p>
+    <small class="text-muted">Выберите в настройках Pali IAST</small>
+  </a>
+  
+           <a target="_blank" href="https://play.google.com/store/apps/details?id=klye.plugin.pi1" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Pali раскладка</h5>
+      <small class="text-muted">Android</small>
+    </div>
+    <p class="mb-1">Перед установкой Пали-плагина установите O keyboard</p>
+    <small class="text-muted">для активации: Язык - Транслитерация - Pali ( IAST)</small>
+  </a>
+
       <a target="_blank" href="https://dsal.uchicago.edu/dictionaries/pali/" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Словарь Pali Text Society</h5>
