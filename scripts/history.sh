@@ -1,6 +1,6 @@
 #!/bin/bash -i
-set -x 
-trap read debug
+#set -x 
+#trap read debug
 
 source /home/a0092061/domains/find.dhamma.gift/public_html/scripts/script_config.sh --source-only
 cd $output 
@@ -39,10 +39,25 @@ function listsearchresults {
 cat $templatefolder/Header.html | sed 's@<title>$title</title>@'"$titleT"'@' | sed 's@$title@'"$title"'@g' 
 cat $templatefolder/ListTableHeader.html | sed 's@<h3 class="pl-2 ml-2">$title</h3>@'"$titleH"'@g' | sed 's@$title@'"$title"'@g' 
 
-tac $history
+if [[ $@ == "" ]]
+then 
+tac $history | grep "<tr>" | head -n $archivenumber
+function switchlink {
+echo "<a href=\"/archive.php\">Archive</a>&nbsp;"
+}
+
+elif  [[ $@ == "arc" ]]
+then 
+tac $history | grep "<tr>" | tail -n +$(( $archivenumber + 1 ))
+function switchlink {
+echo "<a href=\"/history.php\">History</a>&nbsp;"
+}
+fi
+
 echo "</tbody>
 </table>
-<a href=\"/\">Main page </a>" 
+<a href=\"/\">Main</a>&nbsp;
+`switchlink`" 
 cat $templatefolder/ListFooter.html 
 
 exit 0
