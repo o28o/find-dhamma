@@ -492,14 +492,14 @@ elif [[ "$language" == "English" ]]; then
 fi 
    
   #if [[ $filenameblock == *"-"* ]]
-if echo $filenameblock | egrep "(sn|an)[0-9]{0,2}.[0-9]{0,3}-[0-9]{0,3}" >/dev/null
+if echo $filenameblock | egrep "(sn|an)[0-9]{0,2}.[0-9]{0,3}-[0-9]{0,3}" >/dev/null || echo $filenameblock | egrep "dhp[0-9]{0,3}-[0-9]{0,3}" >/dev/null
 then 
 suttanumber=`nice -19 egrep -Ei $filenameblock $basefile | awk '{print $2}' | awk -F':' '{print $1}' | sort | uniq `
 else 
 suttanumber=$filenameblock
 fi 
     
-if [[ "$roottext" == *"/dhp/"* ]] ||  [[ "$roottext" == *"/iti/"* ]] 
+if [[ "$roottext" == *"/dhp/"* ]] ||  [[ "$roottext" == *"/iti/"* ]] ||  [[ "$roottext" == *"/ja/"* ]] 
         then 
         roottitle=`nice -19 grep ':0\.4' $roottext | clearsed | awk '{print substr($0, index($0, $2))}' | xargs `
 
@@ -559,7 +559,6 @@ echo $count >> $tempfile
 
 word=`getwords | grepexclude | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' | highlightpattern | sort | uniq | xargs` 
 indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | sort -V | uniq`
-
 #indexlist=$(for i in $indexlist
 #do
 #nice -19 egrep -A${linesafter} -iE "${i}(:|[^0-9]|$)" $roottext | grep -v "^--$" | awk '{print $1}' | clearsed | sedexpr | sort -V | uniq
@@ -868,7 +867,7 @@ fi
 echo "</td></tr>
 " >> $history
 
-rm $basefile $tempfile $tempfilewhistory > /dev/null 2>&1
+#rm $basefile $tempfile $tempfilewhistory > /dev/null 2>&1
 
 #echo thlnk=$linkthai fnb=$filenameblock
 echo "<script>window.location.href=\"./result/${table}\";</script>"

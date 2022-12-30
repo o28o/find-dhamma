@@ -793,7 +793,7 @@ $p = "-th";
       <small class="text-muted">аудио</small>
     </div>
     <p class="mb-1">Преобразование Русс и Англ текстов в речь</p>
-    <small class="text-muted">для прослушивания текстов theravada.ru и др. html-сайтов</small>
+    <small class="text-muted">для прослушивания текстов sc.dhamma.gift, theravada.ru и др. html-сайтов</small>
   </a>
                       
  <a href="https://voice.suttacentral.net" target="_blank"   class="list-group-item list-group-item-action">
