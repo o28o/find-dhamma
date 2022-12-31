@@ -357,11 +357,6 @@ extention=tmp
 basefile=${fn}_fn.$extention
 
 #filelist
-#words=${fn}_words.$extention
-#links=${fn}_links.$extention
-#links_and_words=${fn}_links_words.$extention
-#quotes=${fn}_quotes.$extention
-#brief=${fn}_brief.$extention
 #metaphors=${fn}_metaphors.$extention
 table=${modifiedfn}
 tempfile=${modifiedfn}.tmp
@@ -873,7 +868,7 @@ fi
 echo "</td></tr>
 " >> $history
 
-#rm $basefile $tempfile $tempfilewhistory > /dev/null 2>&1
+rm $basefile $tempfile $tempfilewhistory > /dev/null 2>&1
 
 #echo thlnk=$linkthai fnb=$filenameblock
 echo "<script>window.location.href=\"./result/${table}\";</script>"

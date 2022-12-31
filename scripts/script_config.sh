@@ -49,8 +49,11 @@ sed 's/\.$//g' | sed 's/:$//g' | sed 's/[,!?;«—”“‘"]/ /g' | sed 's/)//g
 }
 
 function cleanwords {
-  cat $file | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' |egrep -Eio$grepgenparam "[^ ]*$patternForHighlight[^ ]*"
+  cat $file | removeindex | clearsed | sedexpr | awk '{print tolower($0)}' |egrep -Eio$grepgenparam "[^ ]*$pattern[^ ]*"
   }
+  
+#  $patternForHighlight
+  
   
 #| sed 's/’ti//g'  
 function getwords {
