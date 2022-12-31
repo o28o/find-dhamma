@@ -567,7 +567,8 @@ indexlist=`nice -19 egrep -i "${suttanumber}:" $basefile | awk '{print $2}' | so
 #metaphorindexlist=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -i "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'` 
 
 metaphorcount=`nice -19 cat $file | pvlimit | clearsed | nice -19 egrep -iE "$metaphorkeys" | nice -19 egrep -vE "$nonmetaphorkeys" | awk '{print $1}'| wc -l` 
-
+sankhamEvamcount=`cat $file | tr '\n' '\a' | grep -ioc 'saṅkhaṁ gacchati.*Evamevaṁ'`
+metaphorcount=$(( $metaphorcount + $sankhamEvamcount ))
 
 echo "<tr>
 <td><a class=\"freebutton\" target=\"_blank\" href="$linkgeneral">$filenameblock</a></td>
@@ -575,13 +576,13 @@ echo "<tr>
 <td><div class=\"wordwrap\">${word}<div></td>
 <td>$count</td>   
 <td>$metaphorcount</td>
-<td><a target=\"_blank\" href="$linkpli">Pāḷi</a> 
+<td>
 `[[ $thrulink != "" ]] && echo "<a target=\"_blank\" href="$thrulink">Rus</a>"` 
 `[[ $thrulink == "" ]] && [[ $link != "" ]] && echo "<a target=\"_blank\" href="$link">Rus</a>"` 
-`[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linken">Eng</a> 
+ <a target=\"_blank\" href="$linken">SC</a> 
 </td>" | tohtml 
 
-#quote part
+#quote part `[[ $linkthai != "" ]] && echo "<a target=\"_blank\" href="$linkthai">ไทย</a>"` <a target=\"_blank\" href="$linkpli">Pāḷi</a> 
 echo "<td>" | tohtml 
 
 for i in $indexlist
@@ -752,6 +753,11 @@ fi
 grepbasefile | grep -v "^--$" | grepexclude | clearsed | sort -V > $basefile
 
 texts=`awk -F'json|html' '{print $1}' $basefile | sort | uniq | wc -l`
+if [[ "$@" == *"-def"* ]] 
+then 
+nice -19 egrep -A1 -Eir "${defpattern}.{0,50}saṅkhaṁ gacchati" $suttapath/$pali_or_lang --exclude-dir={$sutta,$abhi,$vin,xplayground,name,site} --exclude-dir={ab,bv,cnd,cp,ja,kp,mil,mnd,ne,pe,ps,pv,tha-ap,thi-ap,vv} | egrep -B1 Evamevaṁ | grep -v "^--$" >> $basefile
+fi
+
 if [[ "$@" == *"-def"* ]] && (( $texts <= 6 ))
 then 
 grepbasefileExtended | grep -v "^--$" | grepexclude | clearsed | sort -V >> $basefile
