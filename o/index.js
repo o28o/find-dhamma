@@ -7,7 +7,7 @@ homeButton.addEventListener("click", () => {
 
 function buildSutta(slug) {
   slug = slug.toLowerCase();
-  let html = `<div class="button-area"><button id="hide-pali" class="hide-button">Toggle Pali</button></div>`;
+  let html = `<div class="button-area"><button id="hide-pali" class="hide-button">Пали / Рус</button></div>`;
 
   const rootResponse = fetch(
     `https://find.dhamma.gift/suttacentral/sc-data/sc_bilara_data/root/pli/ms/sutta/${parseSlug(
@@ -25,7 +25,7 @@ function buildSutta(slug) {
       Suttas that are part of a series require that you enter the exact series.`;
     });
   const translationResponse = fetch(
-    `https://find.dhamma.gift/suttacentral/sc-data/sc_bilara_data/translation/ru/o/sutta/${parseSlug(
+    `https://find.dhamma.gift/o/sutta/${parseSlug(
       slug
     )}_translation-ru-o.json`
   ).then(response => response.json());
