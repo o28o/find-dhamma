@@ -34,7 +34,43 @@ $('input').on('focus',function(){
 
 </head>
 <body>
+<form>
+  <textarea id="txt1"></textarea>
+<input type="button" value="begin/end" onclick="insertText('txt1', '\\\\b');">
+<input type="button" value="any symbols" onclick="insertText('txt1', '\.\*');">
+<input type="button" value="few words" onclick="insertText('txt1', '(word1|word2|etc)');">
+  
+</form>
 
+<script>
+  function insertText(elemID, text) {
+  var elem = document.getElementById(elemID);
+  elem.innerHTML += text;
+}
+
+  $(function() {
+  var $descInput = $('input[name=desc]');
+  // wrap the text of each paragraph in a span so we can target it easily.
+  // Then add a button inside each <p> at the end that will prepopulate that text.
+  $('p.prefill').wrapInner('<span class="text"></span>').append('<button class="prefill-sentence">Prefill</button>');
+  // Add a click handler for all the newly added buttons
+  $('button.prefill-sentence').click(function() {
+    // get the contents of the span we used to wrap the sentence with
+    var sentence = $(this).prev('.text').text();
+    // add that sentence to the current value of the description input
+    $descInput.val($descInput.val() + sentence);
+  });
+});
+  
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<p class="prefill">\\b</p>
+<p class="prefill">.*</p>
+<p class="prefill">"(word1|word2|etc)"</p>
+<form id="sampleform" action="actionpage.php" method="post">
+  Title
+  <input type="text" name="desc" />
+</form>
 
 <script asyncstyle="width: 40%; margin: 0 auto"  src="https://cse.google.com/cse.js?cx=c184c71e0fe5d4c93"></script>
 <div class="gcse-search"></div>

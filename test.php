@@ -134,10 +134,11 @@ $q = $p = $arg = "";
 
 			 <input name="q" type="text" class="form-control rounded-pill" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
 echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
-echo $suttas[array_rand($suttas)]; ?>" autocomplete="on" autofocus>
+echo $suttas[array_rand($suttas)]; ?>" autocomplete="on" autofocus>  
 			 
 			<button onclick="document.getElementById( 'spinner' ).style.display = 'block'" type="submit" name="submit" value="  search" id="searchbtn" class="btn btn-primary mainbutton ms-1 me-1 rounded-pill"><i class="fas fa-search"></i></button><div class="input-group-append"></div>
 			     <a class="d-md-inline-block mt-2 ms-4 text-white form-check-inline" data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings"><i class="fa-solid fa-gear"></i></a>      
+			     
 		</div>
 		       <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def ">
@@ -155,6 +156,21 @@ echo $suttas[array_rand($suttas)]; ?>" autocomplete="on" autofocus>
 <div class="form-check form-check-inline">
   <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">Vinaya</div>
 </div>
+
+<input type="button" value="begin/end" onclick="insertText('paliauto', '\\\\b');">
+<input type="button" value="any symbols" onclick="insertText('paliauto', '\.\*');">
+<input type="button" value="few words" onclick="insertText('paliauto', '(word1|word2|etc)');">
+
+
+
+<script>
+  function insertText(elemID, text) {
+var elem = document.getElementById(elemID);
+elem += elem.setAttribute('value', text);
+}
+
+</script>
+
 
 <script>
 var input = document.getElementById("paliauto");
@@ -197,6 +213,8 @@ window.history.pushState('object', document.title, newURL);
 <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
 
 <script>
+
+
 const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 
 const alert = (message, type) => {
@@ -217,6 +235,8 @@ if (alertTrigger) {
     alert('Nice, you triggered this alert message!', 'success')
   })
 }
+
+
 </script>
 <?php
 $arg = $p . ' ' . $q;
