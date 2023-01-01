@@ -35,7 +35,15 @@
         <link href="/assets/css/extrastyles.css" rel="stylesheet" />
   
 <script src="/assets/js/autopali.js"></script>
-	
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("#inp").val($("#inp").val()+" <b>Appended text</b>.");
+  });
+});
+</script>
+
+<script src="/assets/js/keyboard/dist/kioskboard-aio-2.3.0.min.js"></script>
 
     </head>
       <body id="page-top"> 
@@ -132,7 +140,7 @@ $q = $p = $arg = "";
  		<div class="mb-3 form-group input-group ui-widget rounded-pill">
 		<label class="sr-only rounded-pill" for="paliauto"></label>
 
-			 <input name="q" type="text" class="form-control rounded-pill" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
+			 <input name="q" type="text" class="form-control rounded-pill js-virtual-keyboard" data-kioskboard-type="numpad" data-kioskboard-placement="bottom" id="paliauto" placeholder="прим. <?php $words = Array("Kāyagat","Seyyathāpi","Samudd","Cūḷanik", "Suññat", "Mūsik", "Vicchiko", "Hatthī");
 echo $words[array_rand($words)]; ?> или <?php $suttas = Array("Sn56.11","Dn22","Sn12.2");
 echo $suttas[array_rand($suttas)]; ?>" autocomplete="on" autofocus>  
 			 
@@ -157,16 +165,15 @@ echo $suttas[array_rand($suttas)]; ?>" autocomplete="on" autofocus>
   <input class="form-check-input"  type="radio" name="p" <?php if (isset($extra) && $p=="-vin") echo "checked";?> value="-vin ">Vinaya</div>
 </div>
 
-<input type="button" value="begin/end" onclick="insertText('paliauto', '\\\\b');">
-<input type="button" value="any symbols" onclick="insertText('paliauto', '\.\*');">
-<input type="button" value="few words" onclick="insertText('paliauto', '(word1|word2|etc)');">
-
+<input type="button" value="\\b" onclick="insertText('paliauto', '\\\\b');">
+<input type="button" value="any" onclick="insertText('paliauto', '\.\*');">
+<input type="button" value="few" onclick="insertText('paliauto', '(word1|word2|etc)');">
 
 
 <script>
-  function insertText(elemID, text) {
+   function insertText(elemID, text) {
 var elem = document.getElementById(elemID);
-elem += elem.setAttribute('value', text);
+elem += elem.getAttribute('paliauto') + elem.setAttribute('value', text);
 }
 
 </script>
