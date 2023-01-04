@@ -70,11 +70,43 @@ max-width: 274px;
 	padding-bottom: 2rem;
 	}
 
+ @keyframes wheelHueColor {
+    from, to { color: rgb(255,255,255); } 
+    10%      { color: rgb(0,0,255); }
+    35%      { color: rgb(255,255,0); }
+    70%      { color: rgb(255,0,0); }
+    90%      { color: rgb(255,255,255); }
+}
+
+.example:hover {
+    color: rgb(255,255,255);
+    animation: wheelHueColor 20s infinite;
+    cursor: pointer;
+    
+}
+.example {
+  transition: 4s;
+  transition: background-color 4s ease-out;
+}
+  
+.lock:hover .icon-unlock,
+.lock .icon-lock {
+    display: none;
+}
+.lock:hover .icon-lock {
+    display: inline;
+}
+
+.lock:hover .icon-lock .bigger {
+   font-size: 200px;
+}
+
+
 
 @media only screen and (max-width: 900px) {
 
 #mainNav .navbar-toggler {
-    margin-right: 2rem;
+    margin-right: 2rem;  
 }
 
 

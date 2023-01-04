@@ -235,10 +235,11 @@ echo '<script>window.open("' . $link . '", "_self");</script>';
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon">
-                  
-                      <i class="fa-solid fa-dharmachakra"></i>
-                      </div>
+                   <div class="lock example divider-custom-icon">
+                   <i class="fa-solid fa-dharmachakra example icon-unlock" ></i>
+ <i class="fa-solid fa-circle icon-lock"></i>
+                      </div>    
+
                     <div class="divider-custom-line"></div>
                 </div>
     
@@ -529,7 +530,10 @@ $p = "-th";
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+                        <div class="lock example divider-custom-icon">
+                                        <i class="fa-solid fa-dharmachakra example icon-unlock" ></i>
+ <i class="fa-solid fa-circle icon-lock bigger"></i>
+                      </div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Grid Items-->
@@ -594,7 +598,10 @@ $p = "-th";
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+                  <div class="lock example divider-custom-icon">
+                  <i class="fa-solid fa-dharmachakra example icon-unlock" ></i>
+ <i class="fa-solid fa-circle icon-lock bigger"></i>
+                      </div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- About Section Content-->

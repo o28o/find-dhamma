@@ -4,7 +4,6 @@
       <meta charset="UTF-8">
 
 <title>find.Dhamma.gift - Поисковый сайт Освобождения. Пали Сутты и Виная</title>
-
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
    <meta name="description" content="" />
    <meta name="author" content="" />
@@ -45,6 +44,58 @@ $(document).ready(function(){
 
 <script src="/assets/js/keyboard/dist/kioskboard-aio-2.3.0.min.js"></script>
 
+
+<style>
+  .box {
+  background: blue;
+  -webkit-transition: background-color 4s ease-out;
+  -moz-transition: background-color 4s ease-out;
+  -o-transition: background-color 4s ease-out;
+  transition: background-color 4s ease-out;
+  
+}
+
+.box:hover {
+  background-color: yellow;
+  cursor: pointer;
+}
+ @keyframes wheelHueColor {
+    from, to { color: rgb(255,255,255); } 
+    10%      { color: rgb(0,0,255); }
+    35%      { color: rgb(255,255,0); }
+    70%      { color: rgb(255,0,0); }
+    90%      { color: rgb(255,255,255); }
+}
+
+.example:hover {
+    color: rgb(255,255,255);
+    animation: wheelHueColor 20s infinite;
+    cursor: pointer;
+    
+}
+.example {
+  transition: 4s;
+  transition: background-color 4s ease-out;
+}
+@keyframe in {
+    from: transform: rotate(0deg);
+    to: transform: rotate(360deg);
+}
+@keyframe out {
+    from: transform: rotate(360deg);
+    to: transform: rotate(0deg);
+} 
+  
+.lock:hover .icon-unlock,
+.lock .icon-lock {
+    display: none;
+}
+.lock:hover .icon-lock {
+    display: inline;
+}
+
+  
+</style>
     </head>
       <body id="page-top"> 
       
@@ -128,12 +179,90 @@ $q = $p = $arg = "";
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon">
-                  
-                      <i class="fa-solid fa-dharmachakra"></i>
+                                    <div class="lock example">
+
+
+                      <i class="fa-solid fa-dharmachakra example icon-unlock" ></i>
+ <i class="fa-solid fa-circle icon-lock"></i>
+</div>    
                       </div>
                     <div class="divider-custom-line"></div>
                 </div>
     
+    
+    <script>
+var colors = new Array(
+  [13,110,253],
+  [255,193,7],
+  [220,53,69],
+  [255,255,255]);
+
+
+//  [0,0,255],
+//  [255,255,0],
+//  [255,0,0],
+//  [255,255,255]);
+
+var step = 0;
+//color table indices for: 
+// current color left
+// next color left
+// current color right
+// next color right
+var colorIndices = [0,0,0,0];
+
+//transition speed
+var gradientSpeed = 0.002;
+
+function updateGradient()
+{
+  
+  if ( $===undefined ) return;
+  
+var c0_0 = colors[colorIndices[0]];
+var c0_1 = colors[colorIndices[1]];
+var c1_0 = colors[colorIndices[2]];
+var c1_1 = colors[colorIndices[3]];
+
+var istep = 1 - step;
+var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+var color1 = "rgb("+r1+","+g1+","+b1+")";
+
+var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+var color2 = "rgb("+r2+","+g2+","+b2+")";
+
+ $('#gradient').css({
+   color: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+    color: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+  
+  step += gradientSpeed;
+  if ( step >= 1 )
+  {
+    step %= 1;
+    colorIndices[0] = colorIndices[1];
+    colorIndices[2] = colorIndices[3];
+    
+    //pick two new target color indices
+    //do not pick the same as the current one
+    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+    
+  }
+}
+
+setInterval(updateGradient,10);
+    
+   var colorsarr = [ "#0d6efd", "#ffc107", "#dc3545", "white"];
+  
+document.getElementById("jsbackground").style.color = colorsarr[Math.floor(Math.random() * colorsarr.length)];
+
+</script>
+
+
 		<form method="GET" action=
 			"<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>"	action="" class="justify-content-center"> 
 
@@ -348,7 +477,7 @@ $arg = $p . ' ' . $q;
  	</p>
 
         <div class="font-italic">  
-  
+
 
         <p class="lead mb-5 font-italic text-center ">Всесторонний взгляд на значения, определения,<br> метафоры, персоналии, места и любые другие детали<br>
         из Палийских Сутт и Винаи в удобных таблицах<br> для дальнейшего изучения.
@@ -379,7 +508,16 @@ $arg = $p . ' ' . $q;
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+         
+                        
+
+
+         
+                    <div class="lock example divider-custom-icon">
+                                        <i class="fa-solid fa-dharmachakra example icon-unlock" ></i>
+ <i class="fa-solid fa-circle icon-lock"></i>
+  
+                      </div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Grid Items-->
@@ -437,14 +575,18 @@ $arg = $p . ' ' . $q;
             </div>
         </section>
         <!-- About Section-->
-        <section class="page-section bg-primary text-white mb-0" id="project">
+        <section class="page-section bg-primary example text-white mb-0" id="project">
             <div class="container">
                 <!-- About Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-white">О Проекте</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+                    <div class="lock example divider-custom-icon">
+                                        <i class="fa-solid fa-dharmachakra example icon-unlock" ></i>
+ <i class="fa-solid fa-circle icon-lock"></i>
+  
+                      </div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- About Section Content-->
@@ -609,7 +751,7 @@ $arg = $p . ' ' . $q;
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+                                        <div class="divider-custom-icon"><i class="fa-solid fa-dharmachakra example"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image
