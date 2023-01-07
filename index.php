@@ -341,7 +341,11 @@ $arg = $p . ' ' . $q;
 ?>
  </div>
       </div>	
-            <div id="spinner" class="justify-content-center mb-3"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
+            <div id="spinner" class="justify-content-center mb-3">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              </div>
 		<?php
 
 /* single search no radiobuttons */

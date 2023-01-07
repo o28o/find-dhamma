@@ -80,7 +80,7 @@ max-width: 274px;
 
 .example:hover {
     color: rgb(255,255,255);
-    animation: wheelHueColor 20s infinite;
+    animation: wheelHueColor 40s infinite;
     cursor: pointer;
     
 }
