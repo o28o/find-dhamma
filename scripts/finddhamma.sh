@@ -349,7 +349,7 @@ sed "s/я/ya/g"
 
 #link and filename
 
-fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/-/g' | sed 's/ /-/g' | sed 's/\\\//g' | sed 's@?@-question@g'|  awk '{print tolower($0)}'`
+fn=`echo $pattern | sed 's/\*//g' | sed 's/[|-]/-/g' | sed 's/[][]//g' | sed 's/ /-/g' | sed 's/\\\//g' | sed 's@?@-question@g'|  awk '{print tolower($0)}'`
 fn=${fn}${excfn}${fileprefix}${fnlang}
 modifiedfn=`echo $fn | diact2normal | cyr2lat`
 #echo fn=$fn modifiedfn=$modifiedfn
@@ -839,7 +839,7 @@ echo "</tbody>
 cat $templatefolder/WordsFooter.html >> $tempfilewords
 mv ./$oldname ./$table
 
-linenumbers=`cat -n $history | grep daterow | egrep "$pattern" | grep "${fortitle^}" | grep ">$language<" | awk '{print $1}' | tac`
+linenumbers=`cat -n $history | grep daterow | egrep "$table" | grep "${fortitle^}" | grep ">$language<" | awk '{print $1}' | tac`
 
 #grep "$textsqnty" | grep "$matchqnty"
 

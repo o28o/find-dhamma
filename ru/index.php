@@ -1,4 +1,4 @@
-"<?php
+<?php
 		// Defining variables
 $nameErr = $languageErr  = "";
 $q = $p = $arg = $string = $sutta = "";
