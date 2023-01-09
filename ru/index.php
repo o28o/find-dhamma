@@ -1,4 +1,4 @@
-<?php
+"<?php
 		// Defining variables
 $nameErr = $languageErr  = "";
 $q = $p = $arg = $string = $sutta = "";
@@ -271,7 +271,7 @@ input.addEventListener("keypress", function(event) {
 
   <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="-pli") echo "checked";?> value="-pli">
-  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск по Суттам Ангутара Никаи (an), Саньютта Никаи (sn), Маджжхима Никаи (mn), Дигха Никаи (dn) + Удана (ud) из Кхуддака Никаи (kn)">Pāḷi</a>
+  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск по-умолчанию. По Суттам Ангутара Никаи (an), Саньютта Никаи (sn), Маджжхима Никаи (mn), Дигха Никаи (dn) + Удана (ud) из Кхуддака Никаи (kn)">Pāḷi</a>
   </div>
 
   
@@ -283,7 +283,7 @@ input.addEventListener("keypress", function(event) {
   
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($extra) && $extra=="-def ") echo "checked";?> value="-def">
-  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск определений понятия на Пали в 4 Никаях. Что это, какие виды бывают, какими метафорами описывается. Работает только для стандартных фраз!">Опр</a>
+  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Поиск определений понятия на Пали в 4 Никаях. Что это, какие виды бывают, какими метафорами описывается. Работает только для определений данных стандартными фразами">Опр</a>
   </div>
 
   <div class="form-check form-check-inline">

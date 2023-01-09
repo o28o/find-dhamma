@@ -269,7 +269,7 @@ $(document).ready(function(){
 
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="p" <?php if (isset($p) && $p=="Pali") echo "checked";?> value="">
-   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Search in Suttas of Anguttara Nikaya (an), Samyutta Nikaya (sn), Majjhimma Nikaya (mn), Digha Nikaya (dn)">Pāḷi</a>
+   <a data-bs-toggle="tooltip" data-bs-placement="top" title="Default search. In Suttas of Anguttara Nikaya (an), Samyutta Nikaya (sn), Majjhimma Nikaya (mn), Digha Nikaya (dn)">Pāḷi</a>
   
   </div>
 
