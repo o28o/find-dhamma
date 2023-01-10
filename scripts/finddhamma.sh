@@ -308,6 +308,7 @@ sed "s/ṁ/.m/g" |
 sed "s/ṅ/.n/g" |
 sed "s/ṇ/.n/g" |
 sed "s/ṭ/.t/g" |
+sed "s/ḷ/.l/g" |
 sed "s/ñ/~n/g"
 }
 
